@@ -91,14 +91,14 @@ const AircraftModel: React.FC<AircraftModelProps> = ({ animationState, onClick }
         objUrl="/models/aircraft.obj"
         mtlUrl="/models/aircraft.mtl"
         // MODEL SCALE: Controls overall size of the aircraft
-        scale={0.05}
+        scale={0.06}
         // ADJUST SCALE:
         // - Too small? Increase to 0.1 or 0.15
         // - Too large? Decrease to 0.02 or 0.01
         // - Rule: smaller scale = smaller model, larger scale = bigger model
 
         // MODEL POSITION: [x, y, z] offset from center
-        position={[0, 0, 0]}
+        position={[0, 0.5, 0]}
         // ADJUST POSITION:
         // - Move right: [1, 0, 0] or [2, 0, 0]
         // - Move left: [-1, 0, 0] or [-2, 0, 0]
@@ -109,7 +109,7 @@ const AircraftModel: React.FC<AircraftModelProps> = ({ animationState, onClick }
 
         // MODEL ROTATION: [x, y, z] rotation in radians
         // BLENDER TO THREE.JS CONVERSION: Blender uses Z-up, Three.js uses Y-up
-        rotation={[-Math.PI / 2, -0.5, -0.5]}
+        rotation={[-0.717, -0.2, -0.2]} // {pitch, yaw, roll {positive = clockwise, negative = counter-clockwise}}
         // CURRENT: [-Math.PI/2, 0, 0] converts Blender Z-up to Three.js Y-up
         //
         // ADJUST ROTATION FROM BLENDER COORDINATE SYSTEM:
