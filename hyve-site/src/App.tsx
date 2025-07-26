@@ -10,10 +10,10 @@ function App() {
 
   return (
     <Layout>
-      <div className="min-h-screen relative pointer-events-none">
+      <div className="min-h-screen relative">
         <CustomMeshBackground
           enabled={enableMeshBackground}
-          className="min-h-screen pointer-events-auto"
+          className="min-h-screen"
         >
           {/* Hero section with proper pointer-events handling */}
           <Hero />

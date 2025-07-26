@@ -3,6 +3,7 @@ import { ArrowRight, ChevronDown } from 'lucide-react'
 import React from 'react'
 
 import { Button } from '@/components/ui/button'
+import { InteractiveCloth } from '@/components/ui/InteractiveCloth'
 
 // Animation variants
 const containerVariants = {
@@ -33,7 +34,7 @@ const itemVariants = {
 
 export const Hero = () => {
   return (
-    <section className="relative h-screen flex items-center overflow-hidden pointer-events-none">
+    <section className="relative h-screen flex items-center overflow-hidden">
       {/* Asymmetric Layout Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -45,9 +46,9 @@ export const Hero = () => {
             className="text-left relative"
           >
             {/* Subtle background for text contrast */}
-            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-hyve-background/40 to-transparent backdrop-blur-sm rounded-2xl" />
+            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-hyve-background/40 to-transparent backdrop-blur-sm rounded-2xl pointer-events-none" />
 
-            <div className="relative z-10">
+            <div className="relative z-10 pointer-events-auto">
               {/* Subtle accent line */}
               <motion.div variants={itemVariants} className="w-12 h-[2px] bg-hyve-accent mb-8" />
 
@@ -114,10 +115,20 @@ export const Hero = () => {
             initial="hidden"
             animate="visible"
             className="text-left relative w-[400px] h-[500px] justify-self-end"
+            style={{ zIndex: 15 }}
           >
-            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-hyve-background/40 to-transparent backdrop-blur-sm rounded-2xl border border-gray-800" />
+            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-hyve-background/40 to-transparent backdrop-blur-sm rounded-2xl border border-gray-800 pointer-events-none" />
 
-            <div className="relative z-10">{/* Content will go here - empty for now */}</div>
+            <div className="relative z-20 flex items-center justify-center h-full pointer-events-auto">
+              <InteractiveCloth
+                width={350}
+                height={380}
+                gridSize={25}
+                springStrength={0.1}
+                damping={0.98}
+                className="rounded-lg"
+              />
+            </div>
           </motion.div>
         </div>
       </div>

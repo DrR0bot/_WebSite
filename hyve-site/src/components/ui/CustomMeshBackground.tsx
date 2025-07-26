@@ -559,7 +559,7 @@ export const CustomMeshBackground = ({
         ref={mountRef}
         className="absolute inset-0"
         style={{
-          zIndex: 1, // Match canvas z-index
+          zIndex: 0,
           background: 'linear-gradient(to bottom, #F4F2F3 0%, #CDE2E7 100%)', // Hyve light gradient
         }}
       />
