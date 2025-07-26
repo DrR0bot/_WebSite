@@ -38,7 +38,7 @@ export const InteractiveMatrix: React.FC<InteractiveMatrixProps> = ({
     const points: Point[][] = []
     const centerX = gridSize / 2
     const centerY = gridSize / 2
-    const maxCurve = 60 // Maximum curvature depth - increased for more dramatic effect
+    const maxCurve = 50 // Maximum curvature depth - increased for more dramatic effect
 
     for (let y = 0; y < gridSize; y++) {
       points[y] = []
@@ -118,7 +118,7 @@ export const InteractiveMatrix: React.FC<InteractiveMatrixProps> = ({
           const gridY = Math.floor(point.y / cellHeight)
           const dx = (gridX - centerX) / centerX
           const dy = (gridY - centerY) / centerY
-          const curvatureX = Math.sin(dx * Math.PI * 0.7) * 60
+          const curvatureX = Math.sin(dx * Math.PI * 0.8) * 60
           const curvatureY = Math.cos(dy * Math.PI * 0.5) * 60 * 0.8
           const secondaryCurve = Math.sin((gridX + gridY) * 0.3) * 15
           point.z = (curvatureX + curvatureY) * 0.6 + secondaryCurve
@@ -280,6 +280,58 @@ export const InteractiveMatrix: React.FC<InteractiveMatrixProps> = ({
         ctx.stroke()
       }
     }
+
+    // Draw matrix border with filled edge cells (no points)
+    ctx.save()
+
+    // Create path for outer border
+    ctx.beginPath()
+
+    // Top edge
+    for (let x = 0; x < gridSize; x++) {
+      const point = points[0][x]
+      if (x === 0) {
+        ctx.moveTo(point.x, point.y)
+      } else {
+        ctx.lineTo(point.x, point.y)
+      }
+    }
+
+    // Right edge
+    for (let y = 0; y < gridSize; y++) {
+      const point = points[y][gridSize - 1]
+      ctx.lineTo(point.x, point.y)
+    }
+
+    // Bottom edge
+    for (let x = gridSize - 1; x >= 0; x--) {
+      const point = points[gridSize - 1][x]
+      ctx.lineTo(point.x, point.y)
+    }
+
+    // Left edge
+    for (let y = gridSize - 1; y >= 0; y--) {
+      const point = points[y][0]
+      ctx.lineTo(point.x, point.y)
+    }
+
+    ctx.closePath()
+
+    // Fill border area with light blue
+    ctx.fillStyle = 'rgba(22, 96, 136, 0.15)'
+    ctx.fill()
+
+    // Draw inner blue border
+    ctx.strokeStyle = 'rgba(22, 96, 136, 0.5)'
+    ctx.lineWidth = 2
+    ctx.stroke()
+
+    // Draw outer black border for contrast
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)'
+    ctx.lineWidth = 3
+    ctx.stroke()
+
+    ctx.restore()
 
     // Draw points on top
     for (let y = 0; y < gridSize; y++) {
