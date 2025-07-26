@@ -114,13 +114,16 @@ export const Hero = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="text-left relative w-[400px] h-[500px] justify-self-end"
+            className="text-left relative w-[400px] h-[500px] justify-self-end overflow-visible"
             style={{ zIndex: 15 }}
           >
-            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-hyve-background/40 to-transparent backdrop-blur-sm rounded-2xl border border-gray-800 pointer-events-none" />
+            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-hyve-background/40 to-transparent backdrop-blur-sm rounded-2xl  pointer-events-none" />
 
-            <div className="relative z-20 flex items-center justify-center h-full pointer-events-auto">
-              <InteractiveMatrix width={350} height={380} className="rounded-lg" />
+            <div className="relative z-20 flex flex-col items-center justify-center h-full pointer-events-auto overflow-visible">
+              <InteractiveMatrix width={350} height={380} />
+              <p className="mt-8 text-sm text-hyve-text/60 pointer-events-none">
+                Haptic Matrix Demo - Click to interact
+              </p>
             </div>
           </motion.div>
         </div>

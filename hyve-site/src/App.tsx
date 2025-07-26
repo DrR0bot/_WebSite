@@ -11,10 +11,7 @@ function App() {
   return (
     <Layout>
       <div className="min-h-screen relative">
-        <CustomMeshBackground
-          enabled={enableMeshBackground}
-          className="min-h-screen"
-        >
+        <CustomMeshBackground enabled={enableMeshBackground} className="min-h-screen">
           {/* Hero section with proper pointer-events handling */}
           <Hero />
 
