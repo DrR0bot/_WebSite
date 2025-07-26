@@ -2,8 +2,8 @@ import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import React from 'react'
 
+import { AircraftAnimation } from '@/components/ui/AircraftAnimation'
 import { Button } from '@/components/ui/button'
-import { InteractiveMatrix } from '@/components/ui/InteractiveMatrix'
 
 // Animation variants
 const containerVariants = {
@@ -120,10 +120,7 @@ export const Hero = () => {
             <div className="absolute inset-0 -m-8 bg-gradient-to-br from-hyve-background/40 to-transparent backdrop-blur-sm rounded-2xl  pointer-events-none" />
 
             <div className="relative z-20 flex flex-col items-center justify-center h-full pointer-events-auto overflow-visible">
-              <InteractiveMatrix width={350} height={380} />
-              <p className="mt-8 text-sm text-hyve-text/60 pointer-events-none">
-                Haptic Matrix Demo - Click to interact
-              </p>
+              <AircraftAnimation />
             </div>
           </motion.div>
         </div>
