@@ -67,15 +67,7 @@ const AircraftModel: React.FC<AircraftModelProps> = ({ animationState, onClick }
   useFrame(state => {
     if (meshRef.current) {
       // Gentle floating animation
-      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1
-
-      // ROTATION DISABLED: Aircraft remains stationary for better viewing
-      // if (animationState === AnimationState.OVERVIEW) {
-      //   meshRef.current.rotation.y += delta * 0.1
-      // }
-      //
-      // TO RE-ENABLE ROTATION: Uncomment the lines above
-      // ADJUST ROTATION SPEED: Change 0.1 to 0.05 (slower) or 0.2 (faster)
+      meshRef.current.position.y = Math.sin(state.clock.elapsedTime * 1.8) * 0.05
     }
   })
 
@@ -109,8 +101,8 @@ const AircraftModel: React.FC<AircraftModelProps> = ({ animationState, onClick }
 
         // MODEL ROTATION: [x, y, z] rotation in radians
         // BLENDER TO THREE.JS CONVERSION: Blender uses Z-up, Three.js uses Y-up
-        rotation={[-0.717, -0.15, -0.2]} // {pitch, yaw, roll {positive = clockwise, negative = counter-clockwise}}
-        // CURRENT: [-Math.PI/2, 0, 0] converts Blender Z-up to Three.js Y-up
+        rotation={[-0.8, -0.15, -0.2]} // {pitch, yaw, roll {positive = clockwise, negative = counter-clockwise}}
+        //  To show sideway view of aircraft: {[-0.717, -1.5, -0.2]}
         //
         // ADJUST ROTATION FROM BLENDER COORDINATE SYSTEM:
         // - Default conversion: [-Math.PI/2, 0, 0] (rotates -90° around X-axis)
