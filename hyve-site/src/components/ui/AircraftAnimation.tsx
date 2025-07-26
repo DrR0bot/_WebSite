@@ -36,7 +36,7 @@ const CAMERA_POSITIONS = {
   [AnimationState.WING_FOCUS]: {
     // WING FOCUS: Medium shot focusing on wing area
     // Note: Wings are along X-axis in both Blender and Three.js
-    position: [-3, 2, 2], // 3 units left, 2 units up, 2 units back
+    position: [-3, 0, 2], // 3 units left, 2 units up, 2 units back
     target: [-2, 0, 0], // Looking at left wing area
     fov: 25, // More zoomed in than overview
     // ADJUST: Change x-value to [-4, 2, 2] to move further left for wing view
@@ -91,14 +91,14 @@ const AircraftModel: React.FC<AircraftModelProps> = ({ animationState, onClick }
         objUrl="/models/aircraft.obj"
         mtlUrl="/models/aircraft.mtl"
         // MODEL SCALE: Controls overall size of the aircraft
-        scale={0.06}
+        scale={0.072}
         // ADJUST SCALE:
         // - Too small? Increase to 0.1 or 0.15
         // - Too large? Decrease to 0.02 or 0.01
         // - Rule: smaller scale = smaller model, larger scale = bigger model
 
         // MODEL POSITION: [x, y, z] offset from center
-        position={[0, 0.5, 0]}
+        position={[0.0, 0.8, 0.0]}
         // ADJUST POSITION:
         // - Move right: [1, 0, 0] or [2, 0, 0]
         // - Move left: [-1, 0, 0] or [-2, 0, 0]
@@ -109,7 +109,7 @@ const AircraftModel: React.FC<AircraftModelProps> = ({ animationState, onClick }
 
         // MODEL ROTATION: [x, y, z] rotation in radians
         // BLENDER TO THREE.JS CONVERSION: Blender uses Z-up, Three.js uses Y-up
-        rotation={[-0.717, -0.2, -0.2]} // {pitch, yaw, roll {positive = clockwise, negative = counter-clockwise}}
+        rotation={[-0.717, -0.15, -0.2]} // {pitch, yaw, roll {positive = clockwise, negative = counter-clockwise}}
         // CURRENT: [-Math.PI/2, 0, 0] converts Blender Z-up to Three.js Y-up
         //
         // ADJUST ROTATION FROM BLENDER COORDINATE SYSTEM:

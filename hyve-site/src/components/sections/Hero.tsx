@@ -114,7 +114,7 @@ export const Hero = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="text-left relative w-[400px] h-[500px] justify-self-end overflow-visible"
+            className="text-left relative w-[600px] h-[500px] justify-self-end overflow-visible"
             style={{ zIndex: 15 }}
           >
             <div className="absolute inset-0 -m-8 bg-gradient-to-br from-hyve-background/40 to-transparent backdrop-blur-sm rounded-2xl  pointer-events-none" />
