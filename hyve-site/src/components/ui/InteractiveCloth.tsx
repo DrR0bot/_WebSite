@@ -20,7 +20,7 @@ interface Point {
 export const InteractiveCloth: React.FC<InteractiveClothProps> = ({
   width = 300,
   height = 400,
-  gridSize = 20,
+  gridSize = 10,
   springStrength = 0.1,
   damping = 0.99,
   className = '',
@@ -71,8 +71,8 @@ export const InteractiveCloth: React.FC<InteractiveClothProps> = ({
         point.x += (point.x - point.oldX) * damping
         point.y += (point.y - point.oldY) * damping
 
-        // Add gravity
-        point.y += 0.3
+        // Add minimal gravity - Kapton sheets are lightweight but stiffer
+        point.y += 0.005
 
         // Mouse interaction
         if (mouse.isDown) {
@@ -80,11 +80,12 @@ export const InteractiveCloth: React.FC<InteractiveClothProps> = ({
           const dy = point.y - mouse.y
           const distance = Math.sqrt(dx * dx + dy * dy)
           const maxDistance = 50
-
+          
           if (distance < maxDistance) {
             const force = (maxDistance - distance) / maxDistance
-            point.x -= dx * force * 0.1
-            point.y -= dy * force * 0.1
+            // More responsive but elastic behavior for Kapton
+            point.x -= dx * force * 0.01
+            point.y -= dy * force * 0.01
           }
         }
 
@@ -152,12 +153,19 @@ export const InteractiveCloth: React.FC<InteractiveClothProps> = ({
 
     // Clear canvas
     ctx.clearRect(0, 0, width, height)
+    
+    // Add subtle gradient background to simulate Kapton substrate
+    const gradient = ctx.createLinearGradient(0, 0, width, height)
+    gradient.addColorStop(0, 'rgba(205, 226, 231, 0.1)')  // hyve-content color
+    gradient.addColorStop(1, 'rgba(22, 96, 136, 0.05)')   // hyve-text color
+    ctx.fillStyle = gradient
+    ctx.fillRect(0, 0, width, height)
 
     const points = pointsRef.current
 
-    // Draw grid lines
-    ctx.strokeStyle = isInteracting ? 'rgba(22, 96, 136, 0.8)' : 'rgba(22, 96, 136, 0.4)'
-    ctx.lineWidth = 1
+    // Draw grid lines - more technical appearance
+    ctx.strokeStyle = isInteracting ? 'rgba(22, 96, 136, 0.9)' : 'rgba(22, 96, 136, 0.5)'
+    ctx.lineWidth = 0.5
 
     // Horizontal lines
     for (let y = 0; y < rows; y++) {
@@ -187,13 +195,20 @@ export const InteractiveCloth: React.FC<InteractiveClothProps> = ({
       ctx.stroke()
     }
 
-    // Draw points
-    ctx.fillStyle = isInteracting ? 'rgba(22, 96, 136, 1)' : 'rgba(22, 96, 136, 0.6)'
+    // Draw sensor points - representing the haptic matrix nodes
     for (let y = 0; y < rows; y++) {
       for (let x = 0; x < cols; x++) {
         const point = points[y][x]
+        
+        // Draw sensor pad (square like in the real matrix)
+        ctx.fillStyle = isInteracting ? 'rgba(22, 96, 136, 0.8)' : 'rgba(22, 96, 136, 0.4)'
+        const padSize = 4
+        ctx.fillRect(point.x - padSize/2, point.y - padSize/2, padSize, padSize)
+        
+        // Draw connection points
         ctx.beginPath()
-        ctx.arc(point.x, point.y, point.pinned ? 3 : 2, 0, Math.PI * 2)
+        ctx.arc(point.x, point.y, 1.5, 0, Math.PI * 2)
+        ctx.fillStyle = point.pinned ? 'rgba(22, 96, 136, 1)' : 'rgba(22, 96, 136, 0.7)'
         ctx.fill()
       }
     }
@@ -267,7 +282,7 @@ export const InteractiveCloth: React.FC<InteractiveClothProps> = ({
         }}
       />
       <div className="absolute top-2 left-2 text-xs text-hyve-text/50 pointer-events-none">
-        {isInteracting ? 'Interacting...' : 'Click and drag to deform'}
+        {isInteracting ? 'Simulating flex...' : 'Haptic Matrix - Interactive Demo'}
       </div>
     </div>
   )

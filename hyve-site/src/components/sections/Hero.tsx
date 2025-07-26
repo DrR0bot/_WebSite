@@ -3,7 +3,7 @@ import { ArrowRight, ChevronDown } from 'lucide-react'
 import React from 'react'
 
 import { Button } from '@/components/ui/button'
-import { InteractiveCloth } from '@/components/ui/InteractiveCloth'
+import { InteractiveMatrix } from '@/components/ui/InteractiveMatrix'
 
 // Animation variants
 const containerVariants = {
@@ -120,14 +120,7 @@ export const Hero = () => {
             <div className="absolute inset-0 -m-8 bg-gradient-to-br from-hyve-background/40 to-transparent backdrop-blur-sm rounded-2xl border border-gray-800 pointer-events-none" />
 
             <div className="relative z-20 flex items-center justify-center h-full pointer-events-auto">
-              <InteractiveCloth
-                width={350}
-                height={380}
-                gridSize={25}
-                springStrength={0.1}
-                damping={0.98}
-                className="rounded-lg"
-              />
+              <InteractiveMatrix width={350} height={380} className="rounded-lg" />
             </div>
           </motion.div>
         </div>
