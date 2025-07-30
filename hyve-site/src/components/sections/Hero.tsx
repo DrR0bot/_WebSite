@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
-import React from 'react'
 
-import { AircraftAnimation } from '@/components/ui/AircraftAnimation'
+// import { AircraftAnimation } from '@/components/ui/AircraftAnimation' // Temporarily removed for hexagonal selector
 import { Button } from '@/components/ui/button'
+import { HexagonalSelector } from '@/components/ui/HexagonalSelector'
 
 // Animation variants
 const containerVariants = {
@@ -37,7 +37,7 @@ export const Hero = () => {
     <section className="relative h-screen flex items-center overflow-hidden">
       {/* Asymmetric Layout Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-30 items-center">
           {/* Left Content */}
           <motion.div
             variants={containerVariants}
@@ -109,18 +109,19 @@ export const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Right Side - Similar Container */}
+          {/* Right Side - Technology Showcase */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="text-left relative w-[550px] h-[500px] justify-self-end overflow-visible"
+            className="text-left relative w-[600px] h-[600px] justify-self-end overflow-visible border-2 border-red-500 border-dashed"
             style={{ zIndex: 15 }}
           >
-            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-hyve-background/40 to-transparent backdrop-blur-sm rounded-2xl  pointer-events-none" />
+            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-hyve-background/40 to-transparent backdrop-blur-sm rounded-2xl pointer-events-none" />
 
             <div className="relative z-20 flex flex-col items-center justify-center h-full pointer-events-auto overflow-visible">
-              <AircraftAnimation />
+              {/* Hexagonal Industry Selector */}
+              <HexagonalSelector />
             </div>
           </motion.div>
         </div>
