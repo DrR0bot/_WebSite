@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 
-// import { AircraftAnimation } from '@/components/ui/AircraftAnimation' // Temporarily removed for hexagonal selector
 import { Button } from '@/components/ui/button'
-import { HexagonalSelector } from '@/components/ui/HexagonalSelector'
 
 // Animation variants
 const containerVariants = {
@@ -34,97 +32,73 @@ const itemVariants = {
 
 export const Hero = () => {
   return (
-    <section className="relative h-screen flex items-center overflow-hidden">
-      {/* Asymmetric Layout Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-30 items-center">
-          {/* Left Content */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-left relative"
-          >
-            {/* Subtle background for text contrast */}
-            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-hyve-background/40 to-transparent backdrop-blur-sm rounded-2xl pointer-events-none" />
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Centered Content Container */}
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-6 lg:px-12">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="text-center relative"
+        >
+          {/* Subtle background for text contrast */}
+          <div className="absolute inset-0 -m-8 bg-gradient-to-br from-hyve-background/40 to-transparent backdrop-blur-sm rounded-2xl pointer-events-none" />
 
-            <div className="relative z-10 pointer-events-auto">
-              {/* Subtle accent line */}
-              <motion.div variants={itemVariants} className="w-12 h-[2px] bg-hyve-accent mb-8" />
+          <div className="relative z-10 pointer-events-auto">
+            {/* Centered accent line */}
+            <motion.div
+              variants={itemVariants}
+              className="w-16 h-[2px] bg-hyve-accent mb-8 mx-auto"
+            />
 
-              {/* Main Headline */}
-              <motion.h1
-                variants={itemVariants}
-                className="text-4xl md:text-6xl lg:text-7xl font-extralight leading-[1.1] mb-6"
+            {/* Main Headline - Better distributed */}
+            <motion.h1
+              variants={itemVariants}
+              className="text-4xl md:text-6xl lg:text-7xl font-extralight leading-[1.1] mb-8"
+            >
+              <span className="block text-hyve-text mb-2">Adaptation Through Insight.</span>
+              <span className="block text-hyve-text mb-4">Evolution Through Data.</span>
+            </motion.h1>
+
+            {/* Refined Subheadline - Centered and wider */}
+            <motion.p
+              variants={itemVariants}
+              className="text-base md:text-lg text-hyve-text/70 max-w-2xl mx-auto mb-12 font-light leading-relaxed"
+            >
+              Hyve&apos;s Haptic Matrix unlocks real-world, high-density data where it matters
+              most—fueling insight, driving innovation, and enabling intelligent evolution across
+              machines, vehicles, and structures.
+            </motion.p>
+
+            {/* Elegant CTA Group - Centered */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center pointer-events-auto"
+            >
+              <Button
+                size="lg"
+                className="group bg-transparent border border-hyve-text text-hyve-text hover:bg-hyve-text hover:text-white px-8 py-5 transition-all duration-300"
+                onClick={() => {
+                  document.getElementById('technology')?.scrollIntoView({
+                    behavior: 'smooth',
+                  })
+                }}
               >
-                <span className="block text-hyve-text">Adaptation Through Insight. </span>
-                <span className="block text-hyve-text mt-1">Evolution Through Data.</span>
-                <span className="block mt-1">
-                  <span className="relative font-normal italic">
-                    {/* Main gradient text */}
-                    <span className="relative hyve-text-gradient">
-                      <br></br>
-                    </span>
-                  </span>
+                <span className="flex items-center gap-2 text-sm font-light tracking-wide">
+                  Explore Technology
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </span>
-              </motion.h1>
+              </Button>
 
-              {/* Refined Subheadline */}
-              <motion.p
-                variants={itemVariants}
-                className="text-base md:text-lg text-hyve-text/70 max-w-md mb-10 font-light leading-relaxed"
+              <button
+                className="text-sm text-hyve-text/60 hover:text-hyve-accent transition-colors duration-300 pointer-events-auto"
+                onClick={() => window.open('mailto:info@hyvedynamics.com', '_blank')}
               >
-                Hyve’s Haptic Matrix unlocks real-world, high-density data where it matters
-                most—fueling insight, driving innovation, and enabling intelligent evolution across
-                machines, vehicles, and structures.
-              </motion.p>
-
-              {/* Elegant CTA Group */}
-              <motion.div
-                variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-4 pointer-events-auto"
-              >
-                <Button
-                  size="lg"
-                  className="group bg-transparent border border-hyve-text text-hyve-text hover:bg-hyve-text hover:text-white px-8 py-5 transition-all duration-300"
-                  onClick={() => {
-                    document.getElementById('technology')?.scrollIntoView({
-                      behavior: 'smooth',
-                    })
-                  }}
-                >
-                  <span className="flex items-center gap-2 text-sm font-light tracking-wide">
-                    Explore Technology
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </Button>
-
-                <button
-                  className="text-sm text-hyve-text/60 hover:text-hyve-accent transition-colors duration-300 text-left pointer-events-auto"
-                  onClick={() => window.open('mailto:info@hyvedynamics.com', '_blank')}
-                >
-                  Get in Touch →
-                </button>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Right Side - Technology Showcase */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-left relative w-[600px] h-[600px] justify-self-end overflow-visible border-2 border-red-500 border-dashed"
-            style={{ zIndex: 15 }}
-          >
-            <div className="absolute inset-0 -m-8 bg-gradient-to-br from-hyve-background/40 to-transparent backdrop-blur-sm rounded-2xl pointer-events-none" />
-
-            <div className="relative z-20 flex flex-col items-center justify-center h-full pointer-events-auto overflow-visible">
-              {/* Hexagonal Industry Selector */}
-              <HexagonalSelector />
-            </div>
-          </motion.div>
-        </div>
+                Get in Touch →
+              </button>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
 
       {/* Minimal scroll indicator - bottom center */}
