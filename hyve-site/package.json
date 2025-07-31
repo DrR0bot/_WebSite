@@ -80,5 +80,10 @@
       "pre-commit": "lint-staged",
       "pre-push": "npm run type-check && npm run lint"
     }
+  },
+  "overrides": {
+    "stats-gl": {
+      "three": "$three"
+    }
   }
 }

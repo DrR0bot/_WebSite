@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { Interactive3DCarousel } from '@/components/ui/Interactive3DCarousel'
+import { SimpleInteractiveCarousel } from '@/components/ui/SimpleInteractiveCarousel'
 
 // Animation variants
 const containerVariants = {
@@ -75,7 +75,7 @@ export const Hero = () => {
             {/* 🎯 CAROUSEL WIDTH CONTROL #1: Change max-w-6xl to make carousel wider */}
             {/* Options: max-w-7xl (1280px) | max-w-screen-xl (1280px) | max-w-screen-2xl (1536px) */}
             <motion.div variants={itemVariants} className="w-full max-w-7xl mx-auto mb-8">
-              <Interactive3DCarousel />
+              <SimpleInteractiveCarousel />
             </motion.div>
 
             {/* Content Below Carousel - CTA and Text side by side */}

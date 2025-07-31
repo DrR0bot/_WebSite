@@ -1,5 +1,5 @@
 import { useSpring, animated, config } from '@react-spring/three'
-import { OrbitControls, Text } from '@react-three/drei'
+import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { useDrag } from '@use-gesture/react'
 import { motion } from 'framer-motion'
@@ -95,7 +95,6 @@ const IndustryScene: React.FC<{ industry: Industry; isActive: boolean }> = ({
         color="#166088"
         anchorX="center"
         anchorY="middle"
-        font="/fonts/Inter-Medium.woff"
       >
         {industry.name}
       </Text>
@@ -146,6 +145,7 @@ const CalloutLines: React.FC = () => {
         exit={{ opacity: 0, x: -20 }}
         transition={{ duration: 0.6, delay: 0.2 }}
         className="absolute left-8 top-1/3 transform -translate-y-1/2"
+        style={{ touchAction: 'none' }}
       >
         <div className="flex items-center space-x-4">
           <div className="w-16 h-[1px] bg-hyve-accent"></div>
@@ -164,6 +164,7 @@ const CalloutLines: React.FC = () => {
         exit={{ opacity: 0, x: 20 }}
         transition={{ duration: 0.6, delay: 0.4 }}
         className="absolute right-8 top-2/3 transform -translate-y-1/2"
+        style={{ touchAction: 'none' }}
       >
         <div className="flex items-center space-x-4">
           <div className="bg-hyve-background/90 backdrop-blur-sm rounded-lg p-3 max-w-xs">
@@ -218,7 +219,13 @@ export const Interactive3DCarousel: React.FC = () => {
   return (
     <div className="relative w-full h-[600px] bg-gradient-to-br from-hyve-content/10 to-transparent rounded-2xl overflow-hidden border border-hyve-content/20">
       {/* 3D Canvas */}
-      <Canvas ref={canvasRef} className="cursor-grab active:cursor-grabbing" {...bind()} shadows>
+      <Canvas 
+        ref={canvasRef} 
+        className="cursor-grab active:cursor-grabbing" 
+        style={{ touchAction: 'none' }}
+        {...bind()} 
+        shadows
+      >
         {/* Lighting */}
         <ambientLight intensity={0.4} />
         <directionalLight
