@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { SimpleInteractiveCarousel } from '@/components/ui/SimpleInteractiveCarousel'
+import { FlickingCoverFlow } from '@/components/ui/FlickingCoverFlow'
 
 // Animation variants
 const containerVariants = {
@@ -71,11 +71,9 @@ export const Hero = () => {
               </span>
             </motion.h1>
 
-            {/* Interactive 3D Carousel - Made bigger and taller */}
-            {/* 🎯 CAROUSEL WIDTH CONTROL #1: Change max-w-6xl to make carousel wider */}
-            {/* Options: max-w-7xl (1280px) | max-w-screen-xl (1280px) | max-w-screen-2xl (1536px) */}
+            {/* Flicking Cover Flow Carousel */}
             <motion.div variants={itemVariants} className="w-full max-w-7xl mx-auto mb-8">
-              <SimpleInteractiveCarousel />
+              <FlickingCoverFlow />
             </motion.div>
 
             {/* Content Below Carousel - CTA and Text side by side */}

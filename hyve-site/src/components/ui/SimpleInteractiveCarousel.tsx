@@ -20,16 +20,22 @@ const INDUSTRIES: Industry[] = [
     name: 'Aerospace',
     icon: Plane,
     shortDescription: 'Real-time aerodynamic intelligence for next-gen aircraft',
-    fullDescription: 'Transform aerospace design with high-resolution pressure data that captures flow phenomena in real-time, enabling unprecedented optimization of aircraft performance.',
+    fullDescription:
+      'Transform aerospace design with high-resolution pressure data that captures flow phenomena in real-time, enabling unprecedented optimization of aircraft performance.',
     color: '#0ea5e9',
-    features: ['Flight envelope optimization', 'Real-time control surfaces', 'Turbulence monitoring'],
+    features: [
+      'Flight envelope optimization',
+      'Real-time control surfaces',
+      'Turbulence monitoring',
+    ],
   },
   {
     id: 'motorsport',
     name: 'Motorsport',
     icon: Car,
     shortDescription: 'Precision aerodynamics for competitive advantage',
-    fullDescription: 'Gain the edge in motorsport with flexible pressure sensors that conform to complex geometries, providing teams with actionable aerodynamic insights.',
+    fullDescription:
+      'Gain the edge in motorsport with flexible pressure sensors that conform to complex geometries, providing teams with actionable aerodynamic insights.',
     color: '#f59e0b',
     features: ['Active aero control', 'Drag reduction systems', 'Downforce optimization'],
   },
@@ -38,7 +44,8 @@ const INDUSTRIES: Industry[] = [
     name: 'Renewable Energy',
     icon: Wind,
     shortDescription: 'Maximizing efficiency for sustainable power generation',
-    fullDescription: 'Optimize wind turbine performance and structural health with distributed pressure sensing that adapts to blade deformation and environmental conditions.',
+    fullDescription:
+      'Optimize wind turbine performance and structural health with distributed pressure sensing that adapts to blade deformation and environmental conditions.',
     color: '#10b981',
     features: ['Blade load monitoring', 'Wind pattern analysis', 'Predictive maintenance'],
   },
@@ -47,7 +54,8 @@ const INDUSTRIES: Industry[] = [
     name: 'Structural Health',
     icon: Shield,
     shortDescription: 'Reliable sensing in extreme conditions',
-    fullDescription: 'Monitor structural integrity in real-time with robust sensors that maintain accuracy under extreme temperatures, pressures, and environmental conditions.',
+    fullDescription:
+      'Monitor structural integrity in real-time with robust sensors that maintain accuracy under extreme temperatures, pressures, and environmental conditions.',
     color: '#8b5cf6',
     features: ['Fatigue detection', 'Load distribution', 'Environmental resilience'],
   },
@@ -58,11 +66,11 @@ export const SimpleInteractiveCarousel: React.FC = () => {
   const currentIndustry = INDUSTRIES[currentIndex]
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % INDUSTRIES.length)
+    setCurrentIndex(prev => (prev + 1) % INDUSTRIES.length)
   }
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + INDUSTRIES.length) % INDUSTRIES.length)
+    setCurrentIndex(prev => (prev - 1 + INDUSTRIES.length) % INDUSTRIES.length)
   }
 
   return (
@@ -71,10 +79,13 @@ export const SimpleInteractiveCarousel: React.FC = () => {
         <div className="relative h-[600px] p-8 flex items-center">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `radial-gradient(circle at 1px 1px, ${currentIndustry.color} 1px, transparent 1px)`,
-              backgroundSize: '40px 40px'
-            }} />
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `radial-gradient(circle at 1px 1px, ${currentIndustry.color} 1px, transparent 1px)`,
+                backgroundSize: '40px 40px',
+              }}
+            />
           </div>
 
           {/* Main Content */}
@@ -98,14 +109,12 @@ export const SimpleInteractiveCarousel: React.FC = () => {
                 >
                   {React.createElement(currentIndustry.icon, {
                     className: 'w-12 h-12',
-                    style: { color: currentIndustry.color }
+                    style: { color: currentIndustry.color },
                   })}
                 </motion.div>
 
                 {/* Industry Name */}
-                <h3 className="text-3xl font-bold mb-4 text-hyve-text">
-                  {currentIndustry.name}
-                </h3>
+                <h3 className="text-3xl font-bold mb-4 text-hyve-text">{currentIndustry.name}</h3>
 
                 {/* Short Description */}
                 <p className="text-lg text-hyve-text/80 mb-6 max-w-2xl mx-auto">
