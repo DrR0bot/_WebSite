@@ -13,17 +13,19 @@ interface VideoData {
 const videos: VideoData[] = [
   {
     src: '/models/3d_animations/A320.mp4',
+    webmSrc: '/models/3d_animations/A320.webm',
     title: 'Aerospace',
     description: 'Advanced pressure sensing for aircraft optimization',
   },
   {
     src: '/models/3d_animations/F1-Car.mp4',
-    webmSrc: '/models/3d_animations/F1-Car.webm', // Using WebM with transparency
+    webmSrc: '/models/3d_animations/F1-Car.webm',
     title: 'Automotive',
     description: 'Real-time aerodynamic analysis for peak performance',
   },
   {
     src: '/models/3d_animations/Wind-Turbine.mp4',
+    webmSrc: '/models/3d_animations/Wind-Turbine.webm',
     title: 'Energy',
     description: 'Structural health monitoring for renewable energy',
   },
