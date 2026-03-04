@@ -240,9 +240,7 @@ export const HapticMatrixPage = () => {
                   variants={itemVariants}
                   className="text-lg md:text-xl text-hyve-text font-light mb-6 leading-relaxed"
                 >
-                  The aerospace industry's first non-invasive, multi-parameter
-                  sensing platform for real-time aerodynamic intelligence and
-                  structural health monitoring.
+                  Hyve Haptic Matrix represents a new class of non-invasive, multi-parameter surface monitoring platforms for real-time aerodynamic intelligence and structural health monitoring — deployed as a subscription service combining conformable sensing hardware, calibration, and structured data delivery.
                 </motion.p>
 
                 <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
@@ -347,12 +345,21 @@ export const HapticMatrixPage = () => {
                 variants={itemVariants}
                 className="text-base md:text-lg text-hyve-text/80 leading-relaxed mb-8"
               >
-                The Hyve Haptic Matrix is an ultra-thin (0.33mm), flexible
-                sensor array that transforms surfaces into intelligent sensing
-                systems. Based on biomimetic principles—replicating how living
-                organisms sense their environment, our technology delivers
-                real-time pressure, temperature, and strain measurements without
-                structural modification or invasive installation.
+                The Hyve Haptic Matrix is a conformable, ultra-thin (0.33mm) surface sensing array that integrates directly onto aerodynamic and structural surfaces to provide dense, real-time measurement of pressure, temperature, and strain.
+              </motion.p>
+
+              <motion.p
+                variants={itemVariants}
+                className="text-base md:text-lg text-hyve-text/80 leading-relaxed mb-4"
+              >
+                It enables non-invasive deployment without drilling, structural modification, or embedded wiring — delivering full-surface insight in testing and operational environments.
+              </motion.p>
+
+              <motion.p
+                variants={itemVariants}
+                className="text-base md:text-lg text-hyve-text/80 leading-relaxed mb-8"
+              >
+                Inspired by biological sensing, the architecture prioritises distributed measurement density to capture surface behaviour rather than isolated points.
               </motion.p>
 
               {/* Core Innovation */}
@@ -361,32 +368,34 @@ export const HapticMatrixPage = () => {
                   Core Innovation
                 </h3>
                 <p className="text-sm text-hyve-text/70 mb-4">
-                  Unlike traditional instrumentation that requires drilling into
-                  composites or complex camera systems, the Hyve Haptic Matrix
-                  uses a peel-and-stick deployment model with flexible Micro-Electro-Mechanical 
-                  Systems (MEMS) arrays. This enables:
+                  Traditional surface instrumentation often requires structural penetration, embedded wiring, or complex optical systems. Hyve replaces this with a conformable, non-invasive MEMS-based sensing architecture, enabling:
                 </p>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
                   {[
                     {
                       icon: Gauge,
-                      text: 'Bidirectional pressure sensing (±10kPa, both pressure and suction)',
+                      title: 'Bidirectional pressure sensing (±10kPa standard range)',
+                      text: 'Captures both positive pressure and suction to resolve true surface loading behaviour.',
                     },
                     {
                       icon: Layers,
-                      text: 'Multi-parameter measurement (pressure, temperature, strain in one sensor)',
+                      title: 'Multi-parameter measurement',
+                      text: 'Simultaneous pressure, temperature, and strain acquisition from a single deployed surface array.',
                     },
                     {
                       icon: Shield,
-                      text: 'Non-destructive deployment (adhesive bonding, no structural penetration)',
+                      title: 'Non-invasive integration',
+                      text: 'Adhesive surface bonding with no drilling, structural penetration, or composite modification.',
                     },
                     {
                       icon: Settings,
-                      text: 'Infinite repositioning (deploy, test, move, redeploy in minutes)',
+                      title: 'Rapid repositionable deployment',
+                      text: 'Deploy, test, remove, and redeploy within minutes in controlled testing environments.',
                     },
                     {
                       icon: Zap,
-                      text: 'Real-time data streaming (1kHz per sensor, sub-second latency)',
+                      title: 'Real-time synchronized streaming',
+                      text: 'kHz-level sampling with low-latency output for live aerodynamic and structural analysis.',
                     },
                   ].map((item, index) => {
                     const Icon = item.icon
@@ -396,9 +405,14 @@ export const HapticMatrixPage = () => {
                         className="flex items-start gap-3 p-3 bg-hyve-content/10 rounded-lg"
                       >
                         <Icon className="h-4 w-4 text-hyve-interactive flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-hyve-text/80">
-                          {item.text}
-                        </span>
+                        <div>
+                          <span className="text-sm font-medium text-hyve-header block">
+                            {item.title}
+                          </span>
+                          <span className="text-xs text-hyve-text/70">
+                            {item.text}
+                          </span>
+                        </div>
                       </div>
                     )
                   })}
@@ -416,7 +430,7 @@ export const HapticMatrixPage = () => {
                       8 years
                     </div>
                     <div className="text-xs text-hyve-text/70 mt-1">
-                      PhD & post-doctoral research at Cranfield University
+                      PhD + post-doctoral research (Cranfield University)
                     </div>
                   </div>
                   <div className="text-center p-4 bg-gradient-to-br from-hyve-interactive/10 to-hyve-accent/10 rounded-xl">
@@ -424,7 +438,7 @@ export const HapticMatrixPage = () => {
                       15+ years
                     </div>
                     <div className="text-xs text-hyve-text/70 mt-1">
-                      Aerospace experience (NASA, Boeing, Airbus, Rolls-Royce)
+                      Aerospace and complex systems experience
                     </div>
                   </div>
                   <div className="text-center p-4 bg-gradient-to-br from-hyve-interactive/10 to-hyve-accent/10 rounded-xl">
@@ -432,7 +446,7 @@ export const HapticMatrixPage = () => {
                       6 patents
                     </div>
                     <div className="text-xs text-hyve-text/70 mt-1">
-                      Granted + 2 filed applications
+                      Granted + filed applications
                     </div>
                   </div>
                   <div className="text-center p-4 bg-gradient-to-br from-hyve-interactive/10 to-hyve-accent/10 rounded-xl">
@@ -440,7 +454,7 @@ export const HapticMatrixPage = () => {
                       Validated
                     </div>
                     <div className="text-xs text-hyve-text/70 mt-1">
-                      With F1 teams, aerospace OEMs, defense contractors
+                      Deployed in high-performance testing environments
                     </div>
                   </div>
                 </div>
@@ -468,8 +482,7 @@ export const HapticMatrixPage = () => {
                   How It Actually Works
                 </h2>
                 <p className="text-base md:text-lg text-hyve-text/80 max-w-3xl mx-auto">
-                  Deep dive into sensor architecture, measurement principles,
-                  and signal processing
+                  An overview of the sensing stack from conformable array to electronics, calibration, and data output.
                 </p>
               </motion.div>
 
@@ -513,9 +526,9 @@ export const HapticMatrixPage = () => {
                           value: '0.08g per cm² of sensory membrane',
                         },
                         {
-                          label: 'Pressure orifices',
+                          label: 'Pressure elements',
                           value:
-                            'Precision-cut based on Euler-Bernoulli beam theory',
+                            'Precision-engineered membrane features for repeatable response',
                         },
                       ].map((item, index) => (
                         <li key={index} className="flex items-start gap-2">
@@ -718,11 +731,11 @@ export const HapticMatrixPage = () => {
                         <strong className="text-hyve-header">
                           System latency:
                         </strong>{' '}
-                        1-10ms per array
+                        1–10ms per array (configuration dependent)
                       </li>
                       <li>
                         <strong className="text-hyve-header">Sync:</strong>{' '}
-                        All sensors timestamp-synchronized
+                        Timestamp-synchronised across sensors
                       </li>
                     </ul>
                   </div>
@@ -735,16 +748,15 @@ export const HapticMatrixPage = () => {
                     </h4>
                     <ul className="space-y-2 text-sm text-hyve-text/70">
                       <li>
-                        <strong className="text-hyve-header">Raw:</strong> CSV
-                        with timestamp, ID, pressure, temp, strain
+                        <strong className="text-hyve-header">Raw:</strong> Timestamped CSV (ID, pressure, temperature, strain)
                       </li>
                       <li>
                         <strong className="text-hyve-header">Streaming:</strong>{' '}
-                        MQTT protocol for cloud dashboards
+                        MQTT / structured telemetry for real-time ingestion
                       </li>
                       <li>
-                        <strong className="text-hyve-header">API:</strong>{' '}
-                        RESTful for CFD tools, MATLAB, Python
+                        <strong className="text-hyve-header">Integration:</strong>{' '}
+                        APIs and export compatible with CFD workflows, MATLAB, and Python
                       </li>
                     </ul>
                   </div>
@@ -758,7 +770,7 @@ export const HapticMatrixPage = () => {
                     <ul className="space-y-2 text-sm text-hyve-text/70">
                       <li>
                         <strong className="text-hyve-header">Factory:</strong>{' '}
-                        Multi-point with traceable standards
+                        Multi-point calibration with traceable standards
                       </li>
                       <li>
                         <strong className="text-hyve-header">Software:</strong>{' '}
@@ -766,7 +778,7 @@ export const HapticMatrixPage = () => {
                       </li>
                       <li>
                         <strong className="text-hyve-header">Drift:</strong>{' '}
-                        Periodic re-zeroing + temp correction
+                        Periodic re-zeroing + temperature correction
                       </li>
                     </ul>
                   </div>
@@ -800,9 +812,12 @@ export const HapticMatrixPage = () => {
 
               {/* Performance Characteristics */}
               <motion.div variants={itemVariants} className="mb-10">
-                <h3 className="text-2xl font-semibold text-hyve-header mb-6">
-                  Performance Characteristics
+                <h3 className="text-2xl font-semibold text-hyve-header mb-2">
+                  System Performance (Typical Configuration)
                 </h3>
+                <p className="text-sm text-hyve-text/60 mb-6">
+                  Values shown are typical and vary by configuration and deployment scenario.
+                </p>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
@@ -832,8 +847,8 @@ export const HapticMatrixPage = () => {
                         },
                         {
                           spec: 'Pressure Resolution',
-                          value: '±1kPa',
-                          notes: '~0.1mm ride height variation in F1',
+                          value: '±100Pa',
+                          notes: 'Minimum detectable pressure change',
                         },
                         {
                           spec: 'Sampling Rate',
@@ -971,527 +986,6 @@ export const HapticMatrixPage = () => {
                       className="p-4 bg-gradient-to-br from-hyve-interactive/10 to-hyve-accent/10 rounded-xl"
                     >
                       <h4 className="text-sm font-semibold text-hyve-header mb-1">
-                        {item.title}
-                      </h4>
-                      <p className="text-xs text-hyve-text/70">{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ============================================ */}
-        {/* SECTION 5: WHAT IT ACHIEVES */}
-        {/* ============================================ */}
-        <section
-          id="outcomes"
-          className="relative py-16 lg:py-20 pointer-events-auto"
-        >
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <motion.div variants={itemVariants} className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-hyve-header mb-4 font-heading">
-                  What It Achieves — Quantified Outcomes
-                </h2>
-                <p className="text-base md:text-lg text-hyve-text/80 max-w-3xl mx-auto">
-                  Real-world results from aerospace, motorsport, and automotive
-                  applications
-                </p>
-              </motion.div>
-
-              {/* Aerospace Testing */}
-              <motion.div
-                variants={itemVariants}
-                className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-xl border border-hyve-content/20 p-8 lg:p-10 mb-8"
-              >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
-                    <Plane className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-hyve-header font-heading">
-                    Aerospace Testing
-                  </h3>
-                </div>
-
-                {/* Key Stats */}
-                <div className="grid md:grid-cols-4 gap-4 mb-6">
-                  {[
-                    {
-                      value: '40-60%',
-                      label: 'Lower instrumentation costs',
-                    },
-                    {
-                      value: '500+',
-                      label: 'Data points/sec vs 10-20',
-                    },
-                    { value: '<1 hour', label: 'Setup vs 1-2 days' },
-                    {
-                      value: 'Infinite',
-                      label: 'Repositioning without damage',
-                    },
-                  ].map((stat, index) => (
-                    <div
-                      key={index}
-                      className="text-center p-4 bg-hyve-content/10 rounded-xl"
-                    >
-                      <div className="text-2xl font-bold text-hyve-header">
-                        {stat.value}
-                      </div>
-                      <div className="text-xs text-hyve-text/70 mt-1">
-                        {stat.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* F1 Example */}
-                <div className="bg-gradient-to-r from-hyve-header/5 to-hyve-accent/10 rounded-2xl p-6 mb-6">
-                  <h4 className="text-lg font-semibold text-hyve-header mb-4">
-                    Example: F1 Wind Tunnel Testing
-                  </h4>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h5 className="text-sm font-semibold text-hyve-text/60 mb-2">
-                        Legacy Approach
-                      </h5>
-                      <ul className="space-y-1 text-sm text-hyve-text/70">
-                        <li>• 20-30 pressure taps</li>
-                        <li>• 2 days installation</li>
-                        <li>• Limited spatial resolution</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h5 className="text-sm font-semibold text-hyve-interactive mb-2">
-                        With Hyve
-                      </h5>
-                      <ul className="space-y-1 text-sm text-hyve-header font-medium">
-                        <li>• 100+ sensors per wing section</li>
-                        <li>• 1 hour deployment</li>
-                        <li>• Complete pressure distribution mapping</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="mt-4 pt-4 border-t border-hyve-content/20 grid md:grid-cols-3 gap-4 text-center">
-                    <div>
-                      <div className="text-xl font-bold text-hyve-header">
-                        £2.8M
-                      </div>
-                      <div className="text-xs text-hyve-text/70">
-                        Annual savings (wind tunnel + CFD + models)
-                      </div>
-                    </div>
-                    <div>
-                      <div className="text-xl font-bold text-hyve-header">
-                        4-6 months
-                      </div>
-                      <div className="text-xs text-hyve-text/70">ROI period</div>
-                    </div>
-                    <div>
-                      <div className="text-xl font-bold text-hyve-header">
-                        ~£10M
-                      </div>
-                      <div className="text-xs text-hyve-text/70">
-                        Per championship position
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* CFD & In-Flight */}
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="p-5 bg-white/70 rounded-xl border border-hyve-content/20">
-                    <h4 className="text-base font-semibold text-hyve-header mb-3">
-                      CFD Validation
-                    </h4>
-                    <p className="text-sm text-hyve-text/70 mb-3">
-                      £500K-£2M CFD campaigns still require experimental
-                      validation. Hyve provides real-time validation with actual
-                      measured data.
-                    </p>
-                    <ul className="text-xs text-hyve-text/70 space-y-1">
-                      <li>• Identify correlation errors early</li>
-                      <li>• Reduce iteration cycles by 30-40%</li>
-                      <li>• Catch simulation errors before prototypes</li>
-                    </ul>
-                  </div>
-                  <div className="p-5 bg-white/70 rounded-xl border border-hyve-content/20">
-                    <h4 className="text-base font-semibold text-hyve-header mb-3">
-                      In-Flight Testing
-                    </h4>
-                    <p className="text-sm text-hyve-text/70 mb-3">
-                      Non-invasive bonding, rapid deployment for flight test
-                      campaigns, no structural modification required.
-                    </p>
-                    <ul className="text-xs text-hyve-text/70 space-y-1">
-                      <li>• New aircraft certification</li>
-                      <li>• Aerodynamic performance validation</li>
-                      <li>• Flutter testing</li>
-                    </ul>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Motorsport Performance */}
-              <motion.div
-                variants={itemVariants}
-                className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-xl border border-hyve-content/20 p-8 lg:p-10 mb-8"
-              >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500/20 to-orange-500/20 flex items-center justify-center">
-                    <Car className="h-6 w-6 text-red-600" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-hyve-header font-heading">
-                    Motorsport Performance
-                  </h3>
-                </div>
-
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                  {[
-                    {
-                      title: 'Real-time downforce mapping',
-                      desc: 'Monitor pressure across wings, floor, bodywork during track sessions',
-                    },
-                    {
-                      title: 'Brake duct optimization',
-                      desc: 'Temperature + pressure for cooling validation',
-                    },
-                    {
-                      title: 'DRS validation',
-                      desc: 'Quantify pressure changes when rear wing activates',
-                    },
-                    {
-                      title: 'Tunnel-to-track correlation',
-                      desc: 'Identical sensors in tunnel and on-car',
-                    },
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className="p-4 bg-hyve-content/10 rounded-xl"
-                    >
-                      <h4 className="text-sm font-semibold text-hyve-header mb-2">
-                        {item.title}
-                      </h4>
-                      <p className="text-xs text-hyve-text/70">{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="bg-gradient-to-r from-red-500/5 to-orange-500/10 rounded-xl p-6">
-                  <h4 className="text-lg font-semibold text-hyve-header mb-3">
-                    2026 Regulation Reset Advantage
-                  </h4>
-                  <p className="text-sm text-hyve-text/70 mb-4">
-                    New technical rules create development race. Faster iteration
-                    between wind tunnel, CFD, and track testing = more performance
-                    updates = championship positions.
-                  </p>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-hyve-header">
-                      £14M+ cumulative value
-                    </div>
-                    <div className="text-xs text-hyve-text/70">
-                      2026-2030 for top team
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Automotive */}
-              <motion.div
-                variants={itemVariants}
-                className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-xl border border-hyve-content/20 p-8 lg:p-10"
-              >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center">
-                    <Car className="h-6 w-6 text-emerald-600" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-hyve-header font-heading">
-                    Automotive (EV & ICE)
-                  </h3>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-6">
-                  <div className="p-5 bg-hyve-content/10 rounded-xl">
-                    <h4 className="text-base font-semibold text-hyve-header mb-3">
-                      EV Range Optimization
-                    </h4>
-                    <p className="text-sm text-hyve-text/70 mb-3">
-                      Every watt of aero drag reduces range. Full-surface pressure
-                      mapping identifies drag sources (mirrors, A-pillar,
-                      underbody).
-                    </p>
-                    <div className="text-center p-3 bg-white/70 rounded-lg">
-                      <div className="text-lg font-bold text-hyve-header">
-                        2-5% drag reduction
-                      </div>
-                      <div className="text-xs text-hyve-text/70">
-                        = 10-25 miles additional range
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-5 bg-hyve-content/10 rounded-xl">
-                    <h4 className="text-base font-semibold text-hyve-header mb-3">
-                      Thermal Management
-                    </h4>
-                    <p className="text-sm text-hyve-text/70 mb-3">
-                      Battery cooling, motor thermal limits, cabin HVAC efficiency.
-                      Simultaneous pressure + temperature mapping.
-                    </p>
-                    <div className="text-center p-3 bg-white/70 rounded-lg">
-                      <div className="text-lg font-bold text-hyve-header">
-                        Optimized airflow
-                      </div>
-                      <div className="text-xs text-hyve-text/70">
-                        Without weight penalty
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-5 bg-hyve-content/10 rounded-xl">
-                    <h4 className="text-base font-semibold text-hyve-header mb-3">
-                      High-Speed Stability
-                    </h4>
-                    <p className="text-sm text-hyve-text/70 mb-3">
-                      Quantified lift/downforce distribution at speed. Identify
-                      separation points causing instability.
-                    </p>
-                    <div className="text-center p-3 bg-white/70 rounded-lg">
-                      <div className="text-lg font-bold text-hyve-header">
-                        Improved safety
-                      </div>
-                      <div className="text-xs text-hyve-text/70">
-                        Reduced warranty claims
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ============================================ */}
-        {/* SECTION 6: IVHM */}
-        {/* ============================================ */}
-        <section
-          id="ivhm"
-          className="relative py-16 lg:py-20 pointer-events-auto"
-        >
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="bg-gradient-to-br from-white/95 to-hyve-accent/10 backdrop-blur-xl rounded-3xl shadow-xl border border-hyve-content/20 p-8 lg:p-12"
-            >
-              <motion.div variants={itemVariants} className="mb-8">
-                <Badge
-                  variant="secondary"
-                  className="px-3 py-1 text-xs font-medium mb-4"
-                >
-                  UNDERDEVELOPED OPPORTUNITY
-                </Badge>
-                <h2 className="text-3xl md:text-4xl font-bold text-hyve-header mb-4 font-heading">
-                  Structural Health Monitoring (IVHM)
-                </h2>
-                <p className="text-base md:text-lg text-hyve-text/80 max-w-3xl">
-                  Shift from reactive maintenance (fix after failure) to
-                  predictive maintenance (detect before failure).
-                </p>
-              </motion.div>
-
-              {/* The Problem */}
-              <motion.div
-                variants={itemVariants}
-                className="bg-red-500/5 border border-red-500/20 rounded-2xl p-6 mb-8"
-              >
-                <h3 className="text-xl font-semibold text-hyve-header mb-4">
-                  The Problem: Unscheduled Maintenance Costs Billions
-                </h3>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                  {[
-                    {
-                      value: '$15-20B',
-                      label: 'Annual unscheduled maintenance (global fleet)',
-                    },
-                    {
-                      value: '$150K-$500K',
-                      label: 'AOG cost per day (wide-body)',
-                    },
-                    {
-                      value: '40-60%',
-                      label: 'Inspected components with no degradation',
-                    },
-                    {
-                      value: '$500K-$2M',
-                      label: 'Per C-check (heavy maintenance)',
-                    },
-                  ].map((stat, index) => (
-                    <div
-                      key={index}
-                      className="text-center p-3 bg-white/70 rounded-lg"
-                    >
-                      <div className="text-xl font-bold text-red-600">
-                        {stat.value}
-                      </div>
-                      <div className="text-xs text-hyve-text/70 mt-1">
-                        {stat.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-sm text-hyve-text/70">
-                  Current inspection methods (visual, scheduled tear-down) miss
-                  internal damage. Failure modes like delamination, fatigue
-                  cracks, and impact damage often go undetected until
-                  catastrophic.
-                </p>
-              </motion.div>
-
-              {/* How Hyve Enables IVHM */}
-              <motion.div variants={itemVariants} className="mb-8">
-                <h3 className="text-xl font-semibold text-hyve-header mb-4">
-                  How Hyve Enables IVHM
-                </h3>
-
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div className="p-5 bg-white/70 rounded-xl border border-hyve-content/20">
-                    <h4 className="text-base font-semibold text-hyve-header mb-3">
-                      Composite Integration
-                    </h4>
-                    <ul className="space-y-2 text-sm text-hyve-text/70">
-                      <li>
-                        <strong className="text-hyve-header">
-                          Embedding during layup:
-                        </strong>{' '}
-                        Sensors placed between composite layers
-                      </li>
-                      <li>
-                        <strong className="text-hyve-header">
-                          Zero weight penalty:
-                        </strong>{' '}
-                        Thinner than resin-rich layer
-                      </li>
-                      <li>
-                        <strong className="text-hyve-header">
-                          Permanent monitoring:
-                        </strong>{' '}
-                        First flight through end of service life
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="p-5 bg-white/70 rounded-xl border border-hyve-content/20">
-                    <h4 className="text-base font-semibold text-hyve-header mb-3">
-                      What Gets Detected
-                    </h4>
-                    <ul className="space-y-2 text-sm text-hyve-text/70">
-                      <li>
-                        <strong className="text-hyve-header">
-                          Delamination:
-                        </strong>{' '}
-                        Strain changes indicate layer separation
-                      </li>
-                      <li>
-                        <strong className="text-hyve-header">
-                          Impact detection:
-                        </strong>{' '}
-                        Bird strikes, hail, debris signatures
-                      </li>
-                      <li>
-                        <strong className="text-hyve-header">Fatigue:</strong>{' '}
-                        Micro-strain precedes visible cracks by thousands of
-                        cycles
-                      </li>
-                      <li>
-                        <strong className="text-hyve-header">
-                          Degradation:
-                        </strong>{' '}
-                        Moisture ingress, thermal cycling effects
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* IVHM Business Case */}
-              <motion.div
-                variants={itemVariants}
-                className="bg-gradient-to-r from-emerald-500/5 to-teal-500/10 rounded-2xl p-6 mb-8"
-              >
-                <h3 className="text-xl font-semibold text-hyve-header mb-4">
-                  IVHM Business Case
-                </h3>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="text-sm font-semibold text-hyve-text/60 mb-3">
-                      With Hyve IVHM
-                    </h4>
-                    <ul className="space-y-2 text-sm text-hyve-text/70">
-                      <li>
-                        • <strong>Condition-based maintenance:</strong> Inspect
-                        only when sensors indicate degradation
-                      </li>
-                      <li>
-                        • <strong>Avoided AOG events:</strong> Early detection
-                        prevents in-service failures
-                      </li>
-                      <li>
-                        • <strong>Extended service life:</strong> Operate to
-                        actual limits, not assumptions
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="flex flex-col justify-center">
-                    <div className="text-center p-4 bg-white/70 rounded-xl">
-                      <div className="text-3xl font-bold text-emerald-600">
-                        30-40%
-                      </div>
-                      <div className="text-sm text-hyve-text/70 mt-1">
-                        Reduction in unscheduled maintenance costs
-                      </div>
-                      <div className="text-xs text-hyve-text/50 mt-2">
-                        3-5x ROI over 10-year aircraft service life
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Defense Applications */}
-              <motion.div variants={itemVariants}>
-                <h3 className="text-xl font-semibold text-hyve-header mb-4">
-                  Defense Applications
-                </h3>
-                <div className="grid md:grid-cols-3 gap-4">
-                  {[
-                    {
-                      title: 'UAV Structural Monitoring',
-                      desc: 'Track cumulative damage in lightweight composites, predict remaining service life',
-                    },
-                    {
-                      title: 'Hypersonic Instrumentation',
-                      desc: 'Real-time temperature + strain on leading edges, validate thermal protection',
-                    },
-                    {
-                      title: 'Impact Detection',
-                      desc: 'Instant detection of small-arms, shrapnel, debris impacts; assess structural integrity',
-                    },
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className="p-4 bg-white/70 rounded-xl border border-hyve-content/20"
-                    >
-                      <h4 className="text-sm font-semibold text-hyve-header mb-2">
                         {item.title}
                       </h4>
                       <p className="text-xs text-hyve-text/70">{item.desc}</p>

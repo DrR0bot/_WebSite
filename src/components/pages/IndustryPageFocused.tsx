@@ -57,7 +57,7 @@ const itemVariants = {
   },
 }
 
-export const IndustryPageFocused: React.FC<IndustryPageProps> = ({ industry }) => {
+export const IndustryPageFocused: React.FC<IndustryPageProps & { children?: React.ReactNode }> = ({ industry, children }) => {
   const navigate = useNavigate()
 
   // Scroll to top on mount
@@ -259,6 +259,18 @@ export const IndustryPageFocused: React.FC<IndustryPageProps> = ({ industry }) =
                 </div>
               </div>
             </motion.div>
+
+            {children && (
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="mt-8"
+              >
+                {children}
+              </motion.div>
+            )}
           </div>
         </section>
       </CustomMeshBackground>
