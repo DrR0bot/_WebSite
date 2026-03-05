@@ -5,36 +5,33 @@ import { getVideoPath } from '@/lib/assets'
 
 const aerospaceData = {
   id: 'aerospace',
-  title: 'Advancing Aerospace',
+  title: 'Continuous Surface Monitoring for Aerospace Testing & Flight Validation',
   badge: 'AEROSPACE',
-  tagline: 'Real-Time Aerodynamic Data',
+  tagline: '',
   description:
-    'Unlocking Precision, Performance, and Sustainability in Aviation. At Hyve Dynamics, we are transforming aerospace research and development with real-time, high-density aerodynamic data acquisition.',
+    'Hyve provides dense, real-time pressure, temperature, and strain data across aerodynamic and structural surfaces — enabling faster wind tunnel campaigns, improved CFD validation, and non-invasive in-flight instrumentation.',
   videoPath: getVideoPath('A320.webm'),
+  featuresHeading: 'Aerospace Applications',
   features: [
     {
-      title: 'Real-Time Insights',
+      title: 'Wind Tunnel Instrumentation',
       description:
-        'High-frequency data capture to reveal aerodynamic behaviors and structural responses dynamically.',
+        'Dense surface pressure mapping without drilling or extended installation time.',
     },
     {
-      title: 'Ultra-Thin & Non-Intrusive',
+      title: 'CFD Correlation & Validation',
       description:
-        '0.25 mm sensor skin conforms to any surface without affecting aerodynamic properties.',
+        'High-frequency experimental data to improve model fidelity and reduce iteration cycles.',
     },
     {
-      title: 'High-Density Sensing',
+      title: 'Flight Test Instrumentation',
       description:
-        'Over 100 sensors per 24 cm² for unmatched spatial resolution. Supports aircraft design, flight testing, and next-generation propulsion systems.',
+        'Non-invasive adhesive deployment for rapid in-flight aerodynamic and structural measurement.',
     },
     {
-      title: 'Optimized Performance',
+      title: 'Composite & Structural Monitoring',
       description:
-        'Supports aircraft design, flight testing and next-generation propulsion systems.',
-    },
-    {
-      title: 'Sustainability & Efficiency',
-      description: 'Enhances fuel efficiency and aids in achieving net-zero emission goals.',
+        'Surface strain and load mapping without embedded gauges or structural modification.',
     },
   ],
   summary:

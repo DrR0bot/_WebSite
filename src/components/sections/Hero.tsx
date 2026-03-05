@@ -66,7 +66,7 @@ export const Hero = () => {
                   Surface Monitoring Platform for <span className="font-medium">Real-Time</span>.
                 </span>
                 <span className="text-hyve-text">
-                  Aerodynamic and <span className="font-medium">Infrastructure Data</span>.
+                  Aerodynamic and Infrastructure<span className="font-medium">Data</span>.
                 </span>
               </motion.h1>
 

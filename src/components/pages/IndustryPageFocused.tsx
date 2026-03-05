@@ -27,6 +27,7 @@ interface IndustryPageProps {
     summary: string
     cta: string
     badge?: string
+    featuresHeading?: string
   }
 }
 
@@ -218,7 +219,7 @@ export const IndustryPageFocused: React.FC<IndustryPageProps & { children?: Reac
                 <div className="bg-gradient-to-br from-hyve-content/30 to-hyve-accent/10 p-8 lg:p-12">
                   <motion.div variants={itemVariants}>
                     <h2 className="text-2xl md:text-3xl font-bold text-hyve-header mb-8 font-heading">
-                      Key Features & Benefits
+                      {industry.featuresHeading || 'Key Features & Benefits'}
                     </h2>
 
                     <div className="space-y-4">
