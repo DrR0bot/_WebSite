@@ -4,20 +4,17 @@ import {
   Award,
   Calendar,
   Globe,
-  Users,
-  Target,
   Lightbulb,
+  Shield,
 } from 'lucide-react'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-import { Vision } from '@/components/sections/Vision'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { CustomMeshBackground } from '@/components/ui/CustomMeshBackground'
 
-// Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -40,36 +37,23 @@ const itemVariants = {
   },
 }
 
-const countVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut',
-    },
-  },
-}
-
-// Timeline data
 const timelineData = [
   {
-    year: '2012-2018',
-    title: 'PhD Research at Cranfield University',
+    year: '2012\u20132018',
+    title: 'Cranfield Research Programme',
     description:
-      '6 years of intensive aerospace research developing core sensor technology concepts and academic validation',
+      'Doctoral and postdoctoral research into high-density aerodynamic sensing and flexible sensor architectures.',
     highlight: 'Academic Foundation',
   },
   {
-    year: '2018-2023',
+    year: '2018\u20132023',
     title: 'Private Sector Development',
     description:
       '5 years refining technology for commercial applications and securing multiple international patents',
     highlight: 'Industry Refinement',
   },
   {
-    year: '2023-Present',
+    year: '2023\u2013Present',
     title: 'Market Leadership',
     description:
       'First aerospace-grade flexible sensor deployment, expanding across industries, building global presence',
@@ -77,54 +61,29 @@ const timelineData = [
   },
 ]
 
-// Impact metrics data
-const impactMetrics = [
-  {
-    value: '500+',
-    label: 'UK aerospace jobs',
-    description: 'enabled by 2035',
-    icon: Users,
-  },
-  {
-    value: '£57M+',
-    label: 'annual revenue',
-    description: 'potential by 2030',
-    icon: Target,
-  },
-  {
-    value: '40-60%',
-    label: 'reduction',
-    description: 'in development time',
-    icon: Calendar,
-  },
-  {
-    value: '£50-75M',
-    label: 'annual UK savings',
-    description: 'across aerospace programs',
-    icon: Globe,
-  },
-]
-
-// Company values data
 const companyValues = [
   {
-    title: 'Innovation',
-    description: 'Continuous advancement of sensing technology through rigorous R&D',
-    icon: Lightbulb,
+    title: 'Scientific Integrity',
+    description:
+      'Our work is grounded in rigorous research and experimental validation. We prioritise measurable evidence over assumptions and marketing claims.',
+    icon: Shield,
   },
   {
-    title: 'Integrity',
-    description: 'Scientific rigor and transparency in every development decision',
+    title: 'Engineering Excellence',
+    description:
+      'We design sensing systems for real-world performance \u2014 balancing precision, durability, and practical integration across complex engineering environments.',
     icon: Award,
   },
   {
-    title: 'Impact',
-    description: 'Measurable benefits for customers, society, and the environment',
-    icon: Target,
+    title: 'Meaningful Innovation',
+    description:
+      'We focus on solving fundamental measurement challenges rather than incremental improvements.',
+    icon: Lightbulb,
   },
   {
     title: 'Sustainability',
-    description: 'Supporting net-zero aviation goals and environmental responsibility',
+    description:
+      'Better measurement leads to better engineering decisions. Hyve supports the development of more efficient systems through improved testing, validation, and monitoring.',
     icon: Globe,
   },
 ]
@@ -140,7 +99,6 @@ export const AboutPage = () => {
         {/* Hero Section */}
         <section className="relative min-h-[60vh] flex items-center py-16 lg:py-20 pointer-events-auto">
           <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
-            {/* Back Button */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -180,24 +138,31 @@ export const AboutPage = () => {
                 variants={itemVariants}
                 className="text-xl md:text-2xl text-hyve-text font-light mb-6 max-w-3xl mx-auto"
               >
-                Transforming Industries Through Real-World Intelligence
+                Transforming industries through real-world surface intelligence.
+              </motion.p>
+
+              <motion.p
+                variants={itemVariants}
+                className="text-base md:text-lg text-hyve-text/80 leading-relaxed max-w-4xl mx-auto mb-4"
+              >
+                Hyve Dynamics builds flexible, high-density sensing arrays and a data platform that
+                enable real-time surface intelligence.
               </motion.p>
 
               <motion.p
                 variants={itemVariants}
                 className="text-base md:text-lg text-hyve-text/80 leading-relaxed max-w-4xl mx-auto"
               >
-                We envision a future where real-world data replaces assumptions, enabling smarter,
-                more sustainable, and more efficient technological advancements. By seamlessly
-                integrating high-density sensory solutions into complex surfaces, we empower
-                industries to optimize performance, safety, and sustainability in ways never before
-                possible.
+                Originating from aerospace research at Cranfield University, the system captures
+                pressure, temperature, and strain across complex surfaces — allowing engineers to
+                observe physical behaviour directly rather than relying on sparse instrumentation and
+                assumptions.
               </motion.p>
             </motion.div>
           </div>
         </section>
 
-        {/* Mission & Research Foundation Section */}
+        {/* Mission & Research Foundations */}
         <section className="relative py-16 lg:py-20 pointer-events-auto">
           <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
             <motion.div
@@ -214,55 +179,61 @@ export const AboutPage = () => {
                     Our Mission
                   </h2>
                   <p className="text-base md:text-lg text-hyve-text/80 leading-relaxed mb-6">
-                    We are committed to leading the way in aerodynamic innovation, helping
-                    industries accelerate development cycles, reduce costs, and achieve net-zero
-                    goals through cutting-edge sensor technology.
+                    To deliver a step change in how physical systems are observed and understood.
+                  </p>
+                  <p className="text-base md:text-lg text-hyve-text/80 leading-relaxed mb-6">
+                    For decades, complex aerodynamic and structural behaviour has been studied through
+                    sparse sensors and inferred models. Hyve enables continuous, high-density
+                    measurements across real-world surfaces — replacing assumptions with direct insight
+                    into how systems actually behave.
                   </p>
                   <p className="text-base md:text-lg text-hyve-text/80 leading-relaxed">
-                    With origins rooted in six years of PhD and postdoctoral research at Cranfield
-                    University, followed by five years of dedicated private sector development, Hyve
-                    Dynamics has secured multiple international patents, positioning us as a leader
-                    in next-generation design validation and performance optimization.
+                    Our vision is to establish surface intelligence as a foundational data layer across
+                    engineered systems — from aircraft and vehicles to infrastructure and intelligent
+                    machines.
                   </p>
                 </motion.div>
 
-                {/* Research Foundation */}
+                {/* Research Foundations */}
                 <motion.div variants={itemVariants}>
                   <h2 className="text-3xl font-bold text-hyve-header mb-6 font-heading">
-                    Research Excellence
+                    Research Foundations
                   </h2>
-                  <div className="space-y-6">
+                  <p className="text-base text-hyve-text/80 leading-relaxed mb-6">
+                    Hyve Dynamics originates from doctoral and postdoctoral research conducted at
+                    Cranfield University, focused on high-density sensing and aerodynamic measurement.
+                    The technology was developed to address a long-standing challenge in engineering:
+                    complex physical behaviour occurs across entire surfaces, yet most measurement
+                    systems capture only isolated data points.
+                  </p>
+                  <div className="space-y-4">
                     <div className="bg-gradient-to-br from-hyve-content/30 to-hyve-accent/10 rounded-2xl p-6">
                       <h3 className="text-xl font-semibold text-hyve-header mb-3">
                         Academic Foundation
                       </h3>
-                      <ul className="space-y-2">
-                        <li className="text-sm text-hyve-text/80">
-                          • 6 years of PhD and postdoctoral research
-                        </li>
-                        <li className="text-sm text-hyve-text/80">
-                          • Deep expertise in aerodynamics and sensor technology
-                        </li>
-                        <li className="text-sm text-hyve-text/80">
-                          • Published research in leading scientific journals
-                        </li>
-                      </ul>
+                      <p className="text-sm text-hyve-text/80">
+                        6 years of doctoral and postdoctoral research at Cranfield University focused
+                        on advanced sensing architectures for aerodynamic measurement and structural
+                        monitoring.
+                      </p>
                     </div>
                     <div className="bg-gradient-to-br from-hyve-content/30 to-hyve-accent/10 rounded-2xl p-6">
                       <h3 className="text-xl font-semibold text-hyve-header mb-3">
-                        Industry Development
+                        Intellectual Property
                       </h3>
-                      <ul className="space-y-2">
-                        <li className="text-sm text-hyve-text/80">
-                          • 5 years of private sector innovation
-                        </li>
-                        <li className="text-sm text-hyve-text/80">
-                          • Multiple international patents secured
-                        </li>
-                        <li className="text-sm text-hyve-text/80">
-                          • Proven track record in real-world applications
-                        </li>
-                      </ul>
+                      <p className="text-sm text-hyve-text/80">
+                        Patent applications covering flexible sensing arrays, high-density measurement
+                        architectures, and real-time surface data acquisition.
+                      </p>
+                    </div>
+                    <div className="bg-gradient-to-br from-hyve-content/30 to-hyve-accent/10 rounded-2xl p-6">
+                      <h3 className="text-xl font-semibold text-hyve-header mb-3">
+                        Engineering Development
+                      </h3>
+                      <p className="text-sm text-hyve-text/80">
+                        Laboratory and wind tunnel testing programmes validating sensing performance,
+                        durability, and integration across aerodynamic surfaces.
+                      </p>
                     </div>
                   </div>
                 </motion.div>
@@ -288,10 +259,8 @@ export const AboutPage = () => {
               </motion.h2>
 
               <div className="relative">
-                {/* Timeline line */}
                 <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-hyve-content/20 transform -translate-x-1/2 hidden lg:block"></div>
 
-                {/* Timeline items */}
                 {timelineData.map((item, index) => (
                   <motion.div
                     key={index}
@@ -300,7 +269,6 @@ export const AboutPage = () => {
                       index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
                     }`}
                   >
-                    {/* Content */}
                     <div className={`w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
                       <Card className="bg-white/95 backdrop-blur-xl border-hyve-content/20 hover:shadow-xl transition-shadow">
                         <CardContent className="p-6 lg:p-8">
@@ -316,7 +284,6 @@ export const AboutPage = () => {
                       </Card>
                     </div>
 
-                    {/* Timeline dot */}
                     <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-hyve-interactive rounded-full border-4 border-white shadow-lg hidden lg:block"></div>
                   </motion.div>
                 ))}
@@ -325,7 +292,7 @@ export const AboutPage = () => {
           </div>
         </section>
 
-        {/* Impact Metrics */}
+        {/* Strategic Vision */}
         <section className="relative py-16 lg:py-20 pointer-events-auto">
           <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
             <motion.div
@@ -333,25 +300,89 @@ export const AboutPage = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-white/95 to-hyve-content/30 backdrop-blur-xl rounded-3xl shadow-xl border border-hyve-content/20 p-8 lg:p-12"
+              className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-xl border border-hyve-content/20 p-8 lg:p-12"
             >
               <motion.h2
                 variants={itemVariants}
-                className="text-3xl md:text-4xl font-bold text-hyve-header mb-12 font-heading text-center"
+                className="text-3xl md:text-4xl font-bold text-hyve-header mb-4 font-heading text-center"
               >
-                Our Impact
+                Strategic Vision
               </motion.h2>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {impactMetrics.map((metric, index) => (
-                  <motion.div key={index} variants={countVariants} className="text-center">
-                    <metric.icon className="h-12 w-12 text-hyve-interactive mx-auto mb-4" />
-                    <div className="text-4xl font-bold text-hyve-header mb-2">{metric.value}</div>
-                    <div className="text-sm font-semibold text-hyve-header">{metric.label}</div>
-                    <div className="text-xs text-hyve-text/70">{metric.description}</div>
-                  </motion.div>
-                ))}
-              </div>
+              <motion.p
+                variants={itemVariants}
+                className="text-base md:text-lg text-hyve-text/80 leading-relaxed max-w-4xl mx-auto text-center mb-8"
+              >
+                Hyve is building sensing infrastructure that enables continuous observation of
+                physical systems. As sensing density increases and data platforms mature, surface
+                intelligence can become a foundational data layer across engineering, infrastructure,
+                and intelligent machines.
+              </motion.p>
+
+              <motion.div variants={itemVariants} className="max-w-4xl mx-auto">
+                <div className="grid md:grid-cols-3 gap-8 mb-8">
+                  <div className="text-center">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-hyve-interactive to-hyve-interactive-dark flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                      2025
+                    </div>
+                    <h3 className="text-lg font-semibold text-hyve-header mb-2">
+                      Aerospace Adoption
+                    </h3>
+                    <p className="text-sm text-hyve-text/80">
+                      Scaling deployment of high-density sensing arrays in aerospace testing and
+                      validation environments.
+                    </p>
+                  </div>
+
+                  <div className="text-center">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-hyve-interactive to-hyve-interactive-dark flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                      2027
+                    </div>
+                    <h3 className="text-lg font-semibold text-hyve-header mb-2">
+                      Cross-Industry Expansion
+                    </h3>
+                    <p className="text-sm text-hyve-text/80">
+                      Expanding applications across automotive development, industrial systems, and
+                      infrastructure monitoring.
+                    </p>
+                  </div>
+
+                  <div className="text-center">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-hyve-accent to-hyve-interactive flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                      2030
+                    </div>
+                    <h3 className="text-lg font-semibold text-hyve-header mb-2">
+                      Surface Intelligence Platform
+                    </h3>
+                    <p className="text-sm text-hyve-text/80">
+                      Establishing surface intelligence as a foundational measurement layer for
+                      complex engineered systems.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="text-center">
+                  <p className="text-base md:text-lg text-hyve-text/80 mb-6">
+                    Enabling real-world sensing across aircraft, vehicles, infrastructure, and
+                    intelligent machines.
+                  </p>
+                  <Button
+                    size="lg"
+                    className="bg-hyve-text hover:bg-hyve-text-dark text-white group"
+                    onClick={() => {
+                      const contactButton = document.querySelector(
+                        '[data-contact-trigger]'
+                      ) as HTMLButtonElement
+                      if (contactButton) {
+                        contactButton.click()
+                      }
+                    }}
+                  >
+                    <Calendar className="mr-2 h-4 w-4" />
+                    Book Demo
+                  </Button>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
@@ -390,102 +421,6 @@ export const AboutPage = () => {
             </motion.div>
           </div>
         </section>
-
-        {/* Strategic Vision */}
-        <section className="relative py-16 lg:py-20 pointer-events-auto">
-          <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-xl border border-hyve-content/20 p-8 lg:p-12"
-            >
-              <motion.h2
-                variants={itemVariants}
-                className="text-3xl md:text-4xl font-bold text-hyve-header mb-8 font-heading text-center"
-              >
-                Strategic Vision
-              </motion.h2>
-
-              <motion.div variants={itemVariants} className="max-w-4xl mx-auto">
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  <div className="text-center">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-hyve-interactive to-hyve-interactive-dark flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-                      2025
-                    </div>
-                    <h3 className="text-lg font-semibold text-hyve-header mb-2">
-                      UK Market Leader
-                    </h3>
-                    <p className="text-sm text-hyve-text/80">
-                      Leading position in aerospace sensing technology
-                    </p>
-                  </div>
-
-                  <div className="text-center">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-hyve-interactive to-hyve-interactive-dark flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-                      2027
-                    </div>
-                    <h3 className="text-lg font-semibold text-hyve-header mb-2">
-                      International Expansion
-                    </h3>
-                    <p className="text-sm text-hyve-text/80">
-                      Growth across Europe and North America
-                    </p>
-                  </div>
-
-                  <div className="text-center">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-hyve-accent to-hyve-interactive flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-                      2030
-                    </div>
-                    <h3 className="text-lg font-semibold text-hyve-header mb-2">Global Standard</h3>
-                    <p className="text-sm text-hyve-text/80">
-                      Industry standard for real-world data acquisition
-                    </p>
-                  </div>
-
-                  <div className="text-center">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-hyve-accent to-hyve-interactive flex items-center justify-center text-white text-xl font-bold mx-auto mb-4">
-                      Beyond
-                    </div>
-                    <h3 className="text-lg font-semibold text-hyve-header mb-2">
-                      Platform Technology
-                    </h3>
-                    <p className="text-sm text-hyve-text/80">
-                      Enabling emerging industries worldwide
-                    </p>
-                  </div>
-                </div>
-
-                <div className="text-center">
-                  <p className="text-base md:text-lg text-hyve-text/80 mb-6">
-                    By 2030, we aim to achieve a 2.5x improvement in UK aerospace competitiveness,
-                    enabling over 500 high-value jobs and generating £57M+ in annual revenue.
-                  </p>
-                  <Button
-                    size="lg"
-                    className="bg-hyve-text hover:bg-hyve-text-dark text-white group"
-                    onClick={() => {
-                      // Trigger the contact form in the header
-                      const contactButton = document.querySelector(
-                        '[data-contact-trigger]'
-                      ) as HTMLButtonElement
-                      if (contactButton) {
-                        contactButton.click()
-                      }
-                    }}
-                  >
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Book Demo
-                  </Button>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Vision & Market Opportunity */}
-        <Vision />
 
         {/* Footer spacing */}
         <div className="h-24" />

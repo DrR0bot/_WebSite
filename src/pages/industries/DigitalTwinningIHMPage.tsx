@@ -4,11 +4,11 @@ import { getVideoPath } from '@/lib/assets'
 
 const digitalTwinningIHMData = {
   id: 'digital-twinning-ihm',
-  title: 'Digital Twinning & IHM',
+  title: 'Digital Twin Correlation & Surface Health Monitoring',
   badge: 'DIGITAL TWINS & INTEGRATED HEALTH MONITORING',
-  tagline: 'Real-Time Digital Twins Powered by High-Density Sensing',
+  tagline: 'Real-time surface data to improve model fidelity, detect anomalies earlier, and support condition-based maintenance strategies.',
   description:
-    'Hyve Dynamics bridges the gap between simulation and reality by delivering real-time, high-density data that fuels accurate digital twins and integrated health monitoring. From wind turbines to bridges, our Haptic Matrix enables continuous structural intelligence — transforming how operators predict failures, optimise maintenance, and extend asset lifecycles across energy and infrastructure.',
+    'Hyve provides high-density pressure, temperature, and strain measurements across complex surfaces. This data can be used to correlate CFD/FEA models with real operating conditions and to support integrated health monitoring workflows across aerospace, energy, and industrial assets.',
   videoPath: getVideoPath('Wind-Turbine.webm'),
   videoPaths: [
     getVideoPath('Wind-Turbine.webm'),
@@ -18,37 +18,27 @@ const digitalTwinningIHMData = {
     {
       title: 'Live Digital Twin Correlation',
       description:
-        'Real-time validation of computational models (FEA, CFD) under actual operating conditions — bridging the gap between simulation and reality for energy systems and infrastructure.',
+        'Supports real-time correlation of computational models (CFD/FEA) using measured surface data in representative operating conditions.',
     },
     {
-      title: 'Predictive Failure Intelligence',
+      title: 'Early Anomaly Detection',
       description:
-        'Identifies stress concentrations, fatigue initiation points, thermal anomalies, and aerodynamic inefficiencies before critical failure occurs.',
+        'Surface strain and thermal patterns can indicate emerging issues earlier than periodic inspections, supporting earlier investigation and maintenance planning.',
     },
     {
-      title: 'Pinpoint Spatial Accuracy',
+      title: 'High-Density Spatial Insight',
       description:
-        'Over 100 sensors per 24 cm² provide exact location data for maintenance interventions — you know precisely where to inspect and repair.',
+        'Dense sensing enables localisation of changes across a surface, helping teams focus inspections and diagnostics where it matters.',
     },
     {
       title: 'Multi-Modal Sensing',
       description:
-        'Simultaneously captures wind flow, mechanical stress, temperature variations, and dynamic responses across complex geometries on turbines, blades, and structures.',
-    },
-    {
-      title: 'Optimised Maintenance & Yield',
-      description:
-        'Transforms reactive maintenance into data-driven, scheduled interventions — reducing downtime, maximising energy output, and extending asset life.',
-    },
-    {
-      title: 'Ultra-Thin & Non-Intrusive',
-      description:
-        'At just 0.33 mm, the Haptic Matrix integrates seamlessly with turbine blades, bridge decks, and building facades without affecting structural or aerodynamic properties.',
+        'Simultaneous pressure, temperature, and strain sensing supports combined aerodynamic + thermal + structural interpretation.',
     },
   ],
   summary:
-    'By replacing periodic inspections and static monitoring systems, Hyve Dynamics delivers continuous, real-world structural and aerodynamic intelligence — enabling operators to build accurate digital twins, prevent failures, optimise maintenance budgets, and drive sustainability across energy and infrastructure assets.',
-  cta: 'Enable intelligent digital twins and predictive health monitoring with Hyve Dynamics.',
+    'Hyve is designed to complement periodic inspection and existing monitoring systems by adding continuous, high-density surface measurements. This supports more accurate model correlation, earlier diagnostics, and a clearer understanding of how assets behave in real operating conditions.',
+  cta: 'Build digital twins on measured surface data — not assumptions.',
 }
 
 export const DigitalTwinningIHMPage = () => {
@@ -57,36 +47,39 @@ export const DigitalTwinningIHMPage = () => {
       <div className="bg-gradient-to-br from-white/95 to-hyve-accent/10 backdrop-blur-xl rounded-3xl shadow-xl border border-hyve-content/20 p-8 lg:p-12">
         <div className="mb-8">
           <Badge variant="secondary" className="px-3 py-1 text-xs font-medium mb-4">
-            UNDERDEVELOPED OPPORTUNITY
+            EMERGING CAPABILITY
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-hyve-header mb-4 font-heading">
             Structural Health Monitoring (IVHM)
           </h2>
           <p className="text-base md:text-lg text-hyve-text/80 max-w-3xl">
-            Shift from reactive maintenance (fix after failure) to predictive maintenance (detect before failure).
+            Move from scheduled inspection to data-informed maintenance decisions — starting with better surface measurements.
           </p>
         </div>
 
-        {/* The Problem */}
+        {/* The Challenge */}
         <div className="bg-red-500/5 border border-red-500/20 rounded-2xl p-6 mb-8">
           <h3 className="text-xl font-semibold text-hyve-header mb-4">
-            The Problem: Unscheduled Maintenance Costs Billions
+            The Challenge: Unscheduled Maintenance and Inspection Burden
           </h3>
+          <p className="text-sm text-hyve-text/70 mb-4">
+            Across aerospace and industrial infrastructure, unplanned maintenance events create significant operational and financial impact. Current inspection approaches rely heavily on periodic checks and manual diagnostics, which can miss early-stage degradation or require unnecessary maintenance interventions.
+          </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
             {[
-              { value: '$15-20B', label: 'Annual unscheduled maintenance (global fleet)' },
-              { value: '$150K-$500K', label: 'AOG cost per day (wide-body)' },
-              { value: '40-60%', label: 'Inspected components with no degradation' },
-              { value: '$500K-$2M', label: 'Per C-check (heavy maintenance)' },
+              { value: 'Unscheduled maintenance impact', label: 'Unexpected failures can disrupt operations and create significant repair costs.' },
+              { value: 'Aircraft-on-ground events', label: 'Unplanned downtime affects fleet availability and operational schedules.' },
+              { value: 'Inspection inefficiency', label: 'Many scheduled inspections confirm no degradation, consuming time and resources.' },
+              { value: 'Heavy maintenance cycles', label: 'Major inspections involve extensive labour and downtime.' },
             ].map((stat, index) => (
               <div key={index} className="text-center p-3 bg-white/70 rounded-lg">
-                <div className="text-xl font-bold text-red-600">{stat.value}</div>
+                <div className="text-sm font-bold text-hyve-header">{stat.value}</div>
                 <div className="text-xs text-hyve-text/70 mt-1">{stat.label}</div>
               </div>
             ))}
           </div>
           <p className="text-sm text-hyve-text/70">
-            Current inspection methods (visual, scheduled tear-down) miss internal damage. Failure modes like delamination, fatigue cracks, and impact damage often go undetected until catastrophic.
+            Continuous surface measurements can help identify changes earlier and support more targeted inspection strategies.
           </p>
         </div>
 
@@ -95,20 +88,23 @@ export const DigitalTwinningIHMPage = () => {
           <h3 className="text-xl font-semibold text-hyve-header mb-4">How Hyve Enables IVHM</h3>
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div className="p-5 bg-white/70 rounded-xl border border-hyve-content/20">
-              <h4 className="text-base font-semibold text-hyve-header mb-3">Composite Integration</h4>
+              <h4 className="text-base font-semibold text-hyve-header mb-3">Composite Integration (Roadmap / Programme-specific)</h4>
+              <p className="text-xs text-hyve-text/60 mb-3">
+                Embedding during layup is a potential integration route for certain composite structures, depending on certification, manufacturing workflow, and programme requirements.
+              </p>
               <ul className="space-y-2 text-sm text-hyve-text/70">
-                <li><strong className="text-hyve-header">Embedding during layup:</strong> Sensors placed between composite layers</li>
-                <li><strong className="text-hyve-header">Zero weight penalty:</strong> Thinner than resin-rich layer</li>
-                <li><strong className="text-hyve-header">Permanent monitoring:</strong> First flight through end of service life</li>
+                <li><strong className="text-hyve-header">Integration route:</strong> Between composite layers (programme-dependent)</li>
+                <li><strong className="text-hyve-header">Low profile:</strong> Designed to minimise impact on structure and mass</li>
+                <li><strong className="text-hyve-header">Lifecycle monitoring concept:</strong> Supports continuous measurement approaches</li>
               </ul>
             </div>
             <div className="p-5 bg-white/70 rounded-xl border border-hyve-content/20">
-              <h4 className="text-base font-semibold text-hyve-header mb-3">What Gets Detected</h4>
+              <h4 className="text-base font-semibold text-hyve-header mb-3">What Surface Data Can Indicate</h4>
               <ul className="space-y-2 text-sm text-hyve-text/70">
-                <li><strong className="text-hyve-header">Delamination:</strong> Strain changes indicate layer separation</li>
-                <li><strong className="text-hyve-header">Impact detection:</strong> Bird strikes, hail, debris signatures</li>
-                <li><strong className="text-hyve-header">Fatigue:</strong> Micro-strain precedes visible cracks by thousands of cycles</li>
-                <li><strong className="text-hyve-header">Degradation:</strong> Moisture ingress, thermal cycling effects</li>
+                <li><strong className="text-hyve-header">Delamination indicators:</strong> Local strain pattern changes consistent with layer separation</li>
+                <li><strong className="text-hyve-header">Impact signatures:</strong> Rapid strain transients consistent with impact events</li>
+                <li><strong className="text-hyve-header">Fatigue progression:</strong> Micro-strain shifts that may precede visible damage</li>
+                <li><strong className="text-hyve-header">Environmental degradation:</strong> Trends consistent with moisture/thermal cycling effects</li>
               </ul>
             </div>
           </div>
@@ -121,35 +117,46 @@ export const DigitalTwinningIHMPage = () => {
             <div>
               <h4 className="text-sm font-semibold text-hyve-text/60 mb-3">With Hyve IVHM</h4>
               <ul className="space-y-2 text-sm text-hyve-text/70">
-                <li>• <strong>Condition-based maintenance:</strong> Inspect only when sensors indicate degradation</li>
-                <li>• <strong>Avoided AOG events:</strong> Early detection prevents in-service failures</li>
-                <li>• <strong>Extended service life:</strong> Operate to actual limits, not assumptions</li>
+                <li>• <strong>Condition-based maintenance:</strong> Inspect when data indicates change</li>
+                <li>• <strong>Earlier investigation:</strong> Identify changes sooner to reduce downstream impact</li>
+                <li>• <strong>Operate with evidence:</strong> Maintenance decisions informed by measured trends</li>
               </ul>
             </div>
             <div className="flex flex-col justify-center">
-              <div className="text-center p-4 bg-white/70 rounded-xl">
-                <div className="text-3xl font-bold text-emerald-600">30-40%</div>
-                <div className="text-sm text-hyve-text/70 mt-1">Reduction in unscheduled maintenance costs</div>
-                <div className="text-xs text-hyve-text/50 mt-2">3-5x ROI over 10-year aircraft service life</div>
+              <div className="p-4 bg-white/70 rounded-xl">
+                <h4 className="text-sm font-semibold text-hyve-header mb-2">Value Potential (Programme-dependent)</h4>
+                <p className="text-sm text-hyve-text/70">
+                  Condition-based maintenance concepts can reduce unscheduled events and improve asset availability over time. Quantification depends on platform, duty cycle, and integration scope.
+                </p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Defense Applications */}
+        {/* Dual-Use Applications */}
         <div>
-          <h3 className="text-xl font-semibold text-hyve-header mb-4">Defense Applications</h3>
-          <div className="grid md:grid-cols-3 gap-4">
+          <h3 className="text-xl font-semibold text-hyve-header mb-4">Dual-Use Applications (Programme-dependent)</h3>
+          <div className="grid md:grid-cols-3 gap-4 mb-4">
             {[
-              { title: 'UAV Structural Monitoring', desc: 'Track cumulative damage in lightweight composites, predict remaining service life' },
-              { title: 'Hypersonic Instrumentation', desc: 'Real-time temperature + strain on leading edges, validate thermal protection' },
-              { title: 'Impact Detection', desc: 'Instant detection of small-arms, shrapnel, debris impacts; assess structural integrity' },
+              { title: 'UAV Structural Monitoring (Concept)', desc: 'Surface strain trending to support structural usage monitoring on composite airframes.' },
+              { title: 'High-Speed / Thermal Instrumentation (Concept)', desc: 'Combined temperature + strain measurement for test and evaluation on high-speed structures.' },
+              { title: 'Impact Event Indication (Concept)', desc: 'High-rate strain signatures that can support event detection and post-event inspection planning.' },
             ].map((item, index) => (
               <div key={index} className="p-4 bg-white/70 rounded-xl border border-hyve-content/20">
                 <h4 className="text-sm font-semibold text-hyve-header mb-2">{item.title}</h4>
                 <p className="text-xs text-hyve-text/70">{item.desc}</p>
               </div>
             ))}
+          </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="p-4 bg-white/70 rounded-xl border border-hyve-content/20">
+              <h4 className="text-sm font-semibold text-hyve-header mb-2">Maintenance Planning Support</h4>
+              <p className="text-xs text-hyve-text/70">Enables condition-based monitoring concepts that can reduce unplanned downtime and improve maintenance scheduling over time.</p>
+            </div>
+            <div className="p-4 bg-white/70 rounded-xl border border-hyve-content/20">
+              <h4 className="text-sm font-semibold text-hyve-header mb-2">Ultra-Thin & Non-Intrusive</h4>
+              <p className="text-xs text-hyve-text/70">Ultra-thin flexible arrays are designed to conform to complex geometries without structural penetration.</p>
+            </div>
           </div>
         </div>
       </div>

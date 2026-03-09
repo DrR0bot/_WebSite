@@ -60,7 +60,7 @@ export const Hero = () => {
               {/* Main Headline */}
               <motion.h1
                 variants={itemVariants}
-                className="flex flex-col gap-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extralight leading-[1.1] mb-6"
+                className="flex flex-col gap-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extralight leading-[1.1] mb-6"
               >
                 <span className="text-hyve-text">
                   Surface Monitoring Platform for <span className="font-medium">Real-Time</span>.

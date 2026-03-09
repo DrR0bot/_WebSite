@@ -9,7 +9,7 @@ const aerospaceData = {
   badge: 'AEROSPACE',
   tagline: '',
   description:
-    'Hyve provides dense, real-time pressure, temperature, and strain data across aerodynamic and structural surfaces — enabling faster wind tunnel campaigns, improved CFD validation, and non-invasive in-flight instrumentation.',
+    'Hyve provides dense, real-time pressure, temperature, and strain data across aerodynamic and structural surfaces — enabling faster wind tunnel campaigns, improved CFD correlation, and rapid non-invasive instrumentation for aerospace, defence, and advanced air mobility programmes.',
   videoPath: getVideoPath('A320.webm'),
   featuresHeading: 'Aerospace Applications',
   features: [
@@ -26,7 +26,12 @@ const aerospaceData = {
     {
       title: 'Flight Test Instrumentation',
       description:
-        'Non-invasive adhesive deployment for rapid in-flight aerodynamic and structural measurement.',
+        'Non-invasive surface deployment enabling rapid aerodynamic and structural measurement during flight campaigns.',
+    },
+    {
+      title: 'Defence & Unmanned Aerial Systems Testing',
+      description:
+        'Surface monitoring for UAV platforms, advanced air mobility vehicles, and defence test programmes.',
     },
     {
       title: 'Composite & Structural Monitoring',
@@ -35,8 +40,8 @@ const aerospaceData = {
     },
   ],
   summary:
-    'By replacing costly and time-consuming wind tunnel testing and CFD validation, Hyve Dynamics provides aerodynamic innovation, reduces R&D costs, and enhances flight efficiency. Our cutting-edge sensor technology empowers aircraft manufacturers, defense agencies, and space exploration pioneers to push the boundaries of aerodynamic performance.',
-  cta: 'Experience the future of aerospace data - powered by Hyve Dynamics.',
+    'By simplifying instrumentation setup and increasing measurement density, Hyve reduces the time and cost of aerodynamic testing while improving experimental fidelity across wind tunnel and flight test environments.',
+  cta: 'A new standard for real-time aerodynamic and structural measurement.',
 }
 
 export const AerospacePage = () => {
@@ -48,7 +53,7 @@ export const AerospacePage = () => {
             <Plane className="h-6 w-6 text-blue-600" />
           </div>
           <h3 className="text-2xl font-bold text-hyve-header font-heading">
-            Aerospace Testing
+            Measured Impact in Aerospace Test Campaigns
           </h3>
         </div>
 
@@ -68,7 +73,7 @@ export const AerospacePage = () => {
 
         <div className="bg-gradient-to-r from-hyve-header/5 to-hyve-accent/10 rounded-2xl p-6 mb-6">
           <h4 className="text-lg font-semibold text-hyve-header mb-4">
-            Example: Wind Tunnel Testing
+            High-Density Wind Tunnel Instrumentation
           </h4>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
@@ -92,25 +97,26 @@ export const AerospacePage = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="p-5 bg-white/70 rounded-xl border border-hyve-content/20">
-            <h4 className="text-base font-semibold text-hyve-header mb-3">CFD Validation</h4>
+            <h4 className="text-base font-semibold text-hyve-header mb-3">CFD Correlation & Validation</h4>
             <p className="text-sm text-hyve-text/70 mb-3">
-              High-cost CFD campaigns still require experimental validation. Hyve provides real-time validation with actual measured data.
+              High-cost CFD campaigns still require experimental validation. Hyve provides dense, real-time surface measurement to strengthen model correlation and identify aerodynamic discrepancies earlier in the development cycle.
             </p>
             <ul className="text-xs text-hyve-text/70 space-y-1">
               <li>• Identify correlation errors early</li>
-              <li>• Reduce iteration cycles by 30-40%</li>
-              <li>• Catch simulation errors before prototypes</li>
+              <li>• Reduce iteration cycles by 30–40%</li>
+              <li>• Validate simulation assumptions before prototype build</li>
             </ul>
           </div>
           <div className="p-5 bg-white/70 rounded-xl border border-hyve-content/20">
-            <h4 className="text-base font-semibold text-hyve-header mb-3">In-Flight Testing</h4>
+            <h4 className="text-base font-semibold text-hyve-header mb-3">Flight Test Instrumentation</h4>
             <p className="text-sm text-hyve-text/70 mb-3">
-              Non-invasive bonding, rapid deployment for flight test campaigns, no structural modification required.
+              Hyve enables rapid deployment of surface instrumentation without drilling or structural modification, making it suitable for temporary or campaign-based flight testing.
             </p>
+            <p className="text-xs text-hyve-text/60 mb-2 font-medium">Applications include:</p>
             <ul className="text-xs text-hyve-text/70 space-y-1">
-              <li>• New aircraft certification</li>
+              <li>• Aircraft certification campaigns</li>
               <li>• Aerodynamic performance validation</li>
-              <li>• Flutter testing</li>
+              <li>• Flutter and structural load testing</li>
             </ul>
           </div>
         </div>

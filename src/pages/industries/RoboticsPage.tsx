@@ -5,45 +5,45 @@ const roboticsData = {
   id: 'robotics',
   title: 'Robotics & Automation',
   badge: 'ROBOTICS',
-  tagline: 'Advancing Robotics with Environmental Intelligence',
+  tagline: 'Surface Intelligence for Next-Generation Robotics',
   description:
-    'Real-Time Operational Insights for Next-Generation Automation. At Hyve Dynamics, we unlock new dimensions of robotic performance by providing real-time environmental and interaction data that gives your automation systems unprecedented situational awareness.',
+    'High-density sensing that helps robots understand the surfaces they interact with.\n\nHyve\u2019s flexible sensor arrays capture pressure, temperature, and strain across complex surfaces. In robotics and automation environments, this type of sensing can provide new layers of environmental awareness, enabling robots to interpret contact, airflow, structural loads, and changing operating conditions.\n\nThis capability supports emerging approaches to tactile sensing, adaptive control, and intelligent robotic systems.',
   videoPath: getVideoPath('Robot.webm'),
   features: [
     {
       title: 'Environmental Awareness',
       description:
-        'Real-time sensing of contact forces, surface interactions, and environmental conditions during robotic operations.',
+        'Surface measurements can provide robots with richer information about contact forces, surface interactions, and environmental conditions.',
     },
     {
-      title: 'Adaptive Control Systems',
+      title: 'Adaptive Control Potential',
       description:
-        'Enables robots to dynamically adjust behaviors based on actual environmental feedback rather than pre-programmed responses.',
+        'Real-time sensing enables feedback loops that could allow robotic systems to respond dynamically to changing conditions rather than relying solely on pre-programmed behaviours.',
     },
     {
-      title: 'High-Density Tactile Feedback',
+      title: 'High-Density Surface Feedback',
       description:
-        'Over 100 sensors per 24 cm² provide granular interaction data for precision manipulation and assembly tasks.',
+        'Dense sensing networks capture detailed interaction data across robot end-effectors, structures, and operating environments.',
     },
     {
-      title: 'Process Optimization',
+      title: 'Process Insight',
       description:
-        'Continuous monitoring of robotic interactions reveals efficiency improvements and identifies optimal operating parameters.',
+        'Monitoring surface interactions may reveal optimisation opportunities in automated processes such as assembly, manipulation, and material handling.',
     },
     {
-      title: 'Predictive Maintenance',
+      title: 'Condition Monitoring',
       description:
-        'Monitors robotic system stress, wear patterns, and performance degradation to prevent unexpected downtime.',
+        'Surface strain and thermal trends can support monitoring of robotic systems for wear, load anomalies, or operational stress.',
     },
     {
-      title: 'Safety Enhancement',
+      title: 'Safety Awareness',
       description:
-        'Real-time force and collision detection improves human-robot collaboration and prevents equipment damage.',
+        'Force and interaction sensing could contribute to improved situational awareness in human-robot collaborative environments.',
     },
   ],
   summary:
-    'By enhancing traditional robotic feedback systems, Hyve Dynamics provides real-world operational intelligence that enables manufacturers to optimize automation performance, reduce maintenance costs, and unlock new capabilities in human-robot collaboration.',
-  cta: 'Transform your robotics with intelligent environmental sensing powered by Hyve Dynamics.',
+    'By extending sensing beyond traditional joint and motor feedback, surface-level measurements may provide robotic systems with a deeper understanding of how they interact with their environment. This type of data could support more intelligent automation across manufacturing, logistics, and service robotics.',
+  cta: 'Exploring new sensing layers for intelligent robotics and automation systems.',
 }
 
 export const RoboticsPage = () => {
