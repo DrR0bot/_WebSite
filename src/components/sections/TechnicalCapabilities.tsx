@@ -34,7 +34,7 @@ const physicalSpecs = [
   {
     label: 'Thickness',
     value: '0.33mm',
-    detail: 'Ultra-thin conformable profile',
+    detail: 'Ultra-thin flexible array',
   },
   {
     label: 'Sensing Elements',
@@ -252,7 +252,7 @@ export const TechnicalCapabilities = () => {
                 From Discrete Instrumentation to Continuous Surface Monitoring
               </h3>
               <p className="text-sm text-hyve-text/70 mb-4">
-                Traditional instrumentation samples points. Continuous surface monitoring captures behaviour.
+                Traditional instrumentation samples discrete points. Continuous surface monitoring captures surface behaviour.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Before Hyve */}

@@ -11,7 +11,7 @@ const automotiveData = {
   description:
     'Hyve provides dense, real-time pressure, temperature, and strain data across vehicle surfaces — enabling faster aerodynamic development, improved wind tunnel correlation, and real-world performance validation.',
   videoPath: getVideoPath('F1-Car.webm'),
-  featuresHeading: 'Automotive & Motorsport Applications',
+  featuresHeading: 'Key Features & Benefits',
   features: [
     {
       title: 'Real-Time Surface Data',

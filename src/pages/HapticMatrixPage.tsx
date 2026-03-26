@@ -482,7 +482,7 @@ export const HapticMatrixPage = () => {
                   How It Actually Works
                 </h2>
                 <p className="text-base md:text-lg text-hyve-text/80 max-w-3xl mx-auto">
-                  An overview of the sensing stack from conformable array to electronics, calibration, and data output.
+                  An overview of the sensing stack — from conformable array to electronics, calibration, and data output.
                 </p>
               </motion.div>
 
@@ -847,8 +847,8 @@ export const HapticMatrixPage = () => {
                         },
                         {
                           spec: 'Pressure Resolution',
-                          value: '±100Pa',
-                          notes: 'Minimum detectable pressure change',
+                          value: '±1kPa',
+                          notes: 'Review for configuration suitability',
                         },
                         {
                           spec: 'Sampling Rate',
@@ -858,7 +858,7 @@ export const HapticMatrixPage = () => {
                         {
                           spec: 'System Latency',
                           value: '1-10ms per array',
-                          notes: 'Correlation with driver inputs',
+                          notes: 'Configuration dependent',
                         },
                         {
                           spec: 'Spatial Resolution',
@@ -1016,13 +1016,13 @@ export const HapticMatrixPage = () => {
                 variants={itemVariants}
                 className="text-3xl md:text-4xl font-bold text-hyve-header mb-4 font-heading text-center"
               >
-                Competitive Comparison
+                Instrumentation Method Comparison
               </motion.h2>
               <motion.p
                 variants={itemVariants}
                 className="text-base text-hyve-text/70 text-center mb-8 max-w-2xl mx-auto"
               >
-                Why legacy methods fail and how Hyve solves the problems
+                How Hyve compares to traditional instrumentation methods
               </motion.p>
 
               {/* Comparison Table */}
@@ -1226,12 +1226,10 @@ export const HapticMatrixPage = () => {
                   Bottom Line
                 </h3>
                 <p className="text-sm text-hyve-text/80 max-w-3xl mx-auto">
-                  Hyve is the <strong>only technology</strong> that combines:
-                  full-surface coverage (like PSP), real-time feedback (unlike
-                  PSP, pressure taps, CFD), non-invasive deployment (unlike
-                  pressure taps), multi-parameter measurement (unlike any single
-                  legacy method), works in both controlled and real-world
-                  environments, and enables structural health monitoring.
+                  Hyve consolidates capabilities traditionally distributed across pressure taps,
+                  PSP, and computational modelling into a unified surface monitoring architecture
+                  — delivering dense, real-time, non-invasive measurement across aerodynamic and
+                  structural domains.
                 </p>
               </motion.div>
             </motion.div>

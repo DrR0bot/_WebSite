@@ -97,7 +97,7 @@ export const Industries = () => {
                 Surface Intelligence Across Critical Systems
               </h2>
               <p className="text-base md:text-lg text-hyve-text/80 max-w-2xl mx-auto">
-                Hyve enables continuous surface monitoring from aerospace testing environments to operational infrastructure and emerging robotic systems.
+                Hyve enables continuous high-density surface measurement and monitoring across aerospace testing environments, operational infrastructure, advanced vehicles and emerging robotic systems.
               </p>
             </motion.div>
 

@@ -5,7 +5,7 @@ import { getVideoPath } from '@/lib/assets'
 const digitalTwinningIHMData = {
   id: 'digital-twinning-ihm',
   title: 'Digital Twin Correlation & Surface Health Monitoring',
-  badge: 'DIGITAL TWINS & INTEGRATED HEALTH MONITORING',
+  badge: 'DIGITAL TWINNING & INTEGRATED HEALTH MONITORING',
   tagline: 'Real-time surface data to improve model fidelity, detect anomalies earlier, and support condition-based maintenance strategies.',
   description:
     'Hyve provides high-density pressure, temperature, and strain measurements across complex surfaces. This data can be used to correlate CFD/FEA models with real operating conditions and to support integrated health monitoring workflows across aerospace, energy, and industrial assets.',
@@ -88,12 +88,12 @@ export const DigitalTwinningIHMPage = () => {
           <h3 className="text-xl font-semibold text-hyve-header mb-4">How Hyve Enables IVHM</h3>
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div className="p-5 bg-white/70 rounded-xl border border-hyve-content/20">
-              <h4 className="text-base font-semibold text-hyve-header mb-3">Composite Integration (Roadmap / Programme-specific)</h4>
+              <h4 className="text-base font-semibold text-hyve-header mb-3">Composite Integration (Roadmap / Program-specific)</h4>
               <p className="text-xs text-hyve-text/60 mb-3">
-                Embedding during layup is a potential integration route for certain composite structures, depending on certification, manufacturing workflow, and programme requirements.
+                Embedding during layup is a potential integration route for certain composite structures, depending on certification, manufacturing workflow, and program requirements.
               </p>
               <ul className="space-y-2 text-sm text-hyve-text/70">
-                <li><strong className="text-hyve-header">Integration route:</strong> Between composite layers (programme-dependent)</li>
+                <li><strong className="text-hyve-header">Integration route:</strong> Between composite layers (program-dependent)</li>
                 <li><strong className="text-hyve-header">Low profile:</strong> Designed to minimise impact on structure and mass</li>
                 <li><strong className="text-hyve-header">Lifecycle monitoring concept:</strong> Supports continuous measurement approaches</li>
               </ul>
@@ -112,7 +112,7 @@ export const DigitalTwinningIHMPage = () => {
 
         {/* IVHM Business Case */}
         <div className="bg-gradient-to-r from-emerald-500/5 to-teal-500/10 rounded-2xl p-6 mb-8">
-          <h3 className="text-xl font-semibold text-hyve-header mb-4">IVHM Business Case</h3>
+          <h3 className="text-xl font-semibold text-hyve-header mb-4">IVHM Value Potential (Program-dependent)</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <h4 className="text-sm font-semibold text-hyve-text/60 mb-3">With Hyve IVHM</h4>
@@ -124,7 +124,7 @@ export const DigitalTwinningIHMPage = () => {
             </div>
             <div className="flex flex-col justify-center">
               <div className="p-4 bg-white/70 rounded-xl">
-                <h4 className="text-sm font-semibold text-hyve-header mb-2">Value Potential (Programme-dependent)</h4>
+                <h4 className="text-sm font-semibold text-hyve-header mb-2">Value Potential (Program-dependent)</h4>
                 <p className="text-sm text-hyve-text/70">
                   Condition-based maintenance concepts can reduce unscheduled events and improve asset availability over time. Quantification depends on platform, duty cycle, and integration scope.
                 </p>
@@ -135,7 +135,7 @@ export const DigitalTwinningIHMPage = () => {
 
         {/* Dual-Use Applications */}
         <div>
-          <h3 className="text-xl font-semibold text-hyve-header mb-4">Dual-Use Applications (Programme-dependent)</h3>
+          <h3 className="text-xl font-semibold text-hyve-header mb-4">Dual-Use Applications (Program-dependent)</h3>
           <div className="grid md:grid-cols-3 gap-4 mb-4">
             {[
               { title: 'UAV Structural Monitoring (Concept)', desc: 'Surface strain trending to support structural usage monitoring on composite airframes.' },

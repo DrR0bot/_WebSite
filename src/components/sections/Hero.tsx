@@ -75,8 +75,11 @@ export const Hero = () => {
                 variants={itemVariants}
                 className="text-base md:text-lg text-hyve-text/70 max-w-lg mb-10 font-light leading-relaxed"
               >
-                Hyve deploys conformable sensing arrays to capture continuous pressure, strain, and
-                temperature data — delivered through a structured subscription service.
+                Hyve deploys conformable sensing arrays that deliver high-density measurements of
+                pressure, temperature and strain, all in real time — enabling engineers to observe
+                aerodynamic and structural behaviour directly across a structure or surface, rather
+                than infer it from sparse measurement tools or simulations. This data is delivered
+                through a structured subscription service.
               </motion.p>
 
               {/* Elegant CTA Group */}

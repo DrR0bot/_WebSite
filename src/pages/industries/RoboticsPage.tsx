@@ -3,7 +3,7 @@ import { getVideoPath } from '@/lib/assets'
 
 const roboticsData = {
   id: 'robotics',
-  title: 'Robotics & Automation',
+  title: 'Surface Intelligence for Next-Generation Robotics',
   badge: 'ROBOTICS',
   tagline: 'Surface Intelligence for Next-Generation Robotics',
   description:
