@@ -689,24 +689,24 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
           </svg>
           
           {/* Labels positioned at line endpoints */}
-          <div className="callout-label callout-label-tr" style={{ position: 'absolute', top: '5%', right: '2%', textAlign: 'right' }}>
-            <span className="text-slate-700 font-semibold text-xs tracking-wide block">10×10 SENSOR MATRIX</span>
-            <span className="text-[10px] text-slate-400 font-normal italic">High-density tactile array</span>
+          <div className="callout-label callout-label-tr pointer-events-auto" style={{ position: 'absolute', top: '5%', right: '2%', textAlign: 'right' }}>
+            <span className="callout-title text-slate-700 font-semibold text-xs tracking-wide block">10×10 SENSOR MATRIX</span>
+            <span className="callout-subtitle text-[10px] text-slate-400 font-normal italic">High-density tactile array</span>
           </div>
           
-          <div className="callout-label callout-label-tl" style={{ position: 'absolute', top: '19%', left: '2%', textAlign: 'left' }}>
-            <span className="text-slate-700 font-semibold text-xs tracking-wide block">FLEXIBLE SUBSTRATE</span>
-            <span className="text-[10px] text-slate-400 font-normal italic">Conformable sensing surface</span>
+          <div className="callout-label callout-label-tl pointer-events-auto" style={{ position: 'absolute', top: '19%', left: '2%', textAlign: 'left' }}>
+            <span className="callout-title text-slate-700 font-semibold text-xs tracking-wide block">FLEXIBLE SUBSTRATE</span>
+            <span className="callout-subtitle text-[10px] text-slate-400 font-normal italic">Conformable sensing surface</span>
           </div>
           
-          <div className="callout-label callout-label-br" style={{ position: 'absolute', top: '92%', right: '2%', textAlign: 'right' }}>
-            <span className="text-slate-700 font-semibold text-xs tracking-wide block">MEMS ARRAY</span>
-            <span className="text-[10px] text-slate-400 font-normal italic">Custom sensing elements</span>
+          <div className="callout-label callout-label-br pointer-events-auto" style={{ position: 'absolute', top: '92%', right: '2%', textAlign: 'right' }}>
+            <span className="callout-title text-slate-700 font-semibold text-xs tracking-wide block">MEMS ARRAY</span>
+            <span className="callout-subtitle text-[10px] text-slate-400 font-normal italic">Custom sensing elements</span>
           </div>
           
-          <div className="callout-label callout-label-bl" style={{ position: 'absolute', top: '95%', left: '2%', textAlign: 'left' }}>
-            <span className="text-slate-700 font-semibold text-xs tracking-wide block">REAL-TIME ACQUISITION</span>
-            <span className="text-[10px] text-slate-400 font-normal italic">1kHz sampling rate</span>
+          <div className="callout-label callout-label-bl pointer-events-auto" style={{ position: 'absolute', top: '95%', left: '2%', textAlign: 'left' }}>
+            <span className="callout-title text-slate-700 font-semibold text-xs tracking-wide block">REAL-TIME ACQUISITION</span>
+            <span className="callout-subtitle text-[10px] text-slate-400 font-normal italic">1kHz sampling rate</span>
           </div>
           
         </div>
@@ -835,6 +835,22 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
           opacity: 0;
           transform: translateY(5px);
           animation: labelFadeIn 0.4s ease-out forwards;
+          cursor: default;
+        }
+        
+        .callout-label .callout-title,
+        .callout-label .callout-subtitle {
+          transition: font-size 0.25s ease, color 0.25s ease;
+        }
+        
+        .callout-label:hover .callout-title {
+          font-size: 16px;
+          color: #1e293b;
+        }
+        
+        .callout-label:hover .callout-subtitle {
+          font-size: 13px;
+          color: #64748b;
         }
         
         /* Staggered delays - Top Right */
