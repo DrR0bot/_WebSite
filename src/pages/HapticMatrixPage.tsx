@@ -281,7 +281,7 @@ export const HapticMatrixPage = () => {
                 {/* Product Image - No background */}
                 <div className="relative max-w-[350px]">
                   <img
-                    src="/MatrixMesh-r5.png"
+                    src={`${import.meta.env.BASE_URL}MatrixMesh-r5.png`}
                     alt="Hyve Haptic Matrix - Flexible sensor array showing 10x10 grid configuration on Kapton substrate"
                     className="w-full h-auto object-contain"
                   />
