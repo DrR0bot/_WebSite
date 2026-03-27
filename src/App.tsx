@@ -7,6 +7,7 @@ import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { Layout } from '@/components/layout/Layout'
 import { Hero } from '@/components/sections/Hero'
 import { Industries } from '@/components/sections/Industries'
+import { AwardBanner } from '@/components/sections/AwardBanner'
 import { TechnicalCapabilities } from '@/components/sections/TechnicalCapabilities'
 import { CustomMeshBackground } from '@/components/ui/CustomMeshBackground'
 import { ScrollToTop } from '@/components/ui/scroll-to-top'
@@ -54,8 +55,8 @@ const HomePage = () => {
           {/* Industries section */}
           <Industries />
 
-          {/* Spacing between Industries and Technical Capabilities */}
-          <div className="h-16 md:h-20 lg:h-24" />
+          {/* ATI Award Recognition */}
+          <AwardBanner />
 
           {/* Technical Capabilities section */}
           <TechnicalCapabilities />
