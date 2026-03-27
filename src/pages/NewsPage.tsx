@@ -13,12 +13,12 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { SEO } from '@/components/common/SEO'
+import { ArticleDrawer } from '@/components/ui/ArticleDrawer'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 
-// Animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -39,8 +39,12 @@ const itemVariants = {
   },
 }
 
-// News article types
 type ArticleCategory = 'all' | 'news' | 'press' | 'blog'
+
+interface ExternalLinkItem {
+  label: string
+  url: string
+}
 
 interface NewsArticle {
   id: string
@@ -51,22 +55,76 @@ interface NewsArticle {
   category: ArticleCategory
   categoryLabel: string
   featured?: boolean
-  href?: string
-  external?: boolean
+  content?: string[]
+  image?: string
+  externalLinks?: ExternalLinkItem[]
 }
 
-// Sample news data - this would typically come from a CMS or API
 const newsArticles: NewsArticle[] = [
   {
-    id: 'qinetiq-partnership-2025',
-    title: 'Hyve Dynamics Partners with QinetiQ for High-Speed Validation',
+    id: 'sustainable-skies-2026',
+    title: 'Hyve Dynamics Returns to Sustainable Skies World Summit',
     description:
-      'Exciting milestone as we begin comprehensive wind tunnel testing at QinetiQ facilities, validating our Haptic Matrix technology at speeds up to Mach 0.85.',
-    date: '2025-01-20',
-    readTime: '4 min read',
-    category: 'press',
-    categoryLabel: 'Press Release',
+      'For the second consecutive year, Hyve Dynamics exhibited at the Sustainable Skies World Summit in Farnborough — selected by ATI for their Innovator Showcase alongside five other companies driving sustainable aviation forward.',
+    date: '2026-03-17',
+    readTime: '3 min read',
+    category: 'news',
+    categoryLabel: 'Company News',
     featured: true,
+    content: [
+      'Hyve Dynamics returned to the Sustainable Skies World Summit (SSWS) on 17\u201318 March 2026, held at the Farnborough International Exhibition & Conference Centre. For the second consecutive year, Hyve was selected by the Aerospace Technology Institute (ATI) to showcase our technology to the global aviation sustainability community.',
+      'In 2026, Hyve was one of six companies chosen for the ATI\u2019s Innovator Showcase, alongside Jigsaw Structures, LAYRR, SHD Composite Materials, Conflux Technology, and Darvick. As described by ATI, Hyve is \u201cenabling a step-change in aerospace sustainability through real-time, high-resolution aerodynamic and structural data captured directly from the aircraft surface \u2014 even in extreme conditions such as wing icing or inside aero-engines.\u201d',
+      'This builds on our first appearance in 2025, when Hyve was one of seven companies to exhibit in the ATI Start-Up Zone \u2014 a curated showcase run in collaboration with the ATI Hub. That year, we exhibited alongside 3T Additive Manufacturing, Alloyed, CirculAIRity, Sora Aviation, ToffeeX, and Ultima Forma.',
+      'The Sustainable Skies World Summit brings together leaders from across the aerospace sector to address the industry\u2019s most pressing sustainability challenges \u2014 from non-CO\u2082 emissions and sustainable aviation fuels to next-generation aircraft design and operational efficiency. Partners and supporters include major industry names such as Embraer, IAG, Joby, Vertical Aerospace, NATS, and the Royal Aeronautical Society.',
+      'Hyve\u2019s conformable sensing technology directly supports these goals. By providing dense, real-time aerodynamic and structural data during testing and operation, our sensing arrays help engineers optimise designs for fuel efficiency, validate sustainable materials, and reduce development cycles \u2014 all critical steps on the path to cleaner aviation.',
+      'Being invited back for a second year \u2014 and elevated from the Start-Up Zone to the Innovator Showcase \u2014 reinforces the growing relevance of surface intelligence in the sustainability conversation.',
+    ],
+    externalLinks: [
+      {
+        label: 'ATI Innovator Showcase \u2014 SSWS 2026 (LinkedIn)',
+        url: 'https://www.linkedin.com/posts/aerospace-technology-institute_sustainableskiesworldsummit-ssws26-aerospace-activity-7438150836029071360-fN6D/',
+      },
+      {
+        label: 'Hyve Dynamics \u2014 SSWS 2026 Sponsors & Partners',
+        url: 'https://sustainableskies.co.uk/sponsors-partners/',
+      },
+      {
+        label: 'ATI Highlights from Sustainable Skies 2025',
+        url: 'https://www.ati.org.uk/news-events/news/four-highlights-from-sustainable-skies-world-summit-2025-2/',
+      },
+      {
+        label: 'Sustainable Skies World Summit',
+        url: 'https://sustainableskies.world/',
+      },
+    ],
+  },
+  {
+    id: 'nwtf-conference-2025',
+    title: 'Hyve Dynamics at the National Wind Tunnel Conference 2025',
+    description:
+      'Hyve Dynamics sponsored and exhibited at the NWTF Conference 2025 in Birmingham, showcasing our flexible membrane sensor technology to over 100 delegates from across the UK wind tunnel community.',
+    date: '2025-04-03',
+    readTime: '2 min read',
+    category: 'news',
+    categoryLabel: 'Company News',
+    image: `${import.meta.env.BASE_URL}NWTF-April2025.jpg`,
+    content: [
+      'Hyve Dynamics was proud to sponsor and exhibit at the National Wind Tunnel Facility (NWTF) Conference 2025, held in Birmingham. The event brought together over 100 delegates and featured 41 presentations, including 6 keynote speakers and 21 oral abstracts, alongside poster sessions and networking opportunities.',
+      'As one of four sponsors — alongside ATE, Evolution Measurement, and Imetrum — Hyve demonstrated our Flexible Membrane Sensor technology, which replaces traditional pressure taps with thousands of live data points, delivering high-resolution pressure and strain maps in real time.',
+      'The NWTF has also featured our technology on their New Technology page, recognising the Flexible Membrane Sensor as a significant advancement for the wind tunnel testing community. As described by the NWTF: "Hyve\'s flexible sensor skin replaces pressure taps with thousands of live data points, delivering high-resolution pressure and strain maps in real time — cutting test time, increasing accuracy, and unlocking true surface intelligence."',
+      'Our technology has been proven to match the performance of traditional pressure taps while delivering up to 100 times the data density, enabling far more detailed surface mapping, faster iteration, and deeper aerodynamic insight across aerospace, automotive, and beyond.',
+      'The conference provided an excellent opportunity to connect with wind tunnel operators, researchers, and industry professionals who are actively looking for next-generation instrumentation solutions. The next NWTF Conference will take place in 2027.',
+    ],
+    externalLinks: [
+      {
+        label: 'NWTF Conference 2025 Wrap-Up',
+        url: 'https://www.nwtf.ac.uk/news/nwtf-conference-2025-wraps-up/',
+      },
+      {
+        label: 'Hyve Flexible Membrane Sensor — NWTF New Technology',
+        url: 'https://www.nwtf.ac.uk/new-technology/flexible-membrane-sensor/',
+      },
+    ],
   },
   {
     id: 'trl6-advancement',
@@ -77,7 +135,6 @@ const newsArticles: NewsArticle[] = [
     readTime: '6 min read',
     category: 'blog',
     categoryLabel: 'Blog',
-    featured: false,
   },
   {
     id: 'aerospace-innovation-award',
@@ -88,7 +145,6 @@ const newsArticles: NewsArticle[] = [
     readTime: '3 min read',
     category: 'news',
     categoryLabel: 'Company News',
-    featured: false,
   },
   {
     id: 'biomimicry-sensor-design',
@@ -99,7 +155,6 @@ const newsArticles: NewsArticle[] = [
     readTime: '8 min read',
     category: 'blog',
     categoryLabel: 'Blog',
-    featured: false,
   },
   {
     id: 'net-zero-aviation',
@@ -110,22 +165,9 @@ const newsArticles: NewsArticle[] = [
     readTime: '5 min read',
     category: 'news',
     categoryLabel: 'Company News',
-    featured: false,
-  },
-  {
-    id: 'cranfield-collaboration',
-    title: 'Continuing Our Academic Partnership with Cranfield University',
-    description:
-      'Announcing the extension of our research collaboration with Cranfield University, focusing on next-generation composite integration techniques.',
-    date: '2024-10-30',
-    readTime: '4 min read',
-    category: 'press',
-    categoryLabel: 'Press Release',
-    featured: false,
   },
 ]
 
-// Category filter options
 const categoryFilters: { id: ArticleCategory; label: string; icon: React.ElementType }[] = [
   { id: 'all', label: 'All', icon: Rss },
   { id: 'news', label: 'Company News', icon: Newspaper },
@@ -133,82 +175,136 @@ const categoryFilters: { id: ArticleCategory; label: string; icon: React.Element
   { id: 'blog', label: 'Blog', icon: PenTool },
 ]
 
-// News card component
-const NewsCard: React.FC<{ article: NewsArticle }> = ({ article }) => {
+const getCategoryColor = (category: ArticleCategory) => {
+  switch (category) {
+    case 'news':
+      return 'bg-blue-100 text-blue-700'
+    case 'press':
+      return 'bg-purple-100 text-purple-700'
+    case 'blog':
+      return 'bg-green-100 text-green-700'
+    default:
+      return 'bg-hyve-accent/20 text-hyve-text'
+  }
+}
+
+const FeaturedHero: React.FC<{ article: NewsArticle; onReadMore: (article: NewsArticle) => void }> = ({
+  article,
+  onReadMore,
+}) => {
   const formattedDate = new Date(article.date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   })
-
-  const getCategoryColor = (category: ArticleCategory) => {
-    switch (category) {
-      case 'news':
-        return 'bg-blue-100 text-blue-700 hover:bg-blue-200'
-      case 'press':
-        return 'bg-purple-100 text-purple-700 hover:bg-purple-200'
-      case 'blog':
-        return 'bg-green-100 text-green-700 hover:bg-green-200'
-      default:
-        return 'bg-hyve-accent/20 text-hyve-text hover:bg-hyve-accent/30'
-    }
-  }
-
-  const cardContent = (
-    <Card className="h-full bg-white/80 backdrop-blur-sm border border-hyve-content hover:border-hyve-accent transition-all duration-300 hover:shadow-hyve-lg cursor-pointer">
-          <CardHeader className="pb-4">
-            <div className="flex items-center justify-between mb-3">
-              <Badge variant="secondary" className={getCategoryColor(article.category)}>
-                {article.categoryLabel}
-              </Badge>
-              {article.featured && (
-                <Badge className="bg-hyve-interactive text-white">Featured</Badge>
-              )}
-            </div>
-            <CardTitle className="text-xl md:text-2xl font-heading font-semibold text-hyve-header group-hover:text-hyve-interactive transition-colors">
-              {article.title}
-            </CardTitle>
-            <div className="flex items-center gap-4 text-sm text-hyve-text/70 mt-2">
-              <div className="flex items-center gap-1">
-                <Calendar className="h-4 w-4" />
-                {formattedDate}
-              </div>
-              <div className="flex items-center gap-1">
-                <Clock className="h-4 w-4" />
-                {article.readTime}
-              </div>
-            </div>
-          </CardHeader>
-          <CardContent className="pt-0">
-            <CardDescription className="text-hyve-text/80 leading-relaxed mb-4 font-body">
-              {article.description}
-            </CardDescription>
-            <div className="flex items-center text-hyve-interactive font-medium text-sm group-hover:gap-2 transition-all">
-              Read more
-              <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </CardContent>
-        </Card>
-  )
+  const hasContent = article.content && article.content.length > 0
 
   return (
-    <motion.div
-      variants={itemVariants}
-      className={cn('group', article.featured && 'md:col-span-2')}
-    >
-      {article.href ? (
-        <Link to={article.href} target={article.external ? '_blank' : undefined}>
-          {cardContent}
-        </Link>
-      ) : (
-        cardContent
-      )}
+    <motion.div variants={itemVariants} className="group mb-2">
+      <div
+        role={hasContent ? 'button' : undefined}
+        tabIndex={hasContent ? 0 : undefined}
+        onClick={() => hasContent && onReadMore(article)}
+        onKeyDown={(e) => { if (hasContent && (e.key === 'Enter' || e.key === ' ')) onReadMore(article) }}
+        className={cn('block', hasContent && 'cursor-pointer')}
+      >
+        {article.image && (
+          <div className="w-full h-64 md:h-80 overflow-hidden rounded-lg mb-6">
+            <img src={article.image} alt={article.title} className="w-full h-full object-cover" />
+          </div>
+        )}
+        <div className="flex items-center gap-3 mb-3">
+          <Badge variant="secondary" className={getCategoryColor(article.category)}>
+            {article.categoryLabel}
+          </Badge>
+          <Badge className="bg-hyve-interactive text-white">Featured</Badge>
+        </div>
+        <h2 className="text-3xl md:text-4xl font-heading font-bold text-hyve-header group-hover:text-hyve-interactive transition-colors mb-3 leading-tight">
+          {article.title}
+        </h2>
+        <div className="flex items-center gap-4 text-sm text-hyve-text/60 mb-4">
+          <div className="flex items-center gap-1.5">
+            <Calendar className="h-4 w-4" />
+            {formattedDate}
+          </div>
+          <div className="flex items-center gap-1.5">
+            <Clock className="h-4 w-4" />
+            {article.readTime}
+          </div>
+        </div>
+        <p className="text-base md:text-lg text-hyve-text/80 leading-relaxed max-w-3xl">
+          {article.description}
+        </p>
+        {hasContent && (
+          <div className="flex items-center text-hyve-interactive font-medium text-sm mt-4 group-hover:gap-2 transition-all">
+            Read full article
+            <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+          </div>
+        )}
+      </div>
+      <div className="h-[2px] bg-hyve-header/20 mt-8" />
     </motion.div>
+  )
+}
+
+const NewsCard: React.FC<{ article: NewsArticle; onReadMore: (article: NewsArticle) => void }> = ({
+  article,
+  onReadMore,
+}) => {
+  const formattedDate = new Date(article.date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
+  const hasContent = article.content && article.content.length > 0
+
+  return (
+    <motion.article variants={itemVariants} className="group pb-6 mb-6 border-b-2 border-hyve-header/15 last:border-b-0 last:mb-0 last:pb-0">
+      <div
+        role={hasContent ? 'button' : undefined}
+        tabIndex={hasContent ? 0 : undefined}
+        onClick={() => hasContent && onReadMore(article)}
+        onKeyDown={(e) => { if (hasContent && (e.key === 'Enter' || e.key === ' ')) onReadMore(article) }}
+        className={hasContent ? 'cursor-pointer' : ''}
+      >
+        {article.image && (
+          <div className="w-full h-40 overflow-hidden rounded-lg mb-4">
+            <img src={article.image} alt={article.title} className="w-full h-full object-cover" />
+          </div>
+        )}
+        <Badge variant="secondary" className={cn('mb-2', getCategoryColor(article.category))}>
+          {article.categoryLabel}
+        </Badge>
+        <h3 className="text-lg md:text-xl font-heading font-semibold text-hyve-header group-hover:text-hyve-interactive transition-colors mb-2 leading-snug">
+          {article.title}
+        </h3>
+        <div className="flex items-center gap-3 text-xs text-hyve-text/60 mb-3">
+          <div className="flex items-center gap-1">
+            <Calendar className="h-3.5 w-3.5" />
+            {formattedDate}
+          </div>
+          <div className="flex items-center gap-1">
+            <Clock className="h-3.5 w-3.5" />
+            {article.readTime}
+          </div>
+        </div>
+        <p className="text-sm text-hyve-text/70 leading-relaxed">
+          {article.description}
+        </p>
+        {hasContent && (
+          <div className="flex items-center text-hyve-interactive font-medium text-xs mt-3 group-hover:gap-1.5 transition-all">
+            Read more
+            <ArrowRight className="h-3.5 w-3.5 ml-1 group-hover:translate-x-1 transition-transform" />
+          </div>
+        )}
+      </div>
+    </motion.article>
   )
 }
 
 export const NewsPage = () => {
   const [activeFilter, setActiveFilter] = useState<ArticleCategory>('all')
+  const [selectedArticle, setSelectedArticle] = useState<NewsArticle | null>(null)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -218,6 +314,12 @@ export const NewsPage = () => {
     activeFilter === 'all'
       ? newsArticles
       : newsArticles.filter(article => article.category === activeFilter)
+
+  const featuredArticle = filteredArticles.find(a => a.featured)
+  const remainingArticles = filteredArticles.filter(a => !a.featured)
+  const midpoint = Math.ceil(remainingArticles.length / 2)
+  const leftColumn = remainingArticles.slice(0, midpoint)
+  const rightColumn = remainingArticles.slice(midpoint)
 
   return (
     <>
@@ -231,7 +333,6 @@ export const NewsPage = () => {
         {/* Header Section */}
         <section className="relative py-16 lg:py-20 pointer-events-auto">
           <div className="hyve-container">
-            {/* Back Navigation */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -317,18 +418,34 @@ export const NewsPage = () => {
           </div>
         </section>
 
-        {/* News Grid Section */}
+        {/* Newspaper Layout */}
         <section className="relative py-8 lg:py-12 pointer-events-auto">
           <div className="hyve-container">
             <motion.div
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3"
             >
-              {filteredArticles.map(article => (
-                <NewsCard key={article.id} article={article} />
-              ))}
+              {/* Featured Hero */}
+              {featuredArticle && (
+                <FeaturedHero article={featuredArticle} onReadMore={setSelectedArticle} />
+              )}
+
+              {/* Two-column newspaper layout */}
+              {remainingArticles.length > 0 && (
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div className="md:pr-8 md:border-r-2 border-hyve-header/15">
+                    {leftColumn.map(article => (
+                      <NewsCard key={article.id} article={article} onReadMore={setSelectedArticle} />
+                    ))}
+                  </div>
+                  <div className="md:pl-8">
+                    {rightColumn.map(article => (
+                      <NewsCard key={article.id} article={article} onReadMore={setSelectedArticle} />
+                    ))}
+                  </div>
+                </div>
+              )}
             </motion.div>
 
             {filteredArticles.length === 0 && (
@@ -386,9 +503,15 @@ export const NewsPage = () => {
           </div>
         </section>
 
-        {/* Footer spacing */}
         <div className="h-16" />
       </div>
+
+      {/* Article Drawer */}
+      <ArticleDrawer
+        article={selectedArticle}
+        open={selectedArticle !== null}
+        onClose={() => setSelectedArticle(null)}
+      />
     </>
   )
 }
