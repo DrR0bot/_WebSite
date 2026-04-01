@@ -49,15 +49,29 @@ const timelineData = [
     year: '2018\u20132023',
     title: 'Private Sector Development',
     description:
-      '5 years refining technology for commercial applications and securing multiple international patents',
+      '5 years refining technology for commercial applications and securing multiple international patents.',
     highlight: 'Industry Refinement',
   },
   {
-    year: '2023\u2013Present',
-    title: 'Market Leadership',
+    year: '2023\u20132026',
+    title: 'Commercial Launch & Aerospace Adoption',
     description:
-      'First aerospace-grade flexible sensor deployment, expanding across industries, building global presence',
+      'First aerospace-grade flexible sensor deployments, ATI Innovation Award nomination, and growing presence across the wind tunnel testing and sustainable aviation communities.',
     highlight: 'Commercial Success',
+  },
+  {
+    year: '2027',
+    title: 'Cross-Industry Expansion',
+    description:
+      'Expanding applications across automotive development, industrial systems, and infrastructure monitoring.',
+    highlight: 'Next Horizon',
+  },
+  {
+    year: '2030',
+    title: 'Surface Intelligence Platform',
+    description:
+      'Establishing surface intelligence as a foundational measurement layer for complex engineered systems.',
+    highlight: 'Long-term Vision',
   },
 ]
 
@@ -321,7 +335,7 @@ export const AboutPage = () => {
           </div>
         </section>
 
-        {/* Strategic Vision */}
+        {/* Strategic Vision CTA */}
         <section className="relative py-16 lg:py-20 pointer-events-auto">
           <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12">
             <motion.div
@@ -329,88 +343,41 @@ export const AboutPage = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-xl border border-hyve-content/20 p-8 lg:p-12"
+              className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-xl border border-hyve-content/20 p-8 lg:p-12 text-center"
             >
               <motion.h2
                 variants={itemVariants}
-                className="text-3xl md:text-4xl font-bold text-hyve-header mb-4 font-heading text-center"
+                className="text-3xl md:text-4xl font-bold text-hyve-header mb-4 font-heading"
               >
                 Strategic Vision
               </motion.h2>
 
               <motion.p
                 variants={itemVariants}
-                className="text-base md:text-lg text-hyve-text/80 leading-relaxed max-w-4xl mx-auto text-center mb-8"
+                className="text-base md:text-lg text-hyve-text/80 leading-relaxed max-w-3xl mx-auto mb-8"
               >
                 Hyve is building sensing infrastructure that enables continuous observation of
                 physical systems. As sensing density increases and data platforms mature, surface
-                intelligence can become a foundational data layer across engineering, infrastructure,
+                intelligence will become a foundational data layer across engineering, infrastructure,
                 and intelligent machines.
               </motion.p>
 
-              <motion.div variants={itemVariants} className="max-w-4xl mx-auto">
-                <div className="grid md:grid-cols-3 gap-8 mb-8">
-                  <div className="text-center">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-hyve-interactive to-hyve-interactive-dark flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-                      2025
-                    </div>
-                    <h3 className="text-lg font-semibold text-hyve-header mb-2">
-                      Aerospace Adoption
-                    </h3>
-                    <p className="text-sm text-hyve-text/80">
-                      Scaling deployment of high-density sensing arrays in aerospace testing and
-                      validation environments.
-                    </p>
-                  </div>
-
-                  <div className="text-center">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-hyve-interactive to-hyve-interactive-dark flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-                      2027
-                    </div>
-                    <h3 className="text-lg font-semibold text-hyve-header mb-2">
-                      Cross-Industry Expansion
-                    </h3>
-                    <p className="text-sm text-hyve-text/80">
-                      Expanding applications across automotive development, industrial systems, and
-                      infrastructure monitoring.
-                    </p>
-                  </div>
-
-                  <div className="text-center">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-hyve-accent to-hyve-interactive flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-                      2030
-                    </div>
-                    <h3 className="text-lg font-semibold text-hyve-header mb-2">
-                      Surface Intelligence Platform
-                    </h3>
-                    <p className="text-sm text-hyve-text/80">
-                      Establishing surface intelligence as a foundational measurement layer for
-                      complex engineered systems.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="text-center">
-                  <p className="text-base md:text-lg text-hyve-text/80 mb-6">
-                    Enabling real-world sensing across aircraft, vehicles, infrastructure, and
-                    intelligent machines.
-                  </p>
-                  <Button
-                    size="lg"
-                    className="bg-hyve-text hover:bg-hyve-text-dark text-white group"
-                    onClick={() => {
-                      const contactButton = document.querySelector(
-                        '[data-contact-trigger]'
-                      ) as HTMLButtonElement
-                      if (contactButton) {
-                        contactButton.click()
-                      }
-                    }}
-                  >
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Book Demo
-                  </Button>
-                </div>
+              <motion.div variants={itemVariants}>
+                <Button
+                  size="lg"
+                  className="bg-hyve-text hover:bg-hyve-text-dark text-white group"
+                  onClick={() => {
+                    const contactButton = document.querySelector(
+                      '[data-contact-trigger]'
+                    ) as HTMLButtonElement
+                    if (contactButton) {
+                      contactButton.click()
+                    }
+                  }}
+                >
+                  <Calendar className="mr-2 h-4 w-4" />
+                  Book Demo
+                </Button>
               </motion.div>
             </motion.div>
           </div>
