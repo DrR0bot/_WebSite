@@ -1,83 +1,76 @@
-const CACHE_NAME = 'hyve-dynamics-v1';
-const urlsToCache = [
-  '/',
-  '/index.html',
-  '/favicon.svg',
-  '/manifest.json',
-  // Add other critical assets here
-];
+const CACHE_NAME = 'hyve-dynamics-v2';
 
-// Install event - cache assets
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
-      .then(() => self.skipWaiting())
+    caches.open(CACHE_NAME).then((cache) =>
+      cache.addAll(['/', '/index.html', '/favicon.svg', '/manifest.json'])
+    )
   );
 });
 
-// Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    }).then(() => self.clients.claim())
+    caches.keys()
+      .then((names) => Promise.all(
+        names.filter((n) => n !== CACHE_NAME).map((n) => caches.delete(n))
+      ))
+      .then(() => self.clients.claim())
   );
 });
 
-// Fetch event - serve from cache, fallback to network
 self.addEventListener('fetch', (event) => {
-  // Skip non-GET requests
   if (event.request.method !== 'GET') return;
 
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Cache hit - return response
-        if (response) {
+  const url = new URL(event.request.url);
+
+  if (url.origin !== location.origin) return;
+  if (url.pathname.startsWith('/api/')) return;
+  if (url.pathname.startsWith('/_vercel/')) return;
+
+  // HTML/navigation: network-first so new deployments are picked up immediately
+  if (event.request.mode === 'navigate' || event.request.destination === 'document') {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
           return response;
-        }
+        })
+        .catch(() => caches.match('/index.html'))
+    );
+    return;
+  }
 
-        // Clone the request
-        const fetchRequest = event.request.clone();
-
-        return fetch(fetchRequest).then((response) => {
-          // Check if valid response
-          if (!response || response.status !== 200 || response.type !== 'basic') {
-            return response;
+  // Hashed assets (/assets/filename-HASH.js/css): cache-first (hash guarantees uniqueness)
+  if (url.pathname.startsWith('/assets/')) {
+    event.respondWith(
+      caches.match(event.request).then((cached) => {
+        if (cached) return cached;
+        return fetch(event.request).then((response) => {
+          if (response.ok) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
           }
-
-          // Clone the response
-          const responseToCache = response.clone();
-
-          // Cache the fetched response for future use
-          caches.open(CACHE_NAME)
-            .then((cache) => {
-              // Don't cache API calls or external resources
-              const url = new URL(event.request.url);
-              if (url.origin === location.origin && !url.pathname.startsWith('/api/')) {
-                cache.put(event.request, responseToCache);
-              }
-            });
-
           return response;
         });
       })
-      .catch(() => {
-        // Offline fallback
-        if (event.request.destination === 'document') {
-          return caches.match('/index.html');
+    );
+    return;
+  }
+
+  // Everything else (fonts, images, etc.): stale-while-revalidate
+  event.respondWith(
+    caches.match(event.request).then((cached) => {
+      const fetchPromise = fetch(event.request).then((response) => {
+        if (response.ok) {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
         }
-      })
+        return response;
+      }).catch(() => cached);
+
+      return cached || fetchPromise;
+    })
   );
 });
