@@ -45,7 +45,6 @@ const getSecurityHeaders = (isProduction = false) => ({
     'upgrade-insecure-requests',
     'block-all-mixed-content',
   ].join('; '),
-  'Cross-Origin-Embedder-Policy': 'require-corp',
   'Cross-Origin-Opener-Policy': 'same-origin',
   'Cross-Origin-Resource-Policy': 'same-origin',
 })
