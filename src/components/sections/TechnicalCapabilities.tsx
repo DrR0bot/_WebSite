@@ -48,7 +48,7 @@ const physicalSpecs = [
   },
   {
     label: 'Sampling',
-    value: '1kHz',
+    value: '+120Hz',
     detail: '500+ data points/sec',
   },
 ]

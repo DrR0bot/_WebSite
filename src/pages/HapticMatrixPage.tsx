@@ -164,7 +164,7 @@ export const HapticMatrixPage = () => {
     {
       question: "What's the data storage requirement for a typical test?",
       answer:
-        '100 sensors at 1kHz = 10,000 samples/second. Each sample ≈21 bytes. Total: ~210 KB/second or ~750 MB/hour. A typical 4-hour wind tunnel session = ~3 GB uncompressed CSV. Compressed: ~500 MB. Recommendation: Stream to cloud storage or use local SSD.',
+        '100 sensors at +120Hz = 10,000 samples/second. Each sample ≈21 bytes. Total: ~210 KB/second or ~750 MB/hour. A typical 4-hour wind tunnel session = ~3 GB uncompressed CSV. Compressed: ~500 MB. Recommendation: Stream to cloud storage or use local SSD.',
     },
     {
       question: 'Do I need special training to use Hyve?',
@@ -299,7 +299,7 @@ export const HapticMatrixPage = () => {
                   </div>
                   <div className="text-center p-3 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-hyve-content/20">
                     <div className="text-xl font-bold text-hyve-header font-mono">
-                      1kHz
+                      +120Hz
                     </div>
                     <div className="text-[10px] text-hyve-text/70">
                       Sampling
@@ -725,7 +725,7 @@ export const HapticMatrixPage = () => {
                     <ul className="space-y-2 text-sm text-hyve-text/70">
                       <li>
                         <strong className="text-hyve-header">Per-sensor:</strong>{' '}
-                        1kHz (1ms intervals)
+                        +120Hz (10ms intervals)
                       </li>
                       <li>
                         <strong className="text-hyve-header">
@@ -852,7 +852,7 @@ export const HapticMatrixPage = () => {
                         },
                         {
                           spec: 'Sampling Rate',
-                          value: '1kHz per sensor',
+                          value: '+120Hz per sensor',
                           notes: 'Real-time flow separation detection',
                         },
                         {

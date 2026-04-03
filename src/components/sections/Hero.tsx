@@ -63,7 +63,7 @@ export const Hero = () => {
                 className="flex flex-col gap-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extralight leading-[1.1] mb-6"
               >
                 <span className="text-hyve-text">
-                  Surface Monitoring Platform for <span className="font-medium">Real-Time</span>.
+                  Intelligent Surface Monitoring Platform for <span className="font-medium">Real-Time</span>.
                 </span>
                 <span className="text-hyve-text">
                   Aerodynamic and Infrastructure<span className="font-medium">Data</span>.
@@ -82,7 +82,7 @@ export const Hero = () => {
                 variants={itemVariants}
                 className="text-base md:text-lg text-hyve-text/70 max-w-lg mb-10 font-light leading-relaxed"
               >
-                Direct observation, not inference. Delivered as a structured subscription service.
+                Proven in Tier 1 aerospace testing. Built for every industry where surface behaviour matters.
               </motion.p>
 
               {/* Elegant CTA Group */}
