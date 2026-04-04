@@ -26,6 +26,7 @@ const NewsPage = lazy(() => import('@/pages/NewsPage').then(m => ({ default: m.N
 const AerodynamicInnovation2024 = lazy(() => import('@/pages/newsletters/AerodynamicInnovation2024').then(m => ({ default: m.AerodynamicInnovation2024 })))
 const SensorTechnologyTrends = lazy(() => import('@/pages/newsletters/SensorTechnologyTrends').then(m => ({ default: m.SensorTechnologyTrends })))
 const InvestorUpdateAugust2025 = lazy(() => import('@/pages/newsletters/InvestorUpdateAugust2025').then(m => ({ default: m.InvestorUpdateAugust2025 })))
+const WhitePapersPage = lazy(() => import('@/pages/WhitePapersPage').then(m => ({ default: m.WhitePapersPage })))
 
 // Loading fallback component
 const PageLoader = () => (
@@ -89,6 +90,7 @@ function App() {
               {/* Insights Routes */}
               <Route path="/insights/news" element={<NewsPage />} />
               <Route path="/insights/newsletter" element={<NewsletterPage />} />
+              <Route path="/insights/white-papers" element={<WhitePapersPage />} />
               <Route path="/insights/newsletter/aerodynamic-innovation-2024" element={<AerodynamicInnovation2024 />} />
               <Route path="/insights/newsletter/sensor-technology-trends" element={<SensorTechnologyTrends />} />
               

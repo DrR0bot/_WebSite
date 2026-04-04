@@ -2,6 +2,16 @@
   "buildCommand": "npm run build:vercel",
   "outputDirectory": "dist",
   "framework": "vite",
+  "redirects": [
+    { "source": "/energy", "destination": "/industries/energy", "permanent": true },
+    { "source": "/motorsport", "destination": "/industries/automotive", "permanent": true },
+    { "source": "/aerospace", "destination": "/industries/aerospace", "permanent": true },
+    { "source": "/automotive", "destination": "/industries/automotive", "permanent": true },
+    { "source": "/robotics", "destination": "/industries/robotics", "permanent": true },
+    { "source": "/structural-health", "destination": "/industries/structural-health", "permanent": true },
+    { "source": "/digital-twinning", "destination": "/industries/digital-twinning-ihm", "permanent": true },
+    { "source": "/technology", "destination": "/haptic-matrix", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],

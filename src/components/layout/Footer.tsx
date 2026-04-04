@@ -50,7 +50,7 @@ const footerSections = [
       { name: 'News & Blog', href: '/insights/news' },
       { name: 'Newsletter', href: '/insights/newsletter' },
       { name: 'Case Studies', href: '#case-studies' },
-      { name: 'White Papers', href: '#white-papers' },
+      { name: 'White Papers', href: '/insights/white-papers' },
     ],
   },
 ]

@@ -103,7 +103,10 @@ export const Hero = () => {
 
                 <button
                   className="text-sm text-hyve-text/60 hover:text-hyve-accent transition-colors duration-300 text-left pointer-events-auto"
-                  onClick={() => window.open('mailto:info@hyvedynamics.com', '_blank')}
+                  onClick={() => {
+                    const trigger = document.querySelector('[data-contact-trigger]') as HTMLButtonElement
+                    if (trigger) trigger.click()
+                  }}
                 >
                   Book Demo →
                 </button>

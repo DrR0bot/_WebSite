@@ -98,29 +98,28 @@ const ContactForm = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // Simulate form submission
-      // In production, you'd send this to your backend
-      await new Promise(resolve => setTimeout(resolve, 1500))
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          message: data.message,
+        }),
+      })
 
-      // For now, we'll also open the email client
-      const mailtoLink = `mailto:info@hyvedynamics.com?subject=Demo Request from ${data.name}&body=${encodeURIComponent(
-        `Name: ${data.name}\nEmail: ${data.email}\n\nDemo Interest:\n${data.message}`
-      )}`
-      window.open(mailtoLink)
+      if (!response.ok) {
+        throw new Error('Server error')
+      }
 
-      // Show success toast
       toast.success('Demo request sent!', {
         description: "We'll be in touch shortly to schedule your demo.",
         duration: 5000,
       })
 
-      // Reset form and close dialog
       reset()
       setOpen(false)
     } catch {
-      // Contact form submission failed
-
-      // Show error toast
       toast.error('Failed to send request', {
         description: 'Please try again or email us directly at info@hyvedynamics.com',
         duration: 5000,
