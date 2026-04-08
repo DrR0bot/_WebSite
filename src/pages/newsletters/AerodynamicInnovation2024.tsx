@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, Calendar, Clock, Share2, Download, Plane, Car, Combine } from 'lucide-react'
+import { ArrowLeft, Calendar, Clock, Download, Plane, Car, Combine } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { SEO } from '@/components/common/SEO'
+import { ShareButtons } from '@/components/common/ShareButtons'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -66,6 +67,16 @@ export const AerodynamicInnovation2024 = () => {
         title="Aerodynamic Innovation: 2024 Industry Outlook"
         description="Discover how Hyve's Haptic Matrix technology is revolutionizing aerodynamic testing across aerospace and automotive industries. Insights on Formula 1, commercial aviation, and real-time data acquisition."
         keywords="aerodynamic testing, haptic matrix, aerospace innovation, automotive aerodynamics, Formula 1, commercial aviation, sensor technology"
+        type="article"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: 'Aerodynamic Innovation: 2024 Industry Outlook',
+          description: 'Discover how Hyve\'s Haptic Matrix technology is revolutionizing aerodynamic testing across aerospace and automotive industries.',
+          datePublished: '2024-01-15',
+          author: { '@type': 'Organization', name: 'Hyve Dynamics' },
+          publisher: { '@type': 'Organization', name: 'Hyve Dynamics', logo: { '@type': 'ImageObject', url: 'https://hyvedynamics.com/HD-Logo-dk.svg' } },
+        }}
       />
 
       <div className="min-h-screen bg-hyve-background">
@@ -117,11 +128,12 @@ export const AerodynamicInnovation2024 = () => {
                   </div>
                 </div>
 
-                <div className="flex gap-3" data-exclude-from-pdf>
-                  <Button variant="outline" size="sm" className="border-hyve-accent text-hyve-text hover:bg-hyve-accent hover:text-white">
-                    <Share2 className="h-4 w-4 mr-2" />
-                    Share
-                  </Button>
+                <div className="flex items-center gap-3" data-exclude-from-pdf>
+                  <ShareButtons
+                    url="/insights/newsletter/aerodynamic-innovation-2024"
+                    title="Aerodynamic Innovation: 2024 Industry Outlook"
+                    description="Discover how Hyve's Haptic Matrix technology is revolutionizing aerodynamic testing across aerospace and automotive industries."
+                  />
                   <Button 
                     variant="outline" 
                     size="sm" 

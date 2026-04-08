@@ -27,6 +27,7 @@ export const AwardBanner = () => {
             src={`${import.meta.env.BASE_URL}ATI_logo.png`}
             alt="Aerospace Technology Institute"
             className="h-20 sm:h-24 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
           />
         </motion.a>
       </div>

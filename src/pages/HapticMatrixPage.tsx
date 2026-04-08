@@ -190,6 +190,18 @@ export const HapticMatrixPage = () => {
         title="Haptic Matrix Technology"
         description="The Haptic Matrix is a conformable, high-density sensing platform delivering real-time pressure, temperature and strain data. Ultra-thin at 0.33mm, deployable in under an hour."
         keywords="Haptic Matrix, sensor array, pressure mapping, temperature sensing, strain measurement, ultra-thin sensors, real-time data, Hyve Dynamics"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqs.map(faq => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: faq.answer,
+            },
+          })),
+        }}
       />
       <CustomMeshBackground
         enabled={true}
@@ -290,6 +302,7 @@ export const HapticMatrixPage = () => {
                     src={`${import.meta.env.BASE_URL}MatrixMesh-r5.png`}
                     alt="Hyve Haptic Matrix - Flexible sensor array showing 10x10 grid configuration on Kapton substrate"
                     className="w-full h-auto object-contain"
+                    loading="lazy"
                   />
                 </div>
 

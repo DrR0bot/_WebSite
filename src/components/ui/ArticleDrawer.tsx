@@ -1,6 +1,7 @@
 import { Calendar, Clock, ExternalLink } from 'lucide-react'
 import React from 'react'
 
+import { ShareButtons } from '@/components/common/ShareButtons'
 import { Badge } from '@/components/ui/badge'
 import {
   Sheet,
@@ -69,6 +70,7 @@ export const ArticleDrawer: React.FC<ArticleDrawerProps> = ({ article, open, onC
               src={article.image}
               alt={article.title}
               className="w-full h-full object-cover"
+              loading="lazy"
             />
           </div>
         )}
@@ -99,6 +101,13 @@ export const ArticleDrawer: React.FC<ArticleDrawerProps> = ({ article, open, onC
             <SheetDescription className="text-base text-hyve-text/80 leading-relaxed mt-4 font-medium">
               {article.description}
             </SheetDescription>
+
+            <ShareButtons
+              url={`/insights/news`}
+              title={article.title}
+              description={article.description}
+              className="mt-3"
+            />
           </SheetHeader>
 
           {article.content && article.content.length > 0 && (

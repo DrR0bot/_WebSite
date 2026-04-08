@@ -14,6 +14,7 @@ import { toast } from 'sonner'
 import * as z from 'zod'
 
 import { SEO } from '@/components/common/SEO'
+import { ShareButtons } from '@/components/common/ShareButtons'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -288,14 +289,21 @@ const WhitePaperCard: React.FC<{
           <CardDescription className="text-hyve-text/80 leading-relaxed mb-6 font-body">
             {paper.description}
           </CardDescription>
-          <Button
-            variant="outline"
-            className="w-full border-hyve-accent text-hyve-text hover:bg-hyve-interactive hover:text-white transition-all duration-200 group-hover:border-hyve-interactive group-hover:text-hyve-interactive"
-            onClick={() => onDownload(paper)}
-          >
-            <Download className="h-4 w-4 mr-2" />
-            Download White Paper
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              className="flex-1 border-hyve-accent text-hyve-text hover:bg-hyve-interactive hover:text-white transition-all duration-200 group-hover:border-hyve-interactive group-hover:text-hyve-interactive"
+              onClick={() => onDownload(paper)}
+            >
+              <Download className="h-4 w-4 mr-2" />
+              Download White Paper
+            </Button>
+            <ShareButtons
+              url="/insights/white-papers"
+              title={paper.title}
+              description={paper.description}
+            />
+          </div>
         </CardContent>
       </Card>
     </motion.div>

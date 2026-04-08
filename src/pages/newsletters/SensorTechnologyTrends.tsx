@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
-import { ArrowLeft, Calendar, Clock, Share2, Download, Zap, Shield, Brain, Network } from 'lucide-react'
+import { ArrowLeft, Calendar, Clock, Download, Zap, Shield, Brain, Network } from 'lucide-react'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import { SEO } from '@/components/common/SEO'
+import { ShareButtons } from '@/components/common/ShareButtons'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -41,6 +42,16 @@ export const SensorTechnologyTrends = () => {
         title="The Future of Sensor Technology: Trends Shaping 2024"
         description="Explore cutting-edge developments in ultra-thin sensor technology and IoT integration transforming structural health monitoring, robotics, and energy systems."
         keywords="sensor technology, IoT sensors, ultra-thin sensors, structural health monitoring, robotics sensors, energy systems, smart sensors"
+        type="article"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: 'The Future of Sensor Technology: Trends Shaping 2024',
+          description: 'Explore cutting-edge developments in ultra-thin sensor technology and IoT integration transforming structural health monitoring, robotics, and energy systems.',
+          datePublished: '2023-12-20',
+          author: { '@type': 'Organization', name: 'Hyve Dynamics' },
+          publisher: { '@type': 'Organization', name: 'Hyve Dynamics', logo: { '@type': 'ImageObject', url: 'https://hyvedynamics.com/HD-Logo-dk.svg' } },
+        }}
       />
 
       <div className="min-h-screen bg-hyve-background">
@@ -90,11 +101,12 @@ export const SensorTechnologyTrends = () => {
                   </div>
                 </div>
 
-                <div className="flex gap-3">
-                  <Button variant="outline" size="sm" className="border-hyve-accent text-hyve-text hover:bg-hyve-accent hover:text-white">
-                    <Share2 className="h-4 w-4 mr-2" />
-                    Share
-                  </Button>
+                <div className="flex items-center gap-3">
+                  <ShareButtons
+                    url="/insights/newsletter/sensor-technology-trends"
+                    title="The Future of Sensor Technology: Trends Shaping 2024"
+                    description="Explore cutting-edge developments in ultra-thin sensor technology and IoT integration."
+                  />
                   <Button variant="outline" size="sm" className="border-hyve-accent text-hyve-text hover:bg-hyve-accent hover:text-white">
                     <Download className="h-4 w-4 mr-2" />
                     Download PDF
