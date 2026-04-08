@@ -4,8 +4,10 @@
 User-agent: *
 Allow: /
 
-# Disallow API endpoints and internal paths
-Disallow: /api/
+# Disallow API endpoints (except OG image) and internal paths
+Disallow: /api/contact
+Disallow: /api/whitepaper-download
+Allow: /api/og
 Disallow: /_vercel/
 Disallow: /investor/
 
