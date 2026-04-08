@@ -1,31 +1,13 @@
 # Hyve Dynamics Robots.txt
-# https://www.hyvedynamics.com
+# https://hyvedynamics.com
 
-# Allow all web crawlers
 User-agent: *
 Allow: /
 
+# Disallow API endpoints and internal paths
+Disallow: /api/
+Disallow: /_vercel/
+Disallow: /investor/
+
 # Sitemap location
-Sitemap: https://www.hyvedynamics.com/sitemap.xml
-
-# Crawl-delay (optional - uncomment if needed)
-# Crawl-delay: 1
-
-# Disallow specific paths
-# Private newsletters section - no crawling or indexing allowed
-Disallow: /insights/
-Disallow: /insights/*
-Disallow: /newsletters/
-Disallow: /newsletters/*
-
-# Other restricted paths
-# Disallow: /api/
-# Disallow: /admin/
-# Disallow: /_internal/
-
-# Block bad bots (optional)
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Crawl-delay: 10
+Sitemap: https://hyvedynamics.com/sitemap.xml

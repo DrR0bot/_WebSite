@@ -1,70 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage - Highest Priority -->
+  <!-- Homepage -->
   <url>
-    <loc>https://www.hyvedynamics.com/</loc>
-    <lastmod>2025-01-02</lastmod>
+    <loc>https://hyvedynamics.com/</loc>
+    <lastmod>2026-04-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- Haptic Matrix - Core Product -->
+
+  <!-- Technology -->
   <url>
-    <loc>https://www.hyvedynamics.com/haptic-matrix</loc>
-    <lastmod>2025-01-02</lastmod>
+    <loc>https://hyvedynamics.com/haptic-matrix</loc>
+    <lastmod>2026-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
   <!-- Industry Pages -->
   <url>
-    <loc>https://www.hyvedynamics.com/industries/aerospace</loc>
-    <lastmod>2025-01-02</lastmod>
+    <loc>https://hyvedynamics.com/industries/aerospace</loc>
+    <lastmod>2026-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <url>
-    <loc>https://www.hyvedynamics.com/industries/automotive</loc>
-    <lastmod>2025-01-02</lastmod>
+    <loc>https://hyvedynamics.com/industries/automotive</loc>
+    <lastmod>2026-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <url>
-    <loc>https://www.hyvedynamics.com/industries/energy</loc>
-    <lastmod>2025-01-02</lastmod>
+    <loc>https://hyvedynamics.com/industries/digital-twinning-ihm</loc>
+    <lastmod>2026-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <url>
-    <loc>https://www.hyvedynamics.com/industries/robotics</loc>
-    <lastmod>2025-01-02</lastmod>
+    <loc>https://hyvedynamics.com/industries/energy</loc>
+    <lastmod>2026-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <url>
-    <loc>https://www.hyvedynamics.com/industries/structural-health</loc>
-    <lastmod>2025-01-02</lastmod>
+    <loc>https://hyvedynamics.com/industries/robotics</loc>
+    <lastmod>2026-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- About Page -->
+
   <url>
-    <loc>https://www.hyvedynamics.com/about</loc>
-    <lastmod>2025-01-02</lastmod>
+    <loc>https://hyvedynamics.com/industries/structural-health</loc>
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://hyvedynamics.com/about</loc>
+    <lastmod>2026-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
-  <!-- 
-    EXCLUDED FROM SITEMAP:
-    - /insights/* (Private newsletters - blocked in robots.txt)
-    - /newsletters/* (Private content - blocked in robots.txt)
-    - /admin/* (Admin pages)
-    - /api/* (API endpoints)
-  -->
+
+  <!-- Insights -->
+  <url>
+    <loc>https://hyvedynamics.com/insights/news</loc>
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://hyvedynamics.com/insights/newsletter</loc>
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://hyvedynamics.com/insights/newsletter/aerodynamic-innovation-2024</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://hyvedynamics.com/insights/newsletter/sensor-technology-trends</loc>
+    <lastmod>2023-12-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://hyvedynamics.com/insights/white-papers</loc>
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

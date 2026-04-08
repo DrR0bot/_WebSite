@@ -17,7 +17,7 @@ const defaultSEO = {
   keywords:
     'aerospace sensors, haptic matrix, real-time data, aerodynamic testing, structural health monitoring, IoT sensors',
   image: '/og-image.png', // You'll need to add this image
-  url: 'https://www.hyvedynamics.com',
+  url: 'https://hyvedynamics.com',
   type: 'website',
 }
 
