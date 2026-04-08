@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 export const NotFound = () => {
   return (
     <>
-      <SEO title="404 - Page Not Found" description="The page you're looking for doesn't exist." />
+      <SEO title="404 - Page Not Found" description="The page you're looking for doesn't exist." noindex />
 
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex items-center justify-center px-4">
         <div className="max-w-lg w-full text-center">

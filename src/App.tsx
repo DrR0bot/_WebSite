@@ -36,12 +36,37 @@ const PageLoader = () => (
 )
 
 // Home page component
+const homeJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      name: 'Hyve Dynamics',
+      url: 'https://hyvedynamics.com',
+      logo: 'https://hyvedynamics.com/HD-Logo-dk.svg',
+      description:
+        'Conformable, high-density sensing arrays delivering real-time pressure, temperature and strain data across aerospace, automotive, energy and robotics industries.',
+      sameAs: ['https://uk.linkedin.com/company/hyve-dynamics'],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: 'info@hyvedynamics.com',
+        contactType: 'sales',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      name: 'Hyve Dynamics',
+      url: 'https://hyvedynamics.com',
+    },
+  ],
+}
+
 const HomePage = () => {
   const enableMeshBackground = true
 
   return (
     <>
-      <SEO />
+      <SEO jsonLd={homeJsonLd} />
       <div className="min-h-screen relative pointer-events-none">
         <CustomMeshBackground
           enabled={enableMeshBackground}

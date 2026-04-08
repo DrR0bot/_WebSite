@@ -1,0 +1,45 @@
+# Hyve Dynamics
+
+> Hyve Dynamics builds conformable, high-density sensing arrays that deliver real-time pressure, temperature and strain data. Our Haptic Matrix platform transforms aerospace, automotive, energy and robotics industries with intelligent surface monitoring.
+
+## Company Overview
+
+Hyve Dynamics is a UK-based deeptech company developing the "nervous system for machines." Our core technology — the Haptic Matrix — is an ultra-thin (0.33mm), flexible sensor array that conforms to any surface and captures high-density measurement data in real time.
+
+Proven in Tier 1 aerospace wind tunnel testing, the platform is built for any industry where surface behaviour matters.
+
+## Core Technology: Haptic Matrix
+
+- Ultra-thin conformable sensor arrays (0.33mm)
+- Multi-modal: pressure, temperature, and strain sensing
+- 100+ sensing nodes per array
+- Real-time high-frequency data acquisition
+- Non-invasive deployment in under 1 hour
+- Reusable and repositionable without damage
+
+## Industries Served
+
+- **Aerospace**: Wind tunnel instrumentation, CFD validation, flight test, structural health monitoring
+- **Automotive & Motorsport**: Aerodynamic development, downforce mapping, EV efficiency, thermal management
+- **Digital Twinning & IHM**: Live digital twin correlation, condition-based maintenance, anomaly detection
+- **Robotics**: Tactile sensing, environmental awareness, adaptive control, process monitoring
+- **Energy**: Wind turbine monitoring, infrastructure health assessment
+- **Structural Health**: Composite monitoring, fatigue detection, impact event indication
+
+## Key Pages
+
+- Homepage: https://hyvedynamics.com/
+- Technology: https://hyvedynamics.com/haptic-matrix
+- Aerospace: https://hyvedynamics.com/industries/aerospace
+- Automotive: https://hyvedynamics.com/industries/automotive
+- Digital Twinning & IHM: https://hyvedynamics.com/industries/digital-twinning-ihm
+- Robotics: https://hyvedynamics.com/industries/robotics
+- About: https://hyvedynamics.com/about
+- News: https://hyvedynamics.com/insights/news
+- White Papers: https://hyvedynamics.com/insights/white-papers
+
+## Contact
+
+- Email: info@hyvedynamics.com
+- LinkedIn: https://uk.linkedin.com/company/hyve-dynamics
+- Company Registration: 12258323 (England & Wales)

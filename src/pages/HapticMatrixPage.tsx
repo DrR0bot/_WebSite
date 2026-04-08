@@ -31,6 +31,7 @@ import {
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { SEO } from '@/components/common/SEO'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -185,6 +186,11 @@ export const HapticMatrixPage = () => {
 
   return (
     <div className="min-h-screen relative">
+      <SEO
+        title="Haptic Matrix Technology"
+        description="The Haptic Matrix is a conformable, high-density sensing platform delivering real-time pressure, temperature and strain data. Ultra-thin at 0.33mm, deployable in under an hour."
+        keywords="Haptic Matrix, sensor array, pressure mapping, temperature sensing, strain measurement, ultra-thin sensors, real-time data, Hyve Dynamics"
+      />
       <CustomMeshBackground
         enabled={true}
         className="min-h-screen"

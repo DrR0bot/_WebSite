@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { NoIndex } from '@/components/common/NoIndex'
-import { SEO } from '@/components/common/SEO'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -63,11 +62,9 @@ export const InvestorUpdateAugust2025 = () => {
 
   return (
     <>
-      <NoIndex />
-      <SEO
+      <NoIndex
         title="August 2025 Investor Update - Confidential"
-        description="Confidential investor update for Hyve Dynamics covering technical progress, leadership expansion, and commercialization strategy."
-        keywords="investor update, sensor array, wind tunnel testing, TRL 6, aerospace technology, confidential"
+        description="Confidential investor update for Hyve Dynamics."
       />
 
       <div className="min-h-screen bg-hyve-background">

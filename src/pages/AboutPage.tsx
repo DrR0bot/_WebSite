@@ -10,6 +10,7 @@ import {
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+import { SEO } from '@/components/common/SEO'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -109,6 +110,11 @@ export const AboutPage = () => {
 
   return (
     <div className="min-h-screen relative">
+      <SEO
+        title="About Us"
+        description="Hyve Dynamics is building the nervous system for machines. Learn about our mission to transform industries through conformable, high-density sensing technology."
+        keywords="about Hyve Dynamics, sensor technology company, UK deeptech, haptic matrix, real-time sensing"
+      />
       <CustomMeshBackground enabled={true} className="min-h-screen" blur={true} blurIntensity="sm">
         {/* Hero Section */}
         <section className="relative min-h-[60vh] flex items-center py-16 lg:py-20 pointer-events-auto">

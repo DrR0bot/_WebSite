@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
+import { SEO } from '@/components/common/SEO'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { CustomMeshBackground } from '@/components/ui/CustomMeshBackground'
@@ -68,6 +69,11 @@ export const IndustryPageFocused: React.FC<IndustryPageProps & { children?: Reac
 
   return (
     <div className="min-h-screen relative">
+      <SEO
+        title={industry.title}
+        description={industry.description.split('\n')[0]}
+        keywords={`${industry.badge || industry.id}, Haptic Matrix, sensor technology, real-time data, Hyve Dynamics`}
+      />
       <CustomMeshBackground enabled={true} className="min-h-screen" blur={true} blurIntensity="sm">
         {/* Main Content */}
         <section className="relative min-h-screen flex items-center py-20 pointer-events-auto">
