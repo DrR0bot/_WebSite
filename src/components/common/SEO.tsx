@@ -21,7 +21,7 @@ const defaultSEO = {
     'Conformable, high-density sensing arrays delivering real-time pressure, temperature and strain data. Proven in Tier 1 aerospace testing, built for every industry where surface behaviour matters.',
   keywords:
     'Haptic Matrix, sensor technology, aerodynamic testing, real-time data acquisition, structural health monitoring, digital twins, IoT sensors, aerospace sensors, automotive sensors, Hyve Dynamics',
-  image: `${SITE_URL}/api/og`,
+  image: `${SITE_URL}/og_image.png`,
   type: 'website',
 }
 
@@ -40,13 +40,7 @@ export const SEO: React.FC<SEOProps> = ({
   const pageTitle = title ? `${title} | Hyve Dynamics` : defaultSEO.title
   const pageDescription = description || defaultSEO.description
 
-  const ogImageUrl = image || (() => {
-    const params = new URLSearchParams()
-    if (title) params.set('subtitle', title)
-    if (description) params.set('description', description.slice(0, 150))
-    const qs = params.toString()
-    return `${SITE_URL}/api/og${qs ? `?${qs}` : ''}`
-  })()
+  const ogImageUrl = image || defaultSEO.image
 
   const seo = {
     title: pageTitle,
