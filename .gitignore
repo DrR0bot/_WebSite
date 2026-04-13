@@ -50,3 +50,7 @@ security-audit-report.json
 
 # Documentation (internal use only)
 docs/
+
+# Private pitch deck, investor research, and confidential attachments.
+# Keep this directory for a separate private Git repo; do not publish with the website.
+deck_private_7pc/

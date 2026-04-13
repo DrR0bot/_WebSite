@@ -66,6 +66,10 @@ src/
 └── types/           # TypeScript types
 ```
 
+### Private pitch deck pack (not in Git on this repo)
+
+Investor deck copy, research, and confidential attachments live in **`deck_private_7pc/`** at the repository root. That path is **gitignored** here so it is not pushed with the website. Initialise a **separate private repository** from that folder if you want version control for the deck. See **`deck_private_7pc/README.md`**.
+
 ## 🧪 Testing
 
 ```bash

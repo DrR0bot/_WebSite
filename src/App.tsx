@@ -1,6 +1,6 @@
 // src/App.tsx - Hyve Dynamics with Header and Navigation
 import { lazy, Suspense } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom'
 
 import { SEO } from '@/components/common/SEO'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
@@ -27,6 +27,7 @@ const AerodynamicInnovation2024 = lazy(() => import('@/pages/newsletters/Aerodyn
 const SensorTechnologyTrends = lazy(() => import('@/pages/newsletters/SensorTechnologyTrends').then(m => ({ default: m.SensorTechnologyTrends })))
 const InvestorUpdateAugust2025 = lazy(() => import('@/pages/newsletters/InvestorUpdateAugust2025').then(m => ({ default: m.InvestorUpdateAugust2025 })))
 const WhitePapersPage = lazy(() => import('@/pages/WhitePapersPage').then(m => ({ default: m.WhitePapersPage })))
+const PitchDeckPage = lazy(() => import('@/pages/deck/PitchDeckPage').then(m => ({ default: m.PitchDeckPage })))
 
 // Loading fallback component
 const PageLoader = () => (
@@ -95,13 +96,25 @@ const HomePage = () => {
   )
 }
 
+// Layout wrapper for standard pages (header + footer)
+const LayoutWrapper = () => (
+  <Layout>
+    <Outlet />
+    <ScrollToTop showAfter={400} />
+  </Layout>
+)
+
 function App() {
   return (
     <Router basename={import.meta.env.BASE_URL}>
-      <Layout>
-        <ErrorBoundary>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
+      <ErrorBoundary>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            {/* Standalone full-screen routes (no header/footer) */}
+            <Route path="/deck" element={<PitchDeckPage />} />
+
+            {/* Standard routes with Layout */}
+            <Route element={<LayoutWrapper />}>
               <Route path="/" element={<HomePage />} />
               <Route path="/haptic-matrix" element={<HapticMatrixPage />} />
               <Route path="/about" element={<AboutPage />} />
@@ -111,24 +124,23 @@ function App() {
               <Route path="/industries/energy" element={<DigitalTwinningIHMPage />} />
               <Route path="/industries/structural-health" element={<DigitalTwinningIHMPage />} />
               <Route path="/industries/robotics" element={<RoboticsPage />} />
-              
+
               {/* Insights Routes */}
               <Route path="/insights/news" element={<NewsPage />} />
               <Route path="/insights/newsletter" element={<NewsletterPage />} />
               <Route path="/insights/white-papers" element={<WhitePapersPage />} />
               <Route path="/insights/newsletter/aerodynamic-innovation-2024" element={<AerodynamicInnovation2024 />} />
               <Route path="/insights/newsletter/sensor-technology-trends" element={<SensorTechnologyTrends />} />
-              
+
               {/* Secret Investor Newsletter - Not indexed */}
               <Route path="/investor/updates/august-2025" element={<InvestorUpdateAugust2025 />} />
-              
+
               {/* Catch-all route for 404 pages */}
               <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </ErrorBoundary>
-        <ScrollToTop showAfter={400} />
-      </Layout>
+            </Route>
+          </Routes>
+        </Suspense>
+      </ErrorBoundary>
     </Router>
   )
 }
