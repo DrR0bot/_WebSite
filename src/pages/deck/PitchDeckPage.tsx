@@ -520,7 +520,7 @@ const landscapeContent = (
           <tr className="border-b border-hyve-text/10">
             <td className="py-2.5 pr-3">Pressure taps</td>
             <td className="py-2.5 pr-3 text-center">✅ Yes</td>
-            <td className="py-2.5 pr-3 text-center">✅</td>
+            <td className="py-2.5 pr-3 text-center">✅ <span className="text-[9px] text-hyve-text/40 block">(infrastructure)</span></td>
             <td className="py-2.5 pr-3 text-center">✅ Yes</td>
             <td className="py-2.5 pr-3 text-center">❌ No</td>
             <td className="py-2.5 text-center">❌ Tunnel only</td>
@@ -651,7 +651,7 @@ const capitalContent = (
 
     <div className="border-t border-hyve-text/15 pt-4">
       <p className="text-sm font-semibold text-hyve-header mb-3">Where we are today — TRL 6</p>
-      <ul className="space-y-1.5 text-xs md:text-sm text-hyve-text leading-relaxed">
+      <ul className="list-disc list-inside space-y-1.5 text-xs md:text-sm text-hyve-text leading-relaxed">
         <li>Haptic Matrix demonstrated in a relevant environment: Airbus Filton wind tunnel, live programme model</li>
         <li>Active testing partnerships: Red Bull Racing, Alpine, Aston Martin · British Cycling</li>
         <li>Airbus open invitation to test on any active wind tunnel programme model</li>
@@ -760,7 +760,7 @@ const askContent = (
       <div>
         <p className="text-sm font-semibold mb-2">Why Hyve</p>
         <p className="text-xs text-hyve-text/70 leading-relaxed">
-          Six years of research. Four patents. Demonstrated in a live Airbus wind tunnel programme. Active testing with Red Bull Racing, Alpine, Aston Martin and elite sport. The technology is not theoretical. It is already working.
+          Six years of research. Four patents. Demonstrated in a live Airbus wind tunnel programme. Active testing with Red Bull Racing, Alpine, Aston Martin and British Cycling. The technology is not theoretical. It is already working.
         </p>
       </div>
     </div>
