@@ -76,7 +76,7 @@ const coverContent = (
     {/* Bottom row — round info left, entity right */}
     <div className="flex justify-between items-end pb-2">
       <p className="text-xs md:text-sm text-hyve-text/60 font-light">
-        £3M Seed Round · April 2026 · Strictly Confidential
+        £3.5M Seed Round · April 2026 · Strictly Confidential
       </p>
       <p className="text-xs md:text-sm text-hyve-text/60 font-light">
         Hyve Dynamics Holdings Limited
@@ -685,7 +685,7 @@ const teamContent = (
 const capitalContent = (
   <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center gap-6 text-hyve-header">
     <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
-      This £3M raise has one job: get Hyve to Series A with proof that the platform scales.
+      This £3.5M raise has one job: get Hyve to Series A with proof that the platform scales.
     </p>
 
     <div className="border-t border-hyve-text/15 pt-4">
@@ -700,7 +700,7 @@ const capitalContent = (
     </div>
 
     <div>
-      <p className="text-sm font-semibold text-hyve-header mb-3">What £3M delivers — 24-month milestones</p>
+      <p className="text-sm font-semibold text-hyve-header mb-3">What £3.5M delivers — 24-month milestones</p>
       <table className="w-full text-left border-collapse">
         <thead>
           <tr className="border-b border-hyve-text/15">
@@ -734,32 +734,42 @@ const capitalContent = (
       </table>
     </div>
 
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 border-t border-hyve-text/15 pt-4">
+    <div className="grid grid-cols-3 md:grid-cols-6 gap-3 border-t border-hyve-text/15 pt-4">
       <div className="text-center">
-        <p className="text-lg md:text-xl font-bold text-hyve-header">70%</p>
-        <p className="text-xs text-hyve-text/60">R&amp;D &amp; Manufacturing</p>
-        <p className="text-xs text-hyve-text/40">£2.1M</p>
+        <p className="text-lg md:text-xl font-bold text-hyve-header">60%</p>
+        <p className="text-xs text-hyve-text/60">Team / People</p>
+        <p className="text-xs text-hyve-text/40">£2.10M</p>
       </div>
       <div className="text-center">
-        <p className="text-lg md:text-xl font-bold text-hyve-header">15%</p>
-        <p className="text-xs text-hyve-text/60">Commercial &amp; GTM</p>
-        <p className="text-xs text-hyve-text/40">£450K</p>
+        <p className="text-lg md:text-xl font-bold text-hyve-header">22%</p>
+        <p className="text-xs text-hyve-text/60">R&amp;D + Hardware</p>
+        <p className="text-xs text-hyve-text/40">£770K</p>
       </div>
       <div className="text-center">
-        <p className="text-lg md:text-xl font-bold text-hyve-header">10%</p>
-        <p className="text-xs text-hyve-text/60">Technical Hires</p>
-        <p className="text-xs text-hyve-text/40">£300K</p>
+        <p className="text-lg md:text-xl font-bold text-hyve-header">7%</p>
+        <p className="text-xs text-hyve-text/60">Cloud + Software</p>
+        <p className="text-xs text-hyve-text/40">£245K</p>
       </div>
       <div className="text-center">
         <p className="text-lg md:text-xl font-bold text-hyve-header">5%</p>
-        <p className="text-xs text-hyve-text/60">IP Expansion</p>
-        <p className="text-xs text-hyve-text/40">£150K</p>
+        <p className="text-xs text-hyve-text/60">Go-to-Market</p>
+        <p className="text-xs text-hyve-text/40">£175K</p>
+      </div>
+      <div className="text-center">
+        <p className="text-lg md:text-xl font-bold text-hyve-header">4%</p>
+        <p className="text-xs text-hyve-text/60">Legal / Ops</p>
+        <p className="text-xs text-hyve-text/40">£140K</p>
+      </div>
+      <div className="text-center">
+        <p className="text-lg md:text-xl font-bold text-hyve-header">2%</p>
+        <p className="text-xs text-hyve-text/60">Contingency</p>
+        <p className="text-xs text-hyve-text/40">£70K</p>
       </div>
     </div>
 
     <div className="border-t border-hyve-text/15 pt-4 text-xs text-hyve-text leading-relaxed space-y-1">
       <p className="font-semibold text-hyve-header text-sm mb-2">The funding ladder</p>
-      <p><strong>£3M Seed</strong> → <strong>Series A £8–12M</strong> → <strong>Series B £25M+</strong> → <strong>Exit / IPO</strong></p>
+      <p><strong>£3.5M Seed</strong> → <strong>Series A £8–12M</strong> → <strong>Series B £25M+</strong> → <strong>Exit / IPO</strong></p>
       <p className="text-hyve-text/60">Series A trigger: £1.1M ARR · 3 paying customers · TRL 9 production</p>
       <p className="text-hyve-text/60">Series B trigger: £5M+ ARR · IVHM contracts signed · international GTM live</p>
     </div>
@@ -770,11 +780,11 @@ const capitalContent = (
 const askContent = (
   <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center gap-8 text-hyve-header">
     <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
-      Hyve is raising £3M Seed to take validated technology to production scale and prove the platform compounds.
+      Hyve is raising £3.5M Seed to take validated technology to production scale and prove the platform compounds.
     </p>
 
     <p className="text-2xl md:text-3xl font-bold">
-      £3M · Seed · April 2026
+      £3.5M · Seed · April 2026
     </p>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
