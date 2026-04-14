@@ -9,6 +9,11 @@ import { NoIndex } from '@/components/common/NoIndex'
 
 import bgCover from './assets/Background_slides.png'
 import bgSlides from './assets/Background_slides.png'
+import imgAirbus1 from './assets/Airbus1.png'
+import imgAirbus4 from './assets/Airbus4.png'
+import imgAirbus2b from './assets/Airbus2_2.png'
+import imgMatrixR1 from './assets/MatrixMesh-r1.png'
+import imgMatrixR5 from './assets/MatrixMesh-r5.png'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -47,17 +52,26 @@ const coverContent = (
       />
     </div>
 
-    {/* Main copy — left aligned */}
-    <div>
-      <h1 className="text-3xl md:text-5xl lg:text-[3.5rem] font-heading font-normal leading-tight mb-6">
-        The nervous system for machines
-      </h1>
-      <p className="text-base md:text-lg text-hyve-text leading-relaxed max-w-2xl">
-        We are building the physical world's missing data layer.
-      </p>
-      <p className="text-base md:text-lg text-hyve-text leading-relaxed max-w-2xl">
-        Starting with aerospace, then scale to every structure that moves, flexes, or fails.
-      </p>
+    {/* Main copy + product image */}
+    <div className="flex items-center gap-8 lg:gap-12">
+      <div className="flex-1">
+        <h1 className="text-3xl md:text-5xl lg:text-[3.5rem] font-heading font-normal leading-tight mb-6">
+          The nervous system for machines
+        </h1>
+        <p className="text-base md:text-lg text-hyve-text leading-relaxed max-w-2xl">
+          We are building the physical world's missing data layer.
+        </p>
+        <p className="text-base md:text-lg text-hyve-text leading-relaxed max-w-2xl">
+          Starting with aerospace, then scale to every structure that moves, flexes, or fails.
+        </p>
+      </div>
+      <div className="hidden md:block flex-shrink-0 w-[280px] lg:w-[340px]">
+        <img
+          src={imgMatrixR5}
+          alt="Haptic Matrix sensor array"
+          className="w-full h-auto drop-shadow-xl"
+        />
+      </div>
     </div>
 
     {/* Bottom row — round info left, entity right */}
@@ -74,58 +88,63 @@ const coverContent = (
 
 // ---- SLIDE 2: THE PROBLEM --------------------------------------------------
 const problemContent = (
-  <div className="max-w-5xl mx-auto w-full flex-1 flex flex-col justify-center gap-8 text-hyve-header">
-    {/* Headline */}
-    <div>
-      <p className="text-[28px] font-semibold text-hyve-text leading-relaxed flex flex-col gap-0 mt-2.5 mb-2.5">
-        The physical world is the last environment without a data layer.
-      </p>
-      <p className="text-[28px] font-semibold text-hyve-text leading-relaxed flex flex-col gap-0 mt-2.5 mb-2.5">
-        And it is costing the industry billions.
-      </p>
+  <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col md:flex-row gap-8 justify-center items-stretch text-hyve-header">
+    <div className="hidden md:flex w-[30%] flex-shrink-0 items-center">
+      <img
+        src={imgAirbus2b}
+        alt="Haptic Matrix array in Airbus Filton Wind Tunnel — live test session"
+        className="w-full h-auto rounded-lg shadow-lg object-cover"
+      />
     </div>
 
-    {/* THE PAIN IN THREE NUMBERS */}
-    <div>
-      <div className="border-t border-hyve-text/15 pt-5 mb-4">
-        <h3 className="text-xl uppercase tracking-normal font-semibold text-hyve-text mb-3">
-          The Pain in Three Numbers
-        </h3>
-        <p className="text-xs md:text-sm italic text-hyve-text/60 leading-relaxed">
-          Programme scale: <strong>commercial aircraft-class development</strong> — <strong>wind tunnel testing</strong> as a line of programme cost and schedule risk <em>(not a single ad-hoc tunnel hire).</em>
+    <div className="flex-1 flex flex-col justify-center gap-8">
+      <div>
+        <p className="text-[28px] font-semibold text-hyve-text leading-relaxed flex flex-col gap-0 mt-2.5 mb-2.5">
+          The physical world is the last environment without a data layer.
+        </p>
+        <p className="text-[28px] font-semibold text-hyve-text leading-relaxed flex flex-col gap-0 mt-2.5 mb-2.5">
+          And it is costing the industry billions.
         </p>
       </div>
 
-      {/* Table */}
-      <table className="w-full text-left border-collapse">
-        <thead>
-          <tr className="border-b border-hyve-text/15">
-            <th className="py-2 pr-4 text-xs md:text-sm font-semibold text-hyve-text/80 w-1/3">Programme cost</th>
-            <th className="py-2 pr-4 text-xs md:text-sm font-semibold text-hyve-text/80 w-1/3">Hourly facility rate</th>
-            <th className="py-2 text-xs md:text-sm font-semibold text-hyve-text/80 w-1/3">Scheduling lead time</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="border-b border-hyve-text/10">
-            <td className="py-3 pr-4 text-xl md:text-2xl font-bold text-hyve-header">$15–30M</td>
-            <td className="py-3 pr-4 text-xl md:text-2xl font-bold text-hyve-header">~$20,000/hr</td>
-            <td className="py-3 text-xl md:text-2xl font-bold text-hyve-header">12–18 months</td>
-          </tr>
-          <tr>
-            <td className="py-2 pr-4 text-xs font-semibold text-hyve-text/60 leading-snug">Aggregate wind tunnel testing spend, major programme<sup>1</sup></td>
-            <td className="py-2 pr-4 text-xs font-semibold text-hyve-text/60 leading-snug">Major transonic facility occupancy rate<sup>2</sup></td>
-            <td className="py-2 text-xs font-semibold text-hyve-text/60 leading-snug">Advance booking for national-scale tunnel access<sup>3</sup></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      <div>
+        <div className="border-t border-hyve-text/15 pt-5 mb-4">
+          <h3 className="text-xl uppercase tracking-normal font-semibold text-hyve-text mb-3">
+            The Pain in Three Numbers
+          </h3>
+          <p className="text-xs md:text-sm italic text-hyve-text/60 leading-relaxed">
+            Programme scale: <strong>commercial aircraft-class development</strong> — <strong>wind tunnel testing</strong> as a line of programme cost and schedule risk <em>(not a single ad-hoc tunnel hire).</em>
+          </p>
+        </div>
 
-    {/* FOOTNOTES */}
-    {/* TODO:ref — replace # with actual source URLs when compiled */}
-    <div className="text-[9px] md:text-[10px] font-bold text-hyve-text/40 space-y-1 pt-4">
-      <p><sup>1</sup> Total operational wind tunnel costs for a major commercial aircraft programme (programme-wide aggregate, not one short campaign). Peer-reviewed: <em>Engineering Science and Technology</em> via ScienceDirect (2025).</p>
-      <p><sup>2</sup> Major NASA-class transonic tunnels reported up to ~$20,000/user-hour; reimbursable rates vary by facility and era. <em>Aerospace America</em> (AIAA), May 2018; RAND NASA facility economics (e.g. TR-999).</p>
-      <p><sup>3</sup> NASA Ames wind tunnel users: 12–18 months advance scheduling for entry. <em>NASA Ames Test Planning Guide</em>, Rev. 8.1 (2021).</p>
+        <table className="w-full text-left border-collapse">
+          <thead>
+            <tr className="border-b border-hyve-text/15">
+              <th className="py-2 pr-4 text-xs md:text-sm font-semibold text-hyve-text/80 w-1/3">Programme cost</th>
+              <th className="py-2 pr-4 text-xs md:text-sm font-semibold text-hyve-text/80 w-1/3">Hourly facility rate</th>
+              <th className="py-2 text-xs md:text-sm font-semibold text-hyve-text/80 w-1/3">Scheduling lead time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-hyve-text/10">
+              <td className="py-3 pr-4 text-xl md:text-2xl font-bold text-hyve-header">$15–30M</td>
+              <td className="py-3 pr-4 text-xl md:text-2xl font-bold text-hyve-header">~$20,000/hr</td>
+              <td className="py-3 text-xl md:text-2xl font-bold text-hyve-header">12–18 months</td>
+            </tr>
+            <tr>
+              <td className="py-2 pr-4 text-xs font-semibold text-hyve-text/60 leading-snug">Aggregate wind tunnel testing spend, major programme<sup>1</sup></td>
+              <td className="py-2 pr-4 text-xs font-semibold text-hyve-text/60 leading-snug">Major transonic facility occupancy rate<sup>2</sup></td>
+              <td className="py-2 text-xs font-semibold text-hyve-text/60 leading-snug">Advance booking for national-scale tunnel access<sup>3</sup></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div className="text-[9px] md:text-[10px] font-bold text-hyve-text/40 space-y-1 pt-4">
+        <p><sup>1</sup> Total operational wind tunnel costs for a major commercial aircraft programme (programme-wide aggregate, not one short campaign). Peer-reviewed: <em>Engineering Science and Technology</em> via ScienceDirect (2025).</p>
+        <p><sup>2</sup> Major NASA-class transonic tunnels reported up to ~$20,000/user-hour; reimbursable rates vary by facility and era. <em>Aerospace America</em> (AIAA), May 2018; RAND NASA facility economics (e.g. TR-999).</p>
+        <p><sup>3</sup> NASA Ames wind tunnel users: 12–18 months advance scheduling for entry. <em>NASA Ames Test Planning Guide</em>, Rev. 8.1 (2021).</p>
+      </div>
     </div>
   </div>
 )
@@ -188,19 +207,28 @@ const solutionContent = (
       </p>
     </div>
 
-    <div className="space-y-4">
-      <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
-        The Haptic Matrix is an ultra-thin, flexible electronic membrane that applies directly to any aerodynamic surface, such as a wing, fuselage, blade, chassis. It streams simultaneous, real-time data across the entire area it covers.
-      </p>
-      <p className="text-sm md:text-base font-semibold text-hyve-header">
-        Pressure. Strain. Temperature. Simultaneously. Continuously. At scale.
-      </p>
-      <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
-        No holes. No single-use consumables. No post-processing delay. No assumptions.
-      </p>
-      <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
-        You cannot <strong>replay chaos at laboratory purity</strong>, and you cannot <strong>defend a programme</strong> on only the scenarios the tunnel matrix could afford. <strong>Hyve measures the surface the world actually touches.</strong>
-      </p>
+    <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+      <div className="flex-1 space-y-4">
+        <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
+          The Haptic Matrix is an ultra-thin, flexible electronic membrane that applies directly to any aerodynamic surface, such as a wing, fuselage, blade, chassis. It streams simultaneous, real-time data across the entire area it covers.
+        </p>
+        <p className="text-sm md:text-base font-semibold text-hyve-header">
+          Pressure. Strain. Temperature. Simultaneously. Continuously. At scale.
+        </p>
+        <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
+          No holes. No single-use consumables. No post-processing delay. No assumptions.
+        </p>
+        <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
+          You cannot <strong>replay chaos at laboratory purity</strong>, and you cannot <strong>defend a programme</strong> on only the scenarios the tunnel matrix could afford. <strong>Hyve measures the surface the world actually touches.</strong>
+        </p>
+      </div>
+      <div className="w-full md:w-[40%] flex-shrink-0">
+        <img
+          src={imgAirbus1}
+          alt="Haptic Matrix deployed on wind tunnel model at Airbus Filton"
+          className="w-full h-auto rounded-lg shadow-lg object-cover"
+        />
+      </div>
     </div>
 
     <div className="space-y-3">
@@ -220,70 +248,72 @@ const solutionContent = (
 
 // ---- SLIDE 4: PLATFORM ARCHITECTURE ----------------------------------------
 const platformContent = (
-  <div className="max-w-5xl mx-auto w-full flex-1 flex flex-col justify-center gap-8 text-hyve-header">
-    <div>
-      <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
-        You subscribe to the data, not the sensors.
-      </p>
-      <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
-        Real time. On demand. Under your control.
-      </p>
-      <p className="text-xs md:text-sm italic text-hyve-text/60 mt-3">
-        A sensor measures → A platform compounds → Hyve is not a sensor company.
-      </p>
+  <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col md:flex-row gap-8 justify-center items-stretch text-hyve-header">
+    <div className="flex-1 flex flex-col justify-center gap-6">
+      <div>
+        <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
+          You subscribe to the data, not the sensors.
+        </p>
+        <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
+          Real time. On demand. Under your control.
+        </p>
+        <p className="text-xs md:text-sm italic text-hyve-text/60 mt-3">
+          A sensor measures. A platform compounds. Hyve is not a sensor company.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-3 gap-4 border-t border-b border-hyve-text/15 py-4">
+        <div>
+          <p className="text-xs font-semibold text-hyve-header uppercase tracking-wider mb-1">Hardware</p>
+          <p className="text-xs text-hyve-text/70">Haptic Matrix — conformal sensing</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-hyve-header uppercase tracking-wider mb-1">Software</p>
+          <p className="text-xs text-hyve-text/70">Live acquisition, calibration, control</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-hyve-header uppercase tracking-wider mb-1">Data</p>
+          <p className="text-xs text-hyve-text/70">Streams, replay, structured outputs</p>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
+          Hyve owns, maintains, insures, calibrates, and refreshes the array. The customer <strong>does not</strong> take capital ownership of hardware.
+        </p>
+        <ul className="space-y-1.5 text-xs md:text-sm text-hyve-text leading-relaxed">
+          <li><strong>Instant access</strong> — data streams as the test runs</li>
+          <li><strong>Instant replay</strong> — rewind, segment, and compare runs</li>
+          <li><strong>You control what you measure</strong> — configure on demand</li>
+        </ul>
+      </div>
+
+      <div className="grid grid-cols-3 gap-4 border-t border-hyve-text/15 pt-4">
+        <div>
+          <p className="text-xs font-semibold text-hyve-header">Test &amp; Development</p>
+          <p className="text-xs text-hyve-text/60">Peel-and-stick, reusable</p>
+          <p className="text-xs font-semibold text-hyve-header mt-1">Live now</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-hyve-header">In-Service IVHM</p>
+          <p className="text-xs text-hyve-text/60">Permanently embedded</p>
+          <p className="text-xs font-semibold text-hyve-header mt-1">Funded by this raise</p>
+        </div>
+        <div className="flex items-end">
+          <p className="text-xs text-hyve-text/60 italic leading-relaxed">
+            Mode 1 earns the relationship.<br />Mode 2 makes it perpetual.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div className="grid grid-cols-3 gap-4 border-t border-b border-hyve-text/15 py-5">
-      <div>
-        <p className="text-xs font-semibold text-hyve-header uppercase tracking-wider mb-1">Hardware</p>
-        <p className="text-xs text-hyve-text/70">Haptic Matrix — conformal sensing</p>
-      </div>
-      <div>
-        <p className="text-xs font-semibold text-hyve-header uppercase tracking-wider mb-1">Software</p>
-        <p className="text-xs text-hyve-text/70">Live acquisition, calibration, customer control</p>
-      </div>
-      <div>
-        <p className="text-xs font-semibold text-hyve-header uppercase tracking-wider mb-1">Data</p>
-        <p className="text-xs text-hyve-text/70">Streams, replay, structured outputs</p>
-      </div>
+    <div className="hidden md:flex w-[38%] flex-shrink-0 items-center">
+      <img
+        src={imgMatrixR1}
+        alt="Haptic Matrix deployed on aircraft wing surface"
+        className="w-full h-auto drop-shadow-xl"
+      />
     </div>
-
-    <div className="space-y-3">
-      <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
-        Hyve owns, maintains, insures, calibrates, and refreshes the array. The customer <strong>does not</strong> take capital ownership of hardware. All data produced belongs to the customer's programme.
-      </p>
-      <ul className="space-y-2 text-xs md:text-sm text-hyve-text leading-relaxed">
-        <li><strong>Instant access</strong> — data streams as the test runs; no weeks of post-processing</li>
-        <li><strong>Instant replay</strong> — rewind, segment, and compare runs, configurations, and load cases</li>
-        <li><strong>You control what you measure</strong> — configure channels, coverage, and sampling on demand</li>
-      </ul>
-    </div>
-
-    <table className="w-full text-left border-collapse">
-      <thead>
-        <tr className="border-b border-hyve-text/15">
-          <th className="py-2 pr-4 text-xs font-semibold text-hyve-text/80 w-1/3">Mode</th>
-          <th className="py-2 pr-4 text-xs font-semibold text-hyve-text/80 w-1/3">Status</th>
-          <th className="py-2 text-xs font-semibold text-hyve-text/80 w-1/3">Application</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr className="border-b border-hyve-text/10">
-          <td className="py-3 pr-4 text-xs md:text-sm text-hyve-text"><strong>Test &amp; Development</strong><br /><span className="text-hyve-text/60">Peel-and-stick, reusable</span></td>
-          <td className="py-3 pr-4 text-xs md:text-sm font-semibold text-hyve-header">Live now</td>
-          <td className="py-3 text-xs md:text-sm text-hyve-text/70">Wind tunnels · R&amp;D · Motorsport</td>
-        </tr>
-        <tr>
-          <td className="py-3 pr-4 text-xs md:text-sm text-hyve-text"><strong>In-Service IVHM</strong><br /><span className="text-hyve-text/60">Permanently embedded</span></td>
-          <td className="py-3 pr-4 text-xs md:text-sm font-semibold text-hyve-header">Funded by this raise</td>
-          <td className="py-3 text-xs md:text-sm text-hyve-text/70">Aircraft · Defence · UAVs</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p className="text-xs text-hyve-text/60 italic">
-      Mode 1 earns the relationship. Mode 2 makes the subscription perpetual.
-    </p>
   </div>
 )
 
@@ -438,57 +468,63 @@ const universalityContent = (
 
 // ---- SLIDE 6: TRACTION ------------------------------------------------------
 const tractionContent = (
-  <div className="max-w-5xl mx-auto w-full flex-1 flex flex-col justify-center gap-8 text-hyve-header">
-    <div>
-      <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
-        The most demanding aerodynamic programmes in the world are already testing with us.
+  <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col md:flex-row gap-8 justify-center items-stretch text-hyve-header">
+    <div className="flex-1 flex flex-col justify-center gap-6">
+      <div>
+        <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
+          The most demanding aerodynamic programmes in the world are already testing with us.
+        </p>
+        <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
+          The technology works. The pipeline is real.
+        </p>
+      </div>
+
+      <table className="w-full text-left border-collapse">
+        <thead>
+          <tr className="border-b border-hyve-text/15">
+            <th className="py-2 pr-4 text-xs font-semibold text-hyve-text/80">Relationship</th>
+            <th className="py-2 text-xs font-semibold text-hyve-text/80">What it proves</th>
+          </tr>
+        </thead>
+        <tbody className="text-xs md:text-sm text-hyve-text">
+          <tr className="border-b border-hyve-text/10">
+            <td className="py-2.5 pr-4"><strong>Airbus / Filton wind tunnel</strong><br /><span className="text-hyve-text/60">Active testing partner</span></td>
+            <td className="py-2.5">Tier-1 OEM. Deployed in <strong>&lt;20 min</strong>. Removed in <strong>&lt;5 min</strong>. Retested — confirmed working.</td>
+          </tr>
+          <tr className="border-b border-hyve-text/10">
+            <td className="py-2.5 pr-4"><strong>F1 — Red Bull Racing, Alpine, Aston Martin</strong><br /><span className="text-hyve-text/60">Testing rigs being planned</span></td>
+            <td className="py-2.5">The most data-intensive aero programmes on Earth see the value case</td>
+          </tr>
+          <tr>
+            <td className="py-2.5 pr-4"><strong>British Cycling / Univ. Manchester</strong><br /><span className="text-hyve-text/60">Testing being planned</span></td>
+            <td className="py-2.5">Platform relevant across geometries beyond aviation</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <blockquote className="border-l-2 border-hyve-text/20 pl-5 py-2">
+        <p className="text-base md:text-lg italic text-hyve-text/80 leading-relaxed">
+          "A quantum leap in data acquisition."
+        </p>
+        <p className="text-xs text-hyve-text/50 mt-1">— Senior engineer, leading European aerospace OEM</p>
+      </blockquote>
+
+      <p className="text-xs md:text-sm text-hyve-text/60 leading-relaxed">
+        No paying customers yet. That is appropriate for this technology at this stage. The raise funds the step from validated to commercial.
       </p>
-      <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
-        The technology works. The pipeline is real.
+
+      <p className="text-xs font-semibold text-hyve-text/50 border-t border-hyve-text/15 pt-3">
+        4 patents granted · UK, US, EU · 2 further applications in progress
       </p>
     </div>
 
-    <table className="w-full text-left border-collapse">
-      <thead>
-        <tr className="border-b border-hyve-text/15">
-          <th className="py-2 pr-4 text-xs font-semibold text-hyve-text/80">Relationship</th>
-          <th className="py-2 pr-4 text-xs font-semibold text-hyve-text/80">Status</th>
-          <th className="py-2 text-xs font-semibold text-hyve-text/80">What it proves</th>
-        </tr>
-      </thead>
-      <tbody className="text-xs md:text-sm text-hyve-text">
-        <tr className="border-b border-hyve-text/10">
-          <td className="py-3 pr-4 font-semibold">Airbus / Filton wind tunnel</td>
-          <td className="py-3 pr-4">Active testing partner — open invitation on live programme models</td>
-          <td className="py-3">Tier-1 OEM endorsement. Deployed in <strong>&lt;20 min</strong>. Removed in <strong>&lt;5 min</strong>. Retested — array confirmed working.</td>
-        </tr>
-        <tr className="border-b border-hyve-text/10">
-          <td className="py-3 pr-4 font-semibold">Formula 1 — Red Bull Racing, Alpine, Aston Martin</td>
-          <td className="py-3 pr-4">Active engagement — testing rigs being planned</td>
-          <td className="py-3">The most data-intensive aerodynamic programmes on Earth see the value case</td>
-        </tr>
-        <tr>
-          <td className="py-3 pr-4 font-semibold">British Cycling / Univ. Manchester</td>
-          <td className="py-3 pr-4">Active conversations — testing being planned</td>
-          <td className="py-3">Platform relevant across geometries beyond aviation</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <blockquote className="border-l-2 border-hyve-text/20 pl-5 py-2">
-      <p className="text-base md:text-lg italic text-hyve-text/80 leading-relaxed">
-        "A quantum leap in data acquisition."
-      </p>
-      <p className="text-xs text-hyve-text/50 mt-2">— Senior engineer, leading European aerospace OEM</p>
-    </blockquote>
-
-    <p className="text-xs md:text-sm text-hyve-text/60 leading-relaxed">
-      No paying customers yet. That is appropriate for this technology at this stage. The raise funds the step from validated to commercial.
-    </p>
-
-    <p className="text-xs font-semibold text-hyve-text/50 border-t border-hyve-text/15 pt-4">
-      4 patents granted · UK, US, EU · 2 further applications in progress
-    </p>
+    <div className="hidden md:flex w-[35%] flex-shrink-0 items-center">
+      <img
+        src={imgAirbus4}
+        alt="Engineers deploying Haptic Matrix on wind tunnel model at Airbus Filton"
+        className="w-full h-auto rounded-lg shadow-lg object-cover"
+      />
+    </div>
   </div>
 )
 
