@@ -7,7 +7,6 @@ import { Maximize2, Minimize2 } from 'lucide-react'
 
 import { NoIndex } from '@/components/common/NoIndex'
 
-import bgCover from './assets/Background_slides.png'
 import bgSlides from './assets/Background_slides.png'
 import imgAirbus1 from './assets/Airbus1.png'
 import imgAirbus4 from './assets/Airbus4.png'
