@@ -190,7 +190,7 @@ const solutionContent = (
 
     <div className="space-y-4">
       <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
-        The Haptic Matrix is an ultra-thin, flexible electronic membrane that applies directly to any aerodynamic surface — wing, fuselage, blade, chassis — and streams simultaneous, real-time data across the entire area it covers.
+        The Haptic Matrix is an ultra-thin, flexible electronic membrane that applies directly to any aerodynamic surface, such as a wing, fuselage, blade, chassis. It streams simultaneous, real-time data across the entire area it covers.
       </p>
       <p className="text-sm md:text-base font-semibold text-hyve-header">
         Pressure. Strain. Temperature. Simultaneously. Continuously. At scale.
@@ -199,13 +199,13 @@ const solutionContent = (
         No holes. No single-use consumables. No post-processing delay. No assumptions.
       </p>
       <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
-        You cannot <strong>replay chaos at laboratory purity</strong> — and you cannot <strong>defend a programme</strong> on only the scenarios the tunnel matrix could afford. <strong>Hyve measures the surface the world actually touches.</strong>
+        You cannot <strong>replay chaos at laboratory purity</strong>, and you cannot <strong>defend a programme</strong> on only the scenarios the tunnel matrix could afford. <strong>Hyve measures the surface the world actually touches.</strong>
       </p>
     </div>
 
     <div className="space-y-3">
       <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
-        Deploys in hours, not days. Conforms to curvature down to 5mm radius. Captures &gt;500 sensing nodes per square metre — spatial density that point sensors cannot match even in aggregate.
+        Deploys in hours, not days. Conforms to curvature down to 5mm radius. Captures &gt;500 sensing nodes per square metre. Spatial density that point sensors cannot match even in aggregate.
       </p>
       <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
         For the first time, engineers can watch their structure respond in real time to the forces actually acting on it. In the wind tunnel. On the track. And, soon, in the air.
@@ -229,7 +229,7 @@ const platformContent = (
         Real time. On demand. Under your control.
       </p>
       <p className="text-xs md:text-sm italic text-hyve-text/60 mt-3">
-        A sensor measures. A platform compounds. Hyve is not a sensor company.
+        A sensor measures → A platform compounds → Hyve is not a sensor company.
       </p>
     </div>
 
@@ -299,24 +299,27 @@ const marketContent = (
       </p>
     </div>
 
-    <div className="space-y-4 border-t border-hyve-text/15 pt-5">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-hyve-text/15 pt-5">
       <div>
-        <p className="text-sm font-semibold text-hyve-header mb-1">Segment 1 — Aerodynamic testing instrumentation</p>
         <p className="text-xs text-hyve-text/60 mb-1">Beachhead — actively validated</p>
-        <p className="text-lg md:text-xl font-bold text-hyve-header">~$3.1B <span className="text-xs font-normal text-hyve-text/60">global market · CAGR 5–7%</span></p>
-        <p className="text-xs text-hyve-text leading-relaxed mt-1">No direct incumbent offers a conformal, full-surface, real-time sensor array. Hyve is not a better pressure tap. It is a new category.</p>
+        <p className="text-sm font-semibold text-hyve-header mb-2">Aerodynamic testing instrumentation</p>
+        <p className="text-lg md:text-xl font-bold text-hyve-header mb-1">~$3.1B</p>
+        <p className="text-xs text-hyve-text/60 mb-2">Global market · CAGR 5–7%</p>
+        <p className="text-xs text-hyve-text leading-relaxed">No direct incumbent offers a conformal, full-surface, real-time sensor array. Hyve is not a better pressure tap. It is a new category.</p>
       </div>
       <div>
-        <p className="text-sm font-semibold text-hyve-header mb-1">Segment 2 — Aircraft SHM / IVHM</p>
         <p className="text-xs text-hyve-text/60 mb-1">Next — funded by this raise</p>
-        <p className="text-lg md:text-xl font-bold text-hyve-header">~$5.7B → $10.9B by 2034 <span className="text-xs font-normal text-hyve-text/60">· CAGR 6.6%</span></p>
-        <p className="text-xs text-hyve-text leading-relaxed mt-1">28,000+ composite-airframe aircraft in service globally. Every one is a potential embedded platform.</p>
+        <p className="text-sm font-semibold text-hyve-header mb-2">Aircraft SHM / IVHM</p>
+        <p className="text-lg md:text-xl font-bold text-hyve-header mb-1">~$5.7B → $10.9B by 2034</p>
+        <p className="text-xs text-hyve-text/60 mb-2">CAGR 6.6%</p>
+        <p className="text-xs text-hyve-text leading-relaxed">28,000+ composite-airframe aircraft in service globally. Every one is a potential embedded platform.</p>
       </div>
       <div>
-        <p className="text-sm font-semibold text-hyve-header mb-1">Segment 3 — Broader physical asset monitoring</p>
         <p className="text-xs text-hyve-text/60 mb-1">Platform horizon</p>
-        <p className="text-lg md:text-xl font-bold text-hyve-header">~$3.7B → $10.5B by 2030 <span className="text-xs font-normal text-hyve-text/60">· CAGR 19.2%</span></p>
-        <p className="text-xs text-hyve-text leading-relaxed mt-1">Marine, infrastructure, energy, industrial — identical unsolved monitoring problems, same platform architecture.</p>
+        <p className="text-sm font-semibold text-hyve-header mb-2">Broader physical asset monitoring</p>
+        <p className="text-lg md:text-xl font-bold text-hyve-header mb-1">~$3.7B → $10.5B by 2030</p>
+        <p className="text-xs text-hyve-text/60 mb-2">CAGR 19.2%</p>
+        <p className="text-xs text-hyve-text leading-relaxed">Marine, infrastructure, energy, industrial — identical unsolved monitoring problems, same platform architecture.</p>
       </div>
     </div>
 
@@ -326,11 +329,25 @@ const marketContent = (
 
     <div className="border-t border-hyve-text/15 pt-4 space-y-3">
       <p className="text-sm font-semibold text-hyve-header">The Decacorn path</p>
-      <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
-        3% penetration of aircraft SHM/IVHM alone by 2034 = ~$330M ARR.<br />
-        At 8× revenue multiple = <strong>$2.6B+ from one sub-segment of one vertical.</strong><br />
-        Add marine, infrastructure, and energy = platform valuation <strong>exceeds $10B.</strong>
-      </p>
+      <div className="flex flex-col md:flex-row items-stretch gap-0">
+        <div className="flex-1 border border-hyve-text/15 rounded-l-lg md:rounded-l-lg rounded-r-none p-3 bg-hyve-header/[0.03]">
+          <p className="text-xs text-hyve-text/60 mb-1">SHM/IVHM penetration</p>
+          <p className="text-lg font-bold text-hyve-header">~$330M ARR</p>
+          <p className="text-xs text-hyve-text/60 mt-1">3% of one segment by 2034</p>
+        </div>
+        <div className="flex items-center justify-center text-hyve-text/30 text-lg font-light px-1 hidden md:flex">→</div>
+        <div className="flex-1 border border-hyve-text/15 p-3 bg-hyve-header/[0.03]">
+          <p className="text-xs text-hyve-text/60 mb-1">At 8× revenue multiple</p>
+          <p className="text-lg font-bold text-hyve-header">$2.6B+</p>
+          <p className="text-xs text-hyve-text/60 mt-1">From one sub-segment of one vertical</p>
+        </div>
+        <div className="flex items-center justify-center text-hyve-text/30 text-lg font-light px-1 hidden md:flex">→</div>
+        <div className="flex-1 border border-hyve-text/15 rounded-r-lg md:rounded-r-lg rounded-l-none p-3 bg-hyve-header/[0.03]">
+          <p className="text-xs text-hyve-text/60 mb-1">Add marine, energy, infrastructure</p>
+          <p className="text-lg font-bold text-hyve-header">$10B+</p>
+          <p className="text-xs text-hyve-text/60 mt-1">Platform valuation exceeds Decacorn</p>
+        </div>
+      </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2">
         <div className="text-xs text-hyve-text"><strong>Simmonds Precision</strong><br />→ TransDigm · $765M<sup>5</sup><br /><span className="text-hyve-text/50">2025</span></div>
         <div className="text-xs text-hyve-text"><strong>Raptor Scientific</strong><br />→ TransDigm · $655M<sup>6</sup><br /><span className="text-hyve-text/50">2024</span></div>
@@ -363,10 +380,17 @@ const universalityContent = (
       <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
         We are not building for all of them today. We are building for the one that makes us ready for all of them.
       </p>
-      <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
-        <strong>Aerospace gives us something no other market can: the world's hardest quality gate.</strong> The path runs through DO-160 environmental qualification, OEM acceptance, and type-certification credibility. When we arrive in marine, energy, or infrastructure, we are arriving as a technology already inside Airbus wind tunnel programmes. That changes the sales conversation entirely.
+    </div>
+
+    <div className="border border-hyve-text/20 rounded-lg px-6 py-5 bg-hyve-header/[0.04]">
+      <p className="text-sm md:text-base font-semibold text-hyve-header leading-relaxed text-center">
+        Aerospace gives us something no other market can: the world's hardest quality gate.
       </p>
     </div>
+
+    <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
+      The path runs through DO-160 environmental qualification, OEM acceptance, and type-certification credibility. When we arrive in marine, energy, or infrastructure, we are arriving as a technology already inside Airbus wind tunnel programmes. That changes the sales conversation entirely.
+    </p>
 
     <table className="w-full text-left border-collapse">
       <thead>
@@ -567,15 +591,16 @@ const teamContent = (
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 border-t border-hyve-text/15 pt-5">
       <div>
+        <p className="text-sm font-semibold text-hyve-header">Hristiana Georgieva</p>
+        <p className="text-xs text-hyve-text/60 mb-1">Co-Founder &amp; Co-CEO</p>
+        <p className="text-xs text-hyve-text leading-relaxed">Enterprise software sales, strategic partnerships, and complex global negotiations. Drives commercial strategy, customer acquisition, and partnership network.</p>
+      </div>
+      <div>
         <p className="text-sm font-semibold text-hyve-header">Juan Sebastian Conde</p>
         <p className="text-xs text-hyve-text/60 mb-1">Co-Founder &amp; Chief Scientist</p>
         <p className="text-xs text-hyve-text leading-relaxed">PhD, Cranfield. Aerospace research across NASA, Boeing, Airbus, Rolls-Royce. Invented the Haptic Matrix from first principles. Leads core R&amp;D, IP, and sensor science.</p>
       </div>
-      <div>
-        <p className="text-sm font-semibold text-hyve-header">Hristiana Georgieva</p>
-        <p className="text-xs text-hyve-text/60 mb-1">Co-CEO</p>
-        <p className="text-xs text-hyve-text leading-relaxed">Enterprise software sales, strategic partnerships, and complex global negotiations. Drives commercial strategy, customer acquisition, and partnership network.</p>
-      </div>
+      
       <div>
         <p className="text-sm font-semibold text-hyve-header">Jonathan Michael Theodore</p>
         <p className="text-xs text-hyve-text/60 mb-1">Co-Founder &amp; Co-CEO</p>
@@ -602,7 +627,7 @@ const teamContent = (
         </div>
         <div>
           <p className="text-xs font-semibold text-hyve-header">Qi Zhang</p>
-          <p className="text-xs text-hyve-text/70 leading-relaxed">Ikerbasque Research Professor, BCMaterials; Senior Lecturer, Cranfield. Functional materials, piezoelectric thin-film research.</p>
+          <p className="text-xs text-hyve-text/70 leading-relaxed">Ikerbasque Research Professor, BCMaterials; Senior Lecturer, Cranfield University. Functional materials, piezoelectric thin-film research.</p>
         </div>
         <div>
           <p className="text-xs font-semibold text-hyve-header">Amin Amiri</p>
@@ -612,7 +637,7 @@ const teamContent = (
     </div>
 
     <p className="text-xs md:text-sm text-hyve-text leading-relaxed border-t border-hyve-text/15 pt-4">
-      <strong>Why us:</strong> Six years of PhD and postdoctoral research. Four patents granted. Validated by Airbus in a live wind tunnel programme. Active testing with Red Bull Racing, Alpine, Aston Martin and British Cycling. Already inside this market — not approaching it from the outside.
+      <strong>Why us:</strong> Six years of PhD and postdoctoral research. Four patents granted. Validated by Airbus in a live wind tunnel programme. Active testing with Red Bull Racing, Alpine, Aston Martin and British Cycling. Already inside this market, not approaching it from the outside.
     </p>
   </div>
 )
@@ -630,7 +655,7 @@ const capitalContent = (
         <li>Haptic Matrix demonstrated in a relevant environment: Airbus Filton wind tunnel, live programme model</li>
         <li>Active testing partnerships: Red Bull Racing, Alpine, Aston Martin · British Cycling</li>
         <li>Airbus open invitation to test on any active wind tunnel programme model</li>
-        <li>Four patents granted · IP moat established</li>
+        <li>Four patents granted + two filed applications · IP moat established</li>
         <li>Platform architecture and DaaS model defined · no revenue yet</li>
       </ul>
     </div>
