@@ -13,6 +13,7 @@ import imgAirbus4 from './assets/Airbus4.png'
 import imgAirbus2b from './assets/Airbus2b.png'
 import imgMatrixR1 from './assets/MatrixMesh-r1.png'
 import imgMatrixR5 from './assets/MatrixMesh-r5.png'
+import imgAirbus5 from './assets/Airbus5.png'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -87,112 +88,112 @@ const coverContent = (
 
 // ---- SLIDE 2: THE PROBLEM --------------------------------------------------
 const problemContent = (
-  <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col md:flex-row gap-8 justify-center items-stretch text-hyve-header">
-    <div className="hidden md:flex w-[30%] flex-shrink-0 items-center">
-      <img
-        src={imgAirbus2b}
-        alt="Haptic Matrix array in Airbus Filton Wind Tunnel — live test session"
-        className="w-full h-auto rounded-lg shadow-lg object-cover"
-      />
+  <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center gap-8 text-hyve-header">
+    <div>
+      <p className="text-[28px] font-semibold text-hyve-text leading-relaxed flex flex-col gap-0 mt-2.5 mb-2.5">
+        The physical world is the last environment without a data layer.
+      </p>
+      <p className="text-[28px] font-semibold text-hyve-text leading-relaxed flex flex-col gap-0 mt-2.5 mb-2.5">
+        And it is costing the industry billions.
+      </p>
     </div>
 
-    <div className="flex-1 flex flex-col justify-center gap-8">
-      <div>
-        <p className="text-[28px] font-semibold text-hyve-text leading-relaxed flex flex-col gap-0 mt-2.5 mb-2.5">
-          The physical world is the last environment without a data layer.
+    <div>
+      <div className="border-t border-hyve-text/15 pt-5 mb-4">
+        <h3 className="text-xl uppercase tracking-normal font-semibold text-hyve-text mb-3">
+          The Pain in Three Numbers
+        </h3>
+        <p className="text-xs md:text-sm italic text-hyve-text/60 leading-relaxed">
+          Programme scale: <strong>commercial aircraft-class development</strong> — <strong>wind tunnel testing</strong> as a line of programme cost and schedule risk <em>(not a single ad-hoc tunnel hire).</em>
         </p>
-        <p className="text-[28px] font-semibold text-hyve-text leading-relaxed flex flex-col gap-0 mt-2.5 mb-2.5">
-          And it is costing the industry billions.
-        </p>
       </div>
 
-      <div>
-        <div className="border-t border-hyve-text/15 pt-5 mb-4">
-          <h3 className="text-xl uppercase tracking-normal font-semibold text-hyve-text mb-3">
-            The Pain in Three Numbers
-          </h3>
-          <p className="text-xs md:text-sm italic text-hyve-text/60 leading-relaxed">
-            Programme scale: <strong>commercial aircraft-class development</strong> — <strong>wind tunnel testing</strong> as a line of programme cost and schedule risk <em>(not a single ad-hoc tunnel hire).</em>
-          </p>
-        </div>
+      <table className="w-full text-left border-collapse">
+        <thead>
+          <tr className="border-b border-hyve-text/15">
+            <th className="py-2 pr-4 text-xs md:text-sm font-semibold text-hyve-text/80 w-1/3">Programme cost</th>
+            <th className="py-2 pr-4 text-xs md:text-sm font-semibold text-hyve-text/80 w-1/3">Hourly facility rate</th>
+            <th className="py-2 text-xs md:text-sm font-semibold text-hyve-text/80 w-1/3">Scheduling lead time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b border-hyve-text/10">
+            <td className="py-3 pr-4 text-xl md:text-2xl font-bold text-hyve-header">$15–30M</td>
+            <td className="py-3 pr-4 text-xl md:text-2xl font-bold text-hyve-header">~$20,000/hr</td>
+            <td className="py-3 text-xl md:text-2xl font-bold text-hyve-header">12–18 months</td>
+          </tr>
+          <tr>
+            <td className="py-2 pr-4 text-xs font-semibold text-hyve-text/60 leading-snug">Aggregate wind tunnel testing spend, major programme<sup>1</sup></td>
+            <td className="py-2 pr-4 text-xs font-semibold text-hyve-text/60 leading-snug">Major transonic facility occupancy rate<sup>2</sup></td>
+            <td className="py-2 text-xs font-semibold text-hyve-text/60 leading-snug">Advance booking for national-scale tunnel access<sup>3</sup></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="border-b border-hyve-text/15">
-              <th className="py-2 pr-4 text-xs md:text-sm font-semibold text-hyve-text/80 w-1/3">Programme cost</th>
-              <th className="py-2 pr-4 text-xs md:text-sm font-semibold text-hyve-text/80 w-1/3">Hourly facility rate</th>
-              <th className="py-2 text-xs md:text-sm font-semibold text-hyve-text/80 w-1/3">Scheduling lead time</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-b border-hyve-text/10">
-              <td className="py-3 pr-4 text-xl md:text-2xl font-bold text-hyve-header">$15–30M</td>
-              <td className="py-3 pr-4 text-xl md:text-2xl font-bold text-hyve-header">~$20,000/hr</td>
-              <td className="py-3 text-xl md:text-2xl font-bold text-hyve-header">12–18 months</td>
-            </tr>
-            <tr>
-              <td className="py-2 pr-4 text-xs font-semibold text-hyve-text/60 leading-snug">Aggregate wind tunnel testing spend, major programme<sup>1</sup></td>
-              <td className="py-2 pr-4 text-xs font-semibold text-hyve-text/60 leading-snug">Major transonic facility occupancy rate<sup>2</sup></td>
-              <td className="py-2 text-xs font-semibold text-hyve-text/60 leading-snug">Advance booking for national-scale tunnel access<sup>3</sup></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div className="text-[9px] md:text-[10px] font-bold text-hyve-text/40 space-y-1 pt-4">
-        <p><sup>1</sup> Total operational wind tunnel costs for a major commercial aircraft programme (programme-wide aggregate, not one short campaign). Peer-reviewed: <em>Engineering Science and Technology</em> via ScienceDirect (2025).</p>
-        <p><sup>2</sup> Major NASA-class transonic tunnels reported up to ~$20,000/user-hour; reimbursable rates vary by facility and era. <em>Aerospace America</em> (AIAA), May 2018; RAND NASA facility economics (e.g. TR-999).</p>
-        <p><sup>3</sup> NASA Ames wind tunnel users: 12–18 months advance scheduling for entry. <em>NASA Ames Test Planning Guide</em>, Rev. 8.1 (2021).</p>
-      </div>
+    <div className="text-[9px] md:text-[10px] font-bold text-hyve-text/40 space-y-1 pt-4">
+      <p><sup>1</sup> Total operational wind tunnel costs for a major commercial aircraft programme (programme-wide aggregate, not one short campaign). Peer-reviewed: <em>Engineering Science and Technology</em> via ScienceDirect (2025).</p>
+      <p><sup>2</sup> Major NASA-class transonic tunnels reported up to ~$20,000/user-hour; reimbursable rates vary by facility and era. <em>Aerospace America</em> (AIAA), May 2018; RAND NASA facility economics (e.g. TR-999).</p>
+      <p><sup>3</sup> NASA Ames wind tunnel users: 12–18 months advance scheduling for entry. <em>NASA Ames Test Planning Guide</em>, Rev. 8.1 (2021).</p>
     </div>
   </div>
 )
 
 // ---- SLIDE 2B: PROBLEM (cont.) — Legacy stack, ideal lab, late data --------
 const problemContContent = (
-  <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center gap-8 text-hyve-header">
-    {/* THE STACK HASN'T CHANGED */}
-    <div>
-      <div className="border-b border-hyve-text/15 pb-4 mb-5">
+  <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col md:flex-row gap-8 justify-center items-stretch text-hyve-header">
+    <div className="flex-1 flex flex-col justify-center gap-8">
+      {/* THE STACK HASN'T CHANGED */}
+      <div>
+        <div className="border-b border-hyve-text/15 pb-4 mb-5">
+          <h3 className="text-lg md:text-xl font-semibold text-hyve-text mb-3">
+            The Stack Hasn't Changed in 50 Years
+          </h3>
+          <ul className="list-disc list-inside space-y-2 text-xs md:text-sm text-hyve-text leading-relaxed">
+            <li><strong>Pressure taps</strong> — hundreds of holes, weeks of prep, point measurements only</li>
+            <li><strong>Pressure-sensitive paint</strong> — single-use, post-processed, lab-bound</li>
+            <li><strong>CFD</strong> — indispensable, but unreliable in separated flow and off-design conditions</li>
+            <li><strong>Strain gauges</strong> — one location, one direction, one install at a time</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* IDEAL LAB, CHAOTIC WORLD */}
+      <div>
         <h3 className="text-lg md:text-xl font-semibold text-hyve-text mb-3">
-          The Stack Hasn't Changed in 50 Years
+          Ideal Lab, Chaotic World
         </h3>
-        <ul className="list-disc list-inside space-y-2 text-xs md:text-sm text-hyve-text leading-relaxed">
-          <li><strong>Pressure taps</strong> — hundreds of holes, weeks of prep, point measurements only</li>
-          <li><strong>Pressure-sensitive paint</strong> — single-use, post-processed, lab-bound</li>
-          <li><strong>CFD</strong> — indispensable, but unreliable in separated flow and off-design conditions</li>
-          <li><strong>Strain gauges</strong> — one location, one direction, one install at a time</li>
+        <ul className="space-y-3 text-xs md:text-sm text-hyve-text leading-relaxed">
+          <li><strong>Wind tunnels and CFD trade chaos for control</strong> — boundary conditions, scaling laws, cleaned geometries, run matrices you can afford. <strong>The asset's operating envelope is not any of those things.</strong></li>
+          <li><strong>Decisive events do not volunteer for the schedule</strong> — gust fields, contamination, corners of the mission profile <strong>not in the test matrix</strong> still determine certification risk and fleet economics.</li>
+          <li><strong>Restrictive, expensive facilities optimise for what they can run</strong> — not for full-surface truth at the <strong>surface</strong> where programmes actually succeed or fail.</li>
         </ul>
+      </div>
+
+      {/* AND LATE DATA IS CATASTROPHIC */}
+      <div className="border-t border-hyve-text/15 pt-4">
+        <h3 className="text-lg md:text-xl font-semibold text-hyve-text mb-2">
+          And Late Data Is Catastrophic
+        </h3>
+        <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
+          A fix found at integration and test costs <strong>21–44× more</strong> than at requirements.
+          At operations: <strong>29–100×</strong>.<sup className="font-bold text-hyve-text/40">4</sup>
+        </p>
+        <p className="text-xs md:text-sm text-hyve-text leading-relaxed mt-2">
+          Teams still <strong>buy and babysit hardware</strong> instead of <strong>buying continuous, replayable surface data</strong> on demand.
+        </p>
+        <p className="text-[9px] md:text-[8px] font-bold text-hyve-text/40 mt-4">
+          <sup>4</sup> NASA Johnson Space Center hardware-change study, 2010.
+        </p>
       </div>
     </div>
 
-    {/* IDEAL LAB, CHAOTIC WORLD */}
-    <div>
-      <h3 className="text-lg md:text-xl font-semibold text-hyve-text mb-3">
-        Ideal Lab, Chaotic World
-      </h3>
-      <ul className="space-y-3 text-xs md:text-sm text-hyve-text leading-relaxed">
-        <li><strong>Wind tunnels and CFD trade chaos for control</strong> — boundary conditions, scaling laws, cleaned geometries, run matrices you can afford. <strong>The asset's operating envelope is not any of those things.</strong></li>
-        <li><strong>Decisive events do not volunteer for the schedule</strong> — gust fields, contamination, corners of the mission profile <strong>not in the test matrix</strong> still determine certification risk and fleet economics.</li>
-        <li><strong>Restrictive, expensive facilities optimise for what they can run</strong> — not for full-surface truth at the <strong>surface</strong> where programmes actually succeed or fail.</li>
-      </ul>
-    </div>
-
-    {/* AND LATE DATA IS CATASTROPHIC */}
-    <div className="border-t border-hyve-text/15 pt-4">
-      <h3 className="text-lg md:text-xl font-semibold text-hyve-text mb-2">
-        And Late Data Is Catastrophic
-      </h3>
-      <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
-        A fix found at integration and test costs <strong>21–44× more</strong> than at requirements.
-        At operations: <strong>29–100×</strong>.<sup className="font-bold text-hyve-text/40">4</sup>
-      </p>
-      <p className="text-xs md:text-sm text-hyve-text leading-relaxed mt-2">
-        Teams still <strong>buy and babysit hardware</strong> instead of <strong>buying continuous, replayable surface data</strong> on demand.
-      </p>
-      <p className="text-[9px] md:text-[8px] font-bold text-hyve-text/40 mt-4">
-        <sup>4</sup> NASA Johnson Space Center hardware-change study, 2010.
-      </p>
+    <div className="hidden md:flex w-[30%] flex-shrink-0 items-center">
+      <img
+        src={imgAirbus5}
+        alt="Legacy wind tunnel instrumentation — pressure taps and wiring on test model"
+        className="w-full h-auto rounded-lg shadow-lg object-cover"
+      />
     </div>
   </div>
 )
@@ -211,12 +212,34 @@ const solutionContent = (
         <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
           The Haptic Matrix is an ultra-thin, flexible electronic membrane that applies directly to any aerodynamic surface, such as a wing, fuselage, blade, chassis. It streams simultaneous, real-time data across the entire area it covers.
         </p>
-        <p className="text-sm md:text-base font-semibold text-hyve-header">
-          Pressure. Strain. Temperature. Simultaneously. Continuously. At scale.
-        </p>
-        <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
-          No holes. No single-use consumables. No post-processing delay. No assumptions.
-        </p>
+
+        <div className="grid grid-cols-3 gap-3">
+          <div className="rounded-lg border border-hyve-header/20 bg-hyve-header/5 px-3 py-3 text-center flex flex-col justify-center">
+            <p className="text-xs font-bold uppercase tracking-wider text-hyve-header">Bidirectional</p>
+            <p className="text-sm md:text-base font-semibold text-hyve-header mt-0.5">Pressure</p>
+          </div>
+          <div className="rounded-lg border border-hyve-header/20 bg-hyve-header/5 px-3 py-3 text-center flex flex-col justify-center">
+            <p className="text-xs font-bold uppercase tracking-wider text-hyve-header">In-plane</p>
+            <p className="text-sm md:text-base font-semibold text-hyve-header mt-0.5">Strain</p>
+          </div>
+          <div className="rounded-lg border border-hyve-header/20 bg-hyve-header/5 px-3 py-3 text-center flex flex-col justify-center">
+            <p className="text-sm md:text-base font-semibold text-hyve-header">Temperature</p>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-center gap-2 text-xs md:text-sm font-semibold text-hyve-header/80">
+          <span>Simultaneously</span>
+          <span className="text-hyve-header/30">—</span>
+          <span>Continuously</span>
+          <span className="text-hyve-header/30">—</span>
+          <span className="text-hyve-header font-bold">At Scale</span>
+        </div>
+
+        <div className="border border-hyve-text/20 rounded-lg px-6 py-4 bg-hyve-header/[0.04]">
+          <p className="text-xs md:text-sm font-semibold text-hyve-header leading-relaxed text-center">
+            No holes. No single-use consumables. No post-processing delay. No assumptions.
+          </p>
+        </div>
         <p className="text-xs md:text-sm text-hyve-text leading-relaxed">
           You cannot <strong>replay chaos at laboratory purity</strong>, and you cannot <strong>defend a programme</strong> on only the scenarios the tunnel matrix could afford. <strong>Hyve measures the surface the world actually touches.</strong>
         </p>
@@ -306,7 +329,12 @@ const platformContent = (
       </div>
     </div>
 
-    <div className="hidden md:flex w-[38%] flex-shrink-0 items-center">
+    <div className="hidden md:flex w-[38%] flex-shrink-0 flex-col justify-center gap-4">
+      <img
+        src={imgAirbus2b}
+        alt="Haptic Matrix array in Airbus Filton Wind Tunnel — live test session"
+        className="w-full h-auto rounded-lg shadow-lg object-cover"
+      />
       <img
         src={imgMatrixR1}
         alt="Haptic Matrix deployed on aircraft wing surface"
@@ -726,9 +754,9 @@ const capitalContent = (
             <td className="py-2.5">Named pipeline converted — revenue proof</td>
           </tr>
           <tr>
-            <td className="py-2.5 pr-4">3+ aerospace/defence customers live</td>
+            <td className="py-2.5 pr-4">3+ paying customers across aerospace &amp; motorsport</td>
             <td className="py-2.5 pr-4 font-semibold">Month 24</td>
-            <td className="py-2.5">Platform diversity — not a single-customer story</td>
+            <td className="py-2.5">Multi-sector revenue — not a single-customer story</td>
           </tr>
         </tbody>
       </table>
