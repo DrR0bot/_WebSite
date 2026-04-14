@@ -10,7 +10,7 @@ import { NoIndex } from '@/components/common/NoIndex'
 import bgSlides from './assets/Background_slides.png'
 import imgAirbus1 from './assets/Airbus1.png'
 import imgAirbus4 from './assets/Airbus4.png'
-import imgAirbus2b from './assets/Airbus2_2.png'
+import imgAirbus2b from './assets/Airbus2b.png'
 import imgMatrixR1 from './assets/MatrixMesh-r1.png'
 import imgMatrixR5 from './assets/MatrixMesh-r5.png'
 
@@ -150,7 +150,7 @@ const problemContent = (
 
 // ---- SLIDE 2B: PROBLEM (cont.) — Legacy stack, ideal lab, late data --------
 const problemContContent = (
-  <div className="max-w-5xl mx-auto w-full flex-1 flex flex-col justify-center gap-8 text-hyve-header">
+  <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center gap-8 text-hyve-header">
     {/* THE STACK HASN'T CHANGED */}
     <div>
       <div className="border-b border-hyve-text/15 pb-4 mb-5">
@@ -199,7 +199,7 @@ const problemContContent = (
 
 // ---- SLIDE 3: THE SOLUTION -------------------------------------------------
 const solutionContent = (
-  <div className="max-w-5xl mx-auto w-full flex-1 flex flex-col justify-center gap-8 text-hyve-header">
+  <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center gap-8 text-hyve-header">
     <div>
       <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
         Hyve gives engineers a continuous, full-surface picture of what their structures are actually doing, not what a simulation predicts.
@@ -318,7 +318,7 @@ const platformContent = (
 
 // ---- SLIDE 5: MARKET & DECACORN PATH ---------------------------------------
 const marketContent = (
-  <div className="max-w-5xl mx-auto w-full flex-1 flex flex-col justify-center gap-6 text-hyve-header">
+  <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center gap-6 text-hyve-header">
     <div>
       <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
         Aerospace is the beachhead.
@@ -334,14 +334,14 @@ const marketContent = (
         <p className="text-sm font-semibold text-hyve-header mb-2">Aerodynamic testing instrumentation</p>
         <p className="text-lg md:text-xl font-bold text-hyve-header mb-1">~$3.1B</p>
         <p className="text-xs text-hyve-text/60 mb-2">Global market · CAGR 5–7%</p>
-        <p className="text-xs text-hyve-text leading-relaxed">No direct incumbent offers a conformal, full-surface, real-time sensor array. Hyve is not a better pressure tap. It is a new category.</p>
+        <p className="text-xs text-hyve-text leading-relaxed">Fewer tests, but each demands higher-fidelity instrumentation — the shift from volume to value. No incumbent offers a conformal, full-surface, real-time array. Hyve is a new category.</p>
       </div>
       <div>
         <p className="text-xs text-hyve-text/60 mb-1">Next — funded by this raise</p>
         <p className="text-sm font-semibold text-hyve-header mb-2">Aircraft SHM / IVHM</p>
         <p className="text-lg md:text-xl font-bold text-hyve-header mb-1">~$5.7B → $10.9B by 2034</p>
-        <p className="text-xs text-hyve-text/60 mb-2">CAGR 6.6%</p>
-        <p className="text-xs text-hyve-text leading-relaxed">28,000+ composite-airframe aircraft in service globally. Every one is a potential embedded platform.</p>
+        <p className="text-xs text-hyve-text/60 mb-2">CAGR 6.6% · within a $114B MRO super cycle</p>
+        <p className="text-xs text-hyve-text leading-relaxed">28,000+ composite-airframe aircraft in service. Oliver Wyman: integrated aircraft health management is <em>"likely to be adopted as an industry standard."</em></p>
       </div>
       <div>
         <p className="text-xs text-hyve-text/60 mb-1">Platform horizon</p>
@@ -377,13 +377,17 @@ const marketContent = (
           <p className="text-xs text-hyve-text/60 mt-1">Platform valuation exceeds Decacorn</p>
         </div>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2">
-        <div className="text-xs text-hyve-text"><strong>Simmonds Precision</strong><br />→ TransDigm · $765M<sup>5</sup><br /><span className="text-hyve-text/50">2025</span></div>
-        <div className="text-xs text-hyve-text"><strong>Raptor Scientific</strong><br />→ TransDigm · $655M<sup>6</sup><br /><span className="text-hyve-text/50">2024</span></div>
-        <div className="text-xs text-hyve-text"><strong>PSI / Druck</strong><br />→ Crane · $1.06B<sup>7</sup><br /><span className="text-hyve-text/50">2025</span></div>
-        <div className="text-xs text-hyve-text"><strong>Meggitt</strong><br />→ Parker Hannifin · $8.63B<sup>8</sup><br /><span className="text-hyve-text/50">2022</span></div>
+      <p className="text-xs font-semibold text-hyve-text/60 uppercase tracking-wider pt-2">Recent aerospace sensing acquisitions</p>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="text-xs text-hyve-text"><strong>Simmonds Precision</strong><br /><span className="text-hyve-text/60">SHM &amp; fuel sensing</span><br />→ TransDigm · $765M<sup>5</sup><br /><span className="text-hyve-text/50">2025</span></div>
+        <div className="text-xs text-hyve-text"><strong>Raptor Scientific</strong><br /><span className="text-hyve-text/60">Aero test &amp; measurement</span><br />→ TransDigm · $655M<sup>6</sup><br /><span className="text-hyve-text/50">2024</span></div>
+        <div className="text-xs text-hyve-text"><strong>PSI / Druck</strong><br /><span className="text-hyve-text/60">Pressure instrumentation</span><br />→ Crane · $1.06B<sup>7</sup><br /><span className="text-hyve-text/50">2025</span></div>
+        <div className="text-xs text-hyve-text"><strong>Meggitt</strong><br /><span className="text-hyve-text/60">Aerospace sensors</span><br />→ Parker Hannifin · $8.63B<sup>8</sup><br /><span className="text-hyve-text/50">2022</span></div>
       </div>
-      <p className="text-[9px] md:text-[10px] font-bold text-hyve-text/40 pt-3">
+      <p className="text-xs text-hyve-text/70 pt-2">
+        TransDigm alone spent <strong>$1.42B on two aerospace sensing acquisitions</strong> in 2024–2025. Proprietary sensing with aftermarket content commands 2–7× revenue multiples.
+      </p>
+      <p className="text-[9px] md:text-[10px] font-bold text-hyve-text/40 pt-2">
         <sup>5</sup> TransDigm Group press release, 2025. <sup>6</sup> TransDigm Group press release, 2024. <sup>7</sup> Crane Co. investor filing, 2025. <sup>8</sup> Parker Hannifin acquisition filing, 2022.
       </p>
     </div>
@@ -392,7 +396,7 @@ const marketContent = (
 
 // ---- SLIDE 5B: PLATFORM UNIVERSALITY ----------------------------------------
 const universalityContent = (
-  <div className="max-w-5xl mx-auto w-full flex-1 flex flex-col justify-center gap-8 text-hyve-header">
+  <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center gap-8 text-hyve-header">
     <div>
       <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
         If it works on a live Airbus programme model in a wind tunnel, it works everywhere.
@@ -529,7 +533,7 @@ const tractionContent = (
 
 // ---- SLIDE 7: COMPETITIVE LANDSCAPE -----------------------------------------
 const landscapeContent = (
-  <div className="max-w-5xl mx-auto w-full flex-1 flex flex-col justify-center gap-6 text-hyve-header">
+  <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center gap-6 text-hyve-header">
     <div>
       <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
         Every alternative makes a trade-off. Hyve makes none.
@@ -619,7 +623,7 @@ const landscapeContent = (
 
 // ---- SLIDE 8: TEAM ----------------------------------------------------------
 const teamContent = (
-  <div className="max-w-5xl mx-auto w-full flex-1 flex flex-col justify-center gap-6 text-hyve-header">
+  <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center gap-6 text-hyve-header">
     <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
       Built by the people who know exactly what is broken — because they spent their careers working around it.
     </p>
@@ -679,7 +683,7 @@ const teamContent = (
 
 // ---- SLIDE 9: CAPITAL ROADMAP -----------------------------------------------
 const capitalContent = (
-  <div className="max-w-5xl mx-auto w-full flex-1 flex flex-col justify-center gap-6 text-hyve-header">
+  <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center gap-6 text-hyve-header">
     <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
       This £3M raise has one job: get Hyve to Series A with proof that the platform scales.
     </p>
@@ -764,7 +768,7 @@ const capitalContent = (
 
 // ---- SLIDE 10: THE ASK ------------------------------------------------------
 const askContent = (
-  <div className="max-w-5xl mx-auto w-full flex-1 flex flex-col justify-center gap-8 text-hyve-header">
+  <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col justify-center gap-8 text-hyve-header">
     <p className="text-xl md:text-[22px] font-semibold text-hyve-text leading-relaxed">
       Hyve is raising £3M Seed to take validated technology to production scale and prove the platform compounds.
     </p>
