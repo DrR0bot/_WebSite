@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import * as THREE from 'three'
 
 interface CustomMeshBackgroundProps {
   enabled?: boolean
@@ -67,22 +68,16 @@ export const CustomMeshBackground = ({
     // Capture the current ref value for cleanup
     const currentMount = mountRef.current
 
-    // @ts-expect-error - Three.js global
-    if (!window.THREE) {
-      // Three.js not loaded, skipping custom mesh background
-      // Three.js not loaded, skipping custom mesh background
-      return
-    }
-
     // Clear any existing content first
     while (currentMount.firstChild) {
       currentMount.removeChild(currentMount.firstChild)
     }
 
-    // @ts-expect-error - Three.js global
-    const THREE = window.THREE
-
-    // Initializing Three.js scene
+    // Match legacy Three.js r134 colour/rendering behaviour.
+    // Newer Three.js enables sRGB colour management by default, which
+    // shifts the mesh/fog tones. Disabling it + using linear output space
+    // keeps the background visually identical to the previous CDN build.
+    THREE.ColorManagement.enabled = false
 
     // Scene setup
     const scene = new THREE.Scene()
@@ -100,8 +95,9 @@ export const CustomMeshBackground = ({
       antialias: true,
     })
 
-    renderer.setSize(containerWidth, containerHeight)
+    renderer.outputColorSpace = THREE.LinearSRGBColorSpace
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    renderer.setSize(containerWidth, containerHeight)
 
     // Style the canvas to enable clicks
     renderer.domElement.style.position = 'absolute'

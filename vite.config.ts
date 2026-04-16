@@ -30,8 +30,8 @@ const getSecurityHeaders = (isProduction = false) => ({
   'Content-Security-Policy': [
     "default-src 'self'",
     isProduction
-      ? "script-src 'self' https://cdnjs.cloudflare.com"
-      : "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com",
+      ? "script-src 'self'"
+      : "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
     "style-src 'self' 'unsafe-inline' fonts.googleapis.com",
     "font-src 'self' fonts.gstatic.com data:",
     "img-src 'self' data: blob: https:",
@@ -84,6 +84,7 @@ manualChunks: {
             '@radix-ui/react-dialog',
             '@radix-ui/react-navigation-menu',
           ],
+          'three-vendor': ['three'],
           'swiper-vendor': ['swiper'],
         },
       },
