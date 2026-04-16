@@ -618,19 +618,22 @@ export const CustomMeshBackground = ({
     // Initial render
     renderer.render(scene, camera)
 
-    // Handle resize
+    // Handle resize — use ResizeObserver on the container so we react to
+    // actual layout changes (not only window resize). Guard against zero
+    // dimensions that can occur during mount/unmount or when the element
+    // is temporarily detached from layout.
     const handleResize = () => {
-      if (mountRef.current) {
-        const newWidth = mountRef.current.clientWidth
-        const newHeight = mountRef.current.clientHeight
-        camera.aspect = newWidth / newHeight
-        camera.updateProjectionMatrix()
-        renderer.setSize(newWidth, newHeight)
-        renderer.render(scene, camera)
-      }
+      if (!mountRef.current) return
+      const newWidth = mountRef.current.clientWidth
+      const newHeight = mountRef.current.clientHeight
+      if (newWidth === 0 || newHeight === 0) return
+      camera.aspect = newWidth / newHeight
+      camera.updateProjectionMatrix()
+      renderer.setSize(newWidth, newHeight)
     }
 
-    window.addEventListener('resize', handleResize)
+    const resizeObserver = new ResizeObserver(handleResize)
+    resizeObserver.observe(container)
 
     // Store references
     sceneRef.current = {
@@ -644,8 +647,7 @@ export const CustomMeshBackground = ({
 
     // Cleanup
     return () => {
-      // Cleaning up Three.js scene
-      window.removeEventListener('resize', handleResize)
+      resizeObserver.disconnect()
 
       if (renderer.domElement) {
         renderer.domElement.removeEventListener('click', handleClick)
