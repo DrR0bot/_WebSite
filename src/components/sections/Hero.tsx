@@ -32,6 +32,16 @@ const itemVariants = {
   },
 }
 
+// Mirrors the four callouts drawn around the HapticMatrix on desktop.
+// On small screens the SVG callouts are hidden, so we render the same
+// information as a simple bullet list beneath the animation instead.
+const hapticCallouts = [
+  { title: '10×10 SENSOR MATRIX', subtitle: 'High-density tactile array' },
+  { title: 'FLEXIBLE SUBSTRATE', subtitle: 'Conformable sensing surface' },
+  { title: 'MEMS ARRAY', subtitle: 'Custom sensing elements' },
+  { title: 'REAL-TIME ACQUISITION', subtitle: '1kHz sampling rate' },
+]
+
 export const Hero = () => {
   const navigate = useNavigate()
 
@@ -129,6 +139,38 @@ export const Hero = () => {
               <HapticMatrixAnimation className="pointer-events-auto" />
             </div>
           </motion.div>
+
+          {/* Mobile-only callouts list. Shown below the animation when the
+              desktop SVG callouts are hidden (<sm breakpoint). Keeps the
+              descriptive information visible on narrow screens. */}
+          <motion.ul
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="sm:hidden w-full max-w-[420px] mx-auto space-y-3 list-none p-0 mt-10"
+            aria-label="Haptic Matrix key features"
+          >
+            {hapticCallouts.map((item) => (
+              <motion.li
+                key={item.title}
+                variants={itemVariants}
+                className="flex items-start gap-3"
+              >
+                <span
+                  className="mt-1.5 flex-shrink-0 w-2 h-2 rounded-full bg-slate-700"
+                  aria-hidden="true"
+                />
+                <span className="flex flex-col leading-tight">
+                  <span className="text-slate-700 font-semibold text-xs tracking-wide">
+                    {item.title}
+                  </span>
+                  <span className="text-[10px] text-slate-400 font-normal italic">
+                    {item.subtitle}
+                  </span>
+                </span>
+              </motion.li>
+            ))}
+          </motion.ul>
         </div>
       </div>
 
