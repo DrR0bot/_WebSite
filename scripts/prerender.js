@@ -39,7 +39,40 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import puppeteer from 'puppeteer'
+/**
+ * Launch headless Chrome.
+ *
+ * In a serverless build environment (Vercel, AWS Lambda) the host container
+ * is missing Chromium's runtime shared libraries (libnspr4.so etc.) and we
+ * cannot apt-get install them without root. `@sparticuz/chromium` ships a
+ * Chromium binary with all required .so files bundled, paired with
+ * `puppeteer-core` (no auto-download).
+ *
+ * Locally we keep using full `puppeteer` for the convenience of its
+ * cross-platform Chrome download (configured via .puppeteerrc.cjs).
+ */
+async function launchBrowser() {
+  const isServerless = Boolean(
+    process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.NETLIFY
+  )
+
+  if (isServerless) {
+    const chromium = (await import('@sparticuz/chromium')).default
+    const puppeteerCore = (await import('puppeteer-core')).default
+    return puppeteerCore.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+    })
+  }
+
+  const puppeteer = (await import('puppeteer')).default
+  return puppeteer.launch({
+    headless: 'new',
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  })
+}
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -261,10 +294,7 @@ async function main() {
 
   try {
     log('launching headless chrome...')
-    browser = await puppeteer.launch({
-      headless: 'new',
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    })
+    browser = await launchBrowser()
 
     for (const route of PRERENDER_ROUTES) {
       // eslint-disable-next-line no-await-in-loop
