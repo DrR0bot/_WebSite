@@ -1,5 +1,5 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import { HelmetProvider } from 'react-helmet-async'
 import { Toaster } from 'sonner'
 
@@ -31,7 +31,8 @@ try {
   throw error
 }
 
-createRoot(document.getElementById('root')!).render(
+const rootElement = document.getElementById('root')!
+const appTree = (
   <StrictMode>
     <HelmetProvider>
       <App />
@@ -54,6 +55,15 @@ createRoot(document.getElementById('root')!).render(
     </HelmetProvider>
   </StrictMode>
 )
+
+// If the snapshot prerender has populated #root with real HTML, hydrate it
+// in place to avoid a flash of empty content. Otherwise fall back to the
+// regular client render. See scripts/prerender.js.
+if (rootElement.hasChildNodes()) {
+  hydrateRoot(rootElement, appTree)
+} else {
+  createRoot(rootElement).render(appTree)
+}
 
 // Report web vitals
 reportWebVitals()
