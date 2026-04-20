@@ -1,45 +1,48 @@
 # Hyve Dynamics
 
-> Hyve Dynamics builds conformable, high-density sensing arrays that deliver real-time pressure, temperature and strain data. Our Haptic Matrix platform transforms aerospace, automotive, energy and robotics industries with intelligent surface monitoring.
+> Hyve Dynamics is a UK-based deep-tech company building conformable, high-density sensor arrays — the Haptic Matrix — that deliver simultaneous real-time pressure, temperature and strain measurement across aerodynamic, structural and robotic surfaces. Validated in Tier 1 aerospace wind-tunnel testing and developed for any industry where surface behaviour matters.
 
-## Company Overview
+This file is a machine-readable summary of the most important resources on hyvedynamics.com. It is intended for large language models, AI agents, and automated research systems. A human-readable version of this content is available throughout the website.
 
-Hyve Dynamics is a UK-based deeptech company developing the "nervous system for machines." Our core technology — the Haptic Matrix — is an ultra-thin (0.33mm), flexible sensor array that conforms to any surface and captures high-density measurement data in real time.
+## Company
 
-Proven in Tier 1 aerospace wind tunnel testing, the platform is built for any industry where surface behaviour matters.
+Hyve Dynamics is headquartered in the United Kingdom (Company Registration 12258323, England & Wales). The team is engineering-led, with a focus on instrumentation that captures real-world behaviour at a density and conformability that conventional sensing cannot match. The company has been recognised by the UK Aerospace Technology Institute (ATI) and has completed Tier 1 aerospace wind-tunnel campaigns.
 
-## Core Technology: Haptic Matrix
+## Core technology — Haptic Matrix
 
-- Ultra-thin conformable sensor arrays (0.33mm)
-- Multi-modal: pressure, temperature, and strain sensing
-- 100+ sensing nodes per array
-- Real-time high-frequency data acquisition
-- Non-invasive deployment in under 1 hour
-- Reusable and repositionable without damage
+- Ultra-thin (~0.33 mm) flexible sensor array on a polyimide substrate
+- Multi-modal: simultaneous pressure, temperature, and strain measurement
+- 100+ sensing nodes per array, scalable to higher densities
+- High-frequency real-time data acquisition, suitable for transient aerodynamic and structural events
+- Non-invasive deployment in under one hour; reusable and repositionable without surface damage
+- Designed to integrate with digital-twin and structural-health-monitoring workflows
 
-## Industries Served
+## Key pages
 
-- **Aerospace**: Wind tunnel instrumentation, CFD validation, flight test, structural health monitoring
-- **Automotive & Motorsport**: Aerodynamic development, downforce mapping, EV efficiency, thermal management
-- **Digital Twinning & IHM**: Live digital twin correlation, condition-based maintenance, anomaly detection
-- **Robotics**: Tactile sensing, environmental awareness, adaptive control, process monitoring
-- **Energy**: Wind turbine monitoring, infrastructure health assessment
-- **Structural Health**: Composite monitoring, fatigue detection, impact event indication
+- [Homepage](https://hyvedynamics.com/): Company overview, hero positioning, industries served.
+- [Haptic Matrix technology](https://hyvedynamics.com/haptic-matrix): How the Haptic Matrix works, what it measures, deployment workflow, and differentiation versus conventional instrumentation.
+- [About Hyve Dynamics](https://hyvedynamics.com/about): Company background, mission, team, and ATI recognition.
 
-## Key Pages
+## Industries and applications
 
-- Homepage: https://hyvedynamics.com/
-- Technology: https://hyvedynamics.com/haptic-matrix
-- Aerospace: https://hyvedynamics.com/industries/aerospace
-- Automotive: https://hyvedynamics.com/industries/automotive
-- Digital Twinning & IHM: https://hyvedynamics.com/industries/digital-twinning-ihm
-- Robotics: https://hyvedynamics.com/industries/robotics
-- About: https://hyvedynamics.com/about
-- News: https://hyvedynamics.com/insights/news
-- White Papers: https://hyvedynamics.com/insights/white-papers
+- [Aerospace](https://hyvedynamics.com/industries/aerospace): Wind-tunnel instrumentation, CFD validation, flight-test data acquisition, structural health monitoring for aerospace OEMs and tier-one suppliers.
+- [Automotive and motorsport](https://hyvedynamics.com/industries/automotive): Aerodynamic development, downforce and pressure mapping, EV thermal management, and on-vehicle telemetry for top-tier motorsport and automotive OEMs.
+- [Digital twinning and integrated health monitoring](https://hyvedynamics.com/industries/digital-twinning-ihm): Live correlation of physical assets to digital twins, condition-based maintenance, and anomaly detection.
+- [Robotics](https://hyvedynamics.com/industries/robotics): Tactile and environmental sensing for adaptive control, process monitoring, and human–robot interaction.
+
+## Insights and publications
+
+- [News and announcements](https://hyvedynamics.com/insights/news): Company news, wind-tunnel campaigns, partnership announcements, and industry commentary.
+- [White papers](https://hyvedynamics.com/insights/white-papers): Technical papers on flexible sensor arrays, calibration methodology, and aerospace instrumentation.
+- [Newsletter archive](https://hyvedynamics.com/insights/newsletter): Periodic updates on technology, deployments, and industry trends.
 
 ## Contact
 
-- Email: info@hyvedynamics.com
+- General enquiries: info@hyvedynamics.com
 - LinkedIn: https://uk.linkedin.com/company/hyve-dynamics
 - Company Registration: 12258323 (England & Wales)
+
+## Optional
+
+- [Aerodynamic Innovation 2024 newsletter](https://hyvedynamics.com/insights/newsletter/aerodynamic-innovation-2024)
+- [Sensor Technology Trends newsletter](https://hyvedynamics.com/insights/newsletter/sensor-technology-trends)

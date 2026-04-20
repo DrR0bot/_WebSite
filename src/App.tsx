@@ -121,8 +121,6 @@ function App() {
               <Route path="/industries/aerospace" element={<AerospacePage />} />
               <Route path="/industries/automotive" element={<AutomotivePage />} />
               <Route path="/industries/digital-twinning-ihm" element={<DigitalTwinningIHMPage />} />
-              <Route path="/industries/energy" element={<DigitalTwinningIHMPage />} />
-              <Route path="/industries/structural-health" element={<DigitalTwinningIHMPage />} />
               <Route path="/industries/robotics" element={<RoboticsPage />} />
 
               {/* Insights Routes */}

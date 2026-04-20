@@ -1,5 +1,24 @@
+import { SEO } from '@/components/common/SEO'
 import { IndustryPageFocused } from '@/components/pages/IndustryPageFocused'
 import { getVideoPath } from '@/lib/assets'
+
+const roboticsJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Robotics tactile and surface sensing',
+  provider: {
+    '@type': 'Organization',
+    name: 'Hyve Dynamics',
+    url: 'https://hyvedynamics.com',
+  },
+  areaServed: 'Worldwide',
+  audience: {
+    '@type': 'BusinessAudience',
+    audienceType: 'Robotics manufacturers, automation integrators, research institutions',
+  },
+  description:
+    'High-density flexible sensor arrays providing pressure, temperature, and strain measurement across robotic end-effectors, structures, and operating environments for adaptive control, tactile sensing, and condition monitoring.',
+}
 
 const roboticsData = {
   id: 'robotics',
@@ -47,5 +66,15 @@ const roboticsData = {
 }
 
 export const RoboticsPage = () => {
-  return <IndustryPageFocused industry={roboticsData} />
+  return (
+    <>
+      <SEO
+        title="Robotics Surface & Tactile Sensing"
+        description="Hyve's flexible sensor arrays bring high-density surface sensing to robotics — capturing pressure, temperature, and strain across end-effectors and structures for adaptive control, tactile feedback, and condition monitoring."
+        keywords="robotics sensors, tactile sensing, adaptive control, end-effector sensors, robot environmental awareness, human-robot collaboration, Haptic Matrix, Hyve Dynamics"
+        jsonLd={roboticsJsonLd}
+      />
+      <IndustryPageFocused industry={roboticsData} />
+    </>
+  )
 }

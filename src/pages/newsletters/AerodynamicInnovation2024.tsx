@@ -72,10 +72,23 @@ export const AerodynamicInnovation2024 = () => {
           '@context': 'https://schema.org',
           '@type': 'Article',
           headline: 'Aerodynamic Innovation: 2024 Industry Outlook',
-          description: 'Discover how Hyve\'s Haptic Matrix technology is revolutionizing aerodynamic testing across aerospace and automotive industries.',
+          description:
+            "Discover how Hyve's Haptic Matrix technology is revolutionizing aerodynamic testing across aerospace and automotive industries.",
           datePublished: '2024-01-15',
-          author: { '@type': 'Organization', name: 'Hyve Dynamics' },
-          publisher: { '@type': 'Organization', name: 'Hyve Dynamics', logo: { '@type': 'ImageObject', url: 'https://hyvedynamics.com/HD-Logo-dk.svg' } },
+          dateModified: '2024-01-15',
+          inLanguage: 'en-GB',
+          image: 'https://hyvedynamics.com/og_image.png',
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': 'https://hyvedynamics.com/insights/newsletter/aerodynamic-innovation-2024',
+          },
+          author: { '@type': 'Organization', name: 'Hyve Dynamics', url: 'https://hyvedynamics.com' },
+          publisher: {
+            '@type': 'Organization',
+            name: 'Hyve Dynamics',
+            url: 'https://hyvedynamics.com',
+            logo: { '@type': 'ImageObject', url: 'https://hyvedynamics.com/HD-Logo-dk.svg' },
+          },
         }}
       />
 

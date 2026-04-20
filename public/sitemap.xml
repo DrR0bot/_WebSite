@@ -3,85 +3,79 @@
   <!-- Homepage -->
   <url>
     <loc>https://hyvedynamics.com/</loc>
-    <lastmod>2026-04-03</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Technology -->
+  <!-- Core technology -->
   <url>
     <loc>https://hyvedynamics.com/haptic-matrix</loc>
-    <lastmod>2026-04-03</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Industry Pages -->
+  <!-- Company -->
+  <url>
+    <loc>https://hyvedynamics.com/about</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Industries (real, distinct pages only) -->
   <url>
     <loc>https://hyvedynamics.com/industries/aerospace</loc>
-    <lastmod>2026-04-03</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://hyvedynamics.com/industries/automotive</loc>
-    <lastmod>2026-04-03</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://hyvedynamics.com/industries/digital-twinning-ihm</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://hyvedynamics.com/industries/energy</loc>
-    <lastmod>2026-04-03</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://hyvedynamics.com/industries/robotics</loc>
-    <lastmod>2026-04-03</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <url>
-    <loc>https://hyvedynamics.com/industries/structural-health</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- About -->
-  <url>
-    <loc>https://hyvedynamics.com/about</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Insights -->
+  <!-- Insights index pages -->
   <url>
     <loc>https://hyvedynamics.com/insights/news</loc>
-    <lastmod>2026-04-03</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
+    <loc>https://hyvedynamics.com/insights/white-papers</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://hyvedynamics.com/insights/newsletter</loc>
-    <lastmod>2026-04-03</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
+  <!-- Newsletter articles -->
   <url>
     <loc>https://hyvedynamics.com/insights/newsletter/aerodynamic-innovation-2024</loc>
     <lastmod>2024-01-15</lastmod>
@@ -94,12 +88,5 @@
     <lastmod>2023-12-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://hyvedynamics.com/insights/white-papers</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>

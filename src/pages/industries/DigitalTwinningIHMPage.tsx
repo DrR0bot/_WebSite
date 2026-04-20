@@ -1,6 +1,25 @@
+import { SEO } from '@/components/common/SEO'
 import { Badge } from '@/components/ui/badge'
 import { IndustryPageFocused } from '@/components/pages/IndustryPageFocused'
 import { getVideoPath } from '@/lib/assets'
+
+const digitalTwinningJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Digital twin correlation and integrated health monitoring',
+  provider: {
+    '@type': 'Organization',
+    name: 'Hyve Dynamics',
+    url: 'https://hyvedynamics.com',
+  },
+  areaServed: 'Worldwide',
+  audience: {
+    '@type': 'BusinessAudience',
+    audienceType: 'Aerospace operators, energy infrastructure owners, industrial asset managers, digital twin teams',
+  },
+  description:
+    'High-density surface measurements that correlate digital twins with real operating conditions and support condition-based maintenance, anomaly detection, and integrated vehicle health monitoring (IVHM).',
+}
 
 const digitalTwinningIHMData = {
   id: 'digital-twinning-ihm',
@@ -43,7 +62,14 @@ const digitalTwinningIHMData = {
 
 export const DigitalTwinningIHMPage = () => {
   return (
-    <IndustryPageFocused industry={digitalTwinningIHMData}>
+    <>
+      <SEO
+        title="Digital Twinning & Integrated Health Monitoring"
+        description="Hyve provides high-density pressure, temperature, and strain measurements that correlate CFD/FEA digital twins with real operating conditions and support condition-based maintenance, anomaly detection, and IVHM workflows."
+        keywords="digital twin, IVHM, integrated health monitoring, CFD correlation, FEA correlation, condition-based maintenance, anomaly detection, structural health monitoring, Haptic Matrix, Hyve Dynamics"
+        jsonLd={digitalTwinningJsonLd}
+      />
+      <IndustryPageFocused industry={digitalTwinningIHMData}>
       <div className="bg-gradient-to-br from-white/95 to-hyve-accent/10 backdrop-blur-xl rounded-3xl shadow-xl border border-hyve-content/20 p-8 lg:p-12">
         <div className="mb-8">
           <Badge variant="secondary" className="px-3 py-1 text-xs font-medium mb-4">
@@ -161,5 +187,6 @@ export const DigitalTwinningIHMPage = () => {
         </div>
       </div>
     </IndustryPageFocused>
+    </>
   )
 }

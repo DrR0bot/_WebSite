@@ -192,15 +192,50 @@ export const HapticMatrixPage = () => {
         keywords="Haptic Matrix, sensor array, pressure mapping, temperature sensing, strain measurement, ultra-thin sensors, real-time data, Hyve Dynamics"
         jsonLd={{
           '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: faqs.map(faq => ({
-            '@type': 'Question',
-            name: faq.question,
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: faq.answer,
+          '@graph': [
+            {
+              '@type': 'Product',
+              name: 'Haptic Matrix',
+              alternateName: 'Hyve Haptic Matrix sensor array',
+              category: 'Industrial sensor array',
+              description:
+                'Ultra-thin (0.33 mm) conformable flexible sensor array delivering simultaneous real-time pressure, temperature, and strain measurement across aerodynamic and structural surfaces. Multi-modal, high-density (100+ sensing nodes per array), reusable, and deployable in under one hour.',
+              brand: {
+                '@type': 'Brand',
+                name: 'Hyve Dynamics',
+              },
+              manufacturer: {
+                '@type': 'Organization',
+                name: 'Hyve Dynamics',
+                url: 'https://hyvedynamics.com',
+              },
+              url: 'https://hyvedynamics.com/haptic-matrix',
+              image: 'https://hyvedynamics.com/MatrixMesh-r5.png',
+              additionalProperty: [
+                { '@type': 'PropertyValue', name: 'Substrate thickness', value: '0.33 mm' },
+                { '@type': 'PropertyValue', name: 'Sensing modalities', value: 'Pressure, temperature, strain (simultaneous)' },
+                { '@type': 'PropertyValue', name: 'Sensing nodes per array', value: '100+' },
+                { '@type': 'PropertyValue', name: 'Deployment time', value: 'Under 1 hour' },
+                { '@type': 'PropertyValue', name: 'Reusability', value: 'Repositionable without surface damage' },
+                { '@type': 'PropertyValue', name: 'Validation', value: 'Tier 1 aerospace wind tunnel testing' },
+              ],
+              audience: {
+                '@type': 'BusinessAudience',
+                audienceType: 'Aerospace OEMs, motorsport teams, automotive OEMs, energy infrastructure operators, robotics integrators',
+              },
             },
-          })),
+            {
+              '@type': 'FAQPage',
+              mainEntity: faqs.map(faq => ({
+                '@type': 'Question',
+                name: faq.question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: faq.answer,
+                },
+              })),
+            },
+          ],
         }}
       />
       <CustomMeshBackground

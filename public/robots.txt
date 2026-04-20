@@ -1,13 +1,83 @@
-# Hyve Dynamics Robots.txt
+# Hyve Dynamics robots.txt
 # https://hyvedynamics.com
 
+# Default policy — allow all general crawlers
 User-agent: *
 Allow: /
 
-# Disallow API endpoints and internal paths
+# Disallow API endpoints, internal Vercel paths, and private investor area
 Disallow: /api/
 Disallow: /_vercel/
 Disallow: /investor/
+Disallow: /deck
 
-# Sitemap location
+# Explicit allow for major AI / LLM crawlers
+# (Removing or changing any of these to "Disallow" gates that specific bot.)
+
+User-agent: GPTBot
+Allow: /
+Disallow: /investor/
+Disallow: /deck
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /investor/
+Disallow: /deck
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /investor/
+Disallow: /deck
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /investor/
+Disallow: /deck
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /investor/
+Disallow: /deck
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /investor/
+Disallow: /deck
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /investor/
+Disallow: /deck
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /investor/
+Disallow: /deck
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /investor/
+Disallow: /deck
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /investor/
+Disallow: /deck
+
+User-agent: CCBot
+Allow: /
+Disallow: /investor/
+Disallow: /deck
+
+User-agent: Bytespider
+Allow: /
+Disallow: /investor/
+Disallow: /deck
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /investor/
+Disallow: /deck
+
+# Sitemap
 Sitemap: https://hyvedynamics.com/sitemap.xml
