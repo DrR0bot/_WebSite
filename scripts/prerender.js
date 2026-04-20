@@ -136,10 +136,10 @@ function startPreview() {
     setTimeout(() => {
       if (!resolved) {
         resolved = true
-        log('preview did not announce a port within 15s, attempting connect anyway')
+        log('preview did not announce a port within 30s, attempting connect anyway')
         resolve(child)
       }
-    }, 15000)
+    }, 30000)
   })
 }
 
