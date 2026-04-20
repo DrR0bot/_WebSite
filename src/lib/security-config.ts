@@ -196,13 +196,29 @@ export function validateSecurityRequirements(): {
   const warnings: string[] = []
   const errors: string[] = []
 
-  // Check HTTPS requirement in production
-  if (env.IS_PRODUCTION && !window.location.protocol.startsWith('https:')) {
+  // Allow local hosts to bypass the HTTPS gate. This covers:
+  //   - `vite preview` runs (used by the build-time prerender pass)
+  //   - `npm run preview` for local production smoke testing
+  //   - any localhost/127.0.0.1 staging context
+  // Production deploys hit a real domain over HTTPS and still enforce.
+  const hostname = window.location.hostname
+  const isLocalHost =
+    hostname === 'localhost' ||
+    hostname === '127.0.0.1' ||
+    hostname === '::1' ||
+    hostname.endsWith('.local')
+
+  // Check HTTPS requirement in production (skip for local hosts)
+  if (
+    env.IS_PRODUCTION &&
+    !isLocalHost &&
+    !window.location.protocol.startsWith('https:')
+  ) {
     errors.push('HTTPS is required in production')
   }
 
-  // Check for secure context
-  if (!window.isSecureContext && env.IS_PRODUCTION) {
+  // Check for secure context (skip for local hosts)
+  if (!window.isSecureContext && env.IS_PRODUCTION && !isLocalHost) {
     errors.push('Secure context (HTTPS) is required for security features')
   }
 

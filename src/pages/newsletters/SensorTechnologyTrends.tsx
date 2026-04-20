@@ -47,10 +47,23 @@ export const SensorTechnologyTrends = () => {
           '@context': 'https://schema.org',
           '@type': 'Article',
           headline: 'The Future of Sensor Technology: Trends Shaping 2024',
-          description: 'Explore cutting-edge developments in ultra-thin sensor technology and IoT integration transforming structural health monitoring, robotics, and energy systems.',
+          description:
+            'Explore cutting-edge developments in ultra-thin sensor technology and IoT integration transforming structural health monitoring, robotics, and energy systems.',
           datePublished: '2023-12-20',
-          author: { '@type': 'Organization', name: 'Hyve Dynamics' },
-          publisher: { '@type': 'Organization', name: 'Hyve Dynamics', logo: { '@type': 'ImageObject', url: 'https://hyvedynamics.com/HD-Logo-dk.svg' } },
+          dateModified: '2023-12-20',
+          inLanguage: 'en-GB',
+          image: 'https://hyvedynamics.com/og_image.png',
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': 'https://hyvedynamics.com/insights/newsletter/sensor-technology-trends',
+          },
+          author: { '@type': 'Organization', name: 'Hyve Dynamics', url: 'https://hyvedynamics.com' },
+          publisher: {
+            '@type': 'Organization',
+            name: 'Hyve Dynamics',
+            url: 'https://hyvedynamics.com',
+            logo: { '@type': 'ImageObject', url: 'https://hyvedynamics.com/HD-Logo-dk.svg' },
+          },
         }}
       />
 

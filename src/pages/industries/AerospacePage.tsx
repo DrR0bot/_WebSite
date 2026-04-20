@@ -1,7 +1,26 @@
 import { Plane } from 'lucide-react'
 
+import { SEO } from '@/components/common/SEO'
 import { IndustryPageFocused } from '@/components/pages/IndustryPageFocused'
 import { getVideoPath } from '@/lib/assets'
+
+const aerospaceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Aerospace surface instrumentation and structural monitoring',
+  provider: {
+    '@type': 'Organization',
+    name: 'Hyve Dynamics',
+    url: 'https://hyvedynamics.com',
+  },
+  areaServed: 'Worldwide',
+  audience: {
+    '@type': 'BusinessAudience',
+    audienceType: 'Aerospace OEMs, defence contractors, wind tunnel operators, flight test programmes',
+  },
+  description:
+    'Real-time, high-density pressure, temperature, and strain measurement on aerodynamic and structural surfaces for aerospace wind tunnel testing, CFD validation, flight test, and structural health monitoring.',
+}
 
 const aerospaceData = {
   id: 'aerospace',
@@ -46,7 +65,14 @@ const aerospaceData = {
 
 export const AerospacePage = () => {
   return (
-    <IndustryPageFocused industry={aerospaceData}>
+    <>
+      <SEO
+        title="Aerospace Sensing & Instrumentation"
+        description="Hyve's Haptic Matrix delivers dense real-time pressure, temperature, and strain data on aerodynamic and structural surfaces — for wind tunnel testing, CFD correlation, flight test, defence UAS, and composite structural monitoring."
+        keywords="aerospace sensors, wind tunnel instrumentation, CFD validation, flight test, structural health monitoring, composite monitoring, UAV sensing, Haptic Matrix, Hyve Dynamics"
+        jsonLd={aerospaceJsonLd}
+      />
+      <IndustryPageFocused industry={aerospaceData}>
       <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-xl border border-hyve-content/20 p-8 lg:p-10">
         <div className="flex items-center gap-3 mb-6">
           <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
@@ -122,5 +148,6 @@ export const AerospacePage = () => {
         </div>
       </div>
     </IndustryPageFocused>
+    </>
   )
 }

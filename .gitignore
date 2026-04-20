@@ -54,3 +54,7 @@ docs/
 # Private pitch deck, investor research, and confidential attachments.
 # Keep this directory for a separate private Git repo; do not publish with the website.
 deck_private_7pc/
+
+# Puppeteer's downloaded Chrome (used by scripts/prerender.js).
+# Re-fetched on demand by `puppeteer browsers install chrome`.
+.cache/

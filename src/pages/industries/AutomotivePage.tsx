@@ -1,7 +1,26 @@
 import { Car } from 'lucide-react'
 
+import { SEO } from '@/components/common/SEO'
 import { IndustryPageFocused } from '@/components/pages/IndustryPageFocused'
 import { getVideoPath } from '@/lib/assets'
+
+const automotiveJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Automotive and motorsport surface instrumentation',
+  provider: {
+    '@type': 'Organization',
+    name: 'Hyve Dynamics',
+    url: 'https://hyvedynamics.com',
+  },
+  areaServed: 'Worldwide',
+  audience: {
+    '@type': 'BusinessAudience',
+    audienceType: 'Automotive OEMs, motorsport teams (including Formula 1), EV manufacturers, vehicle aerodynamics teams',
+  },
+  description:
+    'Real-time pressure, temperature, and strain mapping across vehicle surfaces for aerodynamic development, downforce mapping, EV thermal management, and tunnel-to-track correlation.',
+}
 
 const automotiveData = {
   id: 'automotive',
@@ -46,7 +65,14 @@ const automotiveData = {
 
 export const AutomotivePage = () => {
   return (
-    <IndustryPageFocused industry={automotiveData}>
+    <>
+      <SEO
+        title="Automotive & Motorsport Aerodynamic Sensing"
+        description="Hyve's Haptic Matrix delivers real-time pressure, thermal, and strain data across vehicle surfaces — for motorsport aerodynamic development, EV efficiency optimisation, downforce mapping, and tunnel-to-track correlation."
+        keywords="automotive aerodynamics, motorsport sensors, Formula 1 sensors, EV efficiency, downforce mapping, brake duct, active aero, tunnel-to-track, Haptic Matrix, Hyve Dynamics"
+        jsonLd={automotiveJsonLd}
+      />
+      <IndustryPageFocused industry={automotiveData}>
       {/* Motorsport Aerodynamic Development */}
       <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-xl border border-hyve-content/20 p-8 lg:p-10 mb-8">
         <div className="flex items-center gap-3 mb-6">
@@ -133,5 +159,6 @@ export const AutomotivePage = () => {
         </div>
       </div>
     </IndustryPageFocused>
+    </>
   )
 }

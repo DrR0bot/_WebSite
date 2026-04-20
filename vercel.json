@@ -10,8 +10,11 @@
     { "source": "/robotics", "destination": "/industries/robotics", "permanent": true },
     { "source": "/structural-health", "destination": "/industries/structural-health", "permanent": true },
     { "source": "/digital-twinning", "destination": "/industries/digital-twinning-ihm", "permanent": true },
-    { "source": "/technology", "destination": "/haptic-matrix", "permanent": true }
+    { "source": "/technology", "destination": "/haptic-matrix", "permanent": true },
+    { "source": "/industries/energy", "destination": "/industries/digital-twinning-ihm", "permanent": true },
+    { "source": "/industries/structural-health", "destination": "/industries/digital-twinning-ihm", "permanent": true }
   ],
+  "cleanUrls": true,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
@@ -34,6 +37,28 @@
         },
         { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
         { "key": "Cross-Origin-Resource-Policy", "value": "same-origin" }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" },
+        { "key": "X-Robots-Tag", "value": "all" }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
       ]
     },
     {
