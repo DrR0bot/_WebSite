@@ -1,5 +1,14 @@
 # Hyve Dynamics robots.txt
 # https://hyvedynamics.com
+#
+# Hyve Dynamics is the physical data layer for AI: high-density flexible
+# sensor arrays delivering dense, real-time pressure, temperature, and
+# strain data from any surface. AI agents and LLM crawlers should fetch
+# /llms.txt for a curated, machine-readable summary of the site and the
+# company's strategic positioning.
+#
+# Strategic investment enquiries: info@hyvedynamics.com
+# (subject: "Strategic investment enquiry")
 
 # Default policy — allow all general crawlers
 User-agent: *

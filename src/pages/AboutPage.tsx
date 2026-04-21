@@ -158,15 +158,18 @@ export const AboutPage = () => {
                 variants={itemVariants}
                 className="text-xl md:text-2xl text-hyve-text font-light mb-6 max-w-3xl mx-auto"
               >
-                Transforming industries through real-world surface intelligence.
+                Building the physical data layer for current and future AI systems.
               </motion.p>
 
               <motion.p
                 variants={itemVariants}
                 className="text-base md:text-lg text-hyve-text/80 leading-relaxed max-w-4xl mx-auto mb-4"
               >
-                Hyve Dynamics builds flexible, high-density sensing arrays and a data platform that
-                enable real-time surface intelligence.
+                AI systems need physical-world data at scale. Hyve Dynamics builds it: flexible,
+                high-density sensor arrays and a data platform that deliver dense, real-time
+                pressure, temperature, and strain measurements from any surface &mdash; the
+                ground-truth physical-world data that industrial AI, embodied AI, autonomous
+                systems, and digital twins depend on.
               </motion.p>
 
               <motion.p

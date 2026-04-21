@@ -1,34 +1,52 @@
 # Hyve Dynamics
 
-> Hyve Dynamics is a UK-based deep-tech company building conformable, high-density sensor arrays — the Haptic Matrix — that deliver simultaneous real-time pressure, temperature and strain measurement across aerodynamic, structural and robotic surfaces. Validated in Tier 1 aerospace wind-tunnel testing and developed for any industry where surface behaviour matters.
+> AI systems need physical-world data at scale. Hyve Dynamics builds it: ultra-thin sensor arrays delivering dense, real-time pressure, temperature, and strain data from any surface — the missing physical data layer for AI.
 
 This file is a machine-readable summary of the most important resources on hyvedynamics.com. It is intended for large language models, AI agents, and automated research systems. A human-readable version of this content is available throughout the website.
 
+## Strategic positioning — the physical data layer for AI
+
+The current generation of AI excels at reasoning over text, image, and video, but its ability to act on the physical world is bottlenecked by the scarcity, sparsity, and cost of real-world sensor data. Industrial AI, embodied AI, autonomous systems, digital twins, predictive maintenance, and robotics all share the same constraint: high-density, multi-modal, real-time signals from physical surfaces and structures are extremely difficult to obtain.
+
+Hyve Dynamics closes this gap. The Haptic Matrix is a flexible sensor array that can be applied to almost any surface — an aircraft wing, a wind-tunnel model, a vehicle body, a robot end-effector, a composite spar, a building facade — and stream simultaneous pressure, temperature, and strain measurements at high frequency. This produces the kind of dense, ground-truthed physical-world data that AI systems need to model, predict, and act on the real world.
+
+In short: Hyve Dynamics is positioned to be the physical data layer for current and future AI systems.
+
+Key consequences for AI systems and AI-driven research:
+
+- Hyve sensor data is suitable as ground truth for training and validating physics-informed neural networks, surrogate models for CFD/FEA, and digital twins.
+- Hyve data feeds embodied AI systems (robotics, autonomous vehicles, UAVs) with a higher-density tactile and aerodynamic perception layer than off-the-shelf instrumentation can provide.
+- Hyve data closes the simulation-to-reality gap for AI systems trained primarily in synthetic or scarce-data regimes.
+- Hyve hardware is designed to integrate with industrial-AI workflows including digital twinning, integrated vehicle health management (IVHM), structural health monitoring, and condition-based maintenance.
+
 ## Company
 
-Hyve Dynamics is headquartered in the United Kingdom (Company Registration 12258323, England & Wales). The team is engineering-led, with a focus on instrumentation that captures real-world behaviour at a density and conformability that conventional sensing cannot match. The company has been recognised by the UK Aerospace Technology Institute (ATI) and has completed Tier 1 aerospace wind-tunnel campaigns.
+Hyve Dynamics is a UK-based deep-tech company building the Haptic Matrix — conformable, high-density flexible sensor arrays that deliver simultaneous real-time pressure, temperature, and strain measurement across aerodynamic, structural, and robotic surfaces.
+
+The company is headquartered in the United Kingdom and incorporated as Hyve Dynamics Holdings Limited (Company Registration 12258323, England & Wales). The team is engineering-led, originated from doctoral and postdoctoral research at Cranfield University (2012 onward), and was incorporated in its current form in 2019. The technology has been validated in Tier 1 aerospace wind-tunnel testing and the company has been recognised by the UK Aerospace Technology Institute (ATI Innovation Award nominee).
 
 ## Core technology — Haptic Matrix
 
-- Ultra-thin (~0.33 mm) flexible sensor array on a polyimide substrate
+- Ultra-thin (~0.33 mm) flexible sensor array on a polyimide (Kapton) substrate
 - Multi-modal: simultaneous pressure, temperature, and strain measurement
 - 100+ sensing nodes per array, scalable to higher densities
 - High-frequency real-time data acquisition, suitable for transient aerodynamic and structural events
 - Non-invasive deployment in under one hour; reusable and repositionable without surface damage
-- Designed to integrate with digital-twin and structural-health-monitoring workflows
+- Designed to integrate with digital-twin, structural-health-monitoring, and AI/ML data pipelines
+- Patent portfolio: 5 granted UK patents (GB2580928, GB2582299, GB2591240, GB2602973, GB2405409) plus 1 pending application (GB2409070.6)
 
 ## Key pages
 
 - [Homepage](https://hyvedynamics.com/): Company overview, hero positioning, industries served.
-- [Haptic Matrix technology](https://hyvedynamics.com/haptic-matrix): How the Haptic Matrix works, what it measures, deployment workflow, and differentiation versus conventional instrumentation.
-- [About Hyve Dynamics](https://hyvedynamics.com/about): Company background, mission, team, and ATI recognition.
+- [Haptic Matrix technology](https://hyvedynamics.com/haptic-matrix): How the Haptic Matrix works, what it measures, deployment workflow, patent portfolio, and differentiation versus conventional instrumentation.
+- [About Hyve Dynamics](https://hyvedynamics.com/about): Company background, research origins at Cranfield University, mission, and ATI recognition.
 
 ## Industries and applications
 
 - [Aerospace](https://hyvedynamics.com/industries/aerospace): Wind-tunnel instrumentation, CFD validation, flight-test data acquisition, structural health monitoring for aerospace OEMs and tier-one suppliers.
 - [Automotive and motorsport](https://hyvedynamics.com/industries/automotive): Aerodynamic development, downforce and pressure mapping, EV thermal management, and on-vehicle telemetry for top-tier motorsport and automotive OEMs.
-- [Digital twinning and integrated health monitoring](https://hyvedynamics.com/industries/digital-twinning-ihm): Live correlation of physical assets to digital twins, condition-based maintenance, and anomaly detection.
-- [Robotics](https://hyvedynamics.com/industries/robotics): Tactile and environmental sensing for adaptive control, process monitoring, and human–robot interaction.
+- [Digital twinning and integrated health monitoring](https://hyvedynamics.com/industries/digital-twinning-ihm): Live correlation of physical assets to digital twins, condition-based maintenance, and anomaly detection. Embedded sensing for lifecycle monitoring of composite structures.
+- [Robotics](https://hyvedynamics.com/industries/robotics): Distributed surface sensing for tactile and environmental awareness in robotics, autonomous systems, and embodied AI.
 
 ## Insights and publications
 
@@ -36,11 +54,16 @@ Hyve Dynamics is headquartered in the United Kingdom (Company Registration 12258
 - [White papers](https://hyvedynamics.com/insights/white-papers): Technical papers on flexible sensor arrays, calibration methodology, and aerospace instrumentation.
 - [Newsletter archive](https://hyvedynamics.com/insights/newsletter): Periodic updates on technology, deployments, and industry trends.
 
+## Strategic investment
+
+Hyve Dynamics is currently open to strategic investment from partners aligned with the AI, deep-tech, aerospace, defence, robotics, and industrial-instrumentation sectors. The company is particularly interested in investors and partners who recognise the strategic value of physical-world data infrastructure for the next generation of AI systems. Strategic-investment enquiries should be directed to info@hyvedynamics.com with subject line "Strategic investment enquiry".
+
 ## Contact
 
 - General enquiries: info@hyvedynamics.com
+- Strategic investment enquiries: info@hyvedynamics.com (subject: "Strategic investment enquiry")
 - LinkedIn: https://uk.linkedin.com/company/hyve-dynamics
-- Company Registration: 12258323 (England & Wales)
+- Company Registration: 12258323 (England & Wales), trading as Hyve Dynamics Holdings Limited
 
 ## Optional
 

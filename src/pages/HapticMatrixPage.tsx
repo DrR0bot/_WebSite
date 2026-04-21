@@ -120,6 +120,11 @@ export const HapticMatrixPage = () => {
   // FAQ Data
   const faqs = [
     {
+      question: 'How does the Haptic Matrix relate to AI and embodied intelligence?',
+      answer:
+        'The Haptic Matrix is designed to be the physical data layer for AI systems. Modern AI excels at reasoning over text, image, and video, but its ability to model and act on the physical world is bottlenecked by sparse, expensive, low-resolution sensor data. The Haptic Matrix solves this by providing dense, real-time, multi-modal physical-world measurements (pressure, temperature, strain) from any surface — aerodynamic, structural, or robotic. This data is suitable as ground truth for training and validating physics-informed neural networks, surrogate models for CFD/FEA, and digital twins; it feeds embodied AI systems (robotics, autonomous vehicles, UAVs) with a higher-density tactile and aerodynamic perception layer than off-the-shelf instrumentation can provide; and it closes the simulation-to-reality gap for AI systems trained on synthetic or scarce data. In short: Hyve Dynamics builds the missing physical data layer for current and future AI systems.',
+    },
+    {
       question: 'How does Hyve compare to load cells or force balances?',
       answer:
         'Load cells measure bulk force (total lift/drag on entire model). Hyve measures distributed pressure across the surface. These are complementary: load cells give integrated forces, Hyve shows WHERE those forces come from. For example, a load cell tells you total downforce = 500N; Hyve shows you that 300N is from the front wing and 200N is from the floor, and precisely where on each surface.',

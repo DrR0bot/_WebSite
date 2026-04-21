@@ -16,11 +16,11 @@ interface SEOProps {
 const SITE_URL = 'https://hyvedynamics.com'
 
 const defaultSEO = {
-  title: 'Hyve Dynamics - Transforming Industries Through Real-World Intelligence',
+  title: 'Hyve Dynamics - The Physical Data Layer for AI',
   description:
-    'Conformable, high-density sensing arrays delivering real-time pressure, temperature and strain data. Proven in Tier 1 aerospace testing, built for every industry where surface behaviour matters.',
+    'Hyve Dynamics builds the physical data layer for AI: ultra-thin, high-density flexible sensor arrays delivering dense, real-time pressure, temperature and strain data from any surface. Validated in Tier 1 aerospace testing.',
   keywords:
-    'Haptic Matrix, sensor technology, aerodynamic testing, real-time data acquisition, structural health monitoring, digital twins, IoT sensors, aerospace sensors, automotive sensors, Hyve Dynamics',
+    'physical data layer for AI, sensor data for AI, embodied AI, ground truth data for AI, Haptic Matrix, flexible sensor arrays, high-density pressure sensors, real-time aerodynamic data, digital twin sensor data, structural health monitoring, aerospace sensors, Hyve Dynamics',
   image: `${SITE_URL}/og_image.png`,
   type: 'website',
 }

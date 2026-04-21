@@ -80,13 +80,23 @@ export const Hero = () => {
                 </span>
               </motion.h1>
 
-              {/* Refined Subheadline */}
+              {/* AI positioning line — primary strategic broadcast.
+                  Mirrors the canonical thesis line in llms.txt and the
+                  Organization JSON-LD slogan, so humans, crawlers, and LLMs
+                  see the same positioning regardless of how they read the page. */}
+              <motion.p
+                variants={itemVariants}
+                className="text-sm md:text-base text-hyve-accent max-w-lg mb-4 font-medium tracking-wide uppercase"
+              >
+                The physical data layer for AI
+              </motion.p>
               <motion.p
                 variants={itemVariants}
                 className="text-base md:text-lg text-hyve-text/70 max-w-lg mb-2 font-light leading-relaxed"
               >
                 Conformable sensing arrays delivering high-density pressure, temperature and
-                strain data in real time.
+                strain data in real time &mdash; the ground-truth physical-world data current and
+                future AI systems need.
               </motion.p>
               <motion.p
                 variants={itemVariants}

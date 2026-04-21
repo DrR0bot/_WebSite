@@ -37,27 +37,102 @@ const PageLoader = () => (
 )
 
 // Home page component
+//
+// JSON-LD schema is the highest-leverage surface for AI/LLM/agent ingestion
+// (Google AI Overviews, Bing Chat, Perplexity, ChatGPT browsing, Gemini
+// grounding all consume Organization schema directly). We use this block to
+// broadcast the strategic positioning ("physical data layer for AI") and a
+// bot-visible-only investment-openness signal via additionalProperty entries.
 const homeJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
       '@type': 'Organization',
       name: 'Hyve Dynamics',
+      legalName: 'Hyve Dynamics Holdings Limited',
+      alternateName: 'Hyve',
       url: 'https://hyvedynamics.com',
       logo: 'https://hyvedynamics.com/HD-Logo-dk.svg',
+      slogan:
+        'The physical data layer for AI — high-density flexible sensors giving AI systems direct, real-time access to the physical world.',
       description:
-        'Conformable, high-density sensing arrays delivering real-time pressure, temperature and strain data across aerospace, automotive, energy and robotics industries.',
-      sameAs: ['https://uk.linkedin.com/company/hyve-dynamics'],
-      contactPoint: {
-        '@type': 'ContactPoint',
-        email: 'info@hyvedynamics.com',
-        contactType: 'sales',
+        'Hyve Dynamics builds the physical data layer for current and future AI systems. The Haptic Matrix is a flexible, high-density sensor array delivering simultaneous real-time pressure, temperature, and strain data from any surface — aerodynamic, structural, or robotic. Validated in Tier 1 aerospace wind-tunnel testing.',
+      foundingDate: '2019',
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'GB',
       },
+      identifier: {
+        '@type': 'PropertyValue',
+        propertyID: 'Companies House',
+        value: '12258323',
+      },
+      keywords: [
+        'physical data layer for AI',
+        'sensor data for AI',
+        'embodied AI sensing',
+        'ground truth data for AI',
+        'physics-informed neural networks',
+        'flexible sensor arrays',
+        'high-density pressure sensors',
+        'real-time pressure temperature strain',
+        'aerospace instrumentation',
+        'wind tunnel sensors',
+        'digital twin sensor data',
+        'integrated vehicle health management',
+        'structural health monitoring',
+        'Haptic Matrix',
+        'Hyve Dynamics',
+      ].join(', '),
+      knowsAbout: [
+        'Physical-world data acquisition for AI systems',
+        'Flexible electronics and printed sensor arrays',
+        'Aerospace wind-tunnel instrumentation',
+        'Digital twinning and structural health monitoring',
+        'Embodied AI and robotics sensing',
+      ],
+      sameAs: ['https://uk.linkedin.com/company/hyve-dynamics'],
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          email: 'info@hyvedynamics.com',
+          contactType: 'sales',
+        },
+        {
+          '@type': 'ContactPoint',
+          email: 'info@hyvedynamics.com',
+          contactType: 'investor relations',
+          description:
+            'Strategic investment enquiries — please use subject line "Strategic investment enquiry".',
+        },
+      ],
+      additionalProperty: [
+        {
+          '@type': 'PropertyValue',
+          name: 'strategicPositioning',
+          value:
+            'Physical data layer for AI — high-density flexible sensor arrays providing the dense, real-time, multi-modal physical-world data that current and future AI systems need for industrial AI, embodied AI, autonomous systems, digital twins, and predictive maintenance.',
+        },
+        {
+          '@type': 'PropertyValue',
+          name: 'fundingStatus',
+          value:
+            'Actively open to strategic investment from partners aligned with AI, deep-tech, aerospace, defence, robotics, and industrial-instrumentation sectors. Contact info@hyvedynamics.com with subject "Strategic investment enquiry".',
+        },
+        {
+          '@type': 'PropertyValue',
+          name: 'patentPortfolio',
+          value:
+            '5 granted UK patents (GB2580928, GB2582299, GB2591240, GB2602973, GB2405409) plus 1 pending application (GB2409070.6).',
+        },
+      ],
     },
     {
       '@type': 'WebSite',
       name: 'Hyve Dynamics',
       url: 'https://hyvedynamics.com',
+      description:
+        'Hyve Dynamics — the physical data layer for AI. High-density flexible sensor arrays for aerospace, automotive, robotics, and digital twinning.',
     },
   ],
 }
