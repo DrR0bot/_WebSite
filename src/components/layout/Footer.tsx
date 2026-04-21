@@ -32,7 +32,6 @@ const footerSections = [
       { name: 'About Us', href: '/about' },
       { name: 'Our Technology', href: '/haptic-matrix' },
       { name: 'Industries', href: '/#industries' },
-      { name: 'Careers', href: '#careers' },
     ],
   },
   {
@@ -49,7 +48,6 @@ const footerSections = [
     links: [
       { name: 'News & Blog', href: '/insights/news' },
       { name: 'Newsletter', href: '/insights/newsletter' },
-      { name: 'Case Studies', href: '#case-studies' },
       { name: 'White Papers', href: '/insights/white-papers' },
     ],
   },
@@ -182,18 +180,15 @@ export const Footer = () => {
               © {currentYear} {companyInfo.name}. All rights reserved.
             </p>
             <div className="flex items-center space-x-4">
-              <a
-                href="#privacy"
-                className="font-sans text-sm text-hyve-background/60 hover:text-hyve-accent transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#terms"
-                className="font-sans text-sm text-hyve-background/60 hover:text-hyve-accent transition-colors"
-              >
-                Terms of Service
-              </a>
+              <span className="font-sans text-sm text-hyve-background/60">
+                For data, privacy, or licensing enquiries, contact{' '}
+                <a
+                  href={`mailto:${companyInfo.email}`}
+                  className="hover:text-hyve-accent transition-colors underline-offset-2 hover:underline"
+                >
+                  {companyInfo.email}
+                </a>
+              </span>
             </div>
           </div>
 

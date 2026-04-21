@@ -206,6 +206,15 @@ async function snapshotRoute(browser, route) {
   const page = await browser.newPage()
   page.setDefaultNavigationTimeout(30000)
 
+  // Marker read by client components to skip behaviour that pollutes the
+  // prerendered HTML with ephemeral runtime state (e.g. interactive Three.js
+  // overlays that initialise hundreds of "0.00" cells before user input).
+  // Components check `window.__PRERENDER__` and either render a semantic
+  // placeholder or skip the side-effectful useEffect entirely.
+  await page.evaluateOnNewDocument(() => {
+    window.__PRERENDER__ = true
+  })
+
   const consoleErrors = []
   page.on('pageerror', (e) => consoleErrors.push(`pageerror: ${e.message}`))
   page.on('console', (msg) => {

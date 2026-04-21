@@ -151,7 +151,7 @@ export const AboutPage = () => {
                 variants={itemVariants}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-hyve-header mb-4 font-heading"
               >
-                Pioneering Real-World Intelligence Since 2012
+                From Cranfield Research to Commercial Platform &mdash; 2012 to Today
               </motion.h1>
 
               <motion.p

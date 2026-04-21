@@ -426,6 +426,16 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
   useEffect(() => {
     if (!containerRef.current || !sensorContainerRef.current) return
 
+    // Skip the entire Three.js + sensor-overlay setup when running under the
+    // build-time prerender. The marker is set by scripts/prerender.js before
+    // navigation. Without this guard, the prerender snapshots ~100 invisible
+    // "0.00" sensor-value cells into the static HTML, polluting what crawlers
+    // and LLMs ingest. The container's aria-label still describes what the
+    // visualisation represents, so prerendered output remains semantic.
+    if (typeof window !== 'undefined' && (window as { __PRERENDER__?: boolean }).__PRERENDER__) {
+      return
+    }
+
     const container = containerRef.current
     const sensorContainer = sensorContainerRef.current
 
@@ -613,7 +623,11 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
   }, [updateSensorPositions, updateSensorValues])
 
   return (
-    <div className={`relative w-full h-full ${className}`}>
+    <div
+      className={`relative w-full h-full ${className}`}
+      role="img"
+      aria-label="Interactive 10x10 Haptic Matrix sensor visualisation: a flexible Kapton substrate with 100 individual sensing nodes that display real-time pressure, temperature, and strain data when interacted with."
+    >
       {/* Three.js canvas container */}
       <div ref={containerRef} className="absolute inset-0 cursor-pointer" style={{ touchAction: 'none' }} />
 

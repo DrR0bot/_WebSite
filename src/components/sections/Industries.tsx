@@ -29,7 +29,7 @@ const industries = [
     id: 'digital-twinning-ihm',
     title: 'Infrastructure & IVHM',
     icon: Combine,
-    description: 'Continuous structural and surface health monitoring. Emedded sensing for lifecycle monitoring of composite structures.',
+    description: 'Continuous structural and surface health monitoring. Embedded sensing for lifecycle monitoring of composite structures.',
     href: '/industries/digital-twinning-ihm',
     color: 'from-green-500/20 to-teal-500/20',
     iconColor: 'text-teal-600',

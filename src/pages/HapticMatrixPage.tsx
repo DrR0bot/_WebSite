@@ -1318,7 +1318,7 @@ export const HapticMatrixPage = () => {
               {/* Granted Patents */}
               <motion.div variants={itemVariants} className="mb-8">
                 <h3 className="text-xl font-semibold text-hyve-header mb-4">
-                  Granted Patents (6)
+                  Granted Patents (5)
                 </h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[
@@ -1357,6 +1357,37 @@ export const HapticMatrixPage = () => {
                         'Integration format bringing all prior patents together',
                       apps: 'Aerodynamic shear mapping, boundary layer detection',
                     },
+                  ].map((patent, index) => (
+                    <div
+                      key={index}
+                      className="p-4 bg-white/80 rounded-xl border border-hyve-content/20"
+                    >
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-xs font-mono text-hyve-interactive bg-hyve-interactive/10 px-2 py-0.5 rounded">
+                          {patent.id}
+                        </span>
+                      </div>
+                      <h4 className="text-sm font-semibold text-hyve-header mb-2">
+                        {patent.title}
+                      </h4>
+                      <p className="text-xs text-hyve-text/70 mb-2">
+                        <strong>Innovation:</strong> {patent.innovation}
+                      </p>
+                      <p className="text-xs text-hyve-text/50">
+                        <strong>Applications:</strong> {patent.apps}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Pending Applications */}
+              <motion.div variants={itemVariants} className="mb-8">
+                <h3 className="text-xl font-semibold text-hyve-header mb-4">
+                  Pending Applications (1)
+                </h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {[
                     {
                       id: 'GB2409070.6',
                       title: 'Integrated Bi-Directional Pressure with In-Plane Resistors',
@@ -1370,8 +1401,11 @@ export const HapticMatrixPage = () => {
                       className="p-4 bg-white/80 rounded-xl border border-hyve-content/20"
                     >
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xs font-mono text-hyve-interactive bg-hyve-interactive/10 px-2 py-0.5 rounded">
+                        <span className="text-xs font-mono text-hyve-accent bg-hyve-accent/10 px-2 py-0.5 rounded">
                           {patent.id}
+                        </span>
+                        <span className="text-[10px] uppercase tracking-wide text-hyve-text/50">
+                          Application
                         </span>
                       </div>
                       <h4 className="text-sm font-semibold text-hyve-header mb-2">
@@ -1893,7 +1927,7 @@ export const HapticMatrixPage = () => {
                       'DRS validation',
                     ],
                     value:
-                      '£2M+ annual savings, faster development in regulation resets',
+                      'Targeted £2M+ annual wind tunnel cost reduction, faster development in regulation resets',
                     targets:
                       'Mercedes-AMG, Red Bull, Ferrari, McLaren, Alpine, Porsche',
                   },
@@ -1981,10 +2015,13 @@ export const HapticMatrixPage = () => {
 
                           <div>
                             <h4 className="text-xs font-semibold text-hyve-text/50 uppercase tracking-wide mb-1">
-                              Target Customers
+                              Target Market
                             </h4>
                             <p className="text-xs text-hyve-text/60">
                               {segment.targets}
+                            </p>
+                            <p className="text-[10px] text-hyve-text/45 italic mt-1">
+                              Representative target organisations &mdash; not current customers.
                             </p>
                           </div>
                         </CardContent>
@@ -2070,7 +2107,7 @@ export const HapticMatrixPage = () => {
                     icon: Car,
                     title: 'Motorsport Teams',
                     cta: 'Request Performance Briefing',
-                    desc: 'Join the F1 teams already achieving £2M+ annual savings. Private ROI analysis based on your wind tunnel usage.',
+                    desc: 'Engineered for F1 programmes targeting £2M+ annual wind tunnel cost reduction. Private ROI analysis based on your wind tunnel usage.',
                   },
                   {
                     icon: Shield,
