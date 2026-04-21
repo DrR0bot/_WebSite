@@ -32,7 +32,7 @@ const itemVariants = {
   },
 }
 
-export const InvestorUpdateAugust2025 = () => {
+export const InvestorUpdateQ32025 = () => {
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false)
 
   useEffect(() => {
@@ -44,8 +44,8 @@ export const InvestorUpdateAugust2025 = () => {
     try {
       await generateNewsletterPDF(
         'investor-newsletter-content',
-        'Investor Update August 2025',
-        '2025-08'
+        'Investor Update Q3 2025',
+        '2025-Q3'
       )
       toast.success('PDF downloaded successfully!', {
         description: 'The investor update has been saved to your downloads folder.',
@@ -63,7 +63,7 @@ export const InvestorUpdateAugust2025 = () => {
   return (
     <>
       <NoIndex
-        title="August 2025 Investor Update - Confidential"
+        title="Q3 2025 Investor Update - Confidential"
         description="Confidential investor update for Hyve Dynamics."
       />
 
@@ -119,7 +119,7 @@ export const InvestorUpdateAugust2025 = () => {
                 </Badge>
                 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-hyve-header mb-6 font-heading">
-                  August 2025 Investor Update
+                  Q3 2025 Investor Update
                 </h1>
 
                 <div className="flex items-center gap-6 text-sm text-hyve-text/70 mb-6">

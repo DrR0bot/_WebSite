@@ -25,9 +25,16 @@ const NewsletterPage = lazy(() => import('@/pages/NewsletterPage').then(m => ({ 
 const NewsPage = lazy(() => import('@/pages/NewsPage').then(m => ({ default: m.NewsPage })))
 const AerodynamicInnovation2024 = lazy(() => import('@/pages/newsletters/AerodynamicInnovation2024').then(m => ({ default: m.AerodynamicInnovation2024 })))
 const SensorTechnologyTrends = lazy(() => import('@/pages/newsletters/SensorTechnologyTrends').then(m => ({ default: m.SensorTechnologyTrends })))
-const InvestorUpdateAugust2025 = lazy(() => import('@/pages/newsletters/InvestorUpdateAugust2025').then(m => ({ default: m.InvestorUpdateAugust2025 })))
+const InvestorUpdateQ32025 = lazy(() => import('@/pages/newsletters/InvestorUpdateQ32025').then(m => ({ default: m.InvestorUpdateQ32025 })))
 const WhitePapersPage = lazy(() => import('@/pages/WhitePapersPage').then(m => ({ default: m.WhitePapersPage })))
-const PitchDeckPage = lazy(() => import('@/pages/deck/PitchDeckPage').then(m => ({ default: m.PitchDeckPage })))
+
+// Pitch deck is dev-only: in production builds (`import.meta.env.DEV === false`)
+// the dynamic import is dead-code-eliminated by Rollup, so deck source code is
+// never shipped to production users. In dev (`npm run dev`) the route mounts
+// normally so we can render and print slides locally.
+const PitchDeckPage = import.meta.env.DEV
+  ? lazy(() => import('@/pages/deck/PitchDeckPage').then(m => ({ default: m.PitchDeckPage })))
+  : null
 
 // Loading fallback component
 const PageLoader = () => (
@@ -188,7 +195,10 @@ function App() {
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* Standalone full-screen routes (no header/footer) */}
-            <Route path="/deck" element={<PitchDeckPage />} />
+            {/* /deck is registered only in dev — in production it falls through to NotFound. */}
+            {import.meta.env.DEV && PitchDeckPage && (
+              <Route path="/deck" element={<PitchDeckPage />} />
+            )}
 
             {/* Standard routes with Layout */}
             <Route element={<LayoutWrapper />}>
@@ -208,7 +218,7 @@ function App() {
               <Route path="/insights/newsletter/sensor-technology-trends" element={<SensorTechnologyTrends />} />
 
               {/* Secret Investor Newsletter - Not indexed */}
-              <Route path="/investor/updates/august-2025" element={<InvestorUpdateAugust2025 />} />
+              <Route path="/investor/updates/q3-2025" element={<InvestorUpdateQ32025 />} />
 
               {/* Catch-all route for 404 pages */}
               <Route path="*" element={<NotFound />} />

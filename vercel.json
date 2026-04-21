@@ -12,9 +12,9 @@
     { "source": "/energy", "destination": "/industries/digital-twinning-ihm", "permanent": true },
     { "source": "/industries/energy", "destination": "/industries/digital-twinning-ihm", "permanent": true },
     { "source": "/structural-health", "destination": "/industries/digital-twinning-ihm", "permanent": true },
-    { "source": "/industries/structural-health", "destination": "/industries/digital-twinning-ihm", "permanent": true }
+    { "source": "/industries/structural-health", "destination": "/industries/digital-twinning-ihm", "permanent": true },
+    { "source": "/investor/updates/august-2025", "destination": "/investor/updates/q3-2025", "permanent": true }
   ],
-  "cleanUrls": true,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
