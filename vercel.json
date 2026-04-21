@@ -3,15 +3,15 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "redirects": [
-    { "source": "/energy", "destination": "/industries/energy", "permanent": true },
-    { "source": "/motorsport", "destination": "/industries/automotive", "permanent": true },
     { "source": "/aerospace", "destination": "/industries/aerospace", "permanent": true },
     { "source": "/automotive", "destination": "/industries/automotive", "permanent": true },
+    { "source": "/motorsport", "destination": "/industries/automotive", "permanent": true },
     { "source": "/robotics", "destination": "/industries/robotics", "permanent": true },
-    { "source": "/structural-health", "destination": "/industries/structural-health", "permanent": true },
     { "source": "/digital-twinning", "destination": "/industries/digital-twinning-ihm", "permanent": true },
     { "source": "/technology", "destination": "/haptic-matrix", "permanent": true },
+    { "source": "/energy", "destination": "/industries/digital-twinning-ihm", "permanent": true },
     { "source": "/industries/energy", "destination": "/industries/digital-twinning-ihm", "permanent": true },
+    { "source": "/structural-health", "destination": "/industries/digital-twinning-ihm", "permanent": true },
     { "source": "/industries/structural-health", "destination": "/industries/digital-twinning-ihm", "permanent": true }
   ],
   "cleanUrls": true,

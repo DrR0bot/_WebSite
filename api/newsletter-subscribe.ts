@@ -92,9 +92,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               In the meantime, explore our latest content:
             </p>
             <ul style="font-size: 14px; color: #0066cc; line-height: 2;">
-              <li><a href="https://hyvedynamics.com/insights/news" style="color: #0066cc;">News & Blog</a></li>
-              <li><a href="https://hyvedynamics.com/insights/white-papers" style="color: #0066cc;">White Papers</a></li>
-              <li><a href="https://hyvedynamics.com/haptic-matrix" style="color: #0066cc;">Haptic Matrix Technology</a></li>
+              <li><a href="https://www.hyvedynamics.com/insights/news" style="color: #0066cc;">News & Blog</a></li>
+              <li><a href="https://www.hyvedynamics.com/insights/white-papers" style="color: #0066cc;">White Papers</a></li>
+              <li><a href="https://www.hyvedynamics.com/haptic-matrix" style="color: #0066cc;">Haptic Matrix Technology</a></li>
             </ul>
             <p style="margin-top: 24px; font-size: 12px; color: #6c757d;">
               Hyve Dynamics &mdash; Transforming Industries Through Real-World Intelligence

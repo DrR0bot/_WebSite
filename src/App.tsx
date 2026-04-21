@@ -51,8 +51,8 @@ const homeJsonLd = {
       name: 'Hyve Dynamics',
       legalName: 'Hyve Dynamics Holdings Limited',
       alternateName: 'Hyve',
-      url: 'https://hyvedynamics.com',
-      logo: 'https://hyvedynamics.com/HD-Logo-dk.svg',
+      url: 'https://www.hyvedynamics.com',
+      logo: 'https://www.hyvedynamics.com/HD-Logo-dk.svg',
       slogan:
         'The physical data layer for AI — high-density flexible sensors giving AI systems direct, real-time access to the physical world.',
       description:
@@ -130,7 +130,7 @@ const homeJsonLd = {
     {
       '@type': 'WebSite',
       name: 'Hyve Dynamics',
-      url: 'https://hyvedynamics.com',
+      url: 'https://www.hyvedynamics.com',
       description:
         'Hyve Dynamics — the physical data layer for AI. High-density flexible sensor arrays for aerospace, automotive, robotics, and digital twinning.',
     },

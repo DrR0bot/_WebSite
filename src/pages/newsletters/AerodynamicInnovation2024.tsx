@@ -77,17 +77,17 @@ export const AerodynamicInnovation2024 = () => {
           datePublished: '2024-01-15',
           dateModified: '2024-01-15',
           inLanguage: 'en-GB',
-          image: 'https://hyvedynamics.com/og_image.png',
+          image: 'https://www.hyvedynamics.com/og_image.png',
           mainEntityOfPage: {
             '@type': 'WebPage',
-            '@id': 'https://hyvedynamics.com/insights/newsletter/aerodynamic-innovation-2024',
+            '@id': 'https://www.hyvedynamics.com/insights/newsletter/aerodynamic-innovation-2024',
           },
-          author: { '@type': 'Organization', name: 'Hyve Dynamics', url: 'https://hyvedynamics.com' },
+          author: { '@type': 'Organization', name: 'Hyve Dynamics', url: 'https://www.hyvedynamics.com' },
           publisher: {
             '@type': 'Organization',
             name: 'Hyve Dynamics',
-            url: 'https://hyvedynamics.com',
-            logo: { '@type': 'ImageObject', url: 'https://hyvedynamics.com/HD-Logo-dk.svg' },
+            url: 'https://www.hyvedynamics.com',
+            logo: { '@type': 'ImageObject', url: 'https://www.hyvedynamics.com/HD-Logo-dk.svg' },
           },
         }}
       />

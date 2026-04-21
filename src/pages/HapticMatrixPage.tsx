@@ -212,10 +212,10 @@ export const HapticMatrixPage = () => {
               manufacturer: {
                 '@type': 'Organization',
                 name: 'Hyve Dynamics',
-                url: 'https://hyvedynamics.com',
+                url: 'https://www.hyvedynamics.com',
               },
-              url: 'https://hyvedynamics.com/haptic-matrix',
-              image: 'https://hyvedynamics.com/MatrixMesh-r5.png',
+              url: 'https://www.hyvedynamics.com/haptic-matrix',
+              image: 'https://www.hyvedynamics.com/MatrixMesh-r5.png',
               additionalProperty: [
                 { '@type': 'PropertyValue', name: 'Substrate thickness', value: '0.33 mm' },
                 { '@type': 'PropertyValue', name: 'Sensing modalities', value: 'Pressure, temperature, strain (simultaneous)' },

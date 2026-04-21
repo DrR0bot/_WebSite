@@ -9,7 +9,7 @@ const roboticsJsonLd = {
   provider: {
     '@type': 'Organization',
     name: 'Hyve Dynamics',
-    url: 'https://hyvedynamics.com',
+    url: 'https://www.hyvedynamics.com',
   },
   areaServed: 'Worldwide',
   audience: {

@@ -13,7 +13,7 @@ interface SEOProps {
   jsonLd?: Record<string, unknown>
 }
 
-const SITE_URL = 'https://hyvedynamics.com'
+const SITE_URL = 'https://www.hyvedynamics.com'
 
 const defaultSEO = {
   title: 'Hyve Dynamics - The Physical Data Layer for AI',

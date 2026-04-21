@@ -5,7 +5,7 @@ import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
-const SITE_URL = 'https://hyvedynamics.com'
+const SITE_URL = 'https://www.hyvedynamics.com'
 
 interface ShareButtonsProps {
   url?: string

@@ -37,22 +37,22 @@ The company is headquartered in the United Kingdom and incorporated as Hyve Dyna
 
 ## Key pages
 
-- [Homepage](https://hyvedynamics.com/): Company overview, hero positioning, industries served.
-- [Haptic Matrix technology](https://hyvedynamics.com/haptic-matrix): How the Haptic Matrix works, what it measures, deployment workflow, patent portfolio, and differentiation versus conventional instrumentation.
-- [About Hyve Dynamics](https://hyvedynamics.com/about): Company background, research origins at Cranfield University, mission, and ATI recognition.
+- [Homepage](https://www.hyvedynamics.com/): Company overview, hero positioning, industries served.
+- [Haptic Matrix technology](https://www.hyvedynamics.com/haptic-matrix): How the Haptic Matrix works, what it measures, deployment workflow, patent portfolio, and differentiation versus conventional instrumentation.
+- [About Hyve Dynamics](https://www.hyvedynamics.com/about): Company background, research origins at Cranfield University, mission, and ATI recognition.
 
 ## Industries and applications
 
-- [Aerospace](https://hyvedynamics.com/industries/aerospace): Wind-tunnel instrumentation, CFD validation, flight-test data acquisition, structural health monitoring for aerospace OEMs and tier-one suppliers.
-- [Automotive and motorsport](https://hyvedynamics.com/industries/automotive): Aerodynamic development, downforce and pressure mapping, EV thermal management, and on-vehicle telemetry for top-tier motorsport and automotive OEMs.
-- [Digital twinning and integrated health monitoring](https://hyvedynamics.com/industries/digital-twinning-ihm): Live correlation of physical assets to digital twins, condition-based maintenance, and anomaly detection. Embedded sensing for lifecycle monitoring of composite structures.
-- [Robotics](https://hyvedynamics.com/industries/robotics): Distributed surface sensing for tactile and environmental awareness in robotics, autonomous systems, and embodied AI.
+- [Aerospace](https://www.hyvedynamics.com/industries/aerospace): Wind-tunnel instrumentation, CFD validation, flight-test data acquisition, structural health monitoring for aerospace OEMs and tier-one suppliers.
+- [Automotive and motorsport](https://www.hyvedynamics.com/industries/automotive): Aerodynamic development, downforce and pressure mapping, EV thermal management, and on-vehicle telemetry for top-tier motorsport and automotive OEMs.
+- [Digital twinning and integrated health monitoring](https://www.hyvedynamics.com/industries/digital-twinning-ihm): Live correlation of physical assets to digital twins, condition-based maintenance, and anomaly detection. Embedded sensing for lifecycle monitoring of composite structures.
+- [Robotics](https://www.hyvedynamics.com/industries/robotics): Distributed surface sensing for tactile and environmental awareness in robotics, autonomous systems, and embodied AI.
 
 ## Insights and publications
 
-- [News and announcements](https://hyvedynamics.com/insights/news): Company news, wind-tunnel campaigns, partnership announcements, and industry commentary.
-- [White papers](https://hyvedynamics.com/insights/white-papers): Technical papers on flexible sensor arrays, calibration methodology, and aerospace instrumentation.
-- [Newsletter archive](https://hyvedynamics.com/insights/newsletter): Periodic updates on technology, deployments, and industry trends.
+- [News and announcements](https://www.hyvedynamics.com/insights/news): Company news, wind-tunnel campaigns, partnership announcements, and industry commentary.
+- [White papers](https://www.hyvedynamics.com/insights/white-papers): Technical papers on flexible sensor arrays, calibration methodology, and aerospace instrumentation.
+- [Newsletter archive](https://www.hyvedynamics.com/insights/newsletter): Periodic updates on technology, deployments, and industry trends.
 
 ## Strategic investment
 
@@ -67,5 +67,5 @@ Hyve Dynamics is currently open to strategic investment from partners aligned wi
 
 ## Optional
 
-- [Aerodynamic Innovation 2024 newsletter](https://hyvedynamics.com/insights/newsletter/aerodynamic-innovation-2024)
-- [Sensor Technology Trends newsletter](https://hyvedynamics.com/insights/newsletter/sensor-technology-trends)
+- [Aerodynamic Innovation 2024 newsletter](https://www.hyvedynamics.com/insights/newsletter/aerodynamic-innovation-2024)
+- [Sensor Technology Trends newsletter](https://www.hyvedynamics.com/insights/newsletter/sensor-technology-trends)

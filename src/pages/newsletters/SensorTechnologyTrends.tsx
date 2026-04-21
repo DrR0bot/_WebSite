@@ -52,17 +52,17 @@ export const SensorTechnologyTrends = () => {
           datePublished: '2023-12-20',
           dateModified: '2023-12-20',
           inLanguage: 'en-GB',
-          image: 'https://hyvedynamics.com/og_image.png',
+          image: 'https://www.hyvedynamics.com/og_image.png',
           mainEntityOfPage: {
             '@type': 'WebPage',
-            '@id': 'https://hyvedynamics.com/insights/newsletter/sensor-technology-trends',
+            '@id': 'https://www.hyvedynamics.com/insights/newsletter/sensor-technology-trends',
           },
-          author: { '@type': 'Organization', name: 'Hyve Dynamics', url: 'https://hyvedynamics.com' },
+          author: { '@type': 'Organization', name: 'Hyve Dynamics', url: 'https://www.hyvedynamics.com' },
           publisher: {
             '@type': 'Organization',
             name: 'Hyve Dynamics',
-            url: 'https://hyvedynamics.com',
-            logo: { '@type': 'ImageObject', url: 'https://hyvedynamics.com/HD-Logo-dk.svg' },
+            url: 'https://www.hyvedynamics.com',
+            logo: { '@type': 'ImageObject', url: 'https://www.hyvedynamics.com/HD-Logo-dk.svg' },
           },
         }}
       />

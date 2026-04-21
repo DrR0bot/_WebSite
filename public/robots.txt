@@ -1,5 +1,5 @@
 # Hyve Dynamics robots.txt
-# https://hyvedynamics.com
+# https://www.hyvedynamics.com
 #
 # Hyve Dynamics is the physical data layer for AI: high-density flexible
 # sensor arrays delivering dense, real-time pressure, temperature, and
@@ -89,4 +89,4 @@ Disallow: /investor/
 Disallow: /deck
 
 # Sitemap
-Sitemap: https://hyvedynamics.com/sitemap.xml
+Sitemap: https://www.hyvedynamics.com/sitemap.xml
