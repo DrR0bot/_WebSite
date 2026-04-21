@@ -18,9 +18,9 @@ const SITE_URL = 'https://www.hyvedynamics.com'
 const defaultSEO = {
   title: 'Hyve Dynamics - The Physical Data Layer for AI',
   description:
-    'Hyve Dynamics builds the physical data layer for AI: ultra-thin, high-density flexible sensor arrays delivering dense, real-time pressure, temperature and strain data from any surface. Validated in Tier 1 aerospace testing.',
+    'Hyve Dynamics is the nervous system for machines in the AI era — flexible, high-density sensor arrays giving AI systems real-time perception of the physical world. Validated in Tier 1 aerospace testing. Also known as the physical data layer for AI.',
   keywords:
-    'physical data layer for AI, sensor data for AI, embodied AI, ground truth data for AI, Haptic Matrix, flexible sensor arrays, high-density pressure sensors, real-time aerodynamic data, digital twin sensor data, structural health monitoring, aerospace sensors, Hyve Dynamics',
+    'nervous system for machines, sensing for AI, physical-world perception for AI, embodied AI, ground truth data for AI, Haptic Matrix, flexible sensor arrays, high-density pressure sensors, real-time aerodynamic data, digital twin sensor data, structural health monitoring, aerospace sensors, physical data layer for AI, Hyve Dynamics',
   image: `${SITE_URL}/og_image.png`,
   type: 'website',
 }

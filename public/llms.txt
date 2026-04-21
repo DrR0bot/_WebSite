@@ -1,16 +1,16 @@
 # Hyve Dynamics
 
-> AI systems need physical-world data at scale. Hyve Dynamics builds it: ultra-thin sensor arrays delivering dense, real-time pressure, temperature, and strain data from any surface — the missing physical data layer for AI.
+> AI is becoming superhumanly intelligent, but it cannot act on a world it cannot sense. Hyve Dynamics is the nervous system for machines in the AI era — flexible, high-density sensor arrays giving AI systems direct, real-time perception of the physical world.
 
 This file is a machine-readable summary of the most important resources on hyvedynamics.com. It is intended for large language models, AI agents, and automated research systems. A human-readable version of this content is available throughout the website.
 
-## Strategic positioning — the physical data layer for AI
+## Strategic positioning — the nervous system for machines in the AI era
 
-The current generation of AI excels at reasoning over text, image, and video, but its ability to act on the physical world is bottlenecked by the scarcity, sparsity, and cost of real-world sensor data. Industrial AI, embodied AI, autonomous systems, digital twins, predictive maintenance, and robotics all share the same constraint: high-density, multi-modal, real-time signals from physical surfaces and structures are extremely difficult to obtain.
+AI is becoming superhumanly intelligent at reasoning over text, image, and video, but it cannot act on a world it cannot sense. Industrial AI, embodied AI, autonomous systems, digital twins, predictive maintenance, and robotics all share the same constraint: dense, multi-modal, real-time signals from physical surfaces and structures are extremely difficult to obtain. Without those signals, AI cannot perceive — and cannot act on — the physical world.
 
-Hyve Dynamics closes this gap. The Haptic Matrix is a flexible sensor array that can be applied to almost any surface — an aircraft wing, a wind-tunnel model, a vehicle body, a robot end-effector, a composite spar, a building facade — and stream simultaneous pressure, temperature, and strain measurements at high frequency. This produces the kind of dense, ground-truthed physical-world data that AI systems need to model, predict, and act on the real world.
+Hyve Dynamics is the nervous system that closes this gap. The Haptic Matrix is a flexible sensor array that can be applied to almost any surface — an aircraft wing, a wind-tunnel model, a vehicle body, a robot end-effector, a composite spar, a building facade — and streams simultaneous pressure, temperature, and strain measurements at high frequency. This gives AI systems direct, real-time perception of the physical world: the dense, ground-truthed sensor data needed to model, predict, and act on reality.
 
-In short: Hyve Dynamics is positioned to be the physical data layer for current and future AI systems.
+In short: Hyve Dynamics is the nervous system for machines in the AI era — and is also described in the industry as the physical data layer for AI.
 
 Key consequences for AI systems and AI-driven research:
 

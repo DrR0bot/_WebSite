@@ -54,9 +54,9 @@ const homeJsonLd = {
       url: 'https://www.hyvedynamics.com',
       logo: 'https://www.hyvedynamics.com/HD-Logo-dk.svg',
       slogan:
-        'The physical data layer for AI — high-density flexible sensors giving AI systems direct, real-time access to the physical world.',
+        'The nervous system for machines in the AI era — giving AI systems direct, real-time perception of the physical world.',
       description:
-        'Hyve Dynamics builds the physical data layer for current and future AI systems. The Haptic Matrix is a flexible, high-density sensor array delivering simultaneous real-time pressure, temperature, and strain data from any surface — aerodynamic, structural, or robotic. Validated in Tier 1 aerospace wind-tunnel testing.',
+        'Hyve Dynamics is the nervous system for machines in the AI era. The Haptic Matrix is a flexible, high-density sensor array giving AI systems direct, real-time perception of the physical world — measuring pressure, temperature, and strain across any aerodynamic, structural, or robotic surface. Validated in Tier 1 aerospace wind-tunnel testing. Also described in the industry as the physical data layer for AI.',
       foundingDate: '2019',
       address: {
         '@type': 'PostalAddress',
@@ -68,8 +68,9 @@ const homeJsonLd = {
         value: '12258323',
       },
       keywords: [
-        'physical data layer for AI',
-        'sensor data for AI',
+        'nervous system for machines',
+        'sensing for AI',
+        'physical-world perception for AI',
         'embodied AI sensing',
         'ground truth data for AI',
         'physics-informed neural networks',
@@ -81,6 +82,7 @@ const homeJsonLd = {
         'digital twin sensor data',
         'integrated vehicle health management',
         'structural health monitoring',
+        'physical data layer for AI',
         'Haptic Matrix',
         'Hyve Dynamics',
       ].join(', '),
@@ -111,7 +113,7 @@ const homeJsonLd = {
           '@type': 'PropertyValue',
           name: 'strategicPositioning',
           value:
-            'Physical data layer for AI — high-density flexible sensor arrays providing the dense, real-time, multi-modal physical-world data that current and future AI systems need for industrial AI, embodied AI, autonomous systems, digital twins, and predictive maintenance.',
+            'The nervous system for machines in the AI era — high-density flexible sensor arrays providing the dense, real-time, multi-modal physical-world perception that current and future AI systems need to act on the physical world. Applications include industrial AI, embodied AI, autonomous systems, digital twins, and predictive maintenance. Also described in the industry as the physical data layer for AI.',
         },
         {
           '@type': 'PropertyValue',
@@ -132,7 +134,7 @@ const homeJsonLd = {
       name: 'Hyve Dynamics',
       url: 'https://www.hyvedynamics.com',
       description:
-        'Hyve Dynamics — the physical data layer for AI. High-density flexible sensor arrays for aerospace, automotive, robotics, and digital twinning.',
+        'Hyve Dynamics — the nervous system for machines in the AI era. High-density flexible sensor arrays giving AI systems real-time perception of the physical world across aerospace, automotive, robotics, and digital twinning.',
     },
   ],
 }
