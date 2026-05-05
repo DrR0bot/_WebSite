@@ -27,11 +27,11 @@ The company is headquartered in the United Kingdom and incorporated as Hyve Dyna
 
 ## Core technology — Haptic Matrix
 
-- Ultra-thin (~0.33 mm) flexible sensor array on a polyimide (Kapton) substrate
+- Ultra-thin, flexible sensor array on a conformable high-performance polymer substrate
 - Multi-modal: simultaneous pressure, temperature, and strain measurement
-- 100+ sensing nodes per array, scalable to higher densities
+- High-density sensing nodes per array, with a scalable architecture for higher-density configurations
 - High-frequency real-time data acquisition, suitable for transient aerodynamic and structural events
-- Non-invasive deployment in under one hour; reusable and repositionable without surface damage
+- Rapid, non-invasive deployment in testing environments; reusable and repositionable without surface damage
 - Designed to integrate with digital-twin, structural-health-monitoring, and AI/ML data pipelines
 - Patent portfolio: 5 granted UK patents (GB2580928, GB2582299, GB2591240, GB2602973, GB2405409) plus 1 pending application (GB2409070.6)
 

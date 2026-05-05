@@ -29,27 +29,29 @@ const itemVariants = {
   },
 }
 
-// Physical specifications of the sensor
+// Qualitative capabilities of the sensing array (hardware specs intentionally
+// omitted on the homepage while ongoing testing refines published figures —
+// detailed numbers live on the Haptic Matrix technology page).
 const physicalSpecs = [
   {
-    label: 'Thickness',
-    value: '0.33mm',
-    detail: 'Ultra-thin flexible array',
+    label: 'Form Factor',
+    value: 'Ultra-thin & flexible',
+    detail: 'Conforms to complex 3D surfaces',
   },
   {
-    label: 'Sensing Elements',
-    value: '2mm × 2mm',
-    detail: 'Individual sensor nodes',
+    label: 'Coverage',
+    value: 'High-density',
+    detail: 'Continuous multi-point sensing',
   },
   {
-    label: 'Density',
-    value: '100+ sensors',
-    detail: 'In 24cm × 24cm area',
+    label: 'Modalities',
+    value: 'Multi-modal',
+    detail: 'Pressure, temperature & strain',
   },
   {
-    label: 'Sampling',
-    value: '+120Hz',
-    detail: '500+ data points/sec',
+    label: 'Data',
+    value: 'Real-time',
+    detail: 'High-frequency live streaming',
   },
 ]
 
@@ -59,7 +61,7 @@ const measurements = [
     id: 'pressure',
     icon: Gauge,
     title: 'Bidirectional Pressure',
-    spec: '±10kPa @ ±1.5%',
+    spec: 'Pressure & suction',
     description:
       'Captures both pressure AND suction. Most sensors only measure one direction. Hyve captures the complete aerodynamic picture.',
     iconColor: 'text-blue-600',
@@ -69,9 +71,9 @@ const measurements = [
     id: 'temperature',
     icon: Thermometer,
     title: 'Temperature',
-    spec: '-50°C to 150°C',
+    spec: 'Wide operating range',
     description:
-      'Full operating range with software compensation. From cryogenic wind tunnels to brake duct thermal management.',
+      'Software-compensated thermal sensing — from cryogenic wind tunnels to brake-duct thermal management.',
     iconColor: 'text-amber-600',
     bgColor: 'from-amber-500/20 to-orange-500/20',
   },
@@ -97,10 +99,10 @@ const beforeHyve = [
 ]
 
 const withHyve = [
-  '100+ sensing nodes within the same area',
-  'Rapid deployment (<1 hour in testing environments)',
-  'Non-invasive adhesive integration',
-  'Repositionable architecture',
+  'Continuous, high-density coverage across the surface',
+  'Rapid, non-invasive deployment in testing environments',
+  'Adhesive integration — no structural penetration',
+  'Repositionable and reusable architecture',
   'Continuous real-time data streaming',
 ]
 
@@ -124,11 +126,14 @@ export const TechnicalCapabilities = () => {
           <div className="relative z-10 px-8 py-8 lg:px-12 lg:py-10">
             {/* Section Header */}
             <motion.div variants={itemVariants} className="text-center mb-8">
+              <p className="text-xs md:text-sm font-semibold text-hyve-interactive uppercase tracking-[0.2em] mb-3">
+                The Physical Data Layer
+              </p>
               <h2 className="text-3xl md:text-4xl font-bold text-hyve-header mb-4 font-heading">
-                Surface Monitoring Architecture
+                A Sensing Architecture for the AI Era
               </h2>
               <p className="text-base md:text-lg text-hyve-text/80 max-w-3xl mx-auto leading-relaxed">
-                Hyve’s conformable surface array integrates directly onto aerodynamic and structural surfaces, enabling rapid, non-invasive deployment in testing environments while delivering real-time pressure, temperature, and strain data into a structured data platform.
+                Hyve’s conformable sensor array is the nervous system between physical surfaces and the AI systems that need to perceive them. It integrates directly onto aerodynamic, structural, and robotic surfaces, streaming real-time pressure, temperature, and strain into a structured data platform — the dense, ground-truthed signal AI needs to act on the physical world.
               </p>
             </motion.div>
 
@@ -140,13 +145,13 @@ export const TechnicalCapabilities = () => {
                     key={index}
                     className="text-center p-4 bg-white/60 rounded-xl border border-hyve-content/30"
                   >
-                    <div className="text-xl md:text-2xl font-bold text-hyve-header font-mono">
-                      {spec.value}
-                    </div>
-                    <div className="text-xs text-hyve-text/60 uppercase tracking-wide mt-1">
+                    <div className="text-xs text-hyve-text/60 uppercase tracking-wide mb-1">
                       {spec.label}
                     </div>
-                    <div className="text-xs text-hyve-text/50 mt-0.5">
+                    <div className="text-base md:text-lg font-semibold text-hyve-header font-heading">
+                      {spec.value}
+                    </div>
+                    <div className="text-xs text-hyve-text/60 mt-1">
                       {spec.detail}
                     </div>
                   </div>
@@ -167,11 +172,12 @@ export const TechnicalCapabilities = () => {
                     </div>
                     <div>
                       <h4 className="text-sm font-semibold text-hyve-header">
-                        Flexible Kapton Substrate
+                        Conformable Substrate
                       </h4>
                       <p className="text-xs text-hyve-text/70 mt-1">
-                        Conforms to complex aerodynamic surfaces—wing leading
-                        edges, control surfaces, fuselage contours
+                        Flexible high-performance polymer film that conforms
+                        to complex surfaces — wing leading edges, control
+                        surfaces, fuselage contours, vehicle bodies.
                       </p>
                     </div>
                   </div>
@@ -184,8 +190,8 @@ export const TechnicalCapabilities = () => {
                         MEMS Array
                       </h4>
                       <p className="text-xs text-hyve-text/70 mt-1">
-                        High-precision electromechanical sensors.
-                        Each 4mm node is a precision instrument.
+                        High-precision electromechanical sensors. Each sensing
+                        node is an individually calibrated instrument.
                       </p>
                     </div>
                   </div>

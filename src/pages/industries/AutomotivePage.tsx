@@ -40,12 +40,12 @@ const automotiveData = {
     {
       title: 'Ultra-Thin & Non-Intrusive',
       description:
-        '0.33 mm flexible sensor arrays conform to vehicle surfaces without affecting airflow or structural integrity.',
+        'Conformable flexible sensor arrays adapt to vehicle surfaces without affecting airflow or structural integrity.',
     },
     {
       title: 'High-Density Measurement',
       description:
-        '100+ sensing nodes per array capture continuous pressure distribution rather than discrete measurement points.',
+        'Dense multi-point sensing across the surface captures continuous pressure distribution rather than discrete measurement points.',
     },
     {
       title: 'Accelerated Development Cycles',
@@ -59,7 +59,7 @@ const automotiveData = {
     },
   ],
   summary:
-    'Hyve enables high-resolution surface instrumentation for automotive aerodynamics, motorsport development, and EV efficiency optimisation. Non-invasive sensor arrays deploy in under an hour, delivering real-time pressure, thermal, and structural data across complex vehicle geometries.',
+    'Hyve enables high-resolution surface instrumentation for automotive aerodynamics, motorsport development, and EV efficiency optimisation. Non-invasive sensor arrays deploy rapidly in testing environments, delivering real-time pressure, thermal, and structural data across complex vehicle geometries.',
   cta: 'Hyve enables faster aerodynamic development across motorsport, EV platforms, and next-generation high-performance vehicles.',
 }
 

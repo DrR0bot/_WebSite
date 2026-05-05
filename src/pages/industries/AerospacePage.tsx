@@ -85,10 +85,10 @@ export const AerospacePage = () => {
 
         <div className="grid md:grid-cols-4 gap-4 mb-6">
           {[
-            { value: '40-60%', label: 'Lower instrumentation costs' },
-            { value: '500+', label: 'Data points/sec vs 10-20' },
-            { value: '<1 hour', label: 'Setup vs 1-2 days' },
-            { value: 'Infinite', label: 'Repositioning without damage' },
+            { value: 'Lower cost', label: 'vs traditional instrumentation' },
+            { value: 'High-frequency', label: 'Real-time data streaming' },
+            { value: 'Rapid setup', label: 'vs multi-day legacy installs' },
+            { value: 'Reusable', label: 'Repositioning without damage' },
           ].map((stat, index) => (
             <div key={index} className="text-center p-4 bg-hyve-content/10 rounded-xl">
               <div className="text-2xl font-bold text-hyve-header">{stat.value}</div>
@@ -105,16 +105,16 @@ export const AerospacePage = () => {
             <div>
               <h5 className="text-sm font-semibold text-hyve-text/60 mb-2">Legacy Approach</h5>
               <ul className="space-y-1 text-sm text-hyve-text/70">
-                <li>• 20-30 pressure taps</li>
-                <li>• 2 days installation</li>
+                <li>• Discrete pressure taps</li>
+                <li>• Multi-day installation</li>
                 <li>• Limited spatial resolution</li>
               </ul>
             </div>
             <div>
               <h5 className="text-sm font-semibold text-hyve-interactive mb-2">With Hyve</h5>
               <ul className="space-y-1 text-sm text-hyve-header font-medium">
-                <li>• 100+ sensors per wing section</li>
-                <li>• 1 hour deployment</li>
+                <li>• High-density sensing across each wing section</li>
+                <li>• Rapid, non-invasive deployment</li>
                 <li>• Complete pressure distribution mapping</li>
               </ul>
             </div>

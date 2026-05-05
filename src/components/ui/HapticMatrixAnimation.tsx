@@ -626,7 +626,7 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
     <div
       className={`relative w-full h-full ${className}`}
       role="img"
-      aria-label="Interactive 10x10 Haptic Matrix sensor visualisation: a flexible Kapton substrate with 100 individual sensing nodes that display real-time pressure, temperature, and strain data when interacted with."
+      aria-label="Interactive Haptic Matrix sensor visualisation: a conformable flexible substrate with a dense grid of sensing nodes that display real-time pressure, temperature, and strain data when interacted with."
     >
       {/* Three.js canvas container */}
       <div ref={containerRef} className="absolute inset-0 cursor-pointer" style={{ touchAction: 'none' }} />

@@ -63,7 +63,7 @@ export const HapticMatrixPage = () => {
     <div className="min-h-screen relative">
       <SEO
         title="Haptic Matrix Technology"
-        description="The Haptic Matrix is a conformable, high-density sensing platform delivering real-time pressure, temperature and strain data. Ultra-thin at 0.33mm, deployable in under an hour."
+        description="The Haptic Matrix is a conformable, ultra-thin, high-density sensing platform delivering real-time pressure, temperature and strain data — rapidly deployable, non-invasive, and reusable across testing environments."
         keywords="Haptic Matrix, sensor array, pressure mapping, temperature sensing, strain measurement, ultra-thin sensors, real-time data, Hyve Dynamics"
         jsonLd={{
           '@context': 'https://schema.org',
@@ -74,7 +74,7 @@ export const HapticMatrixPage = () => {
               alternateName: 'Hyve Haptic Matrix sensor array',
               category: 'Industrial sensor array',
               description:
-                'Ultra-thin (0.33 mm) conformable flexible sensor array delivering simultaneous real-time pressure, temperature, and strain measurement across aerodynamic and structural surfaces. Multi-modal, high-density (100+ sensing nodes per array), reusable, and deployable in under one hour.',
+                'Ultra-thin, conformable flexible sensor array delivering simultaneous real-time pressure, temperature, and strain measurement across aerodynamic and structural surfaces. Multi-modal, high-density sensing, reusable, and rapidly deployable in non-invasive testing environments.',
               brand: {
                 '@type': 'Brand',
                 name: 'Hyve Dynamics',
@@ -87,10 +87,10 @@ export const HapticMatrixPage = () => {
               url: 'https://www.hyvedynamics.com/haptic-matrix',
               image: 'https://www.hyvedynamics.com/MatrixMesh-r5.png',
               additionalProperty: [
-                { '@type': 'PropertyValue', name: 'Substrate thickness', value: '0.33 mm' },
+                { '@type': 'PropertyValue', name: 'Form factor', value: 'Ultra-thin, conformable flexible substrate' },
                 { '@type': 'PropertyValue', name: 'Sensing modalities', value: 'Pressure, temperature, strain (simultaneous)' },
-                { '@type': 'PropertyValue', name: 'Sensing nodes per array', value: '100+' },
-                { '@type': 'PropertyValue', name: 'Deployment time', value: 'Under 1 hour' },
+                { '@type': 'PropertyValue', name: 'Sensing density', value: 'High-density multi-point sensor array' },
+                { '@type': 'PropertyValue', name: 'Deployment', value: 'Rapid, non-invasive deployment in testing environments' },
                 { '@type': 'PropertyValue', name: 'Reusability', value: 'Repositionable without surface damage' },
                 { '@type': 'PropertyValue', name: 'Validation', value: 'Tier 1 aerospace wind tunnel testing' },
               ],
@@ -181,36 +181,38 @@ export const HapticMatrixPage = () => {
                 <div className="relative max-w-[350px]">
                   <img
                     src={`${import.meta.env.BASE_URL}MatrixMesh-r5.png`}
-                    alt="Hyve Haptic Matrix - Flexible sensor array showing 10x10 grid configuration on Kapton substrate"
+                    alt="Hyve Haptic Matrix - conformable flexible sensor array with a dense grid of sensing nodes"
                     className="w-full h-auto object-contain"
                     loading="lazy"
                   />
                 </div>
 
-                {/* Key Stats - Right Column */}
+                {/* Key qualitative attributes - Right Column.
+                    Numeric specs intentionally omitted while ongoing testing
+                    refines the published figures. */}
                 <div className="flex flex-col gap-3">
                   <div className="text-center p-3 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-hyve-content/20">
-                    <div className="text-xl font-bold text-hyve-header font-mono">
-                      0.33mm
+                    <div className="text-base font-semibold text-hyve-header font-heading">
+                      Ultra-thin
                     </div>
                     <div className="text-[10px] text-hyve-text/70">
-                      Thickness
+                      Conformable form factor
                     </div>
                   </div>
                   <div className="text-center p-3 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-hyve-content/20">
-                    <div className="text-xl font-bold text-hyve-header font-mono">
-                      +120Hz
+                    <div className="text-base font-semibold text-hyve-header font-heading">
+                      Real-time
                     </div>
                     <div className="text-[10px] text-hyve-text/70">
-                      Sampling
+                      High-frequency streaming
                     </div>
                   </div>
                   <div className="text-center p-3 bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-hyve-content/20">
-                    <div className="text-xl font-bold text-hyve-header font-mono">
-                      ±1.5%
+                    <div className="text-base font-semibold text-hyve-header font-heading">
+                      Calibrated
                     </div>
                     <div className="text-[10px] text-hyve-text/70">
-                      Accuracy
+                      Lab-grade precision
                     </div>
                   </div>
                 </div>
@@ -245,7 +247,7 @@ export const HapticMatrixPage = () => {
                 variants={itemVariants}
                 className="text-base md:text-lg text-hyve-text/80 leading-relaxed mb-8"
               >
-                The Hyve Haptic Matrix is a conformable, ultra-thin (0.33mm) surface sensing array that integrates directly onto aerodynamic and structural surfaces to provide dense, real-time measurement of pressure, temperature, and strain.
+                The Hyve Haptic Matrix is a conformable, ultra-thin surface sensing array that integrates directly onto aerodynamic and structural surfaces to provide dense, real-time measurement of pressure, temperature, and strain.
               </motion.p>
 
               <motion.p
