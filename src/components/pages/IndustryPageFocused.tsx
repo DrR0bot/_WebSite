@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowLeft, Download, Calendar } from 'lucide-react'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Pagination, Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -57,6 +57,67 @@ const itemVariants = {
       ease: [0.25, 0.1, 0.25, 1],
     },
   },
+}
+
+/**
+ * LazyVideo defers attaching the <source> until:
+ *   1. the video element is within (or near) the viewport, AND
+ *   2. the browser is idle (so we don't compete with FCP/LCP).
+ *
+ * This is the single biggest LCP win for industry pages, where each .webm
+ * is 21–68 MB and would otherwise download eagerly during initial paint.
+ */
+const LazyVideo: React.FC<{
+  src: string
+  className?: string
+  style?: React.CSSProperties
+}> = ({ src, className, style }) => {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [shouldLoad, setShouldLoad] = useState(false)
+
+  useEffect(() => {
+    const node = videoRef.current
+    if (!node || shouldLoad) return
+
+    const startLoad = () => {
+      const idleCb = () => setShouldLoad(true)
+      const ric = (window as Window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback
+      if (typeof ric === 'function') {
+        ric(idleCb, { timeout: 1500 })
+      } else {
+        window.setTimeout(idleCb, 800)
+      }
+    }
+
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries.some(e => e.isIntersecting)) {
+          startLoad()
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '200px' }
+    )
+
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [shouldLoad])
+
+  return (
+    <video
+      ref={videoRef}
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="none"
+      className={className}
+      style={style}
+    >
+      {shouldLoad && <source src={src} type="video/webm" />}
+      Your browser does not support the video tag.
+    </video>
+  )
 }
 
 export const IndustryPageFocused: React.FC<IndustryPageProps & { children?: React.ReactNode }> = ({ industry, children }) => {
@@ -122,32 +183,20 @@ export const IndustryPageFocused: React.FC<IndustryPageProps & { children?: Reac
                         >
                           {industry.videoPaths.map((path, idx) => (
                             <SwiperSlide key={idx}>
-                              <video
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
+                              <LazyVideo
+                                src={path}
                                 className="w-full h-auto rounded-xl"
                                 style={{ maxHeight: '280px', objectFit: 'cover' }}
-                              >
-                                <source src={path} type="video/webm" />
-                                Your browser does not support the video tag.
-                              </video>
+                              />
                             </SwiperSlide>
                           ))}
                         </Swiper>
                       ) : (
-                        <video
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
+                        <LazyVideo
+                          src={industry.videoPath}
                           className="w-full h-auto rounded-xl"
                           style={{ maxHeight: '280px', objectFit: 'cover' }}
-                        >
-                          <source src={industry.videoPath} type="video/webm" />
-                          Your browser does not support the video tag.
-                        </video>
+                        />
                       )}
                     </div>
                   </motion.div>

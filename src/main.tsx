@@ -11,6 +11,31 @@ import { validateEnvironment } from './lib/env'
 import { initializeSecurity } from './lib/security-config'
 import { reportWebVitals } from './lib/web-vitals'
 
+/**
+ * Inject Google Fonts stylesheet asynchronously after first paint.
+ * The CSS itself is preloaded from index.html; here we just attach it
+ * once the browser is idle, so it never blocks FCP/LCP. CSP-safe
+ * (no inline handlers — runs from the bundled, same-origin script).
+ */
+const FONTS_HREF =
+  'https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=JetBrains+Mono&display=swap'
+
+const loadFonts = () => {
+  if (document.querySelector(`link[rel="stylesheet"][href="${FONTS_HREF}"]`)) return
+  const link = document.createElement('link')
+  link.rel = 'stylesheet'
+  link.href = FONTS_HREF
+  document.head.appendChild(link)
+}
+
+type RIC = (cb: () => void, opts?: { timeout: number }) => number
+const ric = (window as Window & { requestIdleCallback?: RIC }).requestIdleCallback
+if (typeof ric === 'function') {
+  ric(loadFonts, { timeout: 2000 })
+} else {
+  window.setTimeout(loadFonts, 800)
+}
+
 // Validate environment variables at startup
 try {
   validateEnvironment()

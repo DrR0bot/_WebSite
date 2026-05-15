@@ -12,10 +12,28 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     
-    <!-- Google Fonts -->
+    <!--
+      Google Fonts — non-render-blocking load.
+      All 6 Poppins weights (200-700) are used across the site (audited);
+      JetBrains Mono is requested at default weight 400 only.
+
+      We only emit `preconnect` + `preload` here so the connection and CSS
+      bytes start arriving early without blocking first paint. The actual
+      `<link rel="stylesheet">` is injected from src/main.tsx during browser
+      idle time, which keeps fallback text visible during FCP and respects
+      the production CSP (`script-src 'self'` — no inline event handlers).
+      <noscript> covers users with JS disabled.
+    -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=JetBrains+Mono&display=swap"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=JetBrains+Mono&display=swap" />
+    </noscript>
     
     <title>Hyve Dynamics - The Physical Data Layer for AI</title>
 
