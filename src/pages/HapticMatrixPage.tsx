@@ -66,24 +66,29 @@ export const HapticMatrixPage = () => {
         description="The Haptic Matrix is a conformable, ultra-thin, high-density sensing platform delivering real-time pressure, temperature and strain data — rapidly deployable, non-invasive, and reusable across testing environments."
         keywords="Haptic Matrix, sensor array, pressure mapping, temperature sensing, strain measurement, ultra-thin sensors, real-time data, Hyve Dynamics"
         jsonLd={{
+          // Modelled as schema.org/Service rather than Product. Per Google's
+          // structured-data guidelines, Product snippets require one of
+          // `offers`, `review`, or `aggregateRating` — none of which apply
+          // to a B2B technology platform with bespoke per-programme pricing.
+          // Service is the correct type and matches the industry pages.
+          // See Search Console warning (May 2026).
           '@context': 'https://schema.org',
           '@graph': [
             {
-              '@type': 'Product',
+              '@type': 'Service',
               name: 'Haptic Matrix',
               alternateName: 'Hyve Haptic Matrix sensor array',
+              serviceType: 'High-density flexible sensor array platform',
               category: 'Industrial sensor array',
               description:
                 'Ultra-thin, conformable flexible sensor array delivering simultaneous real-time pressure, temperature, and strain measurement across aerodynamic and structural surfaces. Multi-modal, high-density sensing, reusable, and rapidly deployable in non-invasive testing environments.',
-              brand: {
-                '@type': 'Brand',
-                name: 'Hyve Dynamics',
-              },
-              manufacturer: {
+              provider: {
                 '@type': 'Organization',
                 name: 'Hyve Dynamics',
                 url: 'https://www.hyvedynamics.com',
+                logo: 'https://www.hyvedynamics.com/HD-Logo-dk.svg',
               },
+              areaServed: 'Worldwide',
               url: 'https://www.hyvedynamics.com/haptic-matrix',
               image: 'https://www.hyvedynamics.com/MatrixMesh-r5.png',
               additionalProperty: [
