@@ -36,6 +36,13 @@ const PitchDeckPage = import.meta.env.DEV
   ? lazy(() => import('@/pages/deck/PitchDeckPage').then(m => ({ default: m.PitchDeckPage })))
   : null
 
+// Social post composer — same dev-only pattern as the deck. Used to render
+// LinkedIn-ready post templates that can be screenshot from the browser and
+// pasted directly into LinkedIn. Source is dead-code-eliminated in prod.
+const SocialPostsPage = import.meta.env.DEV
+  ? lazy(() => import('@/pages/social/SocialPostsPage').then(m => ({ default: m.SocialPostsPage })))
+  : null
+
 // Loading fallback component
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center bg-hyve-bg">
@@ -195,9 +202,12 @@ function App() {
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* Standalone full-screen routes (no header/footer) */}
-            {/* /deck is registered only in dev — in production it falls through to NotFound. */}
+            {/* /deck and /posts are registered only in dev — in production they fall through to NotFound. */}
             {import.meta.env.DEV && PitchDeckPage && (
               <Route path="/deck" element={<PitchDeckPage />} />
+            )}
+            {import.meta.env.DEV && SocialPostsPage && (
+              <Route path="/posts" element={<SocialPostsPage />} />
             )}
 
             {/* Standard routes with Layout */}

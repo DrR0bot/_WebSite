@@ -1,0 +1,166 @@
+---
+description: Design + authoring conventions for LinkedIn post templates in src/pages/social
+globs: src/pages/social/**/*.tsx
+alwaysApply: false
+---
+
+# LinkedIn Post Templates — Design & Authoring Guide
+
+These are the dev-only LinkedIn post composer templates rendered at
+`/posts` in development. Each post is a single React component that fills
+an exact **1080 × 1350 px** canvas (LinkedIn 4:5 portrait).
+
+## Canvas
+
+- **Exact pixel size:** 1080 × 1350 (do not change — `SocialPostsPage`
+  scales the canvas via `transform: scale()` to fit the viewport, so
+  internal layouts must assume the real pixel grid)
+- **Content padding:** 80 px on all sides (already applied by
+  `.social-canvas__content` in `SocialPosts.css` — do not double up)
+- **Variants:** `light` (white background, dark text), `dark` (gunmetal,
+  white text), `accent` (gradient, white text). Register the variant in
+  the `POSTS` array — never set background colour manually on the canvas.
+
+## Typography minimums (mandatory)
+
+LinkedIn down-samples images and most users view on mobile. Type that
+looks fine in DevTools at 100% can become unreadable in the feed. Use
+these floors:
+
+| Element | Minimum px | Recommended | Notes |
+|---|---|---|---|
+| Hero / pull quote | 72 | **78–90** | `font-heading`, medium or light |
+| Section heading | 28 | 32–36 | tight tracking, semibold |
+| Body / card body | **20** | 22–24 | never below 18 px |
+| Card title | 24 | **26–28** | semibold |
+| Stat value | 36 | **40–48** | font-heading, semibold |
+| Footer / metadata | 18 | 20–22 | medium weight |
+| Uppercase + letter-spacing | +2–4 px | over lowercase equivalent | tracking 0.18em–0.25em |
+
+If text is wrapping awkwardly or you can only fit it by going below
+these minimums, **change the layout, not the type size**.
+
+## Layout heuristics
+
+- **Three or more items in a row?** Verify each item still gets ≥320 px
+  of horizontal space at 1080 wide. If not, stack vertically.
+- **Cramped card grids → vertical stack** with title-left / body-right
+  inside each row (see `IndustryDigitalTwin.tsx` for the canonical
+  pattern).
+- **Stat strips** stay horizontal (3 columns) but give each stat its own
+  card with ≥24 px of inner padding so the value can breathe.
+- **Footer pattern:** logo (or positioning line) on left, URL on right.
+  Keep the URL ≥22 px. Avoid wrapping; prefer `whitespace-nowrap` + a
+  shorter line over a smaller font.
+
+## Component skeleton
+
+Every post template MUST render its own background + content (the page
+shell only provides the canvas frame and variant class):
+
+```tsx
+import { Logo } from '../components/Logo'
+import bgSlides from '../../deck/assets/Background_slides.png' // light variant only
+
+export const MyPost = () => (
+  <>
+    {/* Background image — MUST be a <div> with background-image, NOT an
+        <img> with object-fit: cover. html2canvas does not honour
+        object-fit reliably and the export will come out clipped. */}
+    <div
+      className="social-canvas__bg"
+      aria-hidden="true"
+      style={{ backgroundImage: `url(${bgSlides})` }}
+    />
+
+    {/* Optional readability overlay (div is fine — gradients export cleanly) */}
+    <div className="social-canvas__overlay" style={{ background: '...' }} />
+
+    {/* Padded content slot */}
+    <div className="social-canvas__content text-hyve-header">
+      {/* top: usually <Logo> + accent bar or category tag */}
+      {/* middle — use flex-1 to push footer down */}
+      {/* footer */}
+    </div>
+  </>
+)
+```
+
+## Brand assets
+
+- **Logos — MUST render via `<Logo>` component, NEVER as a raw `<img>`.**
+  Both brand SVGs (`HD-Logo-dk2.svg`, `logo_white.svg`) define their
+  fills via internal `<style>` + `class="cls-N"` blocks. html2canvas
+  drops these when rasterising `<img>` tags, so paths fall back to
+  black — the white wordmark disappears completely on dark posts. The
+  `Logo` component (`src/pages/social/components/Logo.tsx`) fetches the
+  SVG and inlines it into the DOM, which html2canvas handles correctly.
+  Usage:
+  ```tsx
+  import { Logo } from '../components/Logo'
+  // light variant:
+  <Logo src="/HD-Logo-dk2.svg" alt="Hyve Dynamics" className="h-14 w-auto" />
+  // dark / accent variant:
+  <Logo src="/logo_white.svg" alt="Hyve Dynamics" className="h-14 w-auto opacity-90" />
+  ```
+- **Product image:** `/MatrixMesh-r5.png` (transparent PNG, ~260 px tall
+  fits the corner of a 1080-wide canvas nicely). PNGs export fine as
+  `<img>` — no Logo wrapper needed.
+- **Backgrounds:** import from `src/pages/deck/assets/Background_slides.png`
+  for light variant; dark/accent variants use the CSS gradient and
+  optional radial overlays — do not add stock imagery
+- **Tailwind brand tokens:** `text-hyve-header` (#2A303C), `text-hyve-text`
+  (#3D4657), `text-hyve-accent` (#7FB3BE), `text-hyve-interactive-dark`
+  (#028396). See `tailwind.config.js`.
+
+## Adding a new template
+
+1. Create `src/pages/social/posts/MyPost.tsx` with a JSDoc header
+   containing: use case, suggested LinkedIn caption, variant note.
+2. Import + append to `POSTS` in `SocialPostsPage.tsx`:
+   ```tsx
+   { id: 'my-post', label: 'My Post', variant: 'dark', Component: MyPost }
+   ```
+3. Swiper picks it up automatically — no other wiring needed.
+
+## Exporting a post (1080×1350 PNG → Social_Posts folder)
+
+The composer has a **Save PNG** button (bottom-right HUD). It:
+
+- Forces `transform: scale(1)` on the active canvas so html2canvas captures
+  at exact 1080 × 1350 px regardless of viewport zoom
+- Awaits `document.fonts.ready` (fonts load asynchronously via main.tsx)
+- POSTs the resulting `image/png` data URL to `/__save-post`
+- The dev-only Vite plugin at `scripts/vite-plugin-save-posts.mjs` writes
+  it to `SOCIAL_POSTS_OUTPUT_DIR` (configured in `vite.config.ts`,
+  default `…/07_Brand_and_Web/Social_Posts`, override with the
+  `SOCIAL_POSTS_DIR` env var)
+- Filename pattern: `hyve-<post-id>-<ISO-timestamp>.png`
+
+If you add CSS that html2canvas struggles with (advanced filters, certain
+backdrop-blur cases, cross-origin images without CORS) the export may
+fall back to a low-fidelity render. Test the Save PNG button after any
+substantive styling change.
+
+## Don'ts
+
+- ❌ Don't change the 1080 × 1350 canvas size (breaks LinkedIn 4:5)
+- ❌ Don't add inline emojis to the canvas unless the user asks
+- ❌ Don't ship a poster that doesn't include `hyvedynamics.com` and a
+  logo somewhere (usually the footer)
+- ❌ Don't use type below 20 px for body content
+- ❌ Don't add the social composer to production routes — it MUST stay
+  behind `import.meta.env.DEV` checks in `src/App.tsx`
+- ❌ Don't render brand SVGs as `<img>` — always use `<Logo>` (html2canvas
+  drops internal `<style>` blocks)
+- ❌ Don't use `<img>` for background images — always use a `<div>` with
+  CSS `background-image` (html2canvas drops `object-fit: cover`)
+
+## Tone (per Hyve brand)
+
+Visionary & punchy — bold positioning, short lines, big claims always
+backed by a concrete proof point (Tier 1 aerospace, 5 UK patents, ATI).
+Canonical thesis line: **"The physical data layer for AI."**
+Canonical positioning: **"The nervous system for machines in the AI era."**
+Mirror the wording on `hyvedynamics.com` so posts and site reinforce
+each other.

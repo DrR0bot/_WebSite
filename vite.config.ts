@@ -5,6 +5,18 @@ import { visualizer } from 'rollup-plugin-visualizer'
 // import createSitemap from 'vite-plugin-sitemap'
 import { defineConfig } from 'vite'
 
+// Dev-only plugin that lets the LinkedIn post composer (src/pages/social)
+// save each slide as a 1080×1350 PNG into a local folder. Apply: 'serve'
+// inside the plugin ensures it never runs in `vite build`.
+// Default writes into the brand's Social_Posts OneDrive folder; override
+// with `SOCIAL_POSTS_DIR=<absolute path>` env var if you're another dev.
+// eslint-disable-next-line import/no-unresolved
+import savePostsPlugin from './scripts/vite-plugin-save-posts.mjs'
+
+const SOCIAL_POSTS_OUTPUT_DIR =
+  process.env.SOCIAL_POSTS_DIR ??
+  'C:/Users/jtobo/OneDrive/Documents/04_Hyve_Dynamics/07_Brand_and_Web/Social_Posts'
+
 // Enhanced security headers for production
 const getSecurityHeaders = (isProduction = false) => ({
   'X-Content-Type-Options': 'nosniff',
@@ -60,6 +72,7 @@ export default defineConfig({
       gzipSize: true,
       brotliSize: true,
     }),
+    savePostsPlugin({ outputDir: SOCIAL_POSTS_OUTPUT_DIR }),
     // Note: Sitemap created manually in public/sitemap.xml
   ],
   resolve: {
