@@ -43,6 +43,13 @@ const SocialPostsPage = import.meta.env.DEV
   ? lazy(() => import('@/pages/social/SocialPostsPage').then(m => ({ default: m.SocialPostsPage })))
   : null
 
+// Banner composer — renders the Home page mesh background on its own at an
+// exact pixel size so `npm run banner` can capture brand banners from it.
+// Same dev-only pattern: source is dead-code-eliminated in prod.
+const BannerPage = import.meta.env.DEV
+  ? lazy(() => import('@/pages/social/BannerPage').then(m => ({ default: m.BannerPage })))
+  : null
+
 // Loading fallback component
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center bg-hyve-bg">
@@ -202,13 +209,14 @@ function App() {
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* Standalone full-screen routes (no header/footer) */}
-            {/* /deck and /posts are registered only in dev — in production they fall through to NotFound. */}
+            {/* /deck, /posts and /banner are registered only in dev — in production they fall through to NotFound. */}
             {import.meta.env.DEV && PitchDeckPage && (
               <Route path="/deck" element={<PitchDeckPage />} />
             )}
             {import.meta.env.DEV && SocialPostsPage && (
               <Route path="/posts" element={<SocialPostsPage />} />
             )}
+            {import.meta.env.DEV && BannerPage && <Route path="/banner" element={<BannerPage />} />}
 
             {/* Standard routes with Layout */}
             <Route element={<LayoutWrapper />}>
