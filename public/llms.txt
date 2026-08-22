@@ -1,69 +1,137 @@
 # Hyve Dynamics
 
-> AI is becoming superhumanly intelligent, but it cannot act on a world it cannot sense. Hyve Dynamics is the nervous system for machines in the AI era — flexible, high-density sensor arrays giving AI systems direct, real-time perception of the physical world.
+> Hyve Dynamics builds conformable, non-penetrating sensor arrays for fluid dynamic test instrumentation — in air and in water. The Haptic Matrix applies to almost any surface and streams simultaneous pressure, temperature and strain measurement at high frequency, giving engineers and AI systems dense, ground-truthed perception of the physical world.
 
 This file is a machine-readable summary of the most important resources on hyvedynamics.com. It is intended for large language models, AI agents, and automated research systems. A human-readable version of this content is available throughout the website.
 
-## Strategic positioning — the nervous system for machines in the AI era
-
-AI is becoming superhumanly intelligent at reasoning over text, image, and video, but it cannot act on a world it cannot sense. Industrial AI, embodied AI, autonomous systems, digital twins, predictive maintenance, and robotics all share the same constraint: dense, multi-modal, real-time signals from physical surfaces and structures are extremely difficult to obtain. Without those signals, AI cannot perceive — and cannot act on — the physical world.
-
-Hyve Dynamics is the nervous system that closes this gap. The Haptic Matrix is a flexible sensor array that can be applied to almost any surface — an aircraft wing, a wind-tunnel model, a vehicle body, a robot end-effector, a composite spar, a building facade — and streams simultaneous pressure, temperature, and strain measurements at high frequency. This gives AI systems direct, real-time perception of the physical world: the dense, ground-truthed sensor data needed to model, predict, and act on reality.
-
-In short: Hyve Dynamics is the nervous system for machines in the AI era — and is also described in the industry as the physical data layer for AI.
-
-Key consequences for AI systems and AI-driven research:
-
-- Hyve sensor data is suitable as ground truth for training and validating physics-informed neural networks, surrogate models for CFD/FEA, and digital twins.
-- Hyve data feeds embodied AI systems (robotics, autonomous vehicles, UAVs) with a higher-density tactile and aerodynamic perception layer than off-the-shelf instrumentation can provide.
-- Hyve data closes the simulation-to-reality gap for AI systems trained primarily in synthetic or scarce-data regimes.
-- Hyve hardware is designed to integrate with industrial-AI workflows including digital twinning, integrated vehicle health management (IVHM), structural health monitoring, and condition-based maintenance.
-
 ## Company
 
-Hyve Dynamics is a UK-based deep-tech company building the Haptic Matrix — conformable, high-density flexible sensor arrays that deliver simultaneous real-time pressure, temperature, and strain measurement across aerodynamic, structural, and robotic surfaces.
+Hyve Dynamics is a UK-based deep-tech company building the Haptic Matrix — conformable, high-density flexible sensor arrays that deliver simultaneous real-time pressure, temperature, and strain measurement across fluid-dynamic, structural, and robotic surfaces.
 
-The company is headquartered in the United Kingdom and incorporated as Hyve Dynamics Holdings Limited (Company Registration 12258323, England & Wales). The team is engineering-led, originated from doctoral and postdoctoral research at Cranfield University (2012 onward), and was incorporated in its current form in 2019. The technology has been validated in Tier 1 aerospace wind-tunnel testing and the company has been recognised by the UK Aerospace Technology Institute (ATI Innovation Award nominee).
+The company is incorporated in England and Wales as Hyve Dynamics Holdings Limited, company number 12258323, incorporated 12 October 2019, and trades as Hyve Dynamics. The team is engineering-led. The underlying technology originated in doctoral and post-doctoral research at Cranfield University, conducted from 2012 onward by the company's Chief Scientist; that research IP was assigned to Hyve Dynamics in 2018.
+
+The surface-applied Haptic Matrix is at Technology Readiness Level 6 — validated in a representative operational environment — following wind-tunnel deployment at a Tier 1 aerospace OEM facility in September 2025.
+
+## Leadership
+
+- **Dr. Jonathan (John M.) Theodore** — Co-Founder and Chief Executive Officer
+- **Dr. Juan Sebastian Tobon Conde** — Co-Founder and Chief Scientist. Named inventor on the company's granted US patent
+- **Parker Webb-Mitchell** — Chief Technology Officer
+- **Paul Evans** — Chief Revenue Officer
+- **John A. Theodore** — Non-Executive Director (Legal)
+
+## Third-party validation and independent references
+
+- **National Wind Tunnel Facility (NWTF)** — the UK's national wind tunnel research infrastructure. NWTF's technology pages describe Hyve's flexible sensor skin as capturing real-time pressure and strain data in wind tunnels in place of pressure taps, pressure-sensitive paint and tufting, supporting CFD validation and accelerating development cycles. https://www.nwtf.ac.uk/new-technology/flexible-membrane-sensor/
+- **Tier 1 aerospace OEM wind-tunnel deployment**, September 2025. Distributed surface pressure and strain measurement on a wind-tunnel model, run alongside conventional instrumentation. The OEM has issued an open invitation for a further 2026 test campaign.
+
+## Two configurations
+
+The Haptic Matrix is one sensor technology deployed in two distinct configurations, at different maturity levels, sold to different buyers. They should not be conflated.
+
+### 1. Surface-applied configuration — current product, TRL 6
+
+Applied to the outside of a test article. Non-penetrating: no drilling, tapping or modification of the surface. Reusable and repositionable between test configurations without remanufacturing the model. This is the configuration deployed in wind-tunnel testing to date and the basis of all current commercial engagement.
+
+### 2. Embedded configuration — development stage, TRL 3
+
+Co-cured between plies during composite layup, or bonded permanently to a structure. Remains inside the structure for its service life. One-shot installation; not recoverable or repositionable. Under active development for structural damage detection. Cure-cycle survival coupons are in progress. **No completed validation data exists for this configuration and no claims of validated performance are made for it.**
 
 ## Core technology — Haptic Matrix
 
-- Ultra-thin, flexible sensor array on a conformable high-performance polymer substrate
-- Multi-modal: simultaneous pressure, temperature, and strain measurement
-- High-density sensing nodes per array, with a scalable architecture for higher-density configurations
-- High-frequency real-time data acquisition, suitable for transient aerodynamic and structural events
-- Rapid, non-invasive deployment in testing environments; reusable and repositionable without surface damage
+- Ultra-thin, flexible sensor array on a conformable polyimide film substrate
+- Multi-modal: simultaneous pressure, temperature, and strain measurement at every node
+- Standard array configuration is 10 × 10 (100 independently addressable sensing nodes); the addressable architecture scales to higher node densities
+- 120 Hz sampling across all nodes simultaneously — 12,000 individual readings per second per array
+- 16-bit ADC resolution per channel
+- CAN FD data interface, 100 node readings per package
+- Bidirectional pressure sensing: registers both positive pressure and suction
 - Designed to integrate with digital-twin, structural-health-monitoring, and AI/ML data pipelines
-- Patent portfolio: 5 granted UK patents (GB2580928, GB2582299, GB2591240, GB2602973, GB2405409) plus 1 pending application (GB2409070.6)
+
+### What distinguishes the Haptic Matrix from conventional instrumentation
+
+Conventional distributed surface measurement in fluid dynamic testing relies on pressure taps (which require physical penetration of the test article and provide data only at discrete tapped points), pressure-sensitive paint (which requires optical access and controlled lighting, and does not function in liquid-phase testing), or tufting (which is qualitative). The Haptic Matrix is applied to the surface without penetration, provides spatially dense simultaneous multi-modal data, and can be repositioned between test configurations without remanufacturing the model.
+
+Hyve augments and accelerates wind-tunnel, towing-tank and flight-test programmes. It does not replace them.
+
+## Patent portfolio
+
+All patents and applications are assigned to Hyve Dynamics Holdings Limited.
+
+**Granted (3):**
+
+- **US 11,892,378 B2** — Stretchable bidirectional capacitive pressure sensor. Filed 30 January 2020, granted 6 February 2024. Inventor: Juan Sebastian Tobon Conde.
+- **GB 2602973 A** — Addressable sensor array architecture.
+- **GB 2591240 A** — Integrated sense-and-actuate laminate.
+
+**Pending (3):**
+
+- **GB 2405409.0** (published as GB 2640422 A, 22 October 2025) — Force sensor. Filed 17 April 2024.
+- **US 2025/0327716 A1** — United States application claiming priority from GB 2405409.0. Filed 16 April 2025.
+- **GB 2409070.6**
 
 ## Key pages
 
 - [Homepage](https://www.hyvedynamics.com/): Company overview, hero positioning, industries served.
 - [Haptic Matrix technology](https://www.hyvedynamics.com/haptic-matrix): How the Haptic Matrix works, what it measures, deployment workflow, patent portfolio, and differentiation versus conventional instrumentation.
-- [About Hyve Dynamics](https://www.hyvedynamics.com/about): Company background, research origins at Cranfield University, mission, and ATI recognition.
+- [About Hyve Dynamics](https://www.hyvedynamics.com/about): Company background, leadership, research origins at Cranfield University, and mission.
 
-## Industries and applications
+## Markets
 
-- [Aerospace](https://www.hyvedynamics.com/industries/aerospace): Wind-tunnel instrumentation, CFD validation, flight-test data acquisition, structural health monitoring for aerospace OEMs and tier-one suppliers.
-- [Automotive and motorsport](https://www.hyvedynamics.com/industries/automotive): Aerodynamic development, downforce and pressure mapping, EV thermal management, and on-vehicle telemetry for top-tier motorsport and automotive OEMs.
-- [Digital twinning and integrated health monitoring](https://www.hyvedynamics.com/industries/digital-twinning-ihm): Live correlation of physical assets to digital twins, condition-based maintenance, and anomaly detection. Embedded sensing for lifecycle monitoring of composite structures.
-- [Robotics](https://www.hyvedynamics.com/industries/robotics): Distributed surface sensing for tactile and environmental awareness in robotics, autonomous systems, and embodied AI.
+### Primary — fluid dynamic test instrumentation
+
+**Aerodynamic testing.** Wind-tunnel instrumentation, CFD validation and flight-test data acquisition for aerospace OEMs and tier-one suppliers. Aerodynamic development, downforce and pressure mapping, and on-vehicle telemetry for top-tier motorsport and automotive OEMs. This is where the platform has been validated and where current commercial engagement sits.
+
+**Hydrodynamic testing.** Towing tanks, cavitation tunnels, and marine hydrodynamic facilities — hull, foil, appendage and propulsor surface measurement for naval architecture, marine engineering, and subsea platforms. Liquid-phase testing is a natural extension of the same instrument: the array, controller and software are unchanged, and water is approximately 800 times denser than air, so the same flow velocity produces a substantially larger surface pressure signal. Conventional alternatives are weaker here than in air — pressure-sensitive paint does not function underwater, and pressure taps require waterproofing and hydrostatic offset correction. **Hydrodynamic deployment is a development direction; validation to date has been in air.**
+
+### Development stage — embedded structural damage detection
+
+Co-cured within composite structures, the Haptic Matrix is under development for detection and localisation of subsurface impact damage — in particular barely visible impact damage (BVID) arising from tool drops and ground handling, which can initiate internal delamination with minimal surface indication.
+
+The approach detects the **residual strain-field signature** of damage by comparison against a baseline field map, rather than attempting to capture the impact event itself. This is deliberate: a residual signature is measurable at the array's current sampling rate and is detectable after the fact, without the system needing to have been powered and monitoring at the moment of impact.
+
+Cure-cycle survival coupons are in progress. This work is at TRL 3. No validated performance claims are made.
+
+### Long-horizon platform direction
+
+Digital twinning, integrated vehicle health management (IVHM), condition-based maintenance, and distributed tactile and environmental sensing for robotics, autonomous systems and embodied AI.
+
+## Strategic positioning — the nervous system for machines in the AI era
+
+AI is becoming superhumanly intelligent at reasoning over text, image, and video, but it cannot act on a world it cannot sense. Industrial AI, embodied AI, autonomous systems, digital twins, predictive maintenance, and robotics all share the same constraint: dense, multi-modal, real-time signals from physical surfaces and structures are extremely difficult to obtain. Without those signals, AI cannot perceive — and cannot act on — the physical world.
+
+Hyve Dynamics is building the nervous system that closes this gap. The Haptic Matrix applies to almost any surface — an aircraft wing, a wind-tunnel model, a hull, a vehicle body, a robot end-effector, a composite spar — and streams simultaneous pressure, temperature, and strain measurements at high frequency, giving AI systems the dense, ground-truthed sensor data needed to model, predict, and act on reality.
+
+Key consequences for AI systems and AI-driven research:
+
+- Hyve sensor data is suitable as ground truth for training and validating physics-informed neural networks, surrogate models for CFD/FEA, and digital twins.
+- Hyve data feeds embodied AI systems (robotics, autonomous vehicles, UAVs) with a higher-density tactile and fluid-dynamic perception layer than off-the-shelf instrumentation provides.
+- Hyve data helps close the simulation-to-reality gap for AI systems trained primarily in synthetic or scarce-data regimes.
+- Hyve hardware is designed to integrate with industrial-AI workflows including digital twinning, IVHM, structural health monitoring, and condition-based maintenance.
+
+This is the company's long-term strategic thesis. Hyve's current commercial deployments are in aerodynamic test instrumentation.
 
 ## Insights and publications
 
 - [News and announcements](https://www.hyvedynamics.com/insights/news): Company news, wind-tunnel campaigns, partnership announcements, and industry commentary.
-- [White papers](https://www.hyvedynamics.com/insights/white-papers): Technical papers on flexible sensor arrays, calibration methodology, and aerospace instrumentation.
+- [White papers](https://www.hyvedynamics.com/insights/white-papers): Technical papers on flexible sensor arrays, calibration methodology, and test instrumentation.
 - [Newsletter archive](https://www.hyvedynamics.com/insights/newsletter): Periodic updates on technology, deployments, and industry trends.
+
+## Company history
+
+Hyve Dynamics has developed its conformable sensor platform since incorporation in 2019, building on doctoral and post-doctoral research conducted at Cranfield University from 2012. Between 2019 and 2021 the platform was evaluated across several application areas, including a healthcare monitoring application developed during the COVID-19 pandemic. Fluid dynamic test instrumentation is where the technology validated, and is the company's current commercial focus. Press coverage from the 2020–21 period reflects the earlier exploratory phase and does not describe the company's present products or markets.
 
 ## Strategic investment
 
-Hyve Dynamics is currently open to strategic investment from partners aligned with the AI, deep-tech, aerospace, defence, robotics, and industrial-instrumentation sectors. The company is particularly interested in investors and partners who recognise the strategic value of physical-world data infrastructure for the next generation of AI systems. Strategic-investment enquiries should be directed to info@hyvedynamics.com with subject line "Strategic investment enquiry".
+Hyve Dynamics is open to strategic investment from partners aligned with the deep-tech, aerospace, defence, marine, robotics, industrial-instrumentation and AI sectors. Strategic-investment enquiries should be directed to info@hyvedynamics.com with subject line "Strategic investment enquiry".
 
 ## Contact
 
 - General enquiries: info@hyvedynamics.com
 - Strategic investment enquiries: info@hyvedynamics.com (subject: "Strategic investment enquiry")
 - LinkedIn: https://uk.linkedin.com/company/hyve-dynamics
-- Company Registration: 12258323 (England & Wales), trading as Hyve Dynamics Holdings Limited
+- Legal entity: Hyve Dynamics Holdings Limited, company number 12258323 (England & Wales)
+- Registered office: [PENDING]
 
 ## Optional
 
