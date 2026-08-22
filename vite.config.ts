@@ -10,7 +10,6 @@ import { defineConfig } from 'vite'
 // inside the plugin ensures it never runs in `vite build`.
 // Default writes into the brand's Social_Posts OneDrive folder; override
 // with `SOCIAL_POSTS_DIR=<absolute path>` env var if you're another dev.
-// eslint-disable-next-line import/no-unresolved
 import savePostsPlugin from './scripts/vite-plugin-save-posts.mjs'
 
 const SOCIAL_POSTS_OUTPUT_DIR =
