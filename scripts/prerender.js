@@ -21,7 +21,7 @@
  * Why this approach:
  *   - The codebase makes heavy use of Three.js, anime.js-style imperative
  *     animation, and direct DOM access at module load (see audit in
- *     docs/hyve-llm-visibility-progress.md). A true SSR/SSG migration
+ *     docs/llm-visibility/implementation-progress.md). A true SSR/SSG migration
  *     (Vike, Next, etc.) would require restructuring routing and wrapping
  *     every visual component in <ClientOnly>. Snapshotting in headless
  *     Chrome avoids that entirely: the app boots in a real browser, then

@@ -13,6 +13,12 @@
 import { Logo } from '../components/Logo'
 import bgSlides from '../../deck/assets/Background_slides.png'
 
+export const caption = `Wind-tunnel instrumentation costs more than the wind tunnel.
+
+Days of taps, drilled surfaces, sparse coverage.
+
+Hyve maps full pressure distributions in hours — reusable, non-invasive, Tier 1 validated.`
+
 export const AudienceOEM = () => (
   <>
     <div

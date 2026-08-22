@@ -19,7 +19,7 @@ npm run preview
 ## 📦 Deployment
 
 ### Vercel (Recommended)
-See [Vercel Deployment Guide](docs/VERCEL_DEPLOYMENT.md)
+See [Vercel Deployment Guide](docs/deployment/vercel-deployment.md)
 
 ```bash
 # Using Vercel CLI
@@ -29,7 +29,7 @@ vercel
 ```
 
 ### GitHub Pages
-See [GitHub Pages Setup](docs/GITHUB_PAGES_SETUP.md)
+See [GitHub Pages Setup](docs/deployment/github-pages-setup.md)
 
 ```bash
 npm run build:gh-pages
@@ -115,12 +115,16 @@ npm run security:audit
 
 ## 📚 Documentation
 
-- [Polishing Checklist](docs/POLISHING_CHECKLIST.md)
-- [Accessibility Audit](docs/ACCESSIBILITY_AUDIT.md)
-- [Security Audit](docs/SECURITY_AUDIT.md)
-- [Production Deployment](docs/PRODUCTION_DEPLOYMENT.md)
-- [Vercel Deployment](docs/VERCEL_DEPLOYMENT.md)
-- [GitHub Pages Setup](docs/GITHUB_PAGES_SETUP.md)
+Internal documentation lives in **`docs/`**, indexed in
+[docs/README.md](docs/README.md). That directory is gitignored, so it is only
+available in a local working copy.
+
+- Guides — `docs/guides/` (ESLint, focus management, form validation, smooth scroll, toasts)
+- Deployment — `docs/deployment/` (Vercel, GitHub Pages, production checklist)
+- Audits — `docs/audits/` (accessibility, security, Lighthouse, developer feedback)
+- LLM visibility — `docs/llm-visibility/` (`llms.txt`, prerendering, AI positioning)
+- Content — `docs/content/` (page copy and content reviews)
+- Planning — `docs/planning/` (redesign backlog, polishing checklist)
 
 ## 🌐 Environment Variables
 

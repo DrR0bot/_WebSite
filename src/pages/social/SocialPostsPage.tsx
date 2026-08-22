@@ -6,34 +6,38 @@
  *  - <NoIndex> meta so it never gets indexed if it ever does ship
  *  - Swiper with keyboard nav so navigating between post templates is fast
  *
- * Workflow:
- *  1. Run `npm run dev` and open http://localhost:5173/posts
- *  2. Navigate slides with arrow keys, pagination dots, or nav arrows
- *  3. Click "Save PNG" to export the active slide at exact 1080×1350
- *     directly into the Social_Posts folder (see scripts/vite-plugin-save-posts.mjs)
- *     OR screenshot the framed 4:5 canvas region and paste into LinkedIn
+ * Each post template exports both its `Component` and a `caption` string
+ * (the 2–3 line "hook" that goes above the image on LinkedIn). The
+ * composer surfaces the active post's caption in a small panel at the
+ * bottom of the viewport with a Copy button, so the workflow is:
+ *
+ *   1. Pick the post visually
+ *   2. Screenshot the framed 4:5 canvas
+ *   3. Click "Copy" → paste the caption into LinkedIn → attach the image
  *
  * Adding a new post template:
- *  - Drop a component into ./posts/MyPost.tsx
- *  - Import it below and append to POSTS with a unique id + variant
+ *  - Drop a component into ./posts/MyPost.tsx with named exports
+ *      `Component` and `caption`
+ *  - Import both below and append to POSTS with a unique id + variant
  *  - That's it — Swiper picks it up automatically
  */
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, Keyboard } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
-import { Download, Loader2, Maximize2, Minimize2 } from 'lucide-react'
-import html2canvas from 'html2canvas'
-import { toast } from 'sonner'
+import { Check, Copy, Maximize2, MessageSquare, MessageSquareOff, Minimize2 } from 'lucide-react'
 
 import { NoIndex } from '@/components/common/NoIndex'
 
-import { ThesisCover } from './posts/ThesisCover'
-import { BigQuote } from './posts/BigQuote'
-import { AudienceOEM } from './posts/AudienceOEM'
-import { IndustryDigitalTwin } from './posts/IndustryDigitalTwin'
+import { ThesisCover, caption as thesisCoverCaption } from './posts/ThesisCover'
+import { ClosedLoop, caption as closedLoopCaption } from './posts/ClosedLoop'
+import { NoHallucinations, caption as noHallucinationsCaption } from './posts/NoHallucinations'
+import { BigQuote, caption as bigQuoteCaption } from './posts/BigQuote'
+import { AudienceOEM, caption as audienceOEMCaption } from './posts/AudienceOEM'
+import { IndustryDigitalTwin, caption as industryDigitalTwinCaption } from './posts/IndustryDigitalTwin'
+import { DefenseCover, caption as defenseCoverCaption } from './posts/DefenseCover'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -52,26 +56,38 @@ interface PostConfig {
   label: string
   variant: Variant
   Component: React.FC
+  caption: string
 }
 
+// Order is intentional: thesis → close-the-loop manifesto → grounded-AI
+// counterpoint → big-quote thought leadership → OEM audience → digital
+// twin → defence cover. Reorder freely; pagination + navigation follow.
 const POSTS: PostConfig[] = [
-  { id: 'thesis-cover',         label: 'Thesis Cover',         variant: 'light',  Component: ThesisCover },
-  { id: 'big-quote',            label: 'Big Quote',            variant: 'dark',   Component: BigQuote },
-  { id: 'audience-oem',         label: 'For OEM R&D Leaders',  variant: 'light',  Component: AudienceOEM },
-  { id: 'industry-digitaltwin', label: 'Digital Twin / IVHM',  variant: 'accent', Component: IndustryDigitalTwin },
+  { id: 'thesis-cover',         label: 'Thesis Cover',         variant: 'light',  Component: ThesisCover,         caption: thesisCoverCaption },
+  { id: 'closed-loop',          label: 'Close the Loop',       variant: 'accent', Component: ClosedLoop,          caption: closedLoopCaption },
+  { id: 'no-hallucinations',    label: 'No Hallucinations',    variant: 'dark',   Component: NoHallucinations,    caption: noHallucinationsCaption },
+  { id: 'big-quote',            label: 'Big Quote',            variant: 'dark',   Component: BigQuote,            caption: bigQuoteCaption },
+  { id: 'audience-oem',         label: 'For OEM R&D Leaders',  variant: 'light',  Component: AudienceOEM,         caption: audienceOEMCaption },
+  { id: 'industry-digitaltwin', label: 'Digital Twin / IVHM',  variant: 'accent', Component: IndustryDigitalTwin, caption: industryDigitalTwinCaption },
+  { id: 'defense-cover',        label: 'Defence Cover',        variant: 'dark',   Component: DefenseCover,        caption: defenseCoverCaption },
 ]
 
 /**
  * Calculate the largest `transform: scale()` that fits the 1080×1350 canvas
- * into the viewport while leaving ~120 px breathing room for Swiper nav and
- * the bottom hint strip. Recomputed on resize.
+ * into the viewport while leaving room for Swiper nav, the pagination dots,
+ * and (optionally) the bottom caption panel.
+ *
+ * When the caption panel is visible we reserve ~400 px of vertical space
+ * so the panel sits *below* the canvas rather than overlapping it. When
+ * the panel is hidden we drop back to a tight ~160 px pad so the canvas
+ * can fill the screen for clean screenshots.
  */
-const useFitScale = () => {
+const useFitScale = (captionVisible: boolean) => {
   const [scale, setScale] = useState(1)
 
   useEffect(() => {
     const HORIZONTAL_PAD = 160 // arrows + side margin
-    const VERTICAL_PAD = 140   // counter, pagination, hint
+    const VERTICAL_PAD = captionVisible ? 400 : 160
     const calc = () => {
       const sx = (window.innerWidth - HORIZONTAL_PAD) / CANVAS_W
       const sy = (window.innerHeight - VERTICAL_PAD) / CANVAS_H
@@ -80,26 +96,69 @@ const useFitScale = () => {
     calc()
     window.addEventListener('resize', calc)
     return () => window.removeEventListener('resize', calc)
-  }, [])
+  }, [captionVisible])
 
   return scale
+}
+
+/**
+ * Floating panel showing the active post's LinkedIn caption + a Copy
+ * button. Lives at the bottom of the viewport (above Swiper pagination).
+ *
+ * Clipboard API is available on localhost (treated as a secure context),
+ * so no fallback is wired. If the write fails we just log it.
+ */
+const CaptionPanel: React.FC<{ caption: string }> = ({ caption }) => {
+  const [copied, setCopied] = useState(false)
+
+  // Reset the "Copied" state when the caption itself changes (i.e. the
+  // user navigates between posts), so the next post always shows "Copy".
+  useEffect(() => {
+    setCopied(false)
+  }, [caption])
+
+  const copy = useCallback(async () => {
+    try {
+      await navigator.clipboard.writeText(caption)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.warn('[social-posts] clipboard write failed', err)
+    }
+  }, [caption])
+
+  return (
+    <div className="fixed bottom-14 left-1/2 -translate-x-1/2 w-[min(720px,92vw)] z-[120] rounded-xl border border-white/10 bg-black/55 backdrop-blur-md px-5 py-4 flex items-start gap-4 shadow-lg">
+      <div className="flex-1 min-w-0">
+        <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-white/40 mb-1.5">
+          LinkedIn caption
+        </p>
+        <p className="text-[13px] leading-snug text-white/85 whitespace-pre-line">
+          {caption}
+        </p>
+      </div>
+      <button
+        type="button"
+        onClick={copy}
+        className="flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-md border border-white/15 bg-white/5 text-white/80 hover:text-hyve-accent hover:border-hyve-accent/60 transition-colors duration-200 text-[11px] font-mono uppercase tracking-[0.15em]"
+        aria-label="Copy caption to clipboard"
+        title="Copy the caption to paste into LinkedIn"
+      >
+        {copied ? <Check size={12} /> : <Copy size={12} />}
+        <span>{copied ? 'Copied' : 'Copy'}</span>
+      </button>
+    </div>
+  )
 }
 
 export const SocialPostsPage = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
-  const [isCapturing, setIsCapturing] = useState(false)
-  const [isSaving, setIsSaving] = useState(false)
-  const scale = useFitScale()
-
-  // While capturing, force scale=1 so html2canvas sees the canvas at its
-  // native 1080×1350 pixel dimensions instead of the scaled-to-fit preview.
-  const renderScale = isCapturing ? 1 : scale
-
-  // One ref per slide index — populated via ref-callback when Swiper mounts
-  // the SwiperSlide. We use this to find the active slide's DOM node at
-  // capture time (Swiper keeps all slides in the DOM, just translated).
-  const canvasRefs = useRef<Array<HTMLDivElement | null>>([])
+  // Caption panel can be hidden so the user can take a clean screenshot of
+  // the canvas without the panel covering the bottom of the design.
+  // Default true so the feature is discoverable.
+  const [captionVisible, setCaptionVisible] = useState(true)
+  const scale = useFitScale(captionVisible)
 
   const active = POSTS[activeIndex]
 
@@ -117,97 +176,27 @@ export const SocialPostsPage = () => {
     }
   }, [])
 
-  /**
-   * Capture the active slide at exact 1080×1350 and POST it to the dev-only
-   * `/__save-post` endpoint, which writes the PNG into the configured
-   * Social_Posts folder (see `scripts/vite-plugin-save-posts.mjs`).
-   */
-  const savePng = useCallback(async () => {
-    if (isSaving) return
-    const node = canvasRefs.current[activeIndex]
-    if (!node) {
-      toast.error('Cannot find the slide canvas — try navigating away and back.')
-      return
-    }
+  const toggleCaption = useCallback(() => {
+    setCaptionVisible(v => !v)
+  }, [])
 
-    setIsSaving(true)
-    setIsCapturing(true)
-
-    try {
-      // Wait for the unscaled layout + custom fonts to be ready before
-      // we hand the node to html2canvas. Two RAFs guarantee that the
-      // scale=1 transform has been applied to the DOM.
-      await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)))
-      if (document.fonts && typeof document.fonts.ready?.then === 'function') {
-        await document.fonts.ready
+  // Press "C" (no modifiers) to toggle the caption panel. Skip when the
+  // user is typing into an input/textarea so we don't hijack normal text
+  // entry, and ignore Cmd/Ctrl+C so native copy still works.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null
+      const tag = target?.tagName
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || target?.isContentEditable) return
+      if (e.ctrlKey || e.metaKey || e.altKey) return
+      if (e.key === 'c' || e.key === 'C') {
+        e.preventDefault()
+        toggleCaption()
       }
-
-      // Capture the actual rendered pixel size of every <img> in the live
-      // canvas. html2canvas otherwise falls back to an SVG's intrinsic
-      // viewBox dimensions and ignores CSS sizing (e.g. `h-16 w-auto`),
-      // which makes images render at the wrong size in the export.
-      // We re-apply these as explicit width/height HTML attributes on the
-      // cloned tree via the onclone hook below.
-      // (Brand SVGs are rendered via the <Logo> component as inline SVG
-      // and so are not <img> elements — this fix mostly protects PNG
-      // assets like MatrixMesh-r5.png in ThesisCover.)
-      const imageSizes = Array.from(node.querySelectorAll('img')).map(img => {
-        const rect = img.getBoundingClientRect()
-        return { width: Math.round(rect.width), height: Math.round(rect.height) }
-      })
-
-      const canvas = await html2canvas(node, {
-        width: CANVAS_W,
-        height: CANVAS_H,
-        scale: 1,
-        useCORS: true,
-        backgroundColor: null,
-        logging: false,
-        onclone: (_doc, clonedNode) => {
-          const clonedImgs = (clonedNode as HTMLElement).querySelectorAll('img')
-          clonedImgs.forEach((img, idx) => {
-            const size = imageSizes[idx]
-            if (!size) return
-            img.setAttribute('width', String(size.width))
-            img.setAttribute('height', String(size.height))
-            img.style.width = `${size.width}px`
-            img.style.height = `${size.height}px`
-          })
-        },
-      })
-
-      const dataUrl = canvas.toDataURL('image/png')
-      const ts = new Date()
-        .toISOString()
-        .replace(/[:T]/g, '-')
-        .replace(/\..+$/, '')
-      const filename = `hyve-${active.id}-${ts}.png`
-
-      const res = await fetch('/__save-post', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ filename, dataUrl }),
-      })
-
-      if (!res.ok) {
-        const msg = await res.text().catch(() => res.statusText)
-        throw new Error(msg || `HTTP ${res.status}`)
-      }
-
-      const { path: writtenPath } = (await res.json()) as { path: string }
-      toast.success(`Saved ${filename}`, {
-        description: writtenPath,
-        duration: 5000,
-      })
-    } catch (err) {
-      const message = err instanceof Error ? err.message : String(err)
-      toast.error('Save failed', { description: message })
-      console.error('[social-posts] save failed:', err)
-    } finally {
-      setIsCapturing(false)
-      setIsSaving(false)
     }
-  }, [activeIndex, active.id, isSaving])
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [toggleCaption])
 
   return (
     <>
@@ -239,18 +228,12 @@ export const SocialPostsPage = () => {
 
           <div className="fixed bottom-5 right-6 flex items-center gap-4">
             <button
-              onClick={savePng}
-              disabled={isSaving}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-white/15 bg-white/5 text-white/80 hover:text-hyve-accent hover:border-hyve-accent/60 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-[12px] font-mono uppercase tracking-[0.15em]"
-              aria-label="Save current slide as 1080×1350 PNG"
-              title="Save current slide as PNG → Social_Posts folder"
+              onClick={toggleCaption}
+              className="text-white/35 hover:text-hyve-accent transition-colors duration-300"
+              aria-label={captionVisible ? 'Hide caption panel' : 'Show caption panel'}
+              title={captionVisible ? 'Hide caption (C)' : 'Show caption (C)'}
             >
-              {isSaving ? (
-                <Loader2 size={14} className="animate-spin" />
-              ) : (
-                <Download size={14} />
-              )}
-              <span>{isSaving ? 'Saving…' : 'Save PNG'}</span>
+              {captionVisible ? <MessageSquare size={18} /> : <MessageSquareOff size={18} />}
             </button>
             <button
               onClick={toggleFullscreen}
@@ -262,9 +245,10 @@ export const SocialPostsPage = () => {
           </div>
         </div>
 
-        <p className="composer-hint">
-          Click <strong className="text-white/55">Save PNG</strong> for crisp 1080×1350 export to your Social_Posts folder · or screenshot the frame
-        </p>
+        {/* Caption panel — surfaces the active post's LinkedIn copy.
+            Toggle off with the MessageSquare button or "C" key to take a
+            clean screenshot of the canvas without the panel in the way. */}
+        {captionVisible && <CaptionPanel caption={active.caption} />}
 
         {/* Swiper of post canvases */}
         <Swiper
@@ -279,14 +263,11 @@ export const SocialPostsPage = () => {
           onSlideChange={(swiper: SwiperType) => setActiveIndex(swiper.activeIndex)}
           className="w-full h-full"
         >
-          {POSTS.map(({ id, variant, Component }, idx) => (
+          {POSTS.map(({ id, variant, Component }) => (
             <SwiperSlide key={id}>
               <div
-                ref={node => {
-                  canvasRefs.current[idx] = node
-                }}
                 className={`social-canvas social-canvas--${variant}`}
-                style={{ transform: `scale(${renderScale})` }}
+                style={{ transform: `scale(${scale})` }}
               >
                 <Component />
               </div>

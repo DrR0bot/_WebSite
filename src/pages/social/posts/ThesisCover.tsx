@@ -12,8 +12,13 @@
  * Canvas is exactly 1080×1350 px (LinkedIn 4:5 portrait).
  */
 
-import { Logo } from '../components/Logo'
 import bgSlides from '../../deck/assets/Background_slides.png'
+
+export const caption = `AI sees, hears, and reads. It still can't feel.
+
+Hyve gives machines the missing sense — real-time pressure, temperature and strain from any surface.
+
+The physical data layer for AI.`
 
 export const ThesisCover = () => (
   <>
@@ -32,7 +37,7 @@ export const ThesisCover = () => (
     <div className="social-canvas__content text-hyve-header">
       {/* Top: logo + accent bar */}
       <div className="flex flex-col gap-8">
-        <Logo src="/HD-Logo-dk2.svg" alt="Hyve Dynamics" className="h-16 w-auto" />
+        <img src="/HD-Logo-dk2.svg" alt="Hyve Dynamics" className="h-16 w-auto" />
         <div className="w-16 h-[3px] bg-hyve-accent" />
       </div>
 

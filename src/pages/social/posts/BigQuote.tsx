@@ -11,6 +11,12 @@
 
 import { Logo } from '../components/Logo'
 
+export const caption = `Every major leap in AI came from new data.
+
+Vision. Language. Audio. Each one unlocked a generation of intelligence.
+
+The next leap is touch.`
+
 export const BigQuote = () => (
   <>
     {/* Subtle radial highlight to lift the type off the dark background */}

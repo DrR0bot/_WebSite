@@ -14,6 +14,10 @@
 
 import { Logo } from '../components/Logo'
 
+export const caption = `Every digital twin is only as good as the data feeding it. Most are starving.
+
+Hyve embeds dense surface sensing into next-generation IVHM, SHM and digital-twin programmes — continuous, real-time, non-invasive.`
+
 export const IndustryDigitalTwin = () => (
   <>
     {/* Soft top highlight */}
