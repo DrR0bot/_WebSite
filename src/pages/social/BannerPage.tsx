@@ -33,11 +33,32 @@ import { CustomMeshBackground } from '@/components/ui/CustomMeshBackground'
 const DEFAULT_W = 1128
 const DEFAULT_H = 634
 
+type Vec3 = [number, number, number]
+
+/** Parses "x,y,z" into a tuple; returns undefined (component default) otherwise. */
+const parseVec3 = (raw: string | null): Vec3 | undefined => {
+  if (!raw) return undefined
+  const parts = raw.split(',').map(Number)
+  if (parts.length !== 3 || parts.some(n => !Number.isFinite(n))) return undefined
+  return parts as Vec3
+}
+
 export const BannerPage = () => {
   const [params] = useSearchParams()
 
   const width = Number(params.get('w')) || DEFAULT_W
   const height = Number(params.get('h')) || DEFAULT_H
+
+  // Camera framing. `look` is the point the camera aims at — raising its Y
+  // tilts the view up, lowering the horizon and revealing the streamlines.
+  // e.g. /banner?w=1673&h=3937&look=0,5,-15
+  const cameraPosition = parseVec3(params.get('cam'))
+  const cameraTarget = parseVec3(params.get('look'))
+
+  // Streamlines are 1 device-pixel wide regardless of resolution, so at
+  // print sizes (2x, thousands of px) they fade out unless boosted.
+  const soRaw = Number(params.get('so'))
+  const streamlineOpacity = Number.isFinite(soRaw) && soRaw > 0 ? soRaw : undefined
 
   // Signal to the capture script that the stage is mounted at its final
   // size. The script still waits out a settle period afterwards so the
@@ -69,7 +90,13 @@ export const BannerPage = () => {
           overflow: 'hidden',
         }}
       >
-        <CustomMeshBackground enabled className="w-full h-full" />
+        <CustomMeshBackground
+          enabled
+          className="w-full h-full"
+          cameraPosition={cameraPosition}
+          cameraTarget={cameraTarget}
+          streamlineOpacity={streamlineOpacity}
+        />
       </div>
     </>
   )

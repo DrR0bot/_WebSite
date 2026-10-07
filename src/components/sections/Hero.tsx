@@ -32,6 +32,17 @@ const itemVariants = {
   },
 }
 
+// When the page is served from a prerendered snapshot the hero text is
+// already painted before React hydrates. Re-running the entrance animation
+// would hide it (opacity 0) and fade it back in ~1.2 s later, which both
+// flashes and pushes LCP out. Evaluated once at module load, before render.
+const HYDRATING_PRERENDER =
+  typeof document !== 'undefined' &&
+  !(window as { __PRERENDER__?: boolean }).__PRERENDER__ &&
+  (document.getElementById('root')?.childElementCount ?? 0) > 0
+
+const heroInitial = HYDRATING_PRERENDER ? false : 'hidden'
+
 // Mirrors the four callouts drawn around the HapticMatrix on desktop.
 // On small screens the SVG callouts are hidden, so we render the same
 // information as a simple bullet list beneath the animation instead.
@@ -56,7 +67,7 @@ export const Hero = () => {
           {/* Left Content */}
           <motion.div
             variants={containerVariants}
-            initial="hidden"
+            initial={heroInitial}
             animate="visible"
             className="text-left relative"
           >
@@ -73,7 +84,8 @@ export const Hero = () => {
                 className="flex flex-col gap-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extralight leading-[1.1] mb-6"
               >
                 <span className="text-hyve-text">
-                  Intelligent Surface Monitoring Platform for <span className="font-medium">Real-Time</span>.
+                  Intelligent Surface Monitoring Platform for{' '}
+                  <span className="font-medium">Real-Time</span>.
                 </span>
                 <span className="text-hyve-text">
                   Aerodynamic and Infrastructure<span className="font-medium">Data</span>.
@@ -94,15 +106,16 @@ export const Hero = () => {
                 variants={itemVariants}
                 className="text-base md:text-lg text-hyve-text/70 max-w-lg mb-2 font-light leading-relaxed"
               >
-                Conformable sensing arrays delivering high-density pressure, temperature and
-                strain data in real time &mdash; the ground-truth physical-world data current and
-                future AI systems need.
+                Conformable sensing arrays delivering high-density pressure, temperature and strain
+                data in real time &mdash; the ground-truth physical-world data current and future AI
+                systems need.
               </motion.p>
               <motion.p
                 variants={itemVariants}
                 className="text-base md:text-lg text-hyve-text/70 max-w-lg mb-10 font-light leading-relaxed"
               >
-                Proven in Tier 1 aerospace testing. Built for every industry where surface behaviour matters.
+                Proven in Tier 1 aerospace testing. Built for every industry where surface behaviour
+                matters.
               </motion.p>
 
               {/* Elegant CTA Group */}
@@ -124,7 +137,9 @@ export const Hero = () => {
                 <button
                   className="text-sm text-hyve-text/60 hover:text-hyve-accent transition-colors duration-300 text-left pointer-events-auto"
                   onClick={() => {
-                    const trigger = document.querySelector('[data-contact-trigger]') as HTMLButtonElement
+                    const trigger = document.querySelector(
+                      '[data-contact-trigger]'
+                    ) as HTMLButtonElement
                     if (trigger) trigger.click()
                   }}
                 >
@@ -137,7 +152,7 @@ export const Hero = () => {
           {/* Right Side - Haptic Matrix Animation */}
           <motion.div
             variants={containerVariants}
-            initial="hidden"
+            initial={heroInitial}
             animate="visible"
             className="relative w-full max-w-[650px] h-[380px] sm:h-[460px] md:h-[540px] lg:h-[620px] justify-self-center lg:justify-self-center mx-auto"
           >
@@ -155,12 +170,12 @@ export const Hero = () => {
               descriptive information visible on narrow screens. */}
           <motion.ul
             variants={containerVariants}
-            initial="hidden"
+            initial={heroInitial}
             animate="visible"
             className="sm:hidden w-full max-w-[420px] mx-auto space-y-3 list-none p-0 mt-10"
             aria-label="Haptic Matrix key features"
           >
-            {hapticCallouts.map((item) => (
+            {hapticCallouts.map(item => (
               <motion.li
                 key={item.title}
                 variants={itemVariants}

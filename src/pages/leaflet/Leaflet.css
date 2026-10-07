@@ -1,0 +1,167 @@
+/* ---------------------------------------------------------------------------
+ * Event leaflet — dev-only print artefact.
+ *
+ * Two A5 pages (front / back) laid out in millimetres so the PDF comes out
+ * at true physical size. Each page is A5 (148 × 210 mm) plus 3 mm bleed on
+ * every edge → 154 × 216 mm. Content stays inside an 8 mm safe margin
+ * measured from the TRIM edge (11 mm from the bleed edge).
+ *
+ * Screen: pages are shown side by side, scaled to fit, on a dark stage
+ * like the social composer. `?guides=1` overlays trim + safe-area lines.
+ * Print / PDF: one page per sheet, no margins, backgrounds on.
+ * ------------------------------------------------------------------------- */
+
+:root {
+  --leaflet-bleed: 3mm;
+  --leaflet-safe: 8mm;
+  --leaflet-w: 154mm;
+  --leaflet-h: 216mm;
+}
+
+.leaflet-stage {
+  min-height: 100dvh;
+  background-color: #1a1d24;
+  color: #f4f2f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 48px 24px;
+  box-sizing: border-box;
+}
+
+.leaflet-stage__pages {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  transform-origin: top center;
+}
+
+.leaflet-page {
+  width: var(--leaflet-w);
+  height: var(--leaflet-h);
+  position: relative;
+  overflow: hidden;
+  background-color: #f4f2f3;
+  color: #2a303c;
+  flex-shrink: 0;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.leaflet-page--dark {
+  background-color: #2a303c;
+  color: #f4f2f3;
+}
+
+.leaflet-page__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.leaflet-page__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Content box = trim box inset by the safe margin. */
+.leaflet-page__content {
+  position: absolute;
+  inset: calc(var(--leaflet-bleed) + var(--leaflet-safe));
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+/* Trim / safe guides (screen only, opt-in). */
+.leaflet-guide {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.leaflet-guide--trim {
+  inset: var(--leaflet-bleed);
+  outline: 0.3mm dashed rgba(2, 131, 150, 0.9);
+}
+
+.leaflet-guide--safe {
+  inset: calc(var(--leaflet-bleed) + var(--leaflet-safe));
+  outline: 0.3mm dotted rgba(2, 131, 150, 0.5);
+}
+
+/* Inline QR svg fills its wrapper. */
+.leaflet-qr > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Inline-SVG logo wrapper (same contract as the social Logo component). */
+.leaflet-page .logo-inline {
+  display: inline-block;
+}
+
+.leaflet-page .logo-inline > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-hud {
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(244, 242, 243, 0.45);
+  text-align: center;
+}
+
+@page {
+  size: 154mm 216mm;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+  }
+
+  .leaflet-stage {
+    display: block;
+    min-height: 0;
+    padding: 0;
+    background: none;
+  }
+
+  .leaflet-stage__pages {
+    display: block;
+    transform: none !important;
+  }
+
+  .leaflet-page {
+    box-shadow: none;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .leaflet-page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .leaflet-hud,
+  .leaflet-guide {
+    display: none !important;
+  }
+}

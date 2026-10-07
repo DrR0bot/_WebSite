@@ -1,4 +1,3 @@
-import { SpeedInsights } from '@vercel/speed-insights/react'
 import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
 import { HelmetProvider } from 'react-helmet-async'
@@ -57,29 +56,14 @@ try {
   throw error
 }
 
-/**
- * Vercel Speed Insights is mounted only for real production page loads.
- *
- * - Skipped in dev because the package falls back to a debug script on
- *   va.vercel-scripts.com, which the dev server's CSP (`script-src 'self'`
- *   plus unsafe-inline/eval) blocks anyway.
- * - Skipped during prerender because `page.content()` serialises the whole
- *   live DOM, so the script tag the component injects into <head> would be
- *   baked into every static snapshot. See scripts/prerender.js.
- *
- * All routes in App.tsx are static paths, so the default pathname grouping
- * matches the route patterns and no `route` prop is needed.
- */
-const isPrerender =
-  typeof window !== 'undefined' && (window as { __PRERENDER__?: boolean }).__PRERENDER__ === true
-const enableSpeedInsights = import.meta.env.PROD && !isPrerender
+// Vercel Speed Insights lives inside the router (see
+// components/common/SpeedInsightsRoute.tsx) so samples are labelled by route.
 
 const rootElement = document.getElementById('root')!
 const appTree = (
   <StrictMode>
     <HelmetProvider>
       <App />
-      {enableSpeedInsights && <SpeedInsights />}
       <Toaster
         position="top-center"
         toastOptions={{
@@ -118,12 +102,13 @@ setupAxe()
 // Register service worker for PWA support
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js')
+    navigator.serviceWorker
+      .register('/service-worker.js')
       .then(registration => {
-        console.log('SW registered:', registration);
+        console.log('SW registered:', registration)
       })
       .catch(error => {
-        console.log('SW registration failed:', error);
-      });
-  });
+        console.log('SW registration failed:', error)
+      })
+  })
 }

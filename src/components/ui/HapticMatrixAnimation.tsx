@@ -295,14 +295,19 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
   const rippleCenterRef = useRef({ x: 0.5, y: 0.5 })
   const rippleTimeRef = useRef(0)
   const rippleActiveRef = useRef(false)
+  // Cached container size so the frame loop never forces layout.
+  const containerSizeRef = useRef({ width: 0, height: 0 })
+  // Whether any sensor label is currently shown; lets us skip 100 DOM writes
+  // per frame while the overlay is idle.
+  const sensorsVisibleRef = useRef(false)
 
   const [isLoaded, setIsLoaded] = useState(false)
   const [hasInteracted, setHasInteracted] = useState(false)
 
   // Debug controls state - final tuned values
-  const [camX, setCamX] = useState(0.40)
-  const [camY, setCamY] = useState(-1.10)
-  const [camZ, setCamZ] = useState(4.80)
+  const [camX, setCamX] = useState(0.4)
+  const [camY, setCamY] = useState(-1.1)
+  const [camZ, setCamZ] = useState(4.8)
   const [rotX, setRotX] = useState(-0.49)
   const [rotY, setRotY] = useState(-0.27)
   const [fov, setFov] = useState(49)
@@ -327,28 +332,31 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
   }, [rotX, rotY])
 
   // Calculate pressure value at a UV position (matches reduced shader values)
-  const calculatePressure = useCallback((uvX: number, uvY: number, centerX: number, centerY: number, time: number) => {
-    const dist = Math.sqrt((uvX - centerX) ** 2 + (uvY - centerY) ** 2)
-    const rippleRadius = time * 0.35  // Match shader (was 0.45)
+  const calculatePressure = useCallback(
+    (uvX: number, uvY: number, centerX: number, centerY: number, time: number) => {
+      const dist = Math.sqrt((uvX - centerX) ** 2 + (uvY - centerY) ** 2)
+      const rippleRadius = time * 0.35 // Match shader (was 0.45)
 
-    let pressure = 1.0 - smoothstep(0, rippleRadius + 0.2, dist)  // Match shader (was 0.25)
-    pressure *= 0.7  // Reduced intensity
-    pressure *= 1.0 - smoothstep(0, 3.0, time)  // Match shader (was 4.0)
-    pressure *= 0.7 + 0.3 * Math.sin(time * 1.2)  // Match shader oscillation
+      let pressure = 1.0 - smoothstep(0, rippleRadius + 0.2, dist) // Match shader (was 0.25)
+      pressure *= 0.7 // Reduced intensity
+      pressure *= 1.0 - smoothstep(0, 3.0, time) // Match shader (was 4.0)
+      pressure *= 0.7 + 0.3 * Math.sin(time * 1.2) // Match shader oscillation
 
-    return pressure
-  }, [])
+      return pressure
+    },
+    []
+  )
 
   // Update sensor positions based on 3D projection
   const updateSensorPositions = useCallback(() => {
-    if (!meshRef.current || !cameraRef.current || !materialRef.current || !containerRef.current) return
+    if (!meshRef.current || !cameraRef.current || !materialRef.current || !containerRef.current)
+      return
 
     const tempVec = new THREE.Vector3()
     const mesh = meshRef.current
     const camera = cameraRef.current
     const material = materialRef.current
-    const container = containerRef.current
-    const rect = container.getBoundingClientRect()
+    const rect = containerSizeRef.current
 
     sensorElementsRef.current.forEach(sensor => {
       const x = (sensor.uvX - 0.5) * 3.5
@@ -377,18 +385,24 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
   // Update sensor values based on ripple
   const updateSensorValues = useCallback(() => {
     if (!rippleActiveRef.current) {
-      sensorElementsRef.current.forEach(sensor => {
-        sensor.element.style.opacity = '0'
-        sensor.element.style.transform = 'translate(-50%, -50%) scale(0.5)'
-      })
+      // Hide once when the ripple ends, then leave the DOM alone.
+      if (sensorsVisibleRef.current) {
+        sensorElementsRef.current.forEach(sensor => {
+          sensor.element.style.opacity = '0'
+          sensor.element.style.transform = 'translate(-50%, -50%) scale(0.5)'
+        })
+        sensorsVisibleRef.current = false
+      }
       return
     }
 
+    sensorsVisibleRef.current = true
     const rippleRadius = rippleTimeRef.current * 0.35
 
     sensorElementsRef.current.forEach(sensor => {
       const dist = Math.sqrt(
-        (sensor.uvX - rippleCenterRef.current.x) ** 2 + (sensor.uvY - rippleCenterRef.current.y) ** 2
+        (sensor.uvX - rippleCenterRef.current.x) ** 2 +
+          (sensor.uvY - rippleCenterRef.current.y) ** 2
       )
 
       // Calculate pressure for this sensor
@@ -406,12 +420,12 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
 
       // Only show sensors that are within the ripple radius and have meaningful pressure
       const isInRange = dist < rippleRadius + 0.15
-      
+
       if (isInRange && displayValue > 0.05) {
         // Use the pressure value directly for opacity (0-1 range)
         // Boost it slightly so it's visible, but let it fade naturally with the value
-        const opacity = Math.min(1, displayValue / 2.5)  // Full opacity at ~2.5 kPa, fades to 0 naturally
-        
+        const opacity = Math.min(1, displayValue / 2.5) // Full opacity at ~2.5 kPa, fades to 0 naturally
+
         sensor.element.textContent = displayValue.toFixed(2)
         sensor.element.style.opacity = opacity.toFixed(3)
         sensor.element.style.transform = 'translate(-50%, -50%) scale(1)'
@@ -461,8 +475,13 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
     sceneRef.current = scene
 
     // Camera with tuned perspective settings
-    const camera = new THREE.PerspectiveCamera(49, container.clientWidth / container.clientHeight, 0.1, 100)
-    camera.position.set(0.40, -1.10, 4.80)
+    const camera = new THREE.PerspectiveCamera(
+      49,
+      container.clientWidth / container.clientHeight,
+      0.1,
+      100
+    )
+    camera.position.set(0.4, -1.1, 4.8)
     camera.lookAt(0, 0, 0)
     cameraRef.current = camera
 
@@ -563,7 +582,8 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
         material.uniforms.uRippleTime.value += 0.016
         rippleTimeRef.current += 0.016
 
-        if (material.uniforms.uRippleTime.value > 4.0) {  // Reduced duration (was 5.0)
+        if (material.uniforms.uRippleTime.value > 4.0) {
+          // Reduced duration (was 5.0)
           material.uniforms.uRippleStrength.value = 0
           rippleActiveRef.current = false
         }
@@ -576,33 +596,71 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
         mesh.rotation.x = -0.49 + Math.cos(elapsed * 0.25) * 0.05
       }
 
-      updateSensorPositions()
+      // Sensor labels are only visible while a ripple is running, so the
+      // 100-element DOM update is skipped in the idle state.
+      if (rippleActiveRef.current) {
+        updateSensorPositions()
+      }
       updateSensorValues()
 
       renderer.render(scene, camera)
     }
 
-    animate()
+    // Run the loop only while the hero is on screen and the tab is visible.
+    let running = false
+    let inView = true
+    const start = () => {
+      if (running) return
+      running = true
+      frameRef.current = requestAnimationFrame(animate)
+    }
+    const stop = () => {
+      if (!running) return
+      running = false
+      cancelAnimationFrame(frameRef.current)
+    }
+    const syncRunning = () => {
+      if (inView && !document.hidden) start()
+      else stop()
+    }
+
+    containerSizeRef.current = { width: container.clientWidth, height: container.clientHeight }
+    syncRunning()
     setIsLoaded(true)
+
+    const intersection = new IntersectionObserver(
+      entries => {
+        inView = entries.some(entry => entry.isIntersecting)
+        syncRunning()
+      },
+      { rootMargin: '100px' }
+    )
+    intersection.observe(container)
+    document.addEventListener('visibilitychange', syncRunning)
 
     // Handle resize
     const handleResize = () => {
       if (!container) return
       const width = container.clientWidth
       const height = container.clientHeight
+      if (width === 0 || height === 0) return
+      containerSizeRef.current = { width, height }
       camera.aspect = width / height
       camera.updateProjectionMatrix()
       renderer.setSize(width, height)
     }
 
-    window.addEventListener('resize', handleResize)
+    const resizeObserver = new ResizeObserver(handleResize)
+    resizeObserver.observe(container)
 
     // Cleanup
     return () => {
-      window.removeEventListener('resize', handleResize)
+      resizeObserver.disconnect()
+      intersection.disconnect()
+      document.removeEventListener('visibilitychange', syncRunning)
       container.removeEventListener('click', handleClick)
       container.removeEventListener('touchstart', handleTouch)
-      cancelAnimationFrame(frameRef.current)
+      stop()
 
       if (container && renderer.domElement && container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement)
@@ -629,7 +687,11 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
       aria-label="Interactive Haptic Matrix sensor visualisation: a conformable flexible substrate with a dense grid of sensing nodes that display real-time pressure, temperature, and strain data when interacted with."
     >
       {/* Three.js canvas container */}
-      <div ref={containerRef} className="absolute inset-0 cursor-pointer" style={{ touchAction: 'none' }} />
+      <div
+        ref={containerRef}
+        className="absolute inset-0 cursor-pointer"
+        style={{ touchAction: 'none' }}
+      />
 
       {/* Sensor values overlay */}
       <div ref={sensorContainerRef} className="absolute inset-0 pointer-events-none" />
@@ -637,63 +699,62 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
       {/* Technical Callout Lines - Engineering documentation style */}
       {isLoaded && (
         <div className="absolute inset-0 pointer-events-none overflow-visible callouts-container hidden sm:block">
-          
           {/* SVG Layer for connected lines - viewBox creates a 1000x1000 coordinate system */}
-          <svg 
-            className="absolute inset-0 w-full h-full" 
-            viewBox="0 0 1000 1000" 
+          <svg
+            className="absolute inset-0 w-full h-full"
+            viewBox="0 0 1000 1000"
             preserveAspectRatio="none"
             style={{ zIndex: 20 }}
           >
             {/* Top-right callout: Sensor Matrix */}
             <g className="callout-svg callout-tr-svg">
               <circle cx="620" cy="270" r="5" fill="#334155" className="callout-dot-svg" />
-              <polyline 
-                points="620,270 750,80 1000,80" 
-                stroke="#334155" 
-                strokeWidth="2" 
+              <polyline
+                points="620,270 750,80 1000,80"
+                stroke="#334155"
+                strokeWidth="2"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="callout-path-svg"
               />
             </g>
-            
+
             {/* Top-left callout: Flexible Substrate */}
             <g className="callout-svg callout-tl-svg">
               <circle cx="340" cy="340" r="5" fill="#334155" className="callout-dot-svg" />
-              <polyline 
-                points="340,340 250,220 0,220" 
-                stroke="#334155" 
-                strokeWidth="2" 
+              <polyline
+                points="340,340 250,220 0,220"
+                stroke="#334155"
+                strokeWidth="2"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="callout-path-svg"
               />
             </g>
-            
+
             {/* Bottom-right callout: MEMS Array */}
             <g className="callout-svg callout-br-svg">
               <circle cx="640" cy="800" r="5" fill="#334155" className="callout-dot-svg" />
-              <polyline 
-                points="640,800 800,950 1000,950" 
-                stroke="#334155" 
-                strokeWidth="2" 
+              <polyline
+                points="640,800 800,950 1000,950"
+                stroke="#334155"
+                strokeWidth="2"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="callout-path-svg"
               />
             </g>
-            
+
             {/* Bottom-left callout: Data Acquisition */}
             <g className="callout-svg callout-bl-svg">
               <circle cx="420" cy="800" r="5" fill="#334155" className="callout-dot-svg" />
-              <polyline 
-                points="420,800 250,980 0,980" 
-                stroke="#334155" 
-                strokeWidth="2" 
+              <polyline
+                points="420,800 250,980 0,980"
+                stroke="#334155"
+                strokeWidth="2"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -701,28 +762,55 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
               />
             </g>
           </svg>
-          
+
           {/* Labels positioned at line endpoints */}
-          <div className="callout-label callout-label-tr pointer-events-auto" style={{ position: 'absolute', top: '5%', right: '2%', textAlign: 'right' }}>
-            <span className="callout-title text-slate-700 font-semibold text-xs tracking-wide block">10×10 SENSOR MATRIX</span>
-            <span className="callout-subtitle text-[10px] text-slate-400 font-normal italic">High-density tactile array</span>
+          <div
+            className="callout-label callout-label-tr pointer-events-auto"
+            style={{ position: 'absolute', top: '5%', right: '2%', textAlign: 'right' }}
+          >
+            <span className="callout-title text-slate-700 font-semibold text-xs tracking-wide block">
+              10×10 SENSOR MATRIX
+            </span>
+            <span className="callout-subtitle text-[10px] text-slate-400 font-normal italic">
+              High-density tactile array
+            </span>
           </div>
-          
-          <div className="callout-label callout-label-tl pointer-events-auto" style={{ position: 'absolute', top: '19%', left: '2%', textAlign: 'left' }}>
-            <span className="callout-title text-slate-700 font-semibold text-xs tracking-wide block">FLEXIBLE SUBSTRATE</span>
-            <span className="callout-subtitle text-[10px] text-slate-400 font-normal italic">Conformable sensing surface</span>
+
+          <div
+            className="callout-label callout-label-tl pointer-events-auto"
+            style={{ position: 'absolute', top: '19%', left: '2%', textAlign: 'left' }}
+          >
+            <span className="callout-title text-slate-700 font-semibold text-xs tracking-wide block">
+              FLEXIBLE SUBSTRATE
+            </span>
+            <span className="callout-subtitle text-[10px] text-slate-400 font-normal italic">
+              Conformable sensing surface
+            </span>
           </div>
-          
-          <div className="callout-label callout-label-br pointer-events-auto" style={{ position: 'absolute', top: '92%', right: '2%', textAlign: 'right' }}>
-            <span className="callout-title text-slate-700 font-semibold text-xs tracking-wide block">MEMS ARRAY</span>
-            <span className="callout-subtitle text-[10px] text-slate-400 font-normal italic">Custom sensing elements</span>
+
+          <div
+            className="callout-label callout-label-br pointer-events-auto"
+            style={{ position: 'absolute', top: '92%', right: '2%', textAlign: 'right' }}
+          >
+            <span className="callout-title text-slate-700 font-semibold text-xs tracking-wide block">
+              MEMS ARRAY
+            </span>
+            <span className="callout-subtitle text-[10px] text-slate-400 font-normal italic">
+              Custom sensing elements
+            </span>
           </div>
-          
-          <div className="callout-label callout-label-bl pointer-events-auto" style={{ position: 'absolute', top: '95%', left: '2%', textAlign: 'left' }}>
-            <span className="callout-title text-slate-700 font-semibold text-xs tracking-wide block">REAL-TIME ACQUISITION</span>
-            <span className="callout-subtitle text-[10px] text-slate-400 font-normal italic">1kHz sampling rate</span>
+
+          <div
+            className="callout-label callout-label-bl pointer-events-auto"
+            style={{ position: 'absolute', top: '95%', left: '2%', textAlign: 'left' }}
+          >
+            <span className="callout-title text-slate-700 font-semibold text-xs tracking-wide block">
+              REAL-TIME ACQUISITION
+            </span>
+            <span className="callout-subtitle text-[10px] text-slate-400 font-normal italic">
+              1kHz sampling rate
+            </span>
           </div>
-          
         </div>
       )}
 
@@ -730,8 +818,18 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
       {isLoaded && !hasInteracted && (
         <div className="touch-hint absolute bottom-[1%] left-1/2 -translate-x-1/2 pointer-events-none z-30">
           <div className="flex items-center gap-3 text-slate-500 text-base">
-            <svg className="w-7 h-7 touch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M12 18v-3m0-3V9m0 0V6a2 2 0 114 0v6m-4-3a2 2 0 10-4 0v4a6 6 0 0012 0v-4a2 2 0 10-4 0" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg
+              className="w-7 h-7 touch-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            >
+              <path
+                d="M12 18v-3m0-3V9m0 0V6a2 2 0 114 0v6m-4-3a2 2 0 10-4 0v4a6 6 0 0012 0v-4a2 2 0 10-4 0"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
             <span className="font-medium tracking-wide">Tap to interact</span>
           </div>
@@ -749,22 +847,46 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
       {SHOW_DEBUG_CONTROLS && (
         <div className="absolute top-2 right-2 bg-black/80 text-white p-3 rounded-lg text-xs font-mono z-50 pointer-events-auto max-h-[90%] overflow-y-auto">
           <div className="font-bold mb-2 text-yellow-400">Debug Controls</div>
-          
+
           <div className="mb-3">
             <div className="text-gray-400 mb-1">Camera Position</div>
             <label className="flex items-center gap-2 mb-1">
               <span className="w-8">X:</span>
-              <input type="range" min="-5" max="5" step="0.1" value={camX} onChange={e => setCamX(parseFloat(e.target.value))} className="w-24" />
+              <input
+                type="range"
+                min="-5"
+                max="5"
+                step="0.1"
+                value={camX}
+                onChange={e => setCamX(parseFloat(e.target.value))}
+                className="w-24"
+              />
               <span className="w-12 text-right text-cyan-400">{camX.toFixed(2)}</span>
             </label>
             <label className="flex items-center gap-2 mb-1">
               <span className="w-8">Y:</span>
-              <input type="range" min="-5" max="5" step="0.1" value={camY} onChange={e => setCamY(parseFloat(e.target.value))} className="w-24" />
+              <input
+                type="range"
+                min="-5"
+                max="5"
+                step="0.1"
+                value={camY}
+                onChange={e => setCamY(parseFloat(e.target.value))}
+                className="w-24"
+              />
               <span className="w-12 text-right text-cyan-400">{camY.toFixed(2)}</span>
             </label>
             <label className="flex items-center gap-2">
               <span className="w-8">Z:</span>
-              <input type="range" min="1" max="10" step="0.1" value={camZ} onChange={e => setCamZ(parseFloat(e.target.value))} className="w-24" />
+              <input
+                type="range"
+                min="1"
+                max="10"
+                step="0.1"
+                value={camZ}
+                onChange={e => setCamZ(parseFloat(e.target.value))}
+                className="w-24"
+              />
               <span className="w-12 text-right text-cyan-400">{camZ.toFixed(2)}</span>
             </label>
           </div>
@@ -773,12 +895,28 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
             <div className="text-gray-400 mb-1">Mesh Rotation</div>
             <label className="flex items-center gap-2 mb-1">
               <span className="w-8">X:</span>
-              <input type="range" min="-1.57" max="0" step="0.01" value={rotX} onChange={e => setRotX(parseFloat(e.target.value))} className="w-24" />
+              <input
+                type="range"
+                min="-1.57"
+                max="0"
+                step="0.01"
+                value={rotX}
+                onChange={e => setRotX(parseFloat(e.target.value))}
+                className="w-24"
+              />
               <span className="w-12 text-right text-green-400">{rotX.toFixed(2)}</span>
             </label>
             <label className="flex items-center gap-2">
               <span className="w-8">Y:</span>
-              <input type="range" min="-1.57" max="1.57" step="0.01" value={rotY} onChange={e => setRotY(parseFloat(e.target.value))} className="w-24" />
+              <input
+                type="range"
+                min="-1.57"
+                max="1.57"
+                step="0.01"
+                value={rotY}
+                onChange={e => setRotY(parseFloat(e.target.value))}
+                className="w-24"
+              />
               <span className="w-12 text-right text-green-400">{rotY.toFixed(2)}</span>
             </label>
           </div>
@@ -787,7 +925,15 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
             <div className="text-gray-400 mb-1">Camera FOV</div>
             <label className="flex items-center gap-2">
               <span className="w-8">°:</span>
-              <input type="range" min="20" max="100" step="1" value={fov} onChange={e => setFov(parseFloat(e.target.value))} className="w-24" />
+              <input
+                type="range"
+                min="20"
+                max="100"
+                step="1"
+                value={fov}
+                onChange={e => setFov(parseFloat(e.target.value))}
+                className="w-24"
+              />
               <span className="w-12 text-right text-orange-400">{fov.toFixed(0)}</span>
             </label>
           </div>
@@ -795,9 +941,11 @@ export const HapticMatrixAnimation: React.FC<HapticMatrixAnimationProps> = ({ cl
           <div className="border-t border-gray-600 pt-2 mt-2">
             <div className="text-gray-400 mb-1">Copy these values:</div>
             <div className="bg-gray-900 p-2 rounded text-[10px] select-all">
-              camera.position.set({camX.toFixed(2)}, {camY.toFixed(2)}, {camZ.toFixed(2)})<br/>
-              camera.fov = {fov}<br/>
-              mesh.rotation.x = {rotX.toFixed(2)}<br/>
+              camera.position.set({camX.toFixed(2)}, {camY.toFixed(2)}, {camZ.toFixed(2)})<br />
+              camera.fov = {fov}
+              <br />
+              mesh.rotation.x = {rotX.toFixed(2)}
+              <br />
               mesh.rotation.y = {rotY.toFixed(2)}
             </div>
           </div>

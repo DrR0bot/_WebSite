@@ -3,6 +3,7 @@ import { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom'
 
 import { SEO } from '@/components/common/SEO'
+import { SpeedInsightsRoute } from '@/components/common/SpeedInsightsRoute'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { Layout } from '@/components/layout/Layout'
 import { Hero } from '@/components/sections/Hero'
@@ -48,6 +49,12 @@ const SocialPostsPage = import.meta.env.DEV
 // Same dev-only pattern: source is dead-code-eliminated in prod.
 const BannerPage = import.meta.env.DEV
   ? lazy(() => import('@/pages/social/BannerPage').then(m => ({ default: m.BannerPage })))
+  : null
+
+// Event leaflet — A5 print handout laid out in mm; `npm run leaflet` prints
+// it to a true-size PDF. Same dev-only pattern.
+const LeafletPage = import.meta.env.DEV
+  ? lazy(() => import('@/pages/leaflet/LeafletPage').then(m => ({ default: m.LeafletPage })))
   : null
 
 // Loading fallback component
@@ -194,6 +201,24 @@ const HomePage = () => {
   )
 }
 
+// Public route patterns, used by Speed Insights to label samples by route.
+// Keep in sync with the <Route path> values below.
+const PUBLIC_ROUTES = [
+  '/',
+  '/haptic-matrix',
+  '/about',
+  '/industries/aerospace',
+  '/industries/automotive',
+  '/industries/digital-twinning-ihm',
+  '/industries/robotics',
+  '/insights/news',
+  '/insights/newsletter',
+  '/insights/white-papers',
+  '/insights/newsletter/aerodynamic-innovation-2024',
+  '/insights/newsletter/sensor-technology-trends',
+  '/investor/updates/q3-2025',
+] as const
+
 // Layout wrapper for standard pages (header + footer)
 const LayoutWrapper = () => (
   <Layout>
@@ -205,11 +230,12 @@ const LayoutWrapper = () => (
 function App() {
   return (
     <Router basename={import.meta.env.BASE_URL}>
+      <SpeedInsightsRoute routes={PUBLIC_ROUTES} />
       <ErrorBoundary>
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* Standalone full-screen routes (no header/footer) */}
-            {/* /deck, /posts and /banner are registered only in dev — in production they fall through to NotFound. */}
+            {/* /deck, /posts, /banner and /leaflet are registered only in dev — in production they fall through to NotFound. */}
             {import.meta.env.DEV && PitchDeckPage && (
               <Route path="/deck" element={<PitchDeckPage />} />
             )}
@@ -217,6 +243,9 @@ function App() {
               <Route path="/posts" element={<SocialPostsPage />} />
             )}
             {import.meta.env.DEV && BannerPage && <Route path="/banner" element={<BannerPage />} />}
+            {import.meta.env.DEV && LeafletPage && (
+              <Route path="/leaflet" element={<LeafletPage />} />
+            )}
 
             {/* Standard routes with Layout */}
             <Route element={<LayoutWrapper />}>

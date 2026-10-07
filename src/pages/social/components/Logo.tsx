@@ -34,10 +34,43 @@ interface LogoProps {
 // Module-scoped cache so each SVG file is only fetched once per session.
 const svgCache = new Map<string, string>()
 
-export const Logo = ({ src, className = '', alt = '' }: LogoProps) => {
-  const [content, setContent] = useState<string | null>(
-    () => svgCache.get(src) ?? null
+/**
+ * Namespace class names and ids inside an SVG so two inlined logos can
+ * coexist in one document.
+ *
+ * Both brand files (HD-Logo-dk2.svg and logo_white.svg) are Illustrator
+ * exports that use the SAME generic names: `.cls-1 … .cls-8` and gradient
+ * ids `linear-gradient`, `linear-gradient-2`, … When both are inlined on
+ * the same page (e.g. the leaflet, which has a dark front and a white
+ * back), the second <style> block overrides the first and `url(#id)`
+ * references resolve to whichever element appeared first — the dark
+ * logo's "H" picked up the white logo's fill and vanished in print.
+ */
+const namespaceSvg = (svg: string, key: string) => {
+  const ns = `l${hashString(key)}`
+  return (
+    svg
+      // class names: in the <style> block (.cls-3) and in class="" attrs
+      .replace(/\.cls-(\d+)/g, `.cls-${ns}-$1`)
+      .replace(
+        /class="([^"]*)"/g,
+        (_m, classes: string) => `class="${classes.replace(/\bcls-(\d+)\b/g, `cls-${ns}-$1`)}"`
+      )
+      // ids and every way of referencing them
+      .replace(/\bid="([^"]+)"/g, `id="$1-${ns}"`)
+      .replace(/url\(#([^)]+)\)/g, `url(#$1-${ns})`)
+      .replace(/(xlink:href|href)="#([^"]+)"/g, `$1="#$2-${ns}"`)
   )
+}
+
+const hashString = (s: string) => {
+  let h = 0
+  for (let i = 0; i < s.length; i++) h = (Math.imul(31, h) + s.charCodeAt(i)) | 0
+  return (h >>> 0).toString(36)
+}
+
+export const Logo = ({ src, className = '', alt = '' }: LogoProps) => {
+  const [content, setContent] = useState<string | null>(() => svgCache.get(src) ?? null)
 
   useEffect(() => {
     if (svgCache.has(src)) {
@@ -47,7 +80,8 @@ export const Logo = ({ src, className = '', alt = '' }: LogoProps) => {
     let cancelled = false
     fetch(src)
       .then(r => r.text())
-      .then(text => {
+      .then(raw => {
+        const text = namespaceSvg(raw, src)
         svgCache.set(src, text)
         if (!cancelled) setContent(text)
       })

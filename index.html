@@ -146,8 +146,8 @@
     <script type="module" src="/src/main.tsx"></script>
     <script defer src="/_vercel/insights/script.js"></script>
     <!--
-      Speed Insights is injected by the <SpeedInsights /> component in
-      src/main.tsx, not a static tag. Do not add one back: the package only
+      Speed Insights is injected by the <SpeedInsightsRoute /> component in
+      src/components/common/SpeedInsightsRoute.tsx, not a static tag. Do not add one back: the package only
       de-duplicates against <head>, so a tag here would load the script twice
       and double-count every metric.
     -->
