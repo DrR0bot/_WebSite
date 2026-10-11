@@ -62,6 +62,12 @@ interface ExternalLinkItem {
   url: string
 }
 
+interface GalleryImage {
+  src: string
+  alt: string
+  caption?: string
+}
+
 interface NewsArticle {
   id: string
   title: string
@@ -73,10 +79,58 @@ interface NewsArticle {
   featured?: boolean
   content?: string[]
   image?: string
+  gallery?: GalleryImage[]
   externalLinks?: ExternalLinkItem[]
 }
 
 const newsArticles: NewsArticle[] = [
+  {
+    id: 'engineering-design-show-2026',
+    title: 'Hyve Dynamics at the Engineering Design Show 2026',
+    description:
+      'Hyve Dynamics exhibited at the Engineering Design Show in Coventry on 7\u20138 October 2026, where Co-Founder and Chief Scientist Dr Juan Sebastian Conde took to the New Electronics Theatre to present \u201cA Nervous System for Machines\u201d to the UK design engineering community.',
+    date: '2026-10-08',
+    readTime: '4 min read',
+    category: 'news',
+    categoryLabel: 'Company News',
+    featured: true,
+    image: `${import.meta.env.BASE_URL}EDS-October2026.jpg`,
+    gallery: [
+      {
+        src: `${import.meta.env.BASE_URL}EDS-October2026-speaker.jpg`,
+        alt: 'Engineering Design Show 2026 speaker card for Dr Juan Sebastian Conde, Co-Founder and Chief Scientist at Hyve Dynamics',
+        caption:
+          'Dr Juan Sebastian Conde presented in the New Electronics Theatre on Wednesday 7 October.',
+      },
+    ],
+    content: [
+      'Hyve Dynamics exhibited at the Engineering Design Show (EDS) 2026, held on 7\u20138 October at the Coventry Building Society Arena. Billed as the home of UK design engineering, EDS brings together more than 4,500 design engineers and over 200 exhibitors across mechanical, electronic and embedded design \u2014 and this year the show returned with a completely revamped conference programme developed alongside the editorial teams behind The Engineer, New Electronics and Eureka!.',
+      'From stand G5, the Hyve team demonstrated our flexible sensing skin live across both days: a single conformable layer that bonds directly to a surface and maps pressure, temperature and strain across the whole area in real time. Visitors from aerospace, motorsport, automotive, energy and advanced manufacturing stopped by to see how high-density sensor arrays, electronics and software turn raw surface readings into actionable engineering data.',
+      'On the Wednesday, our Co-Founder and Chief Scientist Dr Juan Sebastian Conde took the stage in the New Electronics Theatre with his talk \u201cA Nervous System for Machines: Embedding Adaptronic Sensing Skins into Structures That Feel\u201d. Science fiction has long imagined aircraft that sense the air flowing over their wings and structures that report damage before it becomes failure \u2014 yet engineering reality still relies on a handful of discrete sensors wired into structures that are otherwise blind.',
+      'Juan\u2019s session went under the skin. He showed how one conformable skin can replace hundreds of drilled pressure taps and discrete sensors, how it can be installed in hours rather than weeks without modifying the structure, and how the supporting electronics turn that surface into a live data stream. He then walked through applications across aerospace, motorsport, wind energy, robotics and composite structures \u2014 from faster wind-tunnel and flight testing to real-time structural health monitoring, damage detection and digital twins fed by live data \u2014 before closing with a look ahead to machines that don\u2019t just sense their environment but respond and adapt to it.',
+      'EDS 2026 also introduced a series of new features, including five themed Tech Tours covering PCB design, power and connectivity, medical device design, test and measurement, and design for manufacture, as well as a new Meet the Buyer area. With speakers from Airbus, Rolls-Royce, Siemens, Lotus, Lola Cars and Formula 1 in the conference programme, the show offered a strong cross-section of the engineers and decision-makers shaping the next generation of UK products.',
+      'The two days were a complete blast for the team. The quality of conversations at the stand, the engagement in the theatre and the breadth of sectors represented confirmed what we keep hearing: engineers want a complete picture of what their surfaces experience, not a handful of points. Thank you to everyone who visited, asked questions and shared their challenges with us \u2014 and to the Mark Allen Group team for hosting an excellent show.',
+      'The Engineering Design Show returns on 15\u201316 September 2027 at the NEC Birmingham. We look forward to seeing you there.',
+    ],
+    externalLinks: [
+      {
+        label: '\u201cA Nervous System for Machines\u201d \u2014 EDS 2026 session page',
+        url: 'https://www.engineeringdesignshow.co.uk/conference-programme-2026/nervous-system-machines-embedding-adaptronic-sensing-skins-structures-feel',
+      },
+      {
+        label: 'Dr Juan Sebastian Conde \u2014 EDS 2026 speaker profile',
+        url: 'https://www.engineeringdesignshow.co.uk/speakers/juan-sebastian-conde',
+      },
+      {
+        label: 'EDS 2026 Conference Programme',
+        url: 'https://www.engineeringdesignshow.co.uk/2026-conference-programme',
+      },
+      {
+        label: 'The Engineering Design Show',
+        url: 'https://www.engineeringdesignshow.co.uk/',
+      },
+    ],
+  },
   {
     id: 'sustainable-skies-2026',
     title: 'Hyve Dynamics Returns to Sustainable Skies World Summit',
@@ -86,7 +140,6 @@ const newsArticles: NewsArticle[] = [
     readTime: '3 min read',
     category: 'news',
     categoryLabel: 'Company News',
-    featured: true,
     content: [
       'Hyve Dynamics returned to the Sustainable Skies World Summit (SSWS) on 17\u201318 March 2026, held at the Farnborough International Exhibition & Conference Centre. For the second consecutive year, Hyve was selected by the Aerospace Technology Institute (ATI) to showcase our technology to the global aviation sustainability community.',
       'In 2026, Hyve was one of six companies chosen for the ATI\u2019s Innovator Showcase, alongside Jigsaw Structures, LAYRR, SHD Composite Materials, Conflux Technology, and Darvick. As described by ATI, Hyve is \u201cenabling a step-change in aerospace sustainability through real-time, high-resolution aerodynamic and structural data captured directly from the aircraft surface \u2014 even in extreme conditions such as wing icing or inside aero-engines.\u201d',

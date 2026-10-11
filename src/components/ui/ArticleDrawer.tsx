@@ -18,6 +18,12 @@ interface ExternalLinkItem {
   url: string
 }
 
+interface GalleryImage {
+  src: string
+  alt: string
+  caption?: string
+}
+
 interface ArticleData {
   title: string
   description: string
@@ -27,6 +33,7 @@ interface ArticleData {
   categoryLabel: string
   content?: string[]
   image?: string
+  gallery?: GalleryImage[]
   externalLinks?: ExternalLinkItem[]
 }
 
@@ -117,6 +124,26 @@ export const ArticleDrawer: React.FC<ArticleDrawerProps> = ({ article, open, onC
                 <p key={index} className="text-sm sm:text-base text-hyve-text/80 leading-relaxed">
                   {paragraph}
                 </p>
+              ))}
+            </div>
+          )}
+
+          {article.gallery && article.gallery.length > 0 && (
+            <div className="space-y-4 mb-8">
+              {article.gallery.map((img, index) => (
+                <figure key={index} className="overflow-hidden rounded-lg">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                  />
+                  {img.caption && (
+                    <figcaption className="text-xs text-hyve-text/60 mt-2 italic">
+                      {img.caption}
+                    </figcaption>
+                  )}
+                </figure>
               ))}
             </div>
           )}
