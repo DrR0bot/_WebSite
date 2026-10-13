@@ -130,8 +130,15 @@ function ensureDistExists() {
   }
 }
 
+const PREVIEW_READY_TIMEOUT_MS = 30000
+const PREVIEW_POLL_INTERVAL_MS = 250
+
 /**
  * Boot `vite preview` in a child process, return when it is listening.
+ *
+ * Readiness is detected by polling the HTTP port rather than parsing Vite's
+ * stdout banner. In non-interactive CI shells (e.g. Vercel) the banner is not
+ * reliably emitted, which previously forced a 30s fallback wait on every build.
  */
 function startPreview() {
   return new Promise((resolve, reject) => {
@@ -150,29 +157,44 @@ function startPreview() {
       },
     )
 
-    let resolved = false
-    const onLine = (chunk) => {
-      const text = chunk.toString()
-      if (process.env.PRERENDER_VERBOSE) process.stdout.write(text)
-      if (!resolved && /Local:.*:\d+/.test(text)) {
-        resolved = true
-        resolve(child)
-      }
+    const forward = (chunk) => {
+      if (process.env.PRERENDER_VERBOSE) process.stdout.write(chunk.toString())
     }
-    child.stdout.on('data', onLine)
-    child.stderr.on('data', onLine)
+    child.stdout.on('data', forward)
+    child.stderr.on('data', forward)
+
+    let settled = false
+    const startedAt = Date.now()
 
     child.on('exit', (code) => {
-      if (!resolved) reject(new Error(`vite preview exited early with code ${code}`))
+      if (!settled) {
+        settled = true
+        reject(new Error(`vite preview exited early with code ${code}`))
+      }
     })
 
-    setTimeout(() => {
-      if (!resolved) {
-        resolved = true
-        log('preview did not announce a port within 30s, attempting connect anyway')
-        resolve(child)
+    const poll = async () => {
+      if (settled) return
+      try {
+        const res = await fetch(`${PREVIEW_ORIGIN}/`, { method: 'HEAD' })
+        if (res.ok || (res.status >= 300 && res.status < 500)) {
+          settled = true
+          log(`preview ready in ${Date.now() - startedAt}ms`)
+          resolve(child)
+          return
+        }
+      } catch {
+        // Not listening yet; fall through and retry.
       }
-    }, 30000)
+      if (Date.now() - startedAt >= PREVIEW_READY_TIMEOUT_MS) {
+        settled = true
+        log(`preview not reachable after ${PREVIEW_READY_TIMEOUT_MS}ms, attempting connect anyway`)
+        resolve(child)
+        return
+      }
+      setTimeout(poll, PREVIEW_POLL_INTERVAL_MS)
+    }
+    poll()
   })
 }
 

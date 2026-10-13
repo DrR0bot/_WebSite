@@ -85,6 +85,52 @@ interface NewsArticle {
 
 const newsArticles: NewsArticle[] = [
   {
+    id: 'space-park-leicester-2026',
+    title: 'Hyve Dynamics Establishes Lab and Operations Centre at Space Park Leicester',
+    description:
+      'On 1 October 2026, Hyve Dynamics joined Space Park Leicester \u2014 the University of Leicester\u2019s space research and innovation campus \u2014 as the home of our laboratory and main operations centre, alongside Rolls-Royce, Airbus, the UK Space Agency and the National Centre for Earth Observation.',
+    date: '2026-10-01',
+    readTime: '4 min read',
+    category: 'news',
+    categoryLabel: 'Company News',
+    image: `${import.meta.env.BASE_URL}SpacePark-October2026.jpg`,
+    gallery: [
+      {
+        src: `${import.meta.env.BASE_URL}SpacePark-October2026-campus.jpg`,
+        alt: 'Space Park Leicester campus buildings at dusk',
+        caption:
+          'Space Park Leicester, the University of Leicester\u2019s space research and innovation campus. Image courtesy of Space Park Leicester.',
+      },
+    ],
+    content: [
+      'Hyve Dynamics has established its laboratory and main operations centre at Space Park Leicester, moving in on 1 October 2026. The move places Hyve at the heart of one of the UK\u2019s most concentrated clusters of space, aerospace and advanced engineering capability \u2014 and marks a new phase in the company\u2019s growth from technology development to industrial-scale validation and deployment.',
+      'Space Park Leicester is a research, innovation and teaching campus developed by the University of Leicester, officially opened by British astronaut Tim Peake in March 2022. Located beside the National Space Centre, it brings together industry and academia on a single site and is home to organisations including Rolls-Royce, Airbus, Northrop Grumman, the UK Space Agency, the Satellite Applications Catapult and the National Centre for Earth Observation. The campus offers advanced laboratories, cleanrooms, a concurrent design facility, precision manufacturing and environmental testing services \u2014 infrastructure that would be out of reach for most companies at Hyve\u2019s stage to build alone.',
+      '\u201cHyve is entering an important stage of its growth, moving from proving the technology to validating it at industrial scale and putting it into the hands of customers,\u201d said Parker Webb-Mitchell, Chief Operating Officer at Hyve Dynamics. \u201cSpace Park Leicester gives us the right environment to make that transition, surrounded by world-class engineering, research and ambitious deep-tech companies.\u201d',
+      'The decision came down to the combination of infrastructure and ecosystem. \u201cAccess to advanced laboratories, engineering facilities and University of Leicester expertise is incredibly valuable,\u201d Parker explained, \u201cbut equally important is being surrounded by organisations solving genuinely difficult problems across aerodynamics, aerospace, space, defence and advanced engineering. That is exactly where we believe Hyve belongs.\u201d',
+      'For Hyve, the move is about acceleration: shortening the distance between breakthrough technology and commercial deployment by speeding up validation, strengthening industrial partnerships and creating an environment where the engineering team can move faster. Establishing a base at Space Park Leicester is another step in building Hyve into a serious UK deep-tech company with global ambitions.',
+      'Hyve also brings something new to the Space Park community: a layer of physical intelligence. Our flexible sensing technology captures distributed pressure, suction, temperature and strain data across complex surfaces, creating datasets that have historically been difficult or impractical to obtain. We are excited to explore what becomes possible when that capability is combined with the aerospace, space, manufacturing and research expertise already on campus.',
+      'Hyve Dynamics is now based in Unit 1.03 at Space Park Leicester. Partners, customers and collaborators who would like to visit the lab and see the technology in person are welcome to get in touch at info@hyvedynamics.com.',
+    ],
+    externalLinks: [
+      {
+        label: 'Space Park Leicester',
+        url: 'https://www.space-park.co.uk/',
+      },
+      {
+        label: 'Space Park Leicester \u2014 Workspace & Labs',
+        url: 'https://www.space-park.co.uk/workspace-laboratories/',
+      },
+      {
+        label: 'Space Park Leicester \u2014 Missions & R&D',
+        url: 'https://www.space-park.co.uk/research-development/',
+      },
+      {
+        label: 'University of Leicester \u2014 Space Park Leicester marks first year',
+        url: 'https://le.ac.uk/news/2023/march/space-park-anniversary',
+      },
+    ],
+  },
+  {
     id: 'engineering-design-show-2026',
     title: 'Hyve Dynamics at the Engineering Design Show 2026',
     description:
