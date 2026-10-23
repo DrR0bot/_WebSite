@@ -85,6 +85,53 @@ interface NewsArticle {
 
 const newsArticles: NewsArticle[] = [
   {
+    id: 'mtc-innovation-accelerator-2026',
+    title: 'Hyve Dynamics Selected for the Inaugural MTC Innovation Accelerator, Powered by Plug and Play',
+    description:
+      'Hyve Dynamics is one of seven deep-tech start-ups \u2014 just 6% of applicants \u2014 chosen for the first MTC Innovation Accelerator, a fully funded programme from the Manufacturing Technology Centre and Plug and Play that pairs technical validation with direct access to industry customers.',
+    date: '2026-10-23',
+    readTime: '4 min read',
+    category: 'news',
+    categoryLabel: 'Company News',
+    featured: true,
+    image: `${import.meta.env.BASE_URL}MTC-October2026.jpg`,
+    gallery: [
+      {
+        src: `${import.meta.env.BASE_URL}MTC-October2026-cohort.jpg`,
+        alt: 'The MTC Innovation Accelerator cohort and programme team at the kick-off event',
+        caption: 'The inaugural MTC Innovation Accelerator cohort at the programme kick-off event.',
+      },
+      {
+        src: `${import.meta.env.BASE_URL}MTC-October2026-partners.jpg`,
+        alt: 'Manufacturing Technology Centre and Plug and Play logos',
+        caption: 'The MTC Innovation Accelerator is delivered by the Manufacturing Technology Centre in partnership with Plug and Play.',
+      },
+    ],
+    content: [
+      'We are pleased to announce that Hyve Dynamics has been selected to join the inaugural MTC Innovation Accelerator, powered by Plug and Play. With just 6% of applicants selected following a competitive pitch process, this represents a significant milestone for Hyve and an important endorsement of both our technology and our commercial ambition.',
+      'The Manufacturing Technology Centre (MTC) is one of the UK\u2019s leading research and technology organisations, specialising in validating, de-risking and industrialising breakthrough technologies. Plug and Play is the world\u2019s largest innovation platform, connecting start-ups with corporations, investors and universities across more than 50 locations worldwide. Together they have created a fully funded programme designed to fix a long-standing problem: the UK has no shortage of world-class innovation, but too often promising technologies fail to make the leap from prototype to industrial adoption.',
+      'The Accelerator brings together seven deep-tech and hardware start-ups working on Physical AI \u2014 systems that operate in and interact with the physical world \u2014 with a particular focus on inspection and sensing, flexible manipulation and assembly, trusted autonomy and system orchestration. Each company receives access to over \u00a375,000 of MTC engineering expertise, MTC\u2019s world-class facilities including the Robot Experience Centre, National Centre for Additive Manufacturing and metrology laboratories, and direct engagement with industry partners and venture clients through Plug and Play\u2019s global ecosystem.',
+      'Our Chief Operating Officer, Parker Webb-Mitchell, presented Hyve\u2019s Physical Intelligence Platform at the selection pitch and the programme kick-off: full-surface sensing that turns any surface into live pressure, structural and thermal data. At Hyve, we are developing a new generation of intelligent sensing technology capable of transforming how industries measure, understand and interact with the physical world. From aerospace and motorsport to advanced manufacturing and infrastructure, our ambition is to make previously inaccessible data available in real time, enabling better decisions, greater efficiency and entirely new capabilities.',
+      'Our focus now is on translating that technological potential into industrial-scale commercial reality. Through the programme we will deploy our sensing skin on real test articles at MTC, benchmark it against reference instrumentation, and explore new applications such as tactile sensing for robotic grippers and end-effectors. We look forward to leveraging MTC\u2019s manufacturing expertise and Plug and Play\u2019s global innovation ecosystem to accelerate production readiness, strengthen our route to market and build meaningful partnerships with industry leaders.',
+      'Our thanks go to the teams at MTC and Plug and Play for recognising the potential of what we are building, and for the opportunity to work alongside some of the leading minds and organisations in advanced manufacturing and industrial innovation. The programme begins in November 2026 and runs into 2027, concluding with a Demo Day for investors, corporates and the wider ecosystem.',
+      'We are entering an important phase for Hyve, with significant developments underway across both our technology and our commercial partnerships. For organisations looking to gain a competitive advantage through next-generation sensing, and for investors interested in the future of intelligent materials, now is an excellent time to start a conversation. Get in touch at info@hyvedynamics.com.',
+    ],
+    externalLinks: [
+      {
+        label: 'MTC Innovation Accelerator',
+        url: 'https://mtc-innovation-accelerator.com/',
+      },
+      {
+        label: 'Manufacturing Technology Centre (MTC)',
+        url: 'https://www.the-mtc.org/',
+      },
+      {
+        label: 'Plug and Play Tech Center',
+        url: 'https://www.plugandplaytechcenter.com/',
+      },
+    ],
+  },
+  {
     id: 'space-park-leicester-2026',
     title: 'Hyve Dynamics Establishes Lab and Operations Centre at Space Park Leicester',
     description:
@@ -139,7 +186,6 @@ const newsArticles: NewsArticle[] = [
     readTime: '4 min read',
     category: 'news',
     categoryLabel: 'Company News',
-    featured: true,
     image: `${import.meta.env.BASE_URL}EDS-October2026.jpg`,
     gallery: [
       {
